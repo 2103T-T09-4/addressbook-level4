@@ -860,6 +860,15 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p>The predicate <code>CarparkContainsKeywordsPredicate</code> takes in a list of strings and checks if any of the strings contain fully or partial in the list of car park names or address, and returns the car park if so.</p>
 </div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/seqdiagram-find.png" alt="seqdiagram find" width="800">
+</div>
+<div class="title">Figure 11. How the find operation works</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">3.4.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the Find mechanism behaves at each step.</p>
 </div>
@@ -888,6 +897,48 @@ If a command fails its execution, it will not call <code>FindCommand#execute()</
 <div class="paragraph">
 <p>Step 4. The filtered list of car park is returned to the GUI.</p>
 </div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/actdiagram-find.png" alt="actdiagram find" width="800">
+</div>
+<div class="title">Figure 12. Flow chart of the find operation.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-predicate-works"><a class="link" href="#aspect-how-predicate-works">Aspect: How predicate works</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Predicate have additional filter with an ignore list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, user friendly.</p>
+</li>
+<li>
+<p>Cons: More complicated predicate, sub strings not easily taken care of.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Filter the data when it is taken in.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less complicated predicate.</p>
+</li>
+<li>
+<p>Cons: Manipulates the data, editing it for every other case.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -900,7 +951,7 @@ when shorter command words are parsed through <code>parseCommand</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="link" href="#example">3.5.2. Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">3.5.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the alias mechanism behaves at
 each step.</p>
@@ -928,7 +979,7 @@ command:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.3. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-alias-executes"><a class="link" href="#aspect-how-alias-executes">Aspect: How alias executes</a></h5>
 <div class="ulist">
@@ -997,7 +1048,7 @@ The external library <code>Gson</code> is used to parse the data in <code>GsonUt
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">3.6.2. Example</a></h4>
+<h4 id="example-3"><a class="link" href="#example-3">3.6.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the query mechanism behaves at each step.</p>
 </div>
@@ -1048,11 +1099,11 @@ to the latest. The text at the bottom of the application will show that it is up
 <div class="content">
 <img src="images/zy_seq.png" alt="zy seq" width="800">
 </div>
-<div class="title">Figure 11. How the query operation works</div>
+<div class="title">Figure 13. How the query operation works</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-query-executes"><a class="link" href="#aspect-how-query-executes">Aspect: How query executes</a></h5>
 <div class="ulist">
@@ -1135,7 +1186,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">3.7.2. Example</a></h4>
+<h4 id="example-4"><a class="link" href="#example-4">3.7.2. Example</a></h4>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
@@ -1143,11 +1194,11 @@ and is used in conjunction with the <code>select</code> command.</p>
 <div class="content">
 <img src="images/zy_act.png" alt="zy act" width="800">
 </div>
-<div class="title">Figure 12. When a user executes a notify command</div>
+<div class="title">Figure 14. When a user executes a notify command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.7.3. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-notify-executes"><a class="link" href="#aspect-how-notify-executes">Aspect: How notify executes</a></h5>
 <div class="ulist">
@@ -1215,7 +1266,7 @@ against the specified predicate.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="images/Flowchart.png" alt="Flowchart" width="700">
+<img src="images/flowchart.png" alt="flowchart" width="800">
 </div>
 </div>
 </div>
@@ -1304,7 +1355,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 13. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 15. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -2921,4 +2972,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 13:36:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 14:55:23 UTC</div></div></div></body></html>
