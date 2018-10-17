@@ -14,17 +14,23 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#query-code-query-code">3.2. Query : <code>query</code></a></li>
+<li><a href="#finding-car-parks-code-find-code">3.2. Finding car parks : <code>find</code></a></li>
 <li><a href="#select-car-park-code-select-code">3.3. Select car park : <code>select</code></a></li>
-<li><a href="#filter-car-parks-code-filter-code">3.4. Filter car parks : <code>filter</code></a></li>
-<li><a href="#sort-car-parks-code-sort-code">3.5. Sort car parks : <code>sort</code></a></li>
-<li><a href="#add-favourite-car-parks-or-location-code-add-code">3.6. Add favourite car parks or location: <code>add</code></a></li>
-<li><a href="#show-favorites-list-code-list-code">3.7. Show favorites list : <code>list</code></a></li>
-<li><a href="#remove-from-favorites-list-code-remove-code">3.8. Remove from favorites list : <code>remove</code></a></li>
-<li><a href="#data-update-code-notify-code">3.9. Data update : <code>notify</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">3.4. Listing entered commands : <code>history</code></a></li>
+<li><a href="#filter-car-parks-code-filter-code">3.5. Filter car parks : <code>filter</code></a></li>
+<li><a href="#sort-car-parks-code-sort-code">3.6. Sort car parks : <code>sort</code></a></li>
+<li><a href="#listing-all-car-parks-code-list-code">3.7. Listing all car parks : <code>list</code></a></li>
+<li><a href="#add-favourite-car-parks-or-location-code-add-code-code-coming-in-v2-0-code">3.8. Add favourite car parks or location : <code>add</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#remove-from-favorites-list-code-delete-code-code-coming-in-v2-0-code">3.9. Remove from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#data-query-code-query-code">3.10. Data query : <code>query</code></a></li>
+<li><a href="#notification-code-notify-code-code-coming-in-v2-0-code">3.11. Notification : <code>notify</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#weather-update-code-weather-code-code-coming-in-v2-0-code">3.12. Weather update : <code>weather</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-application-code-exit-code">3.14. Exiting the application : <code>exit</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
+<li><a href="#command-summary">5. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -42,10 +48,13 @@ work with a <strong>Command Line Interface (CLI)</strong> to display a list of c
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Here are several quick tips to get the application running.</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version 9 or later installed in your Computer.</p>
+<p>Check that you have <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java version 9</a> or later installed in your Computer.</p>
 </li>
 <li>
 <p>Download the latest carparkbook.jar here.</p>
@@ -54,18 +63,22 @@ work with a <strong>Command Line Interface (CLI)</strong> to display a list of c
 <p>Copy the file to the folder you want to use as the home folder for your Car park book.</p>
 </li>
 <li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<p>Double-click the file to start the application. The <strong>Graphical User Interface (GUI)</strong> should appear in a few seconds.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/Ui2.png" alt="Ui2" width="790">
 </div>
+<div class="title">Figure 1. Home page</div>
 </div>
 </li>
 <li>
-<p>Type the command in the command box and press Enter to execute it.</p>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.</p>
 </li>
-<li>
-<p>Some example commands you can try:</p>
+</ol>
+</div>
+<div class="paragraph">
+<p>Some example commands you can try are:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -79,11 +92,8 @@ work with a <strong>Command Line Interface (CLI)</strong> to display a list of c
 </li>
 </ul>
 </div>
-</li>
-<li>
+<div class="paragraph">
 <p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -98,8 +108,8 @@ work with a <strong>Command Line Interface (CLI)</strong> to display a list of c
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>query p/POSTAL_CODE</code>, <code>POSTAL_CODE</code> is a
-parameter which can be used as <code>query p/760397</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>find LOCATION</code>, <code>LOCATION</code> is a
+parameter which can be used as <code>find serangoon</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>filter [f/] [n/] [ct/CARPARK_TYPE]</code> can be used as <code>filter f/ n/ ct/SURFACE
@@ -116,51 +126,56 @@ parameter which can be used as <code>query p/760397</code>.</p>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Shows the list of available commands and how to use them
-Format: <code>help</code></p>
+<p>Shows the list of available commands and how to use them.<br>
+Format: <code>help</code> or <code>h</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="query-code-query-code"><a class="link" href="#query-code-query-code">3.2. Query : <code>query</code></a></h3>
-<div class="paragraph">
-<p>Query for available car parks<br>
-Format: <code>query p/POSTAL_CODE d/TRAVELING_DISTANCE</code></p>
-</div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-alias - q
+<div class="paragraph">
+<p>A help window will pop up that contains all the commands available and how to
+use them.</p>
+</div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Examples:
-* <code>query p/612345 d/0.5</code>
-* <code>q p/612345 d/0.5</code></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="select-car-park-code-select-code"><a class="link" href="#select-car-park-code-select-code">3.3. Select car park : <code>select</code></a></h3>
+<h3 id="finding-car-parks-code-find-code"><a class="link" href="#finding-car-parks-code-find-code">3.2. Finding car parks : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Select the car park you wish to go to.<br>
-Format: <code>select CARPARK_NO</code></p>
+<p>Finds a list of available car parks<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-alias - s
+<div class="paragraph">
+<p>Upper and lower case characters do not matter.</p>
+</div>
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findbefore.png" alt="findbefore" width="790">
+</div>
+<div class="title">Figure 2. Before using find command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/findafter.png" alt="findafter" width="790">
+</div>
+<div class="title">Figure 3. After using find command</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -168,19 +183,100 @@ alias - s
 <div class="ulist">
 <ul>
 <li>
-<p><code>select HG83</code></p>
+<p><code>find punggol</code></p>
 </li>
 <li>
-<p><code>s HG83</code></p>
+<p><code>f HG83</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-car-parks-code-filter-code"><a class="link" href="#filter-car-parks-code-filter-code">3.4. Filter car parks : <code>filter</code></a></h3>
+<h3 id="select-car-park-code-select-code"><a class="link" href="#select-car-park-code-select-code">3.3. Select car park : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Filters the list of car parks by free parking and night parking, must query beforehand.<br>
-Format: <code>filter [f/] [n/] [ct/CARPARK_TYPE]</code></p>
+<p>Select the car park you wish to go to.<br>
+Format: <code>select INDEX</code> or <code>s INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the displayed car park list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/select.png" alt="select" width="790">
+</div>
+<div class="title">Figure 4. After using select command</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>select 2</code><br>
+Select the 2nd car park in the address book.</p>
+</li>
+<li>
+<p><code>find sengkang</code><br>
+<code>s 1</code><br>
+Selects the 1st car park in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">3.4. Listing entered commands : <code>history</code></a></h3>
+<div class="paragraph">
+<p>Lists all the commands that you have entered in reverse chronological order.<br>
+Format: <code>history</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-car-parks-code-filter-code"><a class="link" href="#filter-car-parks-code-filter-code">3.5. Filter car parks : <code>filter</code></a></h3>
+<div class="paragraph">
+<p>Filters the list of car parks by free parking, night parking or car park type.<br>
+Format: <code>filter [f/ DAY START_TIME END_TIME] [n/] [ct/ CARPARK_TYPE]</code><br>
+or <code>fi [f/ DAY START_TIME END_TIME] [n/] [ct/ CARPARK_TYPE]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Must have car parks beforehand.<br>
+Upper and lower case characters do not matter.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Flags:</p>
@@ -188,28 +284,40 @@ Format: <code>filter [f/] [n/] [ct/CARPARK_TYPE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>f - FREE_PARKING</p>
+<p><code>f/ - FREE_PARKING</code></p>
 </li>
 <li>
-<p>n - NIGHT_PARKING</p>
+<p><code>n/ - NIGHT_PARKING</code></p>
 </li>
 <li>
-<p>ct - CARPARK_TYPE</p>
+<p><code>ct/ - CARPARK_TYPE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>SURFACE</p>
+<p><code>SURFACE</code></p>
 </li>
 <li>
-<p>MUITISTORY</p>
+<p><code>MULTI-STOREY</code></p>
 </li>
 <li>
-<p>BASEMENT</p>
+<p><code>BASEMENT</code></p>
+</li>
+<li>
+<p><code>COVERED</code></p>
+</li>
+<li>
+<p><code>MECHANISED</code></p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/filter.png" alt="filter" width="790">
+</div>
+<div class="title">Figure 5. Filtering covered car parks</div>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -217,19 +325,33 @@ Format: <code>filter [f/] [n/] [ct/CARPARK_TYPE]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>filter f/ n/ ct/SURFACE</code></p>
+<p><code>filter f/ SUN 7.30AM 5.30PM n/ ct/ SURFACE</code></p>
 </li>
 <li>
-<p><code>filter ct/BASEMENT</code></p>
+<p><code>fi ct/ BASEMENT</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-car-parks-code-sort-code"><a class="link" href="#sort-car-parks-code-sort-code">3.5. Sort car parks : <code>sort</code></a></h3>
+<h3 id="sort-car-parks-code-sort-code"><a class="link" href="#sort-car-parks-code-sort-code">3.6. Sort car parks : <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sort the list of car parks by distance or name, must query beforehand.<br>
-Format: <code>sort FILTER_TYPE</code></p>
+<p>Sort the list of car parks by distance or name.<br>
+Format: <code>sort FILTER_TYPE</code> or <code>so FILTER_TYPE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Must have car parks beforehand.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Flags:</p>
@@ -237,16 +359,16 @@ Format: <code>sort FILTER_TYPE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>DISTANCE</p>
+<p><code>DISTANCE</code></p>
 </li>
 <li>
-<p>NAME</p>
+<p><code>NAME</code></p>
 </li>
 <li>
-<p>FP (Free Parking)</p>
+<p><code>FP (Free Parking)</code></p>
 </li>
 <li>
-<p>NP (Night Parking)</p>
+<p><code>NP (Night Parking)</code></p>
 </li>
 </ul>
 </div>
@@ -258,55 +380,50 @@ Format: <code>sort FILTER_TYPE</code></p>
 <li>
 <p><code>sort DISTANCE</code></p>
 </li>
+<li>
+<p><code>so NAME</code></p>
+</li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-favourite-car-parks-or-location-code-add-code"><a class="link" href="#add-favourite-car-parks-or-location-code-add-code">3.6. Add favourite car parks or location: <code>add</code></a></h3>
+<h3 id="listing-all-car-parks-code-list-code"><a class="link" href="#listing-all-car-parks-code-list-code">3.7. Listing all car parks : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Add your favorite car park into your favorites list<br>
-Format: <code>add c/CARPARK_NO</code></p>
+<p>Show a list of all the car parks with their details.<br>
+Format: <code>list</code> or <code>l</code></p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-alias - a
-</td>
-</tr>
-</table>
+<div class="imageblock">
+<div class="content">
+<img src="images/listafter.png" alt="listafter" width="790">
+</div>
+<div class="title">Figure 6. After using list command</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-favourite-car-parks-or-location-code-add-code-code-coming-in-v2-0-code"><a class="link" href="#add-favourite-car-parks-or-location-code-add-code-code-coming-in-v2-0-code">3.8. Add favourite car parks or location : <code>add</code> <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Add a car park into your favorites list<br>
+Format: <code>add c/CARPARK_NUMBER</code> or <code>a c/CARPARK_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p><code>a c/SE12</code></p>
-</li>
 <li>
 <p><code>add c/SE12</code></p>
 </li>
+<li>
+<p><code>a c/SE12</code></p>
+</li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Add your favorite location into your favorites list<br>
-Format: <code>add p/POSTAL_CODE</code></p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-alias - a
-</td>
-</tr>
-</table>
+<div class="sect2">
+<h3 id="remove-from-favorites-list-code-delete-code-code-coming-in-v2-0-code"><a class="link" href="#remove-from-favorites-list-code-delete-code-code-coming-in-v2-0-code">3.9. Remove from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Remove the specified car park from your favorites list<br>
+Format: <code>delete c/CARPARK_NUMBER</code> or <code>d c/CARPARK_NUMBER</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -314,38 +431,38 @@ alias - a
 <div class="ulist">
 <ul>
 <li>
-<p><code>add p/612345</code></p>
+<p><code>delete c/SE12</code></p>
 </li>
 <li>
-<p><code>a p/612345</code></p>
+<p><code>d c/SE12</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="show-favorites-list-code-list-code"><a class="link" href="#show-favorites-list-code-list-code">3.7. Show favorites list : <code>list</code></a></h3>
+<h3 id="data-query-code-query-code"><a class="link" href="#data-query-code-query-code">3.10. Data query : <code>query</code></a></h3>
 <div class="paragraph">
-<p>Shows your favorites list, with all the car park details.<br>
-Format: <code>list</code></p>
+<p>Get car park information from data.gov.sg by querying it.<br></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="remove-from-favorites-list-code-remove-code"><a class="link" href="#remove-from-favorites-list-code-remove-code">3.8. Remove from favorites list : <code>remove</code></a></h3>
-<div class="paragraph">
-<p>Removes the specified carpark from your favorites list<br>
-Format: <code>remove c/CARPARK_NO</code></p>
-</div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-alias - r
+<div class="paragraph">
+<p>You need to run this command to get the latest information on all the car parks.</p>
+</div>
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/query.png" alt="query" width="790">
+</div>
+<div class="title">Figure 7. After using query command</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -353,19 +470,30 @@ alias - r
 <div class="ulist">
 <ul>
 <li>
-<p><code>remove c/SE12</code></p>
-</li>
-<li>
-<p><code>r c/SE12</code></p>
+<p><code>query</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-update-code-notify-code"><a class="link" href="#data-update-code-notify-code">3.9. Data update : <code>notify</code></a></h3>
+<h3 id="notification-code-notify-code-code-coming-in-v2-0-code"><a class="link" href="#notification-code-notify-code-code-coming-in-v2-0-code">3.11. Notification : <code>notify</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Sets the interval in seconds to query from data.gov.sg<br>
-Format: <code>notify TIME_SECONDS</code></p>
+<p>Set the interval to give updates in real time for all the car parks.<br>
+Format: <code>notify TIME_SECONDS</code> or <code>n TIME_SECONDS</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The default value is 60 seconds. You can set within a range of 10 seconds to 1 hour.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -375,7 +503,44 @@ Format: <code>notify TIME_SECONDS</code></p>
 <li>
 <p><code>notify 60</code></p>
 </li>
+<li>
+<p><code>n 60</code></p>
+</li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="weather-update-code-weather-code-code-coming-in-v2-0-code"><a class="link" href="#weather-update-code-weather-code-code-coming-in-v2-0-code">3.12. Weather update : <code>weather</code> <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Include weather updates in the notifications by indicating on or off.<br>
+Format: <code>weather TOGGLE</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>weather on</code></p>
+</li>
+<li>
+<p><code>weather off</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.13. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the list.<br>
+Format: <code>clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-application-code-exit-code"><a class="link" href="#exiting-the-application-code-exit-code">3.14. Exiting the application : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the application.<br>
+Format: <code>exit</code></p>
 </div>
 </div>
 </div>
@@ -385,11 +550,58 @@ Format: <code>notify TIME_SECONDS</code></p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous car park book folder.</p>
+<strong>A</strong>: Install the application in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Car Park Finder folder.</p>
 </div>
 <div class="paragraph">
 <p><strong>Q</strong>: If I do not know the postal code of the location, am I still able to find car parks through other means?<br>
 <strong>A</strong>: Yes, by typing keywords like street names.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-03 18:03:38 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Clear</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+e.g. <code>find punggol</code></p>
+</li>
+<li>
+<p><strong>Filter</strong> : <code>filter [f/FREE_PARKING] [n/NIGHT_PARKING] [ct/CARPARK_TYPE]</code><br>
+e.g. <code>filter f/true n/false ct/multi</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>History</strong> : <code>history</code></p>
+</li>
+<li>
+<p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Query</strong> : <code>query</code></p>
+</li>
+<li>
+<p><strong>Notify</strong> : <code>notify</code><br>
+e.g. <code>notify 60</code></p>
+</li>
+<li>
+<p><strong>Sort</strong> : <code>sort FILTER_TYPE</code><br>
+e.g. <code>sort DISTANCE</code></p>
+</li>
+<li>
+<p><strong>Select</strong> : <code>select INDEX</code><br>
+e.g. <code>select 2</code></p>
+</li>
+<li>
+<p><strong>Exit</strong> : <code>exit</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 12:59:00 UTC</div></div></div></body></html>
