@@ -19,12 +19,15 @@
 </li>
 <li><a href="#design">2. Design</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. User Interface Component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-Architecture">2.1. Architecture overview</a></li>
+<li><a href="#Architecture-Components">2.2. Architecture components</a></li>
+<li><a href="#Architecture-design">2.3. Events-driven nature of the design</a></li>
+<li><a href="#Design-Main">2.4. Main component</a></li>
+<li><a href="#Design-Commons">2.5. Commons component</a></li>
+<li><a href="#Design-Ui">2.6. User interface component</a></li>
+<li><a href="#Design-Logic">2.7. Logic component</a></li>
+<li><a href="#Design-Model">2.8. Model component</a></li>
+<li><a href="#Design-Storage">2.9. Storage component</a></li>
 </ul>
 </li>
 <li><a href="#implementation">3. Implementation</a>
@@ -297,15 +300,9 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <h2 id="design"><a class="link" href="#design">2. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
-<div class="imageblock">
-<div class="content">
-<img src="images/Architecture.png" alt="Architecture" width="600">
-</div>
-<div class="title">Figure 1. Architecture Diagram</div>
-</div>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture overview</a></h3>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<p>This section explains the design architecture used by the entire system.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -319,53 +316,74 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p><code>Main</code> has only one class called <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Architecture.png" alt="Architecture" width="600">
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
-</li>
-<li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
-</li>
-</ul>
+<div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components. Two of those classes play important roles at the architecture level.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App,
+ which contains 6 <a href="#Architecture-Components"><strong><code>architecture components</code></strong></a> and
+ adopts an <a href="#Architecture-design"><strong><code>events-driven nature</code></strong></a>.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>EventsCenter</code> : This class (written using <a href="https://github.com/google/guava/wiki/EventBusExplained">Google&#8217;s Event Bus library</a>) is used by components to communicate with other components using events (i.e. a form of <em>Event Driven</em> design)</p>
-</li>
-<li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="Architecture-Components"><a class="link" href="#Architecture-Components">2.2. Architecture components</a></h3>
 <div class="paragraph">
-<p>The rest of the App consists of four components.</p>
+<p>This section will briefly introduce the function of each architecture components
+as well as common behaviours.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
-</li>
-<li>
-<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
-</li>
-<li>
-<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
-</li>
-<li>
-<p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each of the four components</p>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Architecture Components</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">Main Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Main"><strong><code>Main</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the starting point of the system, which encapsulates the other components.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Commons"><strong><code>Commons</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">represents a collection of classes used by multiple components.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Ui"><strong><code>User Interface</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">contains the user interface classes used by the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Logic"><strong><code>Logic</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">execute user commands, also known as the command executor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Model"><strong><code>Model</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">holds the data of the application in-memory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Storage"><strong><code>Storage</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">which allows reading and writing of data to the hard disk.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each of the User Interface, Logic, Model, Storage Components also:
+</td>
+</tr>
+</table>
 </div>
 <div class="ulist">
 <ul>
@@ -386,7 +404,12 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
-<h4 id="events-driven-nature-of-the-design" class="discrete">Events-Driven nature of the design</h4>
+</div>
+<div class="sect2">
+<h3 id="Architecture-design"><a class="link" href="#Architecture-design">2.3. Events-driven nature of the design</a></h3>
+<div class="paragraph">
+<p>This section will explain the main nature of design adopted by the system.</p>
+</div>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>delete 1</code>.</p>
 </div>
@@ -409,7 +432,7 @@ Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</c
 </table>
 </div>
 <div class="paragraph">
-<p>The diagram below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
+<p>The <em>Sequence Diagram</em> below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -434,9 +457,53 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. User Interface Component</a></h3>
+<h3 id="Design-Main"><a class="link" href="#Design-Main">2.4. Main component</a></h3>
 <div class="paragraph">
-<p>The <em>User Interface</em> (UI) component consists of a <code>MainWindow</code> that is made up of different parts, with the base class
+<p>The <em><code>Main</code> component</em> consists of only one class called <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+</li>
+<li>
+<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.5. Commons component</a></h3>
+<div class="paragraph">
+<p>The <em><code>Commons</code> component</em> consists of classes used by multiple other components. Two of those classes play important roles at the architecture level.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EventsCenter</code> : This class (written using <a href="https://github.com/google/guava/wiki/EventBusExplained">Google&#8217;s Event Bus library</a>) is used by components to communicate with other components using events (i.e. a form of <em>Event Driven</em> design)</p>
+</li>
+<li>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Classes used by multiple components are in the seedu.addressbook.commons package.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.6. User interface component</a></h3>
+<div class="paragraph">
+<p>The <em>User Interface</em> (<code>UI</code>) component consists of a <code>MainWindow</code> that is made up of different parts, with the base class
 <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a> using <em>JavaFx UI</em> framework.</p>
 </div>
 <div class="paragraph">
@@ -474,7 +541,7 @@ is specified in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/mast
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.7. Logic component</a></h3>
 <div class="paragraph">
 <p>The <code>Logic</code> component consist of a <code>LogicManager</code> that takes care of all the parse and exexcution of commands.
 It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>.</p>
@@ -519,7 +586,10 @@ using the <code>execute("delete 1")</code> <em>API</em> call.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">2.8. Model component</a></h3>
+<div class="paragraph">
+<p>The <code>Model</code> component consist of a <code>ModelManager</code> that manages all the models.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
@@ -564,7 +634,10 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Car Park Find
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.9. Storage component</a></h3>
+<div class="paragraph">
+<p>The <code>Storage</code> component consist of a <code>StorageManager</code> that takes care of all the Input/Output actions.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
@@ -586,12 +659,6 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Car Park Find
 <p>can save the Car Park Finder data in xml format and read it back.</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
-<div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -991,14 +1058,15 @@ statement. The <strong>command word</strong> will be matched to case of <code>CO
 <code>ListCommand</code>, which holds the final value of 'l'. The program finds a match and
 proceeds as if a <code>list</code> command is given.</p>
 </div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a <code>l</code>
-command:</p>
-</div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="images/AliasActivityDiagram.jpg" alt="AliasActivityDiagram" width="700">
 </div>
+<div class="title">Figure 20. Flow chart of command alias usage.</div>
+</div>
+<div class="paragraph">
+<p>The <strong>Activity Diagram</strong> given above explains what happens when a user executes a <code>l</code>
+command.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1122,7 +1190,7 @@ to the latest. The text at the bottom of the application will show that it is up
 <div class="content">
 <img src="images/zy_seq.png" alt="zy seq" width="800">
 </div>
-<div class="title">Figure 20. Interactions for query operation</div>
+<div class="title">Figure 21. Interactions for query operation</div>
 </div>
 </div>
 <div class="sect3">
@@ -1217,7 +1285,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 <div class="content">
 <img src="images/zy_act.png" alt="zy act" width="800">
 </div>
-<div class="title">Figure 21. Summary for executing a notify command</div>
+<div class="title">Figure 22. Summary for executing a notify command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1298,13 +1366,13 @@ filter command.</p>
 <div class="content">
 <img src="images/ActivityDiagram-filter.png" alt="ActivityDiagram filter" width="700">
 </div>
-<div class="title">Figure 22. Activity Diagram</div>
+<div class="title">Figure 23. Activity Diagram</div>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="images/SequenceDiagram-filter.png" alt="SequenceDiagram filter" width="700">
 </div>
-<div class="title">Figure 23. How the filter operation works</div>
+<div class="title">Figure 24. How the filter operation works</div>
 </div>
 </div>
 <div class="sect3">
@@ -1388,7 +1456,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 25. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1409,7 +1477,7 @@ Attributes left unset in the <code>build.gradle</code> file will use their <stro
 </table>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. List of site-wide attributes</caption>
+<caption class="title">Table 2. List of site-wide attributes</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 50%;">
@@ -1471,7 +1539,7 @@ Attributes left unset in <code>.adoc</code> files will use their <strong>default
 </table>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. List of per-file attributes, excluding Asciidoctor&#8217;s built-in attributes</caption>
+<caption class="title">Table 3. List of per-file attributes, excluding Asciidoctor&#8217;s built-in attributes</caption>
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 50%;">
@@ -3013,4 +3081,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:18:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 16:36:18 UTC</div></div></div></body></html>
