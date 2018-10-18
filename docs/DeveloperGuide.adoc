@@ -369,6 +369,52 @@ Step 3. The entire list of car park is filtered by the predicate `CarparkContain
 
 Step 4. The filtered list of car park is returned to the GUI.
 
+=== Filter Command
+
+==== Overview
+
+The filter mechanism is facilitated by `AddressBookParser`, `FilterCommandParser` and `FilterCommand`. It extends
+`Command` and implements `FilterCommand#execute()`.
+
+==== Current Implementation
+
+Step 1. The `parseCommand` function in `AddressBookParser` is extended to take in an additional
+command word: `filter`.
+
+Step 2. After `filter`is being detected as the command word, a
+`FilterCommandParser` is created to parse the arguments supplied to the command.
+
+Step 3. The `FilterCommandParser` parses the arguments into an array of flags, which is then
+passed into a newly created `FilterCommand`.
+
+Step 4. `FilterCommand` then checks which flags are passed in and creates predicates to
+filter the car parks accordingly. The various predicates include
+`CarparkHasFreeParkingPredicate`, `CarparkHasNightParkingPredicate` and
+`CarparkIsOfTypePredicate`.
+
+Step 5. Next, `model` updates a filtered list of car parks by checking each car park
+against the specified predicate.
+
+
+Step 6. The following activity diagram summarizes what happens when a user executes a
+filter command.
+
+.Activity Diagram
+image::activityDiagram.png[width="700", align="left"]
+
+.How the filter operation works
+image::sequenceDiagram.png[width="700", align="left"]
+
+==== Possible Improvement to current implementation
+
+* Connect to `find` command
+
+* Filter through multiple flags at the same time
+
+* Check for invalid parameters
+
+* Determine whether a specific day is a public holiday, when filtering for free parking
+
 .Flow chart of the find operation.
 image::actdiagram-find.png[width="800", align="left"]
 
@@ -383,6 +429,7 @@ image::actdiagram-find.png[width="800", align="left"]
 * **Alternative 2:** Filter the data when it is taken in.
 ** Pros: Less complicated predicate.
 ** Cons: Manipulates the data, editing it for every other case.
+
 
 === Command alias feature
 
