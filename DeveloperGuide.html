@@ -20,7 +20,7 @@
 <li><a href="#design">2. Design</a>
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
+<li><a href="#Design-Ui">2.2. User Interface Component</a></li>
 <li><a href="#Design-Logic">2.3. Logic component</a></li>
 <li><a href="#Design-Model">2.4. Model component</a></li>
 <li><a href="#Design-Storage">2.5. Storage component</a></li>
@@ -183,8 +183,8 @@ with the <code>BUILD SUCCESSFUL</code> message.<br>
 This will generate all resources required by the application and tests.</p>
 </li>
 <li>
-<p>Open <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/storage/XmlAdaptedCarpark.java"><code>XmlAdaptedCarpark.java</code></a>
-and <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow.java</code></a> and check for any code errors</p>
+<p>Open <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/XmlAdaptedCarpark.java"><code>XmlAdaptedCarpark.java</code></a>
+and <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow.java</code></a> and check for any code errors</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -200,8 +200,8 @@ and select <code>Add '--add-modules=&#8230;&#8203;' to module compiler options</
 </li>
 <li>
 <p>Repeat this for the test folder as well
-(e.g. check <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/test/java/seedu/address/commons/util/XmlUtilTest.java"><code>XmlUtilTest.java</code></a>
-and <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/test/java/seedu/address/ui/HelpWindowTest.java"><code>HelpWindowTest.java</code></a> for code errors,
+(e.g. check <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/test/java/seedu/address/commons/util/XmlUtilTest.java"><code>XmlUtilTest.java</code></a>
+and <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/test/java/seedu/address/ui/HelpWindowTest.java"><code>HelpWindowTest.java</code></a> for code errors,
 and if so, resolve it the same way)</p>
 </li>
 </ol>
@@ -314,13 +314,13 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="https://github.com/CS2103-AY1819S1-T09-4/main/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
+The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has only one class called <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has only one class called <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -434,41 +434,54 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. User Interface Component</a></h3>
+<div class="paragraph">
+<p>The <em>User Interface</em> (UI) component consists of a <code>MainWindow</code> that is made up of different parts, with the base class
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a> using <em>JavaFx UI</em> framework.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the Class Diagram below for more details on how they are connected.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
 </div>
-<div class="title">Figure 5. Structure of the UI Component</div>
+<div class="title">Figure 5. Structure of the User Interface component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p>In general, this is the workflow of the <em>UI</em> component:</p>
 </div>
-<div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code>, <code>BrowserPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component,</p>
-</div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p>Executes user commands using the <code>Logic</code> component.</p>
+<p>Execute user commands using the <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Binds itself to some data in the <code>Model</code> so that the UI can auto-update when data in the <code>Model</code> change.</p>
+<p>Bind itself to some data in the <code>Model</code> so that the <em>UI</em> components can auto-update when data in the <code>Model</code> change.</p>
 </li>
 <li>
-<p>Responds to events raised from various parts of the App and updates the UI accordingly.</p>
+<p>Respond to events raised from various parts of the App and updates the <em>UI</em> components accordingly.</p>
 </li>
-</ul>
+</ol>
+</div>
+<div class="paragraph">
+<p>All of these <em>UI</em> parts, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class. The layout for each
+component is defined in matching <code>.fxml</code> file and can be found in the <code>src/main/resources/view</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>In short, the layout of the <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a>
+is specified in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a> etc.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<div class="paragraph">
+<p>The <code>Logic</code> component consist of a <code>LogicManager</code> that takes care of all the parse and exexcution of commands.
+It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the Class Diagram below for more details on how they are connected.</p>
+</div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
@@ -476,33 +489,33 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> :
-<a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<p>In general, this is the workflow of the <em>Logic</em> component:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p>Get the <code>AddressBookParser</code> class to parse the user command.</p>
 </li>
 <li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+<p>Create a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a person) and/or raise events.</p>
+<p>Pass the result of the command execution over to <code>Model</code>, which can affect it (e.g. adding a person) and/or raise events.</p>
 </li>
 <li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+<p>Return the command execution by encapsulating as a <code>CommandResult</code> object which is passed back to the <code>UI</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Please refer to the Sequence Diagram below for an example of interactions within the <code>Logic</code> component
+using the <code>execute("delete 1")</code> <em>API</em> call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 7. Interactions for execute operation</div>
 </div>
 </div>
 <div class="sect2">
@@ -514,7 +527,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -559,7 +572,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Car Park Find
 <div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -624,6 +637,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
 </div>
+<div class="title">Figure 10. Step 1 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the car park finder. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the car park finder after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
@@ -632,6 +646,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
 </div>
+<div class="title">Figure 11. Step 2 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified car park finder state to be saved into the <code>addressBookStateList</code>.</p>
@@ -640,6 +655,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
 </div>
+<div class="title">Figure 12. Step 3 of undo/redo usage scenario</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -660,6 +676,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <div class="content">
 <img src="images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
 </div>
+<div class="title">Figure 13. Step 4 of undo/redo usage scenario</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -673,11 +690,14 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Please refer to the Sequence Diagram below for the <code>undo</code> operation.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 10. How the undo operation works</div>
+<div class="title">Figure 14. Interactions for undo operation</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
@@ -701,6 +721,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
 </div>
+<div class="title">Figure 15. Step 5 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
@@ -709,6 +730,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
 </div>
+<div class="title">Figure 16. Step 6 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command:</p>
@@ -717,6 +739,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
+<div class="title">Figure 17. Summary for executing a new command</div>
 </div>
 </div>
 <div class="sect3">
@@ -864,7 +887,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/seqdiagram-find.png" alt="seqdiagram find" width="800">
 </div>
-<div class="title">Figure 11. How the find operation works</div>
+<div class="title">Figure 18. How the find operation works</div>
 </div>
 </div>
 <div class="sect3">
@@ -901,7 +924,7 @@ If a command fails its execution, it will not call <code>FindCommand#execute()</
 <div class="content">
 <img src="images/actdiagram-find.png" alt="actdiagram find" width="800">
 </div>
-<div class="title">Figure 12. Flow chart of the find operation.</div>
+<div class="title">Figure 19. Flow chart of the find operation.</div>
 </div>
 </div>
 <div class="sect3">
@@ -1089,17 +1112,17 @@ details with <code>GsonUtil#getCarparkAvailability()</code>. The process is simi
 to see if there are any car parks with no data on its parking lots. The value 0 is added if there is no data.</p>
 </div>
 <div class="paragraph">
-<p>Step 7. An ArrayList&lt;ArrayList&lt;String&gt;&gt; is returned from <code>GsonUtil#fetchCarparkInfo()</code>, which is used to update the car park finder state
+<p>Step 7. An <code>ArrayList&lt;ArrayList&lt;String&gt;&gt;</code> is returned from <code>GsonUtil#fetchCarparkInfo()</code>, which is used to update the car park finder state
 to the latest. The text at the bottom of the application will show that it is updated and the user can continue to use the application.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the query operation works:</p>
+<p>Please refer to the Sequence Diagram below for the <code>query</code> operation.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="images/zy_seq.png" alt="zy seq" width="800">
 </div>
-<div class="title">Figure 13. How the query operation works</div>
+<div class="title">Figure 20. Interactions for query operation</div>
 </div>
 </div>
 <div class="sect3">
@@ -1129,7 +1152,7 @@ to the latest. The text at the bottom of the application will show that it is up
 <p>Pros: Application can be used as the data is being fetched in the background.</p>
 </li>
 <li>
-<p>Cons: Reading the car park list while querying might cause unintended side effects.</p>
+<p>Cons: Reading the car park list while querying might cause unintended side effects if not handled properly.</p>
 </li>
 </ul>
 </div>
@@ -1178,7 +1201,7 @@ with <code>HashMap&lt;String,Carpark&gt;</code>.</p>
 <div class="sect3">
 <h4 id="overview-5"><a class="link" href="#overview-5">3.7.1. Overview</a></h4>
 <div class="paragraph">
-<p>The notify mechanism will fetch data from the API every interval. The interval can be set in terms of seconds or minutes
+<p>The notify mechanism will fetch data from the API every interval. The interval can be set in terms of seconds/minutes
 and is used in conjunction with the <code>select</code> command.</p>
 </div>
 <div class="paragraph">
@@ -1194,7 +1217,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 <div class="content">
 <img src="images/zy_act.png" alt="zy act" width="800">
 </div>
-<div class="title">Figure 14. When a user executes a notify command</div>
+<div class="title">Figure 21. Summary for executing a notify command</div>
 </div>
 </div>
 <div class="sect3">
@@ -1211,7 +1234,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 <p>Pros: Easy to implement.</p>
 </li>
 <li>
-<p>Cons: Performance issues as the application hangs.</p>
+<p>Cons: Performance issues as the application might stall.</p>
 </li>
 </ul>
 </div>
@@ -1224,7 +1247,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 <p>Pros: Application can be used as the data is being fetched in the background.</p>
 </li>
 <li>
-<p>Cons: Reading the car park list while querying might cause unintended side effects.</p>
+<p>Cons: Reading the car park list while querying might cause unintended side effects if not handled properly.</p>
 </li>
 </ul>
 </div>
@@ -1275,13 +1298,13 @@ filter command.</p>
 <div class="content">
 <img src="images/ActivityDiagram-filter.png" alt="ActivityDiagram filter" width="700">
 </div>
-<div class="title">Figure 15. Activity Diagram</div>
+<div class="title">Figure 22. Activity Diagram</div>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="images/SequenceDiagram-filter.png" alt="SequenceDiagram filter" width="700">
 </div>
-<div class="title">Figure 16. How the filter operation works</div>
+<div class="title">Figure 23. How the filter operation works</div>
 </div>
 </div>
 <div class="sect3">
@@ -1365,13 +1388,13 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 17. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 24. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Docs-SiteWideDocSettings"><a class="link" href="#Docs-SiteWideDocSettings">4.4. Site-wide Documentation Settings</a></h3>
 <div class="paragraph">
-<p>The <a href="https://github.com/CS2103-AY1819S1-T09-4/main/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
+<p>The <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/build.gradle"><code>build.gradle</code></a> file specifies some project-specific <a href="https://asciidoctor.org/docs/user-manual/#attributes">asciidoc attributes</a> which affects how all documentation files within this project are rendered.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1487,11 +1510,11 @@ One of: <code>UserGuide</code>, <code>DeveloperGuide</code>, <code>LearningOutco
 <div class="sect2">
 <h3 id="site-template"><a class="link" href="#site-template">4.6. Site Template</a></h3>
 <div class="paragraph">
-<p>The files in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
+<p>The files in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/docs/stylesheets"><code>docs/stylesheets</code></a> are the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS stylesheets</a> of the site.
 You can modify them to change some properties of the site&#8217;s design.</p>
 </div>
 <div class="paragraph">
-<p>The files in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
+<p>The files in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/docs/templates"><code>docs/templates</code></a> controls the rendering of <code>.adoc</code> files into HTML5.
 These template files are written in a mixture of <a href="https://www.ruby-lang.org">Ruby</a> and <a href="http://slim-lang.com">Slim</a>.</p>
 </div>
 <div class="admonitionblock warning">
@@ -1502,7 +1525,7 @@ These template files are written in a mixture of <a href="https://www.ruby-lang.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Modifying the template files in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
+<p>Modifying the template files in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/docs/templates"><code>docs/templates</code></a> requires some knowledge and experience with Ruby and Asciidoctor&#8217;s API.
 You should only modify them if you need greater control over the site&#8217;s layout than what stylesheets can provide.
 The SE-EDU team does not provide support for modified template files.</p>
 </div>
@@ -1673,7 +1696,7 @@ e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Update the version number in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/src/main/java/seedu/address/MainApp.java"><code>MainApp.java</code></a>.</p>
+<p>Update the version number in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp.java</code></a>.</p>
 </li>
 <li>
 <p>Generate a JAR file <a href="UsingGradle.html#creating-the-jar-file">using Gradle</a>.</p>
@@ -2814,15 +2837,19 @@ to search for locations of car parks.</p>
 <dl>
 <dt class="hdlist1"><a id="api"></a> API (Application Programming Interface)</dt>
 <dd>
-<p>A set of functions and procedures that allow the creation of applications which access the features or data of an operating system, application, or other service.</p>
+<p>Specifies the interface through which other programs can interact with a software component. It is a contract between the component and its clients.</p>
 </dd>
 <dt class="hdlist1"><a id="autocomplete"></a>  Autocomplete</dt>
 <dd>
-<p>Provides suggestions while you type into the field</p>
+<p>Provides suggestions while you type into the field.</p>
 </dd>
 <dt class="hdlist1"><a id="flag"></a> Flag</dt>
 <dd>
 <p>A value that acts as a signal for a function or process.</p>
+</dd>
+<dt class="hdlist1"><a id="JSON"></a> JSON (JavaScript Object Notation)</dt>
+<dd>
+<p>A file format that allows humans to easily read and write data for machines to process.</p>
 </dd>
 <dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
 <dd>
@@ -2831,6 +2858,10 @@ to search for locations of car parks.</p>
 <dt class="hdlist1"><a id="private-contact-detail"></a> Favourites</dt>
 <dd>
 <p>A custom list of car parks that is meant to be viewed easily.</p>
+</dd>
+<dt class="hdlist1"><a id="ui"></a> UI (User Interface)</dt>
+<dd>
+<p>Allows the user to interact with the application through inputs and outputs of data.</p>
 </dd>
 </dl>
 </div>
@@ -2982,4 +3013,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 14:33:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-18 15:18:56 UTC</div></div></div></body></html>
