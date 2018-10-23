@@ -32,14 +32,14 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#logging">3.2. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.3. Configuration</a></li>
-<li><a href="#find-feature">3.4. Find feature</a></li>
+<li><a href="#query-feature">3.1. Query feature</a></li>
+<li><a href="#propose-notify-feature">3.2. [Propose] Notify feature</a></li>
+<li><a href="#find-feature">3.3. Find feature</a></li>
+<li><a href="#filter-feature">3.4. Filter feature</a></li>
 <li><a href="#command-alias-feature">3.5. Command alias feature</a></li>
-<li><a href="#query-feature">3.6. Query feature</a></li>
-<li><a href="#propose-notify-feature">3.7. [Propose] Notify feature</a></li>
-<li><a href="#filter-feature">3.8. Filter feature</a></li>
+<li><a href="#undo-redo-feature">3.6. Undo/Redo feature</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -117,7 +117,7 @@ Windows developers are highly recommended to use JDK <code>9</code>.
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-IntelliJ by default has Gradle and JavaFx plugins installed.<br>
+IntelliJ has Gradle and JavaFx plugins installed by default.<br>
 Do not disable them. If you have disabled them, go to <code>File</code> &gt; <code>Settings</code> &gt; <code>Plugins</code> to re-enable them.
 </td>
 </tr>
@@ -380,7 +380,7 @@ Each of the User Interface, Logic, Model, Storage Components also:
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, the <code>Logic</code> component (see the <em>Class Diagram</em> given below) defines it&#8217;s API in the <code>Logic</code> interface and exposes its functionality using the <code>LogicManager</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -392,10 +392,10 @@ Each of the User Interface, Logic, Model, Storage Components also:
 <div class="sect2">
 <h3 id="Architecture-design"><a class="link" href="#Architecture-design">2.3. Events-driven nature of the design</a></h3>
 <div class="paragraph">
-<p>This section will explain the main nature of design adopted by the system.</p>
+<p>This section explains the main nature of design adopted by the system.</p>
 </div>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact when the user issues the command <code>delete 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -431,7 +431,7 @@ Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the event is propagated through the <code>EventsCenter</code> to the <code>Storage</code> and <code>UI</code> without <code>Model</code> having to be coupled to either of them. This is an example of how this Event Driven approach helps us reduce direct coupling between components.
+Note how the event is propagated through the <code>EventsCenter</code> to the <code>Storage</code> and <code>UI</code> without <code>Model</code> having to be coupled to either of them. This is an example of how the Event Driven approach helps us reduce direct coupling between components.
 </td>
 </tr>
 </table>
@@ -443,15 +443,15 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="Design-Main"><a class="link" href="#Design-Main">2.4. Main component</a></h3>
 <div class="paragraph">
-<p>The <em><code>Main</code> component</em> consists of only one class called <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p>The <code>Main</code> component consists of only one class, <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At app launch: Initializes the components in the correct sequence, and connects them with one another.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At shut down: Shuts down the components and invokes cleanup methods where necessary.</p>
 </li>
 </ul>
 </div>
@@ -459,7 +459,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.5. Commons component</a></h3>
 <div class="paragraph">
-<p>The <em><code>Commons</code> component</em> consists of classes used by multiple other components. Two of those classes play important roles at the architecture level.</p>
+<p>The <code>Commons</code> component consists of classes used by multiple other components. Two of these classes play important roles at the architectural level.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -478,7 +478,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Classes used by multiple components are in the seedu.addressbook.commons package.
+Classes used by multiple components are put in the seedu.addressbook.commons package.
 </td>
 </tr>
 </table>
@@ -487,8 +487,9 @@ Classes used by multiple components are in the seedu.addressbook.commons package
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.6. User interface component</a></h3>
 <div class="paragraph">
-<p>The <em>User Interface</em> (<code>UI</code>) component consists of a <code>MainWindow</code> that is made up of different parts, with the base class
-<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a> using <em>JavaFx UI</em> framework.</p>
+<p>The <code>User Interface</code> (<code>UI</code>) component consists of a <code>MainWindow</code> that is made up of different parts.
+The base class
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a> uses <em>JavaFx UI</em> framework.</p>
 </div>
 <div class="paragraph">
 <p>Please refer to the Class Diagram below for more details on how they are connected.</p>
@@ -500,7 +501,7 @@ Classes used by multiple components are in the seedu.addressbook.commons package
 <div class="title">Figure 5. Structure of the User Interface component</div>
 </div>
 <div class="paragraph">
-<p>In general, this is the workflow of the <em>UI</em> component:</p>
+<p>In general, this is the workflow of the <code>UI</code> component:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -508,30 +509,30 @@ Classes used by multiple components are in the seedu.addressbook.commons package
 <p>Execute user commands using the <code>Logic</code> component.</p>
 </li>
 <li>
-<p>Bind itself to some data in the <code>Model</code> so that the <em>UI</em> components can auto-update when data in the <code>Model</code> change.</p>
+<p>Bind itself to some data in the <code>Model</code> so that the <code>UI</code> components can auto-update when data in the <code>Model</code> change.</p>
 </li>
 <li>
-<p>Respond to events raised from various parts of the App and updates the <em>UI</em> components accordingly.</p>
+<p>Respond to events raised from various parts of the App and updates the <code>UI</code> components accordingly.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>All of these <em>UI</em> parts, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class. The layout for each
-component is defined in matching <code>.fxml</code> file and can be found in the <code>src/main/resources/view</code> folder.</p>
+<p>All <code>UI</code> parts, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class. The layout for each
+component is defined in matching <code>.fxml</code> files and can be found in the <code>src/main/resources/view</code> folder.</p>
 </div>
 <div class="paragraph">
-<p>In short, the layout of the <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a>
-is specified in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a> etc.</p>
+<p>For example, the layout of the <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a>
+is specified in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.7. Logic component</a></h3>
 <div class="paragraph">
-<p>The <code>Logic</code> component consist of a <code>LogicManager</code> that takes care of all the parse and exexcution of commands.
+<p>The <code>Logic</code> component consist of a <code>LogicManager</code> that takes care of the parse and exexcution of commands.
 It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the Class Diagram below for more details on how they are connected.</p>
+<p>Please refer to the <em>Class Diagram</em> below for more details on how they are connected.</p>
 </div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
@@ -540,7 +541,7 @@ It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/mai
 <div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
-<p>In general, this is the workflow of the <em>Logic</em> component:</p>
+<p>In general, this is the workflow of the <code>Logic</code> component:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -554,25 +555,30 @@ It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/mai
 <p>Pass the result of the command execution over to <code>Model</code>, which can affect it (e.g. adding a person) and/or raise events.</p>
 </li>
 <li>
-<p>Return the command execution by encapsulating as a <code>CommandResult</code> object which is passed back to the <code>UI</code>.</p>
+<p>Return the command execution by encapsulating the command as a <code>CommandResult</code> object which then is passed back to the <code>UI</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>Please refer to the Sequence Diagram below for an example of interactions within the <code>Logic</code> component
-using the <code>execute("delete 1")</code> <em>API</em> call.</p>
+<p>The <em>Sequence Diagram</em> below shows the interactions within the <code>Logic</code> component
+when <code>execute("delete 1")</code> is called.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. Interactions for execute operation</div>
+<div class="title">Figure 7. Sequence Diagram of of `execute("delete 1")</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">2.8. Model component</a></h3>
 <div class="paragraph">
-<p>The <code>Model</code> component consist of a <code>ModelManager</code> that manages all the models.</p>
+<p>The <code>Model</code> component is managed by the <code>ModelManager</code> that stores the data of Car Park Finder.
+It does not depend on any of the three other components.
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a> is the base class.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <em>Class Diagram</em> below for more details.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -581,24 +587,32 @@ using the <code>execute("delete 1")</code> <em>API</em> call.</p>
 <div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>Model</code>,</p>
+<p>In general, this is the structure of the <code>Model</code> Component:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+<p>The <code>ModelManager</code> extends the <code>Model</code> Interface.</p>
 </li>
 <li>
-<p>stores the Car Park Finder data.</p>
+<p>It stores a <code>VersionedAddressBook</code> and a <code>UserPref</code> object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>UserPref</code> object represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>The <code>VersionedAddressBook</code> contains a <code>addressBookStateList</code> which is used to store multiple <code>Carpark</code> objects.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>does not depend on any of the other three components.</p>
+<p>The <code>ModelManager</code> also manages a filtered list of <code>Carpark</code> objects filtered from the <code>addressBookStateList</code>.</p>
+</li>
+<li>
+<p>The <code>Model component</code> exposes an unmodifiable <code>ObservableList&lt;Carpark&gt;</code> that can be 'observed'
+e.g. the UI can be bound to this list so that it automatically updates when data in the list changes.</p>
 </li>
 </ul>
 </div>
@@ -609,38 +623,46 @@ using the <code>execute("delete 1")</code> <em>API</em> call.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>Car Park Finder</code>, which <code>Carpark</code> can reference. This would allow <code>Car Park Finder</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Carpark</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a OOP model, we can store a <code>Tag</code> list in Car Park Finder, which <code>Carpark</code> can reference.
+This would allow Car Park Finder to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of
+each <code>Carpark</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.
 <br>
-<span class="image"><img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800"></span>
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800">
+</div>
+<div class="title">Figure 9. Use of Tag object</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.9. Storage component</a></h3>
 <div class="paragraph">
-<p>The <code>Storage</code> component consist of a <code>StorageManager</code> that takes care of all the Input/Output actions.</p>
+<p>The <code>Storage</code> component, managed by the <code>StorageManager</code>, serves as a backend storage for data of Car Park Finder.
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a> is the base class.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <em>Class Diagram</em> below for more details on how they are connected.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 10. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
-</div>
-<div class="paragraph">
-<p>The <code>Storage</code> component,</p>
+<p>The <code>Storage</code> component can perform the following functions:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Car Park Finder data in xml format and read it back.</p>
+<p>save the Car Park Finder data in xml format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -654,12 +676,552 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Car Park Find
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.1. Undo/Redo feature</a></h3>
+<h3 id="query-feature"><a class="link" href="#query-feature">3.1. Query feature</a></h3>
 <div class="sect3">
 <h4 id="overview"><a class="link" href="#overview">3.1.1. Overview</a></h4>
 <div class="paragraph">
+<p>The query mechanism does an API call to the website <code>data.gov.sg</code> to obtain car park information in <code>JSON</code> format.
+An external library <code>Gson</code> is used to parse the data in <code>GsonUtil</code>. The data is stored internally as a <code>CarparkJson</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Some notable methods that <code>GsonUtil</code> implement are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>GsonUtil#getCarparkData()</code> — Get the basic car park information from the API.</p>
+</li>
+<li>
+<p><code>GsonUtil#getCarparkAvailability()</code> — Get the total number of parking lots as well as the availability of the parking lots from another API.</p>
+</li>
+<li>
+<p><code>GsonUtil#fetchCarparkInfo()</code> — Return a list of car parks with populated data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Only <code>GsonUtil#fetchCarparkInfo()</code> is exposed in <code>QueryCommand</code>, inside <code>QueryCommand#readCarpark()</code> method.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">3.1.2. Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the query mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application but initial car park finder state might not be up-to-date
+with those published on <code>data.gov.sg</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes the <code>query</code> command to fetch the latest data. The <code>query</code> command calls
+<code>GsonUtil#fetchCarparkInfo()</code> which in turn runs <code>GsonUtil#getCarparkData()</code> and <code>GsonUtil#getCarparkAvailability()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user waits for data to be updated. <code>GsonUtil#getCarparkData()</code> establishes a connection with the API
+to read <code>JSON</code> data containing basic car park information.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If <code>GsonUtil#getCarparkData()</code> fails to read from the API, IOException would be thrown.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>JSON</code> data is parsed using <code>Gson</code> library and stored inside <code>CarparkJson</code>. A <code>HashSet</code> is used to consolidate
+all the car parks and prevent duplicate entries.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. Once <code>GsonUtil#getCarparkData()</code> is done getting all the basic car park information,
+<code>GsonUtil#getCarparkAvailability()</code> retrieves additional details of the parking lot. The process is similar to how <code>GsonUtil#getCarparkData()</code> retrieves data from the API.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>GsonUtil#getCarparkAvailability()</code> appends the additional the parking lot details using <code>CarparkJson#addOn()</code></p>
+</div>
+<div class="paragraph">
+<p>Step 7. Next, a final check is done to see if there is any car park with no parking lot data. The value 0 is added if there is no data.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. Finally an <code>ArrayList&lt;ArrayList&lt;String&gt;&gt;</code> is returned from <code>GsonUtil#fetchCarparkInfo()</code> to update the car park finder state.
+ The line of text at the bottom of the application then will show that the application is updated.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <em>Sequence Diagram</em> below for the <code>query</code> operation.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/zy_seq.png" alt="zy seq" width="800">
+</div>
+<div class="title">Figure 11. Interactions for query operation</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-query-executes"><a class="link" href="#aspect-how-query-executes">Aspect: How query executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Wait for data to be queried sequentially.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Application hangs while data is being queried.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Data is queried using a separate thread.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Application can caontinue to function as the data is being fetched in the background.</p>
+</li>
+<li>
+<p>Cons: Reading the car park list while querying might cause unintended side effects if not handled properly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-query-command"><a class="link" href="#aspect-data-structure-to-support-query-command">Aspect: Data structure to support query command</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use <code>ArrayList&lt;ArrayList&lt;String&gt;&gt;</code> to store car park information.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to maintain and iterate through an array list of array lists to get a specific car park.</p>
+</li>
+<li>
+<p>Cons: Using an <code>ArrayList&lt;ArrayList&lt;String&gt;&gt;</code> can be confusing and unintuitive. Accessing elements is also not that efficient.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Use a <code>HashMap&lt;String,Carpark&gt;</code> to store data.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Much more efficient in accessing elements by using a key and better code readability.</p>
+</li>
+<li>
+<p>Cons: <code>HashMap</code> does not provide an ordered collection.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="propose-notify-feature"><a class="link" href="#propose-notify-feature">3.2. [Propose] Notify feature</a></h3>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">3.2.1. Overview</a></h4>
+<div class="paragraph">
+<p>The notify mechanism will fetch data from the API every interval. The interval can be set in terms of seconds/minutes
+and is used in conjunction with the <code>select</code> command.</p>
+</div>
+<div class="paragraph">
+<p>This means that it will only notify the current selected car park only, and not all the car parks.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">3.2.2. Example</a></h4>
+<div class="paragraph">
+<p><em>This feature is coming in v2.0.</em></p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/zy_act.png" alt="zy act" width="800">
+</div>
+<div class="title">Figure 12. Summary for executing a notify command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-notify-executes"><a class="link" href="#aspect-how-notify-executes">Aspect: How notify executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Set an interval for data to be queried sequentially.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement.</p>
+</li>
+<li>
+<p>Cons: Performance issues as the application might stall.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 :</strong> Data is queried using a separate thread every interval.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Application can be used as the data is being fetched in the background.</p>
+</li>
+<li>
+<p>Cons: Reading the car park list while querying might cause unintended side effects if not handled properly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">3.3. Find feature</a></h3>
+<div class="sect3">
+<h4 id="overview-3"><a class="link" href="#overview-3">3.3.1. Overview</a></h4>
+<div class="paragraph">
+<p>The find mechanism is facilitated by <code>FindCommand</code> and <code>FindCommandParser</code>. It extends <code>Command</code> and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FindCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by running a predicate <code>CarparkContainsKeywordsPredicate</code> to update the car park list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The find mechanism is supported by <code>FindCommandParser</code>. It implements <code>Parser</code> and contains the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FindCommandParser#parse()</code>&#8201;&#8212;&#8201;Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found. It then splits it by one or more white spaces. It then removes any strings in the list of common words.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The predicate <code>CarparkContainsKeywordsPredicate</code> takes in a list of strings and checks if any of the strings matches the name or address of a car park fully or partially.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/seqdiagram-find.png" alt="seqdiagram find" width="800">
+</div>
+<div class="title">Figure 13. How the find operation works</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-3"><a class="link" href="#example-3">3.3.2. Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the Find mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>find punggol</code> command to get all car parks in punggol.
+The <code>find</code> command calls <code>FindCommandParser#parse()</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command execution fails, it will not call <code>FindCommand#execute()</code>, and the address book state will not be saved.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The entire list of car parks is filtered by the predicate <code>CarparkContainsKeywordsPredicate</code>, which checks for the keyword <code>punggol</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The filtered list of car parks is returned to the GUI.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/actdiagram-find.png" alt="actdiagram find" width="800">
+</div>
+<div class="title">Figure 14. Flow chart of the find operation.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-predicate-works"><a class="link" href="#aspect-how-predicate-works">Aspect: How predicate works</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Predicate have additional filter with an ignore list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, user friendly.</p>
+</li>
+<li>
+<p>Cons: More complicated predicate, sub strings not easily taken care of.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Filter the data when it is taken in.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less complicated predicate.</p>
+</li>
+<li>
+<p>Cons: Manipulates the data, editing it for every other case.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-feature"><a class="link" href="#filter-feature">3.4. Filter feature</a></h3>
+<div class="sect3">
+<h4 id="overview-4"><a class="link" href="#overview-4">3.4.1. Overview</a></h4>
+<div class="paragraph">
+<p>The filter mechanism is facilitated by <code>FilterCommand</code> and <code>FilterCommandParser</code>.
+The filter mechanism can filter car parks by the following criteria:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Type of car park</p>
+</li>
+<li>
+<p>Availability of free parking</p>
+</li>
+<li>
+<p>Availability of night parking</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>FilterCommandParser</code> extends <code>Parser</code> and implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FilterCommandParser#parse()</code>&#8201;&#8212;&#8201;Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found.
+It then splits the arguments by white spaces and store then into an array list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>FilterCommand</code> extends <code>Command</code> and implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FilterCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by filtering the car park list against a selected predicate.</p>
+</li>
+<li>
+<p>The various predicates that <code>FilterCommand</code> uses include <code>CarparkHasFreeParkingPredicate</code>, <code>CarparkHasNightParkingPredicate</code> and <code>CarparkIsOfTypePredicate</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">3.4.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the Filter mechanism behaves at each step when filtering for free parking.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>filter f/ SUN 7.30am 5.30pm</code> to get all car parks that has free parking between 7.30am and 5.30pm on the following Sunday.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. After <code>AddressBookParser</code> detects <code>filter</code> as the command word, a
+<code>FilterCommandParser</code> is created to parse the arguments supplied to the command into an array list of flags.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>FilterCommand</code> object is then created to decode the array list of flags and create the <code>CarparkHasFreeParkingPredicate</code>, which checks
+that various attributes of a car park fulfills the filter criteria.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The list list of car parks is filtered against the predicate and returned to the GUI.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <em>Sequence Diagram</em> below for the filter operation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the command execution fails, <code>FindCommand#execute()</code> will not be called and the address book state will not be saved.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/SequenceDiagram-filter.png" alt="SequenceDiagram filter" width="700">
+</div>
+<div class="title">Figure 15. How the filter operation works</div>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> summarizes the implementation of the
+filter command.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/ActivityDiagram-filter.png" alt="ActivityDiagram filter" width="700">
+</div>
+<div class="title">Figure 16. Summary for executing a filter command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-filter-executes"><a class="link" href="#aspect-how-filter-executes">Aspect: How filter executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Altering predicates to filter list of car parks by different attributes</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement simple filtering.</p>
+</li>
+<li>
+<p>Cons: Does not facilitate implementation for multiple layers of filtering.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Adding of tags to data when it is taken in.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less complicated predicate for multiple layers of filtering.</p>
+</li>
+<li>
+<p>Cons: Not really feasible if data is to be updated frequently.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-alias-feature"><a class="link" href="#command-alias-feature">3.5. Command alias feature</a></h3>
+<div class="sect3">
+<h4 id="overview-5"><a class="link" href="#overview-5">3.5.1. Overview</a></h4>
+<div class="paragraph">
+<p>The alias mechanism is facilitated by <code>AddressBookParser</code>. It extends the cases
+when shorter command words are parsed through <code>parseCommand</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-4"><a class="link" href="#example-4">3.5.2. Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the alias mechanism behaves at
+each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>LogicManager</code>
+is initialized with an <code>AddressBookParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>l</code> command instead of <code>list</code>. The <code>Matcher</code> object in
+<code>AddressBookParser</code> splits the command text into <em>command word</em> and
+<em>arguments</em>, in which the <em>command word</em> is parsed using a <em>switch</em>
+statement. The <em>command word</em> will be matched to case of <code>COMMAND_ALIAS</code> from
+<code>ListCommand</code>, which holds the final value of 'l'. The program finds a match and
+proceeds as if a <code>list</code> command is given.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/ActivityDiagram-Alias.png" alt="ActivityDiagram Alias" width="700">
+</div>
+<div class="title">Figure 17. Flow chart of command alias usage.</div>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> above explains what happens when a user executes a <code>l</code>
+command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-alias-executes"><a class="link" href="#aspect-how-alias-executes">Aspect: How alias executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> declare <code>COMMAND_ALIAS</code> with a string value
+in each Command file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Pros:</strong> Easy to implement</p>
+</li>
+<li>
+<p><strong>Cons:</strong> Have to decide the alias subjectively which brings down performance
+if there are alot of commands</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> declare <code>COMMAND_ALIAS</code> using the first two chars of <code>COMMAND_WORD</code>
+in each Command file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Pros</strong>: Better performance as alias will be assigned systematically.</p>
+</li>
+<li>
+<p><strong>Cons</strong>: When there are 2 command words starting with same 2 chars e.g. <code>find</code>
+&amp; <code>filter</code>, it does not work.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">3.6. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="overview-6"><a class="link" href="#overview-6">3.6.1. Overview</a></h4>
+<div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
+It extends <code>AddressBook</code> with an undo/redo history stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
 Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
@@ -688,7 +1250,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="images/UndoRedoStartingStateListDiagram.png" alt="UndoRedoStartingStateListDiagram" width="800">
 </div>
-<div class="title">Figure 10. Step 1 of undo/redo usage scenario</div>
+<div class="title">Figure 18. Step 1 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the car park finder. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the car park finder after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
@@ -697,7 +1259,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="images/UndoRedoNewCommand1StateListDiagram.png" alt="UndoRedoNewCommand1StateListDiagram" width="800">
 </div>
-<div class="title">Figure 11. Step 2 of undo/redo usage scenario</div>
+<div class="title">Figure 19. Step 2 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified car park finder state to be saved into the <code>addressBookStateList</code>.</p>
@@ -706,7 +1268,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="images/UndoRedoNewCommand2StateListDiagram.png" alt="UndoRedoNewCommand2StateListDiagram" width="800">
 </div>
-<div class="title">Figure 12. Step 3 of undo/redo usage scenario</div>
+<div class="title">Figure 20. Step 3 of undo/redo usage scenario</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -727,7 +1289,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <div class="content">
 <img src="images/UndoRedoExecuteUndoStateListDiagram.png" alt="UndoRedoExecuteUndoStateListDiagram" width="800">
 </div>
-<div class="title">Figure 13. Step 4 of undo/redo usage scenario</div>
+<div class="title">Figure 21. Step 4 of undo/redo usage scenario</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -742,13 +1304,13 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 </table>
 </div>
 <div class="paragraph">
-<p>Please refer to the Sequence Diagram below for the <code>undo</code> operation.</p>
+<p>Please refer to the <em>Sequence Diagram</em> below for the <code>undo</code> operation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 14. Interactions for undo operation</div>
+<div class="title">Figure 22. Interactions for undo operation</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
@@ -772,7 +1334,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UndoRedoNewCommand3StateListDiagram.png" alt="UndoRedoNewCommand3StateListDiagram" width="800">
 </div>
-<div class="title">Figure 15. Step 5 of undo/redo usage scenario</div>
+<div class="title">Figure 23. Step 5 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
@@ -781,20 +1343,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="content">
 <img src="images/UndoRedoNewCommand4StateListDiagram.png" alt="UndoRedoNewCommand4StateListDiagram" width="800">
 </div>
-<div class="title">Figure 16. Step 6 of undo/redo usage scenario</div>
+<div class="title">Figure 24. Step 6 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p>The following <em>Activity diagram</em> summarizes what happens when a user executes a new command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
-<div class="title">Figure 17. Summary for executing a new command</div>
+<div class="title">Figure 25. Activity Diagram for executing a new command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -864,14 +1426,14 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.2. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.3, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -902,481 +1464,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.3. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">3.4. Find feature</a></h3>
-<div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">3.4.1. Overview</a></h4>
-<div class="paragraph">
-<p>The find mechanism is facilitated by <code>FindCommand</code> and <code>FindCommandParser</code>. It extends <code>Command</code> and implements the following operations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>FindCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by running a predicate <code>CarparkContainsKeywordsPredicate</code> and updates the car park list.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The find mechanism is supported by <code>FindCommandParser</code>. It implements <code>Parser</code> that contains the following operations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>FindCommandParser#parse()</code>&#8201;&#8212;&#8201;Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found. It then splits it by one or more white spaces. It then removes any strings in the list of common words.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The predicate <code>CarparkContainsKeywordsPredicate</code> takes in a list of strings and checks if any of the strings contain fully or partial in the list of car park names or address, and returns the car park if so.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/seqdiagram-find.png" alt="seqdiagram find" width="800">
-</div>
-<div class="title">Figure 18. How the find operation works</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example"><a class="link" href="#example">3.4.2. Example</a></h4>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the Find mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>find punggol</code> command to get all car park in punggol.
-The <code>find</code> command calls <code>FindCommandParser#parse()</code>, checking the values <code>punggol</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>FindCommand#execute()</code>, so the address book state will not be saved.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 3. The entire list of car park is filtered by the predicate <code>CarparkContainsKeywordsPredicate</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. The filtered list of car park is returned to the GUI.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/actdiagram-find.png" alt="actdiagram find" width="800">
-</div>
-<div class="title">Figure 19. Flow chart of the find operation.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.3. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-predicate-works"><a class="link" href="#aspect-how-predicate-works">Aspect: How predicate works</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (Current choice):</strong> Predicate have additional filter with an ignore list.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement, user friendly.</p>
-</li>
-<li>
-<p>Cons: More complicated predicate, sub strings not easily taken care of.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Filter the data when it is taken in.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Less complicated predicate.</p>
-</li>
-<li>
-<p>Cons: Manipulates the data, editing it for every other case.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="command-alias-feature"><a class="link" href="#command-alias-feature">3.5. Command alias feature</a></h3>
-<div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">3.5.1. Overview</a></h4>
-<div class="paragraph">
-<p>The alias mechanism is facilitated by <code>AddressBookParser</code>. It extends the cases
-when shorter command words are parsed through <code>parseCommand</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">3.5.2. Example</a></h4>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the alias mechanism behaves at
-each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>LogicManager</code>
-will be initialized with an <code>AddressBookParser</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>l</code> command instead of <code>list</code>. The <code>Matcher</code> object in
-<code>AddressBookParser</code> splits the command text into <strong>command word </strong> section and
-<strong>arguments,</strong> section of which the <strong>command word </strong>is parsed using a <em>&lt;switch&gt;</em>
-statement. The <strong>command word</strong> will be matched to case of <code>COMMAND_ALIAS</code> from
-<code>ListCommand</code>, which holds the final value of 'l'. The program finds a match and
-proceeds as if a <code>list</code> command is given.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/ActivityDiagram-Alias.png" alt="ActivityDiagram Alias" width="700">
-</div>
-<div class="title">Figure 20. Flow chart of command alias usage.</div>
-</div>
-<div class="paragraph">
-<p>The <strong>Activity Diagram</strong> given above explains what happens when a user executes a <code>l</code>
-command.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.3. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-alias-executes"><a class="link" href="#aspect-how-alias-executes">Aspect: How alias executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> declare <code>COMMAND_ALIAS</code> with a string value
-in each Command file.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros:</strong> Easy to implement</p>
-</li>
-<li>
-<p><strong>Cons:</strong> Have to decide the alias subjectively which brings down performance
-if there are alot of commands</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> declare <code>COMMAND_ALIAS</code> using the first two chars of <code>COMMAND_WORD</code>
-in each Command file.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Pros</strong>: Better performance as alias will be assigned systematically.</p>
-</li>
-<li>
-<p><strong>Cons</strong>: When there are 2 command words starting with same 2 chars e.g. <code>find</code>
-&amp; <code>filter</code>, it does not work.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="query-feature"><a class="link" href="#query-feature">3.6. Query feature</a></h3>
-<div class="sect3">
-<h4 id="overview-4"><a class="link" href="#overview-4">3.6.1. Overview</a></h4>
-<div class="paragraph">
-<p>The query mechanism does an API call to the website <code>data.gov.sg</code> to pull the car park information in <code>JSON</code> format.
-The external library <code>Gson</code> is used to parse the data in <code>GsonUtil</code>. The data is stored internally as a <code>CarparkJson</code> object.</p>
-</div>
-<div class="paragraph">
-<p>Some notable methods that <code>GsonUtil</code> implements are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>GsonUtil#getCarparkData()</code> — Get the basic car park information from the API.</p>
-</li>
-<li>
-<p><code>GsonUtil#getCarparkAvailability()</code> — Get the total parking lots as well as availability from another API.</p>
-</li>
-<li>
-<p><code>GsonUtil#fetchCarparkInfo()</code> — Return a list of car parks with populated data.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Only <code>GsonUtil#fetchCarparkInfo()</code> is exposed in <code>QueryCommand</code>, inside <code>QueryCommand#readCarpark()</code> method.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">3.6.2. Example</a></h4>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the query mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application. The initial car park finder state might not have been updated
-to the latest according to <code>data.gov.sg</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes the <code>query</code> command to fetch the latest data from the API. The <code>query</code> command calls
-<code>GsonUtil#fetchCarparkInfo()</code> which runs the two methods <code>GsonUtil#getCarparkData()</code> and <code>GsonUtil#getCarparkAvailability()</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. The user waits for data to be updated. Inside <code>GsonUtil#getCarparkData()</code>, a connection is established with the API
-to read the <code>JSON</code> data for the basic car park information.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the reading from the API fails, IOException is thrown.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The <code>JSON</code> data is parsed using <code>Gson</code> library and stored inside <code>CarparkJson</code> class. A <code>HashSet</code> is used to consolidate
-all the car parks and prevent duplicate entries.</p>
-</div>
-<div class="paragraph">
-<p>Step 5. Once <code>GsonUtil#getCarparkData()</code> is done getting all the basic car park information, next is getting the parking lot
-details with <code>GsonUtil#getCarparkAvailability()</code>. The process is similar to how <code>GsonUtil#getCarparkData()</code> gets the data from the API.</p>
-</div>
-<div class="paragraph">
-<p>Step 6. When <code>GsonUtil#getCarparkAvailability()</code> is done adding in the parking lot details using <code>CarparkJson#addOn()</code>, a final check
-to see if there are any car parks with no data on its parking lots. The value 0 is added if there is no data.</p>
-</div>
-<div class="paragraph">
-<p>Step 7. An <code>ArrayList&lt;ArrayList&lt;String&gt;&gt;</code> is returned from <code>GsonUtil#fetchCarparkInfo()</code>, which is used to update the car park finder state
-to the latest. The text at the bottom of the application will show that it is updated and the user can continue to use the application.</p>
-</div>
-<div class="paragraph">
-<p>Please refer to the Sequence Diagram below for the <code>query</code> operation.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/zy_seq.png" alt="zy seq" width="800">
-</div>
-<div class="title">Figure 21. Interactions for query operation</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.3. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-query-executes"><a class="link" href="#aspect-how-query-executes">Aspect: How query executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Wait for data to be queried sequentially.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: Performance issues as the application hangs.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 :</strong> Data is queried using a separate thread.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Application can be used as the data is being fetched in the background.</p>
-</li>
-<li>
-<p>Cons: Reading the car park list while querying might cause unintended side effects if not handled properly.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-query-command"><a class="link" href="#aspect-data-structure-to-support-query-command">Aspect: Data structure to support query command</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use <code>ArrayList&lt;ArrayList&lt;String&gt;&gt;</code> to store car park information.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to maintain an array list of list and iterate through to get a specific car park.</p>
-</li>
-<li>
-<p>Cons: <code>ArrayList&lt;ArrayList&lt;String&gt;&gt;</code> can be confusing and not intuitive. Accessing elements is also not that efficient.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 :</strong> Use a <code>HashMap</code> to store data.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Much more efficient in accessing elements by using a key and better code readability
-with <code>HashMap&lt;String,Carpark&gt;</code>.</p>
-</li>
-<li>
-<p>Cons: <code>HashMap</code> does not provide an ordered collection.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="propose-notify-feature"><a class="link" href="#propose-notify-feature">3.7. [Propose] Notify feature</a></h3>
-<div class="sect3">
-<h4 id="overview-5"><a class="link" href="#overview-5">3.7.1. Overview</a></h4>
-<div class="paragraph">
-<p>The notify mechanism will fetch data from the API every interval. The interval can be set in terms of seconds/minutes
-and is used in conjunction with the <code>select</code> command.</p>
-</div>
-<div class="paragraph">
-<p>This means that it will only notify the current selected car park only, and not all the car parks.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example-4"><a class="link" href="#example-4">3.7.2. Example</a></h4>
-<div class="paragraph">
-<p><em>This feature is coming in v2.0.</em></p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/zy_act.png" alt="zy act" width="800">
-</div>
-<div class="title">Figure 22. Summary for executing a notify command</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.3. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-notify-executes"><a class="link" href="#aspect-how-notify-executes">Aspect: How notify executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Set an interval for data to be queried sequentially.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: Performance issues as the application might stall.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 :</strong> Data is queried using a separate thread every interval.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Application can be used as the data is being fetched in the background.</p>
-</li>
-<li>
-<p>Cons: Reading the car park list while querying might cause unintended side effects if not handled properly.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="filter-feature"><a class="link" href="#filter-feature">3.8. Filter feature</a></h3>
-<div class="sect3">
-<h4 id="overview-6"><a class="link" href="#overview-6">3.8.1. Overview</a></h4>
-<div class="paragraph">
-<p>The filter mechanism is facilitated by <code>AddressBookParser</code>, <code>FilterCommandParser</code> and <code>FilterCommand</code>. It extends
-<code>Command</code> and implements <code>FilterCommand#execute()</code>.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">3.8.2. Current Implementation</a></h4>
-<div class="paragraph">
-<p>Step 1. The <code>parseCommand</code> function in <code>AddressBookParser</code> is extended to take in an additional
-command word: <code>filter</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. After <code>filter`is being detected as the command word, a
-`FilterCommandParser</code> is created to parse the arguments supplied to the command.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. The <code>FilterCommandParser</code> parses the arguments into an array of flags, which is then
-passed into a newly created <code>FilterCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. <code>FilterCommand</code> then checks which flags are passed in and creates predicates to
-filter the car parks accordingly. The various predicates include
-<code>CarparkHasFreeParkingPredicate</code>, <code>CarparkHasNightParkingPredicate</code> and
-<code>CarparkIsOfTypePredicate</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 5. Next, <code>model</code> updates a filtered list of car parks by checking each car park
-against the specified predicate.</p>
-</div>
-<div class="paragraph">
-<p>Step 6. The following activity diagram summarizes what happens when a user executes a
-filter command.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/ActivityDiagram-filter.png" alt="ActivityDiagram filter" width="700">
-</div>
-<div class="title">Figure 23. Activity Diagram</div>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/SequenceDiagram-filter.png" alt="SequenceDiagram filter" width="700">
-</div>
-<div class="title">Figure 24. How the filter operation works</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="possible-improvement-to-current-implementation"><a class="link" href="#possible-improvement-to-current-implementation">3.8.3. Possible Improvement to current implementation</a></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Connect to <code>find</code> command</p>
-</li>
-<li>
-<p>Filter through multiple flags at the same time</p>
-</li>
-<li>
-<p>Check for invalid parameters</p>
-</li>
-<li>
-<p>Determine whether a specific day is a public holiday, when filtering for free parking</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
@@ -1440,7 +1530,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 25. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 26. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -1812,7 +1902,7 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<h3 id="filter-and-sorting" class="discrete">Filter and Sorting</h3>
+<h3 id="filter" class="discrete">Filter</h3>
 <table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
 <col style="width: 22%;">
@@ -1832,24 +1922,24 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">car owner</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">know how far away my destination is from the car park</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find the shortest walking distance to my destination</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know if there is night parking at the car park</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">park my car at night</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">driver</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find out how much is the parking fee</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">calculate the cost of parking at the car park</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find out if there is free parking at a car park at a certain time on a specific day</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">choose to park at a car park for free</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">driver</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find out the types of parking available at the car park</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">decide if I can park and leave my car there</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find out the type of parking of a certain car park</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">decide if I should leave my car there</p></td>
 </tr>
 </tbody>
 </table>
-<h3 id="search-and-flag" class="discrete">Search and Flag</h3>
+<h3 id="search" class="discrete">Search</h3>
 <table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
 <col style="width: 22%;">
@@ -2036,7 +2126,7 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 <p>For all use cases below, the <strong>System</strong> is the <code>Car Park Finder</code> and the <strong>Actor</strong> is the
 <code>user / driver / car owner</code>, unless specified otherwise.</p>
 </div>
-<h3 id="filter-and-sorting-2" class="discrete">Filter and Sorting</h3>
+<h3 id="filter-and-sorting" class="discrete">Filter and Sorting</h3>
 <table class="tableblock frame-all grid-all" style="width: 60%;">
 <colgroup>
 <col style="width: 100%;">
@@ -2281,7 +2371,7 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 </tr>
 </tbody>
 </table>
-<h3 id="search-and-flag-2" class="discrete">Search and Flag</h3>
+<h3 id="search-and-flag" class="discrete">Search and Flag</h3>
 <table class="tableblock frame-all grid-all" style="width: 60%;">
 <colgroup>
 <col style="width: 100%;">
@@ -3323,4 +3413,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-23 09:22:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-23 09:41:32 UTC</div></div></div></body></html>
