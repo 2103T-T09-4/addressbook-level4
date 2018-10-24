@@ -199,7 +199,7 @@ and if so, resolve it the same way)</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Run the <code>seedu.address.MainApp</code> and try a few commands</p>
+<p>Run the <code>seedu.parking.MainApp</code> and try a few commands</p>
 </li>
 <li>
 <p><a href="#Testing">Run the tests</a> to ensure they all pass.</p>
@@ -410,7 +410,7 @@ Each of the User Interface, Logic, Model, Storage Components also:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the <code>Model</code> simply raises a <code>AddressBookChangedEvent</code> when the Car Park Finder data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
+Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent</code> when the Car Park Finder data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
 </td>
 </tr>
 </table>
@@ -478,7 +478,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Classes used by multiple components are put in the seedu.addressbook.commons package.
+Classes used by multiple components are put in the seedu.carparkfinder.commons package.
 </td>
 </tr>
 </table>
@@ -546,7 +546,7 @@ It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/mai
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Get the <code>AddressBookParser</code> class to parse the user command.</p>
+<p>Get the <code>CarparkFinderParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>Create a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -595,20 +595,20 @@ It does not depend on any of the three other components.
 <p>The <code>ModelManager</code> extends the <code>Model</code> Interface.</p>
 </li>
 <li>
-<p>It stores a <code>VersionedAddressBook</code> and a <code>UserPref</code> object.</p>
+<p>It stores a <code>VersionedCarparkFinder</code> and a <code>UserPref</code> object.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>The <code>UserPref</code> object represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>The <code>VersionedAddressBook</code> contains a <code>addressBookStateList</code> which is used to store multiple <code>Carpark</code> objects.</p>
+<p>The <code>VersionedCarparkFinder</code> contains a <code>carparkFinderStateList</code> which is used to store multiple <code>Carpark</code> objects.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>The <code>ModelManager</code> also manages a filtered list of <code>Carpark</code> objects filtered from the <code>addressBookStateList</code>.</p>
+<p>The <code>ModelManager</code> also manages a filtered list of <code>Carpark</code> objects filtered from the <code>carparkFinderStateList</code>.</p>
 </li>
 <li>
 <p>The <code>Model component</code> exposes an unmodifiable <code>ObservableList&lt;Carpark&gt;</code> that can be 'observed'
@@ -701,6 +701,18 @@ An external library <code>Gson</code> is used to parse the data in <code>GsonUti
 </div>
 <div class="paragraph">
 <p>Only <code>GsonUtil#fetchCarparkInfo()</code> is exposed in <code>QueryCommand</code>, inside <code>QueryCommand#readCarpark()</code> method.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+A local copy of the car park information is saved at the end. The user only needs to execute this command to get the latest information.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -944,7 +956,7 @@ The <code>find</code> command calls <code>FindCommandParser#parse()</code>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command execution fails, it will not call <code>FindCommand#execute()</code>, and the address book state will not be saved.
+If a command execution fails, it will not call <code>FindCommand#execute()</code>, and the car park finder state will not be saved.
 </td>
 </tr>
 </table>
@@ -1057,7 +1069,7 @@ It then splits the arguments by white spaces and store then into an array list.<
 <p>Step 2. The user executes <code>filter f/ SUN 7.30am 5.30pm</code> to get all car parks that has free parking between 7.30am and 5.30pm on the following Sunday.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. After <code>AddressBookParser</code> detects <code>filter</code> as the command word, a
+<p>Step 3. After <code>CarparkFinderParser</code> detects <code>filter</code> as the command word, a
 <code>FilterCommandParser</code> is created to parse the arguments supplied to the command into an array list of flags.</p>
 </div>
 <div class="paragraph">
@@ -1077,7 +1089,7 @@ that various attributes of a car park fulfills the filter criteria.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the command execution fails, <code>FindCommand#execute()</code> will not be called and the address book state will not be saved.
+If the command execution fails, <code>FindCommand#execute()</code> will not be called and the car park finder state will not be saved.
 </td>
 </tr>
 </table>
@@ -1141,7 +1153,7 @@ filter command.</p>
 <div class="sect3">
 <h4 id="overview-5"><a class="link" href="#overview-5">3.5.1. Overview</a></h4>
 <div class="paragraph">
-<p>The abbreviation mechanism is facilitated by <code>AddressBookParser</code>. It extends the cases
+<p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
 to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
 </div>
 </div>
@@ -1153,11 +1165,11 @@ each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time. The <code>LogicManager</code>
-is initialized with an <code>AddressBookParser</code>.</p>
+is initialized with an <code>CarparkFinderParser</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>f</code> command instead of <code>find</code>. The <code>Matcher</code> object in
-<code>AddressBookParser</code> splits the command text into <em>command word</em> and
+<code>CarparkFinderParser</code> splits the command text into <em>command word</em> and
 <em>arguments</em>, in which the <em>command word</em> is parsed using a <em>switch</em>
 statement.</p>
 </div>
@@ -1223,31 +1235,31 @@ in each Command file.</p>
 <div class="sect3">
 <h4 id="overview-6"><a class="link" href="#overview-6">3.6.1. Overview</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
+<p>The undo/redo mechanism is facilitated by <code>VersionedCarparkFinder</code>.
+It extends <code>CarparkFinder</code> with an undo/redo history stored internally as an <code>carparkFinderStateList</code> and <code>currentStatePointer</code>.
 Additionally, it implements the following operations:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current car park finder book state in its history.</p>
+<p><code>VersionedCarparkFinder#commit()</code>&#8201;&#8212;&#8201;Saves the current car park finder book state in its history.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous car park finder book state from its history.</p>
+<p><code>VersionedCarparkFinder#undo()</code>&#8201;&#8212;&#8201;Restores the previous car park finder book state from its history.</p>
 </li>
 <li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone car park finder state from its history.</p>
+<p><code>VersionedCarparkFinder#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone car park finder state from its history.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> and <code>Model#redoCarparkFinder()</code> respectively.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial car park finder state, and the <code>currentStatePointer</code> pointing to that single car park finder state.</p>
+<p>Step 1. The user launches the application for the first time. The <code>VersionedCarparkFinder</code> will be initialized with the initial car park finder state, and the <code>currentStatePointer</code> pointing to that single car park finder state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1256,7 +1268,7 @@ Additionally, it implements the following operations:</p>
 <div class="title">Figure 18. Step 1 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the car park finder. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the car park finder after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
+<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the car park finder. The <code>delete</code> command calls <code>Model#commitCarparkFinder()</code>, causing the modified state of the car park finder after the <code>delete 5</code> command executes to be saved in the <code>carparkFinderStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1265,7 +1277,7 @@ Additionally, it implements the following operations:</p>
 <div class="title">Figure 19. Step 2 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified car park finder state to be saved into the <code>addressBookStateList</code>.</p>
+<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitCarparkFinder()</code>, causing another modified car park finder state to be saved into the <code>carparkFinderStateList</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1280,13 +1292,13 @@ Additionally, it implements the following operations:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the car park finder state will not be saved into the <code>addressBookStateList</code>.
+If a command fails its execution, it will not call <code>Model#commitCarparkFinder()</code>, so the car park finder state will not be saved into the <code>carparkFinderStateList</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous car park finder state, and restores the car park finder to that state.</p>
+<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoCarparkFinder()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous car park finder state, and restores the car park finder to that state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1301,7 +1313,7 @@ If a command fails its execution, it will not call <code>Model#commitAddressBook
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial car park finder state, then there are no previous car park finder states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial car park finder state, then there are no previous car park finder states to restore. The <code>undo</code> command uses <code>Model#canUndoCarparkFinder()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
 </td>
 </tr>
 </table>
@@ -1316,7 +1328,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 <div class="title">Figure 22. Interactions for undo operation</div>
 </div>
 <div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCarparkFinder()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1325,13 +1337,13 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest car park finder state, then there are no undone car park finder states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList.size() - 1</code>, pointing to the latest car park finder state, then there are no undone car park finder states to restore. The <code>redo</code> command uses <code>Model#canRedoCarparkFinder()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the car park finder, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the car park finder, such as <code>list</code>, will usually not call <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> or <code>Model#redoCarparkFinder()</code>. Thus, the <code>carparkFinderStateList</code> remains unchanged.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1340,7 +1352,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="title">Figure 23. Step 5 of undo/redo usage scenario</div>
 </div>
 <div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCarparkFinder()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>carparkFinderStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1405,7 +1417,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
 </li>
 <li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedCarparkFinder</code>.</p>
 </li>
 </ul>
 </div>
@@ -1761,7 +1773,7 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <p><em>System Tests</em> that test the entire App by simulating user actions on the GUI. These are in the <code>systemtests</code> package.</p>
 </li>
 <li>
-<p><em>Unit tests</em> that test the individual components. These are in <code>seedu.address.ui</code> package.</p>
+<p><em>Unit tests</em> that test the individual components. These are in <code>seedu.parking.ui</code> package.</p>
 </li>
 </ol>
 </div>
@@ -1772,15 +1784,15 @@ See <a href="UsingGradle.html">UsingGradle.adoc</a> for more info on how to run 
 <ol class="loweralpha" type="a">
 <li>
 <p><em>Unit tests</em> targeting the lowest level methods/classes.<br>
-e.g. <code>seedu.address.commons.StringUtilTest</code></p>
+e.g. <code>seedu.parking.commons.StringUtilTest</code></p>
 </li>
 <li>
 <p><em>Integration tests</em> that are checking the integration of multiple code units (those code units are assumed to be working).<br>
-e.g. <code>seedu.address.storage.StorageManagerTest</code></p>
+e.g. <code>seedu.parking.storage.StorageManagerTest</code></p>
 </li>
 <li>
 <p>Hybrids of unit and integration tests. These test are checking multiple code units as well as how the are connected together.<br>
-e.g. <code>seedu.address.logic.LogicManagerTest</code></p>
+e.g. <code>seedu.parking.logic.LogicManagerTest</code></p>
 </li>
 </ol>
 </div>
@@ -3416,4 +3428,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 06:38:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 12:49:12 UTC</div></div></div></body></html>
