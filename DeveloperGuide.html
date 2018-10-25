@@ -41,7 +41,7 @@
 <li><a href="#propose-notify-feature">4.2. [Propose] Notify feature</a></li>
 <li><a href="#find-feature">4.3. Find feature</a></li>
 <li><a href="#filter-feature">4.4. Filter feature</a></li>
-<li><a href="#abbreviation-feature">4.5. Abbreviation feature</a></li>
+<li><a href="#abbreviation-feature">4.5. Abbreviation Feature</a></li>
 <li><a href="#logging">4.6. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
 </ul>
@@ -1164,7 +1164,7 @@ It then splits the arguments by white spaces and store then into an array list.<
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">4.4.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Given below is an example usage scenario of how the Filter mechanism behaves at each step when filtering for free parking.</p>
+<p>Given below is an example usage scenario of how the filter mechanism behaves at each step when filtering for free parking.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application.</p>
@@ -1174,29 +1174,19 @@ It then splits the arguments by white spaces and store then into an array list.<
 </div>
 <div class="paragraph">
 <p>Step 3. After <code>CarparkFinderParser</code> detects <code>filter</code> as the command word, a
-<code>FilterCommandParser</code> is created to parse the arguments supplied to the command into an array list of flags.</p>
+<code>FilterCommandParser</code> is created to parse the arguments supplied to the command into <code>String[] flags</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>FilterCommand</code> object is then created to decode the array list of flags and create the <code>CarparkHasFreeParkingPredicate</code>, which checks
-that various attributes of a car park fulfills the filter criteria.</p>
+<p>Step 4. The <code>FilterCommand</code> object is then created to decode <code>String[] flags</code> and create the <code>CarparkHasFreeParkingPredicate</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The list list of car parks is filtered against the predicate and returned to the GUI.</p>
+<p>Step 5. <code>CarparkHasFreeParkingPredicate</code> checks that a carpark has free parking on Sunday, and that the start and end time input by the user falls between the free parking time period of the car park.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. The list of car parks is filtered against the predicate and returned to the GUI.</p>
 </div>
 <div class="paragraph">
 <p>Please refer to the <em>Sequence Diagram</em> below for the filter operation.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the command execution fails, <code>FindCommand#execute()</code> will not be called and the car park finder state will not be saved.
-</td>
-</tr>
-</table>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
@@ -1218,11 +1208,11 @@ filter command.</p>
 <div class="sect3">
 <h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-filter-executes"><a class="link" href="#aspect-how-filter-executes">Aspect: How filter executes</a></h5>
+<h5 id="aspect-how-location-based-filtering-executes"><a class="link" href="#aspect-how-location-based-filtering-executes">Aspect: How location based filtering executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (Current choice):</strong> Altering predicates to filter list of car parks by different attributes</p>
+<p><strong>Alternative 1 (Current choice):</strong> Extracting the location from the previous <code>FindCommand</code> to form the predicate for the current <code>FilterCommand</code></p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -1231,17 +1221,17 @@ filter command.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement simple filtering.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Able to pass in the location as a parameter easily when creating the combined predicate. Various existing methods that filters the whole list of car parks can still be used.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Does not facilitate implementation for multiple layers of filtering.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency compromised as the whole list of car parks needs to be filtered through again.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Adding of tags to data when it is taken in.</p>
+<p><strong>Alternative 2:</strong> Store the location-filtered list of car parks from <code>FindCommand</code>, then <code>FilterCommand</code> filters from the filtered list of car parks.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -1250,11 +1240,11 @@ filter command.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Less complicated predicate for multiple layers of filtering.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improved efficiency as a shorter list of car park needs to be filtered by <code>FilterCommand</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Not really feasible if data is to be updated frequently.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional memory required to store the list of car park generated by <code>FindCommand</code>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1265,7 +1255,7 @@ filter command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.5. Abbreviation feature</a></h3>
+<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.5. Abbreviation Feature</a></h3>
 <div class="paragraph">
 <p>The abbreviation feature reduces the amount of characters needed to type.</p>
 </div>
@@ -3354,4 +3344,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-24 16:17:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-25 09:17:26 UTC</div></div></div></body></html>
