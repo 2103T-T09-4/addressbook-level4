@@ -37,14 +37,16 @@
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#query-feature">4.1. Query feature</a></li>
-<li><a href="#propose-notify-feature">4.2. [Propose] Notify feature</a></li>
-<li><a href="#find-feature">4.3. Find feature</a></li>
-<li><a href="#filter-feature">4.4. Filter feature</a></li>
-<li><a href="#abbreviation-feature">4.5. Abbreviation Feature</a></li>
-<li><a href="#auto-complete-feature">4.6. Auto-complete Feature</a></li>
-<li><a href="#logging">4.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+<li><a href="#undo-redo-feature">4.1. Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></li>
+<li><a href="#query-feature">4.3. Query feature</a></li>
+<li><a href="#propose-notify-feature">4.4. [Propose] Notify feature</a></li>
+<li><a href="#find-feature">4.5. Find feature</a></li>
+<li><a href="#filter-feature">4.6. Filter feature</a></li>
+<li><a href="#abbreviation-feature">4.7. Abbreviation Feature</a></li>
+<li><a href="#auto-complete-feature">4.8. Auto-complete Feature</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -346,7 +348,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App,
+<p>The <strong><em>architecture diagram</em></strong> given above explains the high-level design of the App,
  which contains 6 <a href="#Architecture-Components"><strong><code>architecture components</code></strong></a> and
  adopts an <a href="#Architecture-design"><strong><code>events-driven nature</code></strong></a>.</p>
 </div>
@@ -419,7 +421,7 @@ Each of the User Interface, Logic, Model, Storage Components also:
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the <strong><em>Class Diagram</em></strong> given below) defines it&#8217;s API in the <code>Logic</code> interface and exposes its functionality using the <code>LogicManager</code> class.</p>
+<p>For example, the <code>Logic</code> component (see the <strong><em>class diagram</em></strong> given below) defines it&#8217;s API in the <code>Logic</code> interface and exposes its functionality using the <code>LogicManager</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -434,13 +436,13 @@ Each of the User Interface, Logic, Model, Storage Components also:
 <p>This section explains the main nature of design adopted by the system.</p>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Sequence Diagram</em></strong> below shows how the components interact when the user issues the command <code>delete 1</code>.</p>
+<p>The <strong><em>sequence diagram</em></strong> below shows how the components interact when the user issues the command <code>find sengkang</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SDforDeletePerson.png" alt="SDforDeletePerson" width="800">
+<img src="images/Sequence%20diagram%20-%20Find%20Carpark.png" alt="Sequence diagram   Find Carpark" width="800">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command (part 1)</div>
+<div class="title">Figure 3. Component interactions for <code>find sengkang</code> command (part 1)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -455,13 +457,13 @@ Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent<
 </table>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Sequence Diagram</em></strong> below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
+<p>The <strong><em>sequence diagram</em></strong> below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SDforDeletePersonEventHandling.png" alt="SDforDeletePersonEventHandling" width="800">
+<img src="images/Sequence%20diagram%20-%20Find%20Carpark%20Event%20Handling.png" alt="Sequence diagram   Find Carpark Event Handling" width="800">
 </div>
-<div class="title">Figure 4. Component interactions for <code>delete 1</code> command (part 2)</div>
+<div class="title">Figure 4. Component interactions for <code>find sengkang</code> command (part 2)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -531,7 +533,7 @@ The base class
 <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a> uses <em>JavaFx UI</em> framework.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the <strong><em>Class Diagram</em></strong> below for more details on how they are connected.</p>
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -571,7 +573,7 @@ is specified in <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/mast
 It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the <strong><em>Class Diagram</em></strong> below for more details on how they are connected.</p>
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
 </div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
@@ -599,7 +601,7 @@ It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/mai
 </ol>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Sequence Diagram</em></strong> below shows the interactions within the <code>Logic</code> component
+<p>The <strong><em>sequence diagram</em></strong> below shows the interactions within the <code>Logic</code> component
 when <code>execute("delete 1")</code> is called.</p>
 </div>
 <div class="imageblock">
@@ -617,7 +619,7 @@ It does not depend on any of the three other components.
 <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a> is the base class.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the <strong><em>Class Diagram</em></strong> below for more details.</p>
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -684,7 +686,7 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a> is the base class.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the <strong><em>Class Diagram</em></strong> below for more details on how they are connected.</p>
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -715,12 +717,304 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="query-feature"><a class="link" href="#query-feature">4.1. Query feature</a></h3>
+<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1. Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The undo/redo mechanism is facilitated by <code>VersionedCarparkFinder</code>.
+It extends <code>CarparkFinder</code> with an undo/redo history, stored internally as an <code>carparkFinderStateList</code> and <code>currentStatePointer</code>.
+Additionally, it implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VersionedCarparkFinder#commit()</code>&#8201;&#8212;&#8201;Saves the current car park finder state in its history.</p>
+</li>
+<li>
+<p><code>VersionedCarparkFinder#undo()</code>&#8201;&#8212;&#8201;Restores the previous car park finder state from its history.</p>
+</li>
+<li>
+<p><code>VersionedCarparkFinder#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone car park finder state from its history.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> and <code>Model#redoCarparkFinder()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>VersionedCarparkFinder</code> will be initialized with the initial car park finder state, and the <code>currentStatePointer</code> pointing to that single car park finder state.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram showcases the state at the start of the program.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagramNew1.png" alt="UndoRedoActivityDiagramNew1" width="800">
+</div>
+<div class="title">Figure 11. State and the start of the program</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>find sengkang</code> command to find list of car park which contain sengkang from the car park finder. The <code>find</code> command calls <code>Model#updateFilteredCarparkList()</code>, causing the modified state of the car park finder after the <code>find sengkang</code> command executes to be saved in the <code>carparkFinderStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows a new state is created after the command <code>find segkang</code> is ran.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagramNew2.png" alt="UndoRedoActivityDiagramNew2" width="800">
+</div>
+<div class="title">Figure 12. State after running find command</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>clear</code> to clear all entries. The <code>clear</code> command also calls <code>Model#commitCarparkFinder()</code>, causing another modified car park finder state to be saved into the <code>carparkFinderStateList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows a new state is created after the command <code>clear</code> is ran.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagramNew3.png" alt="UndoRedoActivityDiagramNew3" width="800">
+</div>
+<div class="title">Figure 13. State after running find then clear command</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command fails its execution, it will not call <code>Model#commitCarparkFinder()</code>, so the car park finder state will not be saved into the <code>carparkFinderStateList</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoCarparkFinder()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous car park finder state, and restores the car park finder to that state.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows a new state is created after the command <code>undo</code> is ran. The state pointer is moved.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagramNew4.png" alt="UndoRedoActivityDiagramNew4" width="800">
+</div>
+<div class="title">Figure 14. How the undo feature works in a diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index 0, pointing to the initial car park finder state, then there are no previous car park finder states to restore. The <code>undo</code> command uses <code>Model#canUndoCarparkFinder()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following <strong><em>sequence diagram</em></strong> shows how the undo operation works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Sequence%20Diagram%20-%20Undo.png" alt="Sequence Diagram   Undo" width="800">
+</div>
+<div class="title">Figure 15. Sequence diagram of Undo/Redo feature</div>
+</div>
+<div class="paragraph">
+<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCarparkFinder()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList.size() - 1</code>, pointing to the latest car park finder state, then there are no undone car park finder states to restore. The <code>redo</code> command uses <code>Model#canRedoCarparkFinder()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the car park finder, such as <code>list</code>, will usually not call <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> or <code>Model#redoCarparkFinder()</code>. Thus, the <code>carparkFinderStateList</code> remains unchanged.</p>
+</div>
+<div class="paragraph">
+<p>The follow diagram showcases what happen when a command that does not modify the state is used.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagramNew5.png" alt="UndoRedoActivityDiagramNew5" width="800">
+</div>
+<div class="title">Figure 16. As the command does nothing, the state is not changed, but a new state is introduced</div>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCarparkFinder()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>carparkFinderStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>find sengkang</code> command. This is the behavior that most modern desktop applications follow.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram showcases when a new command is used after an undo.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoRedoActivityDiagramNew6.png" alt="UndoRedoActivityDiagramNew6" width="800">
+</div>
+<div class="title">Figure 17. Deleting a state diagram after an undo</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/General%20new%20command.png" alt="General new command" width="650">
+</div>
+<div class="title">Figure 18. Activity diagram of a sample command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Saves the entire car park finder.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">May have performance issues in terms of memory usage.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will use less memory (e.g. for <code>select</code>, just save the car park being selected).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We must ensure that the implementation of each individual command are correct.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of car park finder states.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedCarparkFinder</code>.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">We do not need to maintain a separate list, and just reuse what is already in the codebase.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.2. [Proposed] Data Encryption</a></h3>
+<div class="paragraph">
+<p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
+</div>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">4.2.1. Overview</a></h4>
+<div class="paragraph">
+<p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
+The key will stored in a secured location to prevent people from accessing it.</p>
+</div>
+<div class="paragraph">
+<p>The two main files it will encrypt are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Carpark information</p>
+</li>
+<li>
+<p>User&#8217;s favorites</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">4.2.2. Example</a></h4>
+<div class="paragraph">
+<p><em>This feature is coming in v2.0.</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="query-feature"><a class="link" href="#query-feature">4.3. Query feature</a></h3>
 <div class="paragraph">
 <p>The query features updates the car park information.</p>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">4.1.1. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">4.3.1. Overview</a></h4>
 <div class="paragraph">
 <p>The query mechanism does an API call to the website <code>data.gov.sg</code> to obtain car park information in <code>JSON</code> format.
 An external library <code>Gson</code> is used to parse the data in <code>GsonUtil</code>. The data is stored internally as a <code>CarparkJson</code> object.</p>
@@ -738,6 +1032,9 @@ An external library <code>Gson</code> is used to parse the data in <code>GsonUti
 </li>
 <li>
 <p><code>GsonUtil#fetchCarparkInfo()</code> — Return a list of car parks with populated data.</p>
+</li>
+<li>
+<p><code>GsonUtil#loadCarparkPostalCode</code> — Return a list of postal code information, with hashed coordinate data.</p>
 </li>
 </ul>
 </div>
@@ -758,7 +1055,7 @@ A local copy of the car park information is saved at the end. The user only need
 </div>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="link" href="#example">4.1.2. Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">4.3.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the query mechanism behaves at each step.</p>
 </div>
@@ -811,11 +1108,11 @@ all the car parks and prevent duplicate entries.</p>
 <div class="content">
 <img src="images/zy_seq.png" alt="zy seq" width="800">
 </div>
-<div class="title">Figure 11. Interactions for query operation</div>
+<div class="title">Figure 19. Interactions for query operation</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.3.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-query-executes"><a class="link" href="#aspect-how-query-executes">Aspect: How query executes</a></h5>
 <div class="ulist">
@@ -909,12 +1206,12 @@ all the car parks and prevent duplicate entries.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="propose-notify-feature"><a class="link" href="#propose-notify-feature">4.2. [Propose] Notify feature</a></h3>
+<h3 id="propose-notify-feature"><a class="link" href="#propose-notify-feature">4.4. [Propose] Notify feature</a></h3>
 <div class="paragraph">
 <p>The notify feature updates specific car parks.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">4.2.1. Overview</a></h4>
+<h4 id="overview-3"><a class="link" href="#overview-3">4.4.1. Overview</a></h4>
 <div class="paragraph">
 <p>The notify mechanism will fetch data from the API every interval. The interval can be set in terms of seconds/minutes
 and is used in conjunction with the <code>select</code> command.</p>
@@ -924,7 +1221,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">4.2.2. Example</a></h4>
+<h4 id="example-3"><a class="link" href="#example-3">4.4.2. Example</a></h4>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
@@ -932,11 +1229,11 @@ and is used in conjunction with the <code>select</code> command.</p>
 <div class="content">
 <img src="images/zy_act.png" alt="zy act" width="800">
 </div>
-<div class="title">Figure 12. Summary for executing a notify command</div>
+<div class="title">Figure 20. Summary for executing a notify command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.4.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-notify-executes"><a class="link" href="#aspect-how-notify-executes">Aspect: How notify executes</a></h5>
 <div class="ulist">
@@ -985,12 +1282,12 @@ and is used in conjunction with the <code>select</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">4.3. Find feature</a></h3>
+<h3 id="find-feature"><a class="link" href="#find-feature">4.5. Find feature</a></h3>
 <div class="paragraph">
 <p>The find feature searches for a car park by keyword or location.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">4.3.1. Overview</a></h4>
+<h4 id="overview-4"><a class="link" href="#overview-4">4.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>The find mechanism is facilitated by <code>FindCommand</code> and <code>FindCommandParser</code>. It extends <code>Command</code> and implements the following operations:</p>
 </div>
@@ -1018,14 +1315,14 @@ and is used in conjunction with the <code>select</code> command.</p>
 <div class="content">
 <img src="images/seqdiagram-find.png" alt="seqdiagram find" width="800">
 </div>
-<div class="title">Figure 13. How the find operation works</div>
+<div class="title">Figure 21. How the find operation works</div>
 </div>
 <div class="paragraph">
 <p>The diagram above describes how the flow of a find command would execute. It rely on <code>FindCommandParser</code> to ensure the variables are correct.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">4.3.2. Example</a></h4>
+<h4 id="example-4"><a class="link" href="#example-4">4.5.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the Find mechanism behaves at each step.</p>
 </div>
@@ -1061,11 +1358,11 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 <div class="content">
 <img src="images/actdiagram-find.png" alt="actdiagram find" width="800">
 </div>
-<div class="title">Figure 14. Flow chart of the find operation.</div>
+<div class="title">Figure 22. Flow chart of the find operation.</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.3. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-predicate-works"><a class="link" href="#aspect-how-predicate-works">Aspect: How predicate works</a></h5>
 <div class="ulist">
@@ -1114,12 +1411,12 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter-feature"><a class="link" href="#filter-feature">4.4. Filter feature</a></h3>
+<h3 id="filter-feature"><a class="link" href="#filter-feature">4.6. Filter feature</a></h3>
 <div class="paragraph">
 <p>The filter feature reduces the amount of car park data by a condition.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-4"><a class="link" href="#overview-4">4.4.1. Overview</a></h4>
+<h4 id="overview-5"><a class="link" href="#overview-5">4.6.1. Overview</a></h4>
 <div class="paragraph">
 <p>The filter mechanism is facilitated by <code>FilterCommand</code> and <code>FilterCommandParser</code>.
 The filter mechanism can filter car parks by the following criteria:</p>
@@ -1163,7 +1460,7 @@ It then splits the arguments by white spaces and store then into an array list.<
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.4.2. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.6.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the filter mechanism behaves at each step when filtering for free parking.</p>
 </div>
@@ -1193,7 +1490,7 @@ It then splits the arguments by white spaces and store then into an array list.<
 <div class="content">
 <img src="images/SequenceDiagram-filter.png" alt="SequenceDiagram filter" width="700">
 </div>
-<div class="title">Figure 15. How the filter operation works</div>
+<div class="title">Figure 23. How the filter operation works</div>
 </div>
 <div class="paragraph">
 <p>The following <em>Activity Diagram</em> summarizes the implementation of the
@@ -1203,11 +1500,11 @@ filter command.</p>
 <div class="content">
 <img src="images/ActivityDiagram-filter.png" alt="ActivityDiagram filter" width="700">
 </div>
-<div class="title">Figure 16. Summary for executing a filter command</div>
+<div class="title">Figure 24. Summary for executing a filter command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.3. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-location-based-filtering-executes"><a class="link" href="#aspect-how-location-based-filtering-executes">Aspect: How location based filtering executes</a></h5>
 <div class="ulist">
@@ -1256,19 +1553,19 @@ filter command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.5. Abbreviation Feature</a></h3>
+<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.7. Abbreviation Feature</a></h3>
 <div class="paragraph">
 <p>The abbreviation feature reduces the amount of characters needed to type.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-5"><a class="link" href="#overview-5">4.5.1. Overview</a></h4>
+<h4 id="overview-6"><a class="link" href="#overview-6">4.7.1. Overview</a></h4>
 <div class="paragraph">
 <p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
 to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-4"><a class="link" href="#example-4">4.5.2. Example</a></h4>
+<h4 id="example-5"><a class="link" href="#example-5">4.7.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the abbreviation mechanism behaves at
 each step.</p>
@@ -1292,7 +1589,7 @@ proceeds as if a <code>find</code> command is given.</p>
 <div class="content">
 <img src="images/ActivityDiagram-alias.png" alt="ActivityDiagram alias" width="700">
 </div>
-<div class="title">Figure 17. Flow chart of command alias usage.</div>
+<div class="title">Figure 25. Flow chart of command alias usage.</div>
 </div>
 <div class="paragraph">
 <p>The <em>Activity Diagram</em> above explains what happens when a user executes a <code>f</code>
@@ -1300,7 +1597,7 @@ command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.3. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-alias-executes"><a class="link" href="#aspect-how-alias-executes">Aspect: How alias executes</a></h5>
 <div class="ulist">
@@ -1352,12 +1649,12 @@ in each Command file.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">4.6. Auto-complete Feature</a></h3>
+<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">4.8. Auto-complete Feature</a></h3>
 <div class="paragraph">
 <p>The auto-complete feature simplifies overcomplicated commands by prompting correct format.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-6"><a class="link" href="#overview-6">4.6.1. Overview</a></h4>
+<h4 id="overview-7"><a class="link" href="#overview-7">4.8.1. Overview</a></h4>
 <div class="paragraph">
 <p>The auto-complete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
 to <code>displayFormat()</code> if applicable command word is entered or to highlight the next
@@ -1365,7 +1662,7 @@ parameter if full format is already provided in the command box.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-5"><a class="link" href="#example-5">4.6.2. Example</a></h4>
+<h4 id="example-6"><a class="link" href="#example-6">4.8.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the auto-complete mechanism behaves at
 each step.</p>
@@ -1384,13 +1681,13 @@ from the following diagrams.</p>
 <div class="content">
 <img src="images/screenshot-fi.png" alt="screenshot fi" width="700">
 </div>
-<div class="title">Figure 18. After <code>fi</code> is entered.</div>
+<div class="title">Figure 26. After <code>fi</code> is entered.</div>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="images/screenshot-fiFirstArgSelected.png" alt="screenshot fiFirstArgSelected" width="700">
 </div>
-<div class="title">Figure 19. After <kbd>Tab</kbd> is pressed for the first time.</div>
+<div class="title">Figure 27. After <kbd>Tab</kbd> is pressed for the first time.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user replaces <code>DAY</code> with an actual value, <code>SUN</code>, and presses 'Tab'
@@ -1402,7 +1699,7 @@ is shown in the following diagram.</p>
 <div class="content">
 <img src="images/screenshot-fiSecondArgSelected.png" alt="screenshot fiSecondArgSelected" width="700">
 </div>
-<div class="title">Figure 20. After <kbd>Tab</kbd> is pressed for the second time.</div>
+<div class="title">Figure 28. After <kbd>Tab</kbd> is pressed for the second time.</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user continues step 3 until all placeholders are filled up with actual
@@ -1412,14 +1709,14 @@ values and then presses <kbd>Enter</kbd>  to execute this command.</p>
 <div class="content">
 <img src="images/ActivityDiagram-autocompletion.png" alt="ActivityDiagram autocompletion" width="700">
 </div>
-<div class="title">Figure 21. Activity Diagram for Auto Completion Mechanism.</div>
+<div class="title">Figure 29. Activity Diagram for Auto Completion Mechanism.</div>
 </div>
 <div class="paragraph">
 <p>The <em>Activity Diagram</em> above explains what happens when user presses <kbd>Tab</kbd>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-textinput"><a class="link" href="#aspect-textinput">Aspect: TextInput</a></h5>
 <div class="ulist">
@@ -1474,14 +1771,14 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1512,7 +1809,7 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1578,7 +1875,7 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 <div class="content">
 <img src="images/chrome_save_as_pdf.png" alt="chrome save as pdf" width="300">
 </div>
-<div class="title">Figure 22. Saving documentation as PDF files in Chrome</div>
+<div class="title">Figure 30. Saving documentation as PDF files in Chrome</div>
 </div>
 </div>
 <div class="sect2">
@@ -3467,4 +3764,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 12:05:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 16:16:58 UTC</div></div></div></body></html>
