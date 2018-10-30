@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Dummy Search Page</title>
+  <link rel="stylesheet" href="styles.css">
   <script type="text/javascript">
     function getJsonFromUrl() {
       var query = location.search.substr(1);
@@ -20,18 +21,8 @@
   </script>
 </head>
 <body>
-  <iframe width="1000" height="400" src="https://data.gov.sg/dataset/hdb-carpark-information/resource/139a3035-e624-4f56-b63f-89ae28d4ae4c/view/e02fdccf-b667-4ede-a87b-74cb9f1e6080" frameBorder=" 10"> </iframe>
-
-  <br>
-  Hi <span id="name"></span>: This is a placeholder page for se-edu/addressbook-level4.<br>
-  You may update the code to load a page from a real service (e.g., Google search).<br>
-  This dummy page is used here because, given the high number of forks of this repo, <br>
-  loading a page from a real third-party service by default can result in that service taking counter-measures <br>
-  (e.g., redirecting to captcha pages) due to the high number of rapid requests received from a single IP.<br>
-  When you have made the change, please remove:
-  <ol>
-    <li>This file (<code>docs/DummySearchPage.html</code>).</li>
-    <li>Task <code>copyDummySearchPage</code> in both <code>build.gradle</code> and <code>.travis.yml</code>.</li>
-  </ol>
+  <div class="h_iframe">
+	  <iframe src="https://data.gov.sg/dataset/hdb-carpark-information/resource/139a3035-e624-4f56-b63f-89ae28d4ae4c/view/e02fdccf-b667-4ede-a87b-74cb9f1e6080" frameborder="0" allowfullscreen></iframe>
+  </div>
 </body>
 </html>
