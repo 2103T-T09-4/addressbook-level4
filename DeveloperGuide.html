@@ -694,7 +694,7 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 </div>
 <div class="title">Figure 10. Structure of the Storage Component</div>
 </div>
-<div class="paragraph">
+<div id="localcopy" class="paragraph">
 <p>The <code>Storage</code> component can perform the following functions:</p>
 </div>
 <div class="ulist">
@@ -1011,12 +1011,13 @@ The key will stored in a secured location to prevent people from accessing it.</
 <div class="sect2">
 <h3 id="query-feature"><a class="link" href="#query-feature">4.3. Query feature</a></h3>
 <div class="paragraph">
-<p>The query features updates the car park information.</p>
+<p>The <code>query</code> command updates the information of every car park using the latest information provided by
+<code>data.gov.sg</code> database.</p>
 </div>
 <div class="sect3">
 <h4 id="overview-2"><a class="link" href="#overview-2">4.3.1. Overview</a></h4>
 <div class="paragraph">
-<p>The query mechanism does an API call to the website <code>data.gov.sg</code> to obtain car park information in <code>JSON</code> format.
+<p>The mechanism does an API call to the website <code>data.gov.sg</code> to obtain car park information in <code>JSON</code> format.
 An external library <code>Gson</code> is used to parse the data in <code>GsonUtil</code>. The data is stored internally as a <code>CarparkJson</code> object.</p>
 </div>
 <div class="paragraph">
@@ -1041,14 +1042,14 @@ An external library <code>Gson</code> is used to parse the data in <code>GsonUti
 <div class="paragraph">
 <p>Only <code>GsonUtil#fetchCarparkInfo()</code> is exposed in <code>QueryCommand</code>, inside <code>QueryCommand#readCarpark()</code> method.</p>
 </div>
-<div class="admonitionblock note">
+<div class="admonitionblock tip">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A local copy of the car park information is saved at the end. The user only needs to execute this command to get the latest information.
+A <a href="#localcopy">local copy</a> of the data is saved at the end. Users only need to execute this command if they want to get the most recent information from the database.
 </td>
 </tr>
 </table>
@@ -1109,6 +1110,18 @@ all the car parks and prevent duplicate entries.</p>
 <img src="images/zy_seq.png" alt="zy seq" width="800">
 </div>
 <div class="title">Figure 19. Interactions for query operation</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For more details on the internal workings of <code>Model</code> please refer to <code>undo</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -3764,4 +3777,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 06:35:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 09:20:18 UTC</div></div></div></body></html>
