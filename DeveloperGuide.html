@@ -43,10 +43,11 @@
 <li><a href="#propose-notify-feature">4.4. [Propose] Notify feature</a></li>
 <li><a href="#find-feature">4.5. Find feature</a></li>
 <li><a href="#filter-feature">4.6. Filter feature</a></li>
-<li><a href="#abbreviation-feature">4.7. Abbreviation Feature</a></li>
-<li><a href="#auto-complete-feature">4.8. Auto-complete Feature</a></li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#calculate-feature">4.7. Calculate Feature</a></li>
+<li><a href="#abbreviation-feature">4.8. Abbreviation Feature</a></li>
+<li><a href="#auto-complete-feature">4.9. Auto-complete Feature</a></li>
+<li><a href="#logging">4.10. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1426,24 +1427,34 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 <div class="sect2">
 <h3 id="filter-feature"><a class="link" href="#filter-feature">4.6. Filter feature</a></h3>
 <div class="paragraph">
-<p>The filter feature reduces the amount of car park data by a condition.</p>
+<p>The filter feature allow users to find a suitable car park based on criteria that users input, within a certain area.</p>
 </div>
 <div class="sect3">
 <h4 id="overview-5"><a class="link" href="#overview-5">4.6.1. Overview</a></h4>
 <div class="paragraph">
 <p>The filter mechanism is facilitated by <code>FilterCommand</code> and <code>FilterCommandParser</code>.
-The filter mechanism can filter car parks by the following criteria:</p>
+The filter mechanism can filter car parks by the following criteria. The corresponding flag of each criterion is also
+indicated below.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Type of car park</p>
+<p>Car park has available parking slots <code>a/</code></p>
 </li>
 <li>
-<p>Availability of free parking</p>
+<p>Car park has short-term parking <code>s/</code></p>
 </li>
 <li>
-<p>Availability of night parking</p>
+<p>Type of car park <code>ct/</code></p>
+</li>
+<li>
+<p>Car park has free parking between a specified time period <code>f/</code></p>
+</li>
+<li>
+<p>Car park has night parking <code>n/</code></p>
+</li>
+<li>
+<p>Type of parking system that the car park uses <code>ps/</code></p>
 </li>
 </ul>
 </div>
@@ -1453,8 +1464,8 @@ The filter mechanism can filter car parks by the following criteria:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>FilterCommandParser#parse()</code>&#8201;&#8212;&#8201;Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found.
-It then splits the arguments by white spaces and store then into an array list.</p>
+<p><code>FilterCommandParser#parse()</code>&#8201;&#8212;&#8201;Splits the arguments by white spaces and store them into an array list.
+Parser then checks the validity of the arguments input by user, and throws a <code>ParseException</code> when arguments are deemed invalid in various ways.</p>
 </li>
 </ul>
 </div>
@@ -1464,37 +1475,136 @@ It then splits the arguments by white spaces and store then into an array list.<
 <div class="ulist">
 <ul>
 <li>
-<p><code>FilterCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by filtering the car park list against a selected predicate.</p>
-</li>
-<li>
-<p>The various predicates that <code>FilterCommand</code> uses include <code>CarparkHasFreeParkingPredicate</code>, <code>CarparkHasNightParkingPredicate</code> and <code>CarparkIsOfTypePredicate</code></p>
+<p><code>FilterCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by filtering the car park list with <code>CarparkFilteringPredicate</code>.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The <code>FilterCommand</code> is able to filter car parks by multiple criteria at a time.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.6.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Given below is an example usage scenario of how the filter mechanism behaves at each step when filtering for free parking.</p>
+<p>Given below is an example usage scenario of how the filter mechanism behaves at each step when filtering with the following criteria:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>car park is covered</p>
+</li>
+<li>
+<p>car park has free parking between Sunday 11.30am and 3.30pm</p>
+</li>
+<li>
+<p>car park currently has available parking slot</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>filter f/ SUN 7.30am 5.30pm</code> to get all car parks that has free parking between 7.30am and 5.30pm on the following Sunday.</p>
+<p>Step 2. The user executes <code>filter ct/ COVERED f/ SUN 11.30AM 3.30PM a/</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Input parameters can also be in lower case as <code>FilterCommandParser</code> will convert input parameters to upper case
+if they are not.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Step 3. After <code>CarparkFinderParser</code> detects <code>filter</code> as the command word, a
-<code>FilterCommandParser</code> is created to parse the arguments supplied to the command into <code>String[] flags</code>.</p>
+<code>FilterCommandParser</code> is created to parse the arguments supplied to the command.</p>
 </div>
 <div class="paragraph">
-<p>Step 4. The <code>FilterCommand</code> object is then created to decode <code>String[] flags</code> and create the <code>CarparkHasFreeParkingPredicate</code>.</p>
+<p>Step 4. The <code>FilterCommandParser</code> splits the arguments by white spaces and store them into <code>List&lt;String&gt; argumentsList</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. <code>CarparkHasFreeParkingPredicate</code> checks that a carpark has free parking on Sunday, and that the start and end time input by the user falls between the free parking time period of the car park.</p>
+<p>Step 5. Then, it identifies the flags  present in <code>List&lt;String&gt; argumentsList</code> and store them in <code>List&lt;String&gt; flagList</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If <code>List&lt;String&gt; flagList</code> is empty, <code>FilterCommandParser</code> throws a <code>ParseException</code> to indicatte that the command has invalid parameters.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Step 6. The list of car parks is filtered against the predicate and returned to the GUI.</p>
+<p>Step 6. <code>FilterCommandParser</code> also parses the parameter(s) of each flag, and throws <code>ParseException</code> when necessary.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ct/</code>: <code>FilterCommandParser</code> ensures that <code>COVERED</code> is a valid car park type.</p>
+</li>
+<li>
+<p><code>f/</code>: <code>FilterCommandParser</code> ensures that <code>SUN</code> is a valid day and <code>11.30AM</code> and <code>3.30PM</code> are valid times.
+Moreover, <code>FilterCommandParser</code> ensures that all three parameters are present.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Step 7. Parameters of <code>ct/</code> and <code>f/</code> are packaged into <code>CarparkTypeParameter carparkTypeParameter</code> and
+ <code>FreeParkingParameter freeParkingParameter</code> respectively. They are then passed to a newly created <code>FilterCommand</code>
+ together with <code>List&lt;String&gt; flagList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. The <code>FilterCommand</code> object obtains the last predicate used by <code>FindCommand</code> from <code>model</code> and creates the <code>CarparkFilteringPredicate</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>ModelManager</code> stores the last predicate used by <code>FindCommand</code>. The predicate is updated every time <code>FindCommand</code> is executed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 9. Besides filtering by the last predicate used by <code>FindCommand</code> (location), <code>CarparkFilteringPredicate</code> has a
+series of <code>if</code> statements that checks which flags are present in <code>List&lt;String&gt; flagList</code>, before looking into
+the parameters of the flags.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>a/</code>: <code>CarparkFilteringPredicate</code> checks that the car park has available parking slots.</p>
+</li>
+<li>
+<p>For <code>ct/</code>: <code>CarparkFilteringPredicate</code> checks that the car park type of the car park is <code>COVERED</code>.</p>
+</li>
+<li>
+<p>For <code>f/</code>: <code>CarparkFilteringPredicate</code> checks that the car park has free parking on Sunday, and the start and end time
+input by the user falls between the free parking time period of the car park.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Step 10. To combine the filtering criteria, a boolean variable, <code>collective</code>, is used. The following snippet of code shows more clearly how it is used.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/CarparkFilteringPredicate_code_snippet.png" alt="CarparkFilteringPredicate code snippet" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 11. The list of car parks is filtered against the predicate and returned to the GUI.</p>
 </div>
 <div class="paragraph">
 <p>Please refer to the <em>Sequence Diagram</em> below for the filter operation.</p>
@@ -1519,11 +1629,11 @@ filter command.</p>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.6.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-location-based-filtering-executes"><a class="link" href="#aspect-how-location-based-filtering-executes">Aspect: How location based filtering executes</a></h5>
+<h5 id="aspect-how-location-based-filtering-is-done"><a class="link" href="#aspect-how-location-based-filtering-is-done">Aspect: How location based filtering is done</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (Current choice):</strong> Extracting the location from the previous <code>FindCommand</code> to form the predicate for the current <code>FilterCommand</code></p>
+<p><strong>Alternative 1 (Current choice):</strong> Extracting the location from the previous <code>FindCommand</code> to form part of the predicate for the current <code>FilterCommand</code></p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -1532,17 +1642,18 @@ filter command.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Able to pass in the location as a parameter easily when creating the combined predicate. Various existing methods that filters the whole list of car parks can still be used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Able to creating a combined predicate that does location-based filtering easily.
+Various existing methods that filters the list of car parks can still be used.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency compromised as the whole list of car parks needs to be filtered through again.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency compromised as the list of car park needs to be filtered by location again.</p></td>
 </tr>
 </tbody>
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Store the location-filtered list of car parks from <code>FindCommand</code>, then <code>FilterCommand</code> filters from the filtered list of car parks.</p>
+<p><strong>Alternative 2:</strong> Store the filtered list of car parks from <code>FindCommand</code>, then filter from there.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -1555,7 +1666,8 @@ filter command.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Additional memory required to store the list of car park generated by <code>FindCommand</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional memory required to store the list of car park generated by <code>FindCommand</code>.
+A whole new set of classes and methods needs to be written to store the filtered list, might over-complicate code.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1566,19 +1678,40 @@ filter command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.7. Abbreviation Feature</a></h3>
+<h3 id="calculate-feature"><a class="link" href="#calculate-feature">4.7. Calculate Feature</a></h3>
+<div class="paragraph">
+<p>The calculate feature helps users calculate the cost of parking at a specific car park for a specified time period.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-6"><a class="link" href="#overview-6">4.7.1. Overview</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="example-5"><a class="link" href="#example-5">4.7.2. Example</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-calculation-is-done"><a class="link" href="#aspect-how-calculation-is-done">Aspect: How calculation is done</a></h5>
+
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.8. Abbreviation Feature</a></h3>
 <div class="paragraph">
 <p>The abbreviation feature reduces the amount of characters needed to type.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-6"><a class="link" href="#overview-6">4.7.1. Overview</a></h4>
+<h4 id="overview-7"><a class="link" href="#overview-7">4.8.1. Overview</a></h4>
 <div class="paragraph">
 <p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
 to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-5"><a class="link" href="#example-5">4.7.2. Example</a></h4>
+<h4 id="example-6"><a class="link" href="#example-6">4.8.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the abbreviation mechanism behaves at
 each step.</p>
@@ -1610,7 +1743,7 @@ command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-abbreviation-executes"><a class="link" href="#aspect-how-abbreviation-executes">Aspect: How abbreviation executes</a></h5>
 <div class="ulist">
@@ -1662,12 +1795,12 @@ in each Command file.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">4.8. Auto-complete Feature</a></h3>
+<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">4.9. Auto-complete Feature</a></h3>
 <div class="paragraph">
 <p>The auto-complete feature simplifies overcomplicated commands by prompting correct format.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-7"><a class="link" href="#overview-7">4.8.1. Overview</a></h4>
+<h4 id="overview-8"><a class="link" href="#overview-8">4.9.1. Overview</a></h4>
 <div class="paragraph">
 <p>The auto-complete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
 to <code>displayFormat()</code> if applicable command word is entered or to highlight the next
@@ -1675,7 +1808,7 @@ parameter if full format is already provided in the command box.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-6"><a class="link" href="#example-6">4.8.2. Example</a></h4>
+<h4 id="example-7"><a class="link" href="#example-7">4.9.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the auto-complete mechanism behaves at
 each step.</p>
@@ -1729,7 +1862,7 @@ values and then presses <kbd>Enter</kbd>  to execute this command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.3. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.9.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-textinput"><a class="link" href="#aspect-textinput">Aspect: TextInput</a></h5>
 <div class="ulist">
@@ -1784,14 +1917,14 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.10. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.11, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1822,7 +1955,7 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3777,4 +3910,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 12:25:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 14:33:51 UTC</div></div></div></body></html>

@@ -14,17 +14,17 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#Features-Help">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#Features-Find">3.2. Finding car parks : <code>find</code></a></li>
-<li><a href="#Features-Select">3.3. Select car park : <code>select</code></a></li>
-<li><a href="#Features-History">3.4. Listing entered commands : <code>history</code></a></li>
-<li><a href="#Features-Filter">3.5. Filtering car parks : <code>filter</code></a></li>
-<li><a href="#Features-Sort">3.6. Sorting car parks : <code>sort</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#Features-List">3.7. Listing all car parks : <code>list</code></a></li>
-<li><a href="#Features-Add">3.8. Adding favourite car parks or location : <code>add</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#filtering-car-parks-code-filter-code">3.2. Filtering car parks : <code>filter</code></a></li>
+<li><a href="#Features-Find">3.3. Finding car parks : <code>find</code></a></li>
+<li><a href="#select-car-park-code-select-code">3.4. Select car park : <code>select</code></a></li>
+<li><a href="#Features-History">3.5. Listing entered commands : <code>history</code></a></li>
+<li><a href="#calculating-the-cost-of-parking-code-calculate-code">3.6. Calculating the cost of parking : <code>calculate</code></a></li>
+<li><a href="#listing-all-car-parks-code-list-code">3.7. Listing all car parks : <code>list</code></a></li>
+<li><a href="#adding-favourite-car-parks-or-location-code-add-code-code-coming-in-v2-0-code">3.8. Adding favourite car parks or location : <code>add</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#Features-Delete">3.9. Removing from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#Features-Query">3.10. Querying data: <code>query</code></a></li>
-<li><a href="#Features-Notify">3.11. Enabling Notification : <code>notify</code></a></li>
-<li><a href="#Features-Weather">3.12. Updating Weather : <code>weather</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#enabling-notification-code-notify-code-code-coming-in-v2-0-code">3.11. Enabling Notification : <code>notify</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#updating-weather-code-weather-code-code-coming-in-v2-0-code">3.12. Updating Weather : <code>weather</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#Features-Clear">3.13. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#Features-Exit">3.14. Exiting the application : <code>exit</code></a></li>
 <li><a href="#auto-complete-the-command-line">3.15. Auto complete the command line</a></li>
@@ -123,11 +123,7 @@ Some example commands you can try:<br>
 parameter which can be used as <code>find serangoon</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>filter [f/] [n/] [ct/CARPARK_TYPE]</code> can be used as <code>filter f/ n/ ct/SURFACE</code> or as <code>filter f/</code>.</p>
-</li>
-<li>
-<p>Parameters can be in any order e.g. if the command specifies <code>filter [f/] [n/] [ct/CARPARK_TYPE]</code>,
-<code>filter [n/] [f/] [ct/CARPARK_TYPE]</code> is also acceptable.</p>
+<p>Parameters in square brackets are optional, and can be in any order.</p>
 </li>
 </ul>
 </div>
@@ -136,9 +132,27 @@ parameter which can be used as <code>find serangoon</code>.</p>
 <div class="sect2">
 <h3 id="Features-Help"><a class="link" href="#Features-Help">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Shows the list of available commands and how to use them.<br>
-Format: <code>help</code> or <code>h</code></p>
+<p>Shows the list of available commands and how to use them.</p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -154,25 +168,197 @@ use them.</p>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="filtering-car-parks-code-filter-code"><a class="link" href="#filtering-car-parks-code-filter-code">3.2. Filtering car parks : <code>filter</code></a></h3>
 <div class="paragraph">
-<p>Example(s)</p>
+<p>Filters the list of car parks returned by <code>FindCommand</code> by:<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>help</code></p>
+<p>Car park has available parking slots <code>a/</code></p>
+</li>
+<li>
+<p>Car park has short-term parking <code>s/</code></p>
+</li>
+<li>
+<p>Type of car park <code>ct/</code></p>
+</li>
+<li>
+<p>Car park has free parking between a specified time period <code>f/</code></p>
+</li>
+<li>
+<p>Car park has night parking <code>n/</code></p>
+</li>
+<li>
+<p>Type of parking system that the car park uses <code>ps/</code></p>
 </li>
 </ul>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [flag&amp;parameter(s)] [flag&amp;parameter(s)] &#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ SUN 7.30AM 5.30PM ct/ SURFACE</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>FilterCommand</code> and take in any number of flags, in any order.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>List of valid flags:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 27.2727%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 27.2727%;">
+<col style="width: 27.2728%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Criteria</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter Structure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid Parameters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has free parking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY START_TIME END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY</code>: <code>MON</code> - <code>SUN</code><br>
+<code>START_TIME</code>: e.g. <code>7.30AM</code><br>
+<code>END_TIME</code>: e.g. <code>9.30PM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter f/ <code>sun 9.00am 5.30pm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has night parking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of car park</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ct/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CAR_PARK_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"SURFACE", "MULTISTOREY", "BASEMENT", "MECHANISED", "COVERED"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter ct/ covered</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has available parking slot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has short-term parking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of parking system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ps/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PARKING_SYSTEM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"COUPON", "ELECTRONIC"</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter ps/ coupon</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>FindCommand</code> must be used to find a list of carparks within the location first.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Upper and lower case characters do not matter.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/filter.png" alt="filter" width="880">
+</div>
+<div class="title">Figure 1. Filtering covered car parks</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Find"><a class="link" href="#Features-Find">3.2. Finding car parks : <code>find</code></a></h3>
+<h3 id="Features-Find"><a class="link" href="#Features-Find">3.3. Finding car parks : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds a list of available car parks.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Find a list of car parks within a certain location.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find serangoon</code><br>
+<code>f HG83</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -183,13 +369,15 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/findbefore.png" alt="findbefore" width="880">
 </div>
-<div class="title">Figure 1. Before using find command</div>
+<div class="title">Figure 2. Before using find command</div>
 </div>
 <div class="paragraph">
 <p>The figure above is a sample display of the application.</p>
@@ -198,33 +386,43 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 <div class="content">
 <img src="images/findafter.png" alt="findafter" width="880">
 </div>
-<div class="title">Figure 2. After using find command</div>
+<div class="title">Figure 3. After using find command</div>
 </div>
 <div class="paragraph">
 <p>The figure above shows what happen after executing the <code>find</code> command.</p>
 </div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find punggol</code></p>
-</li>
-<li>
-<p><code>f HG83</code></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Select"><a class="link" href="#Features-Select">3.3. Select car park : <code>select</code></a></h3>
+<h3 id="select-car-park-code-select-code"><a class="link" href="#select-car-park-code-select-code">3.4. Select car park : <code>select</code></a></h3>
 <div class="paragraph">
-<p>Select the car park you wish to go to.<br>
-Format: <code>select INDEX</code> or <code>s INDEX</code></p>
+<p>Select the car park you wish to go to.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 1</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -235,45 +433,53 @@ Format: <code>select INDEX</code> or <code>s INDEX</code></p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/select.png" alt="select" width="880">
 </div>
-<div class="title">Figure 3. After using select command</div>
+<div class="title">Figure 4. After using select command</div>
 </div>
-<div class="paragraph">
-<p>The figure above is the outcome of the select command.</p>
-</div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="paragraph">
-<p>Selecting the 2nd car park in the list.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. <code>list</code></p>
-</div>
-<div class="paragraph">
-<p>Step 2. <code>select 2</code></p>
-</div>
-<div class="paragraph">
-<p>Selecting the 1st car park in the results of the <code>find</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. <code>find sengkang</code></p>
-</div>
-<div class="paragraph">
-<p>Step 2.  <code>s 1</code></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>ListCommand</code> must be executed before <code>SelectCommand</code>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Features-History"><a class="link" href="#Features-History">3.4. Listing entered commands : <code>history</code></a></h3>
+<h3 id="Features-History"><a class="link" href="#Features-History">3.5. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br>
-Format: <code>history</code></p>
+<p>Lists all the commands that you have entered in reverse chronological order.<br></p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -288,24 +494,31 @@ Format: <code>history</code></p>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Example(s)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>history</code></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Filter"><a class="link" href="#Features-Filter">3.5. Filtering car parks : <code>filter</code></a></h3>
+<h3 id="calculating-the-cost-of-parking-code-calculate-code"><a class="link" href="#calculating-the-cost-of-parking-code-calculate-code">3.6. Calculating the cost of parking : <code>calculate</code></a></h3>
 <div class="paragraph">
-<p>Filters the list of car parks by free parking, night parking or car park type.<br>
-Format: <code>filter [f/ DAY START_TIME END_TIME] [n/] [ct/ CARPARK_TYPE]</code><br>
-or <code>fi [f/ DAY START_TIME END_TIME] [n/] [ct/ CARPARK_TYPE]</code></p>
+<p>Calculates the cost of parking at a selected car park between a specified time period.</p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate DAY START_TIME END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate SUN 3.30PM 6.30PM</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -314,130 +527,37 @@ or <code>fi [f/ DAY START_TIME END_TIME] [n/] [ct/ CARPARK_TYPE]</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Must have car parks beforehand.<br>
-Upper and lower case characters do not matter.</p>
+<p><code>CalculateCommand</code> takes into account the free parking times of car parks.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Flags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>f/ - FREE_PARKING</code></p>
-</li>
-<li>
-<p><code>n/ - NIGHT_PARKING</code></p>
-</li>
-<li>
-<p><code>ct/ - CARPARK_TYPE</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SURFACE</code></p>
-</li>
-<li>
-<p><code>MULTI-STOREY</code></p>
-</li>
-<li>
-<p><code>BASEMENT</code></p>
-</li>
-<li>
-<p><code>COVERED</code></p>
-</li>
-<li>
-<p><code>MECHANISED</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/filter.png" alt="filter" width="880">
-</div>
-<div class="title">Figure 4. Filtering covered car parks</div>
-</div>
-<div class="paragraph">
-<p>After filtering, a smaller subset of car parks are listed.</p>
-</div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>filter f/ SUN 7.30AM 5.30PM n/ ct/ SURFACE</code></p>
-</li>
-<li>
-<p><code>fi ct/ BASEMENT</code></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Sort"><a class="link" href="#Features-Sort">3.6. Sorting car parks : <code>sort</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="listing-all-car-parks-code-list-code"><a class="link" href="#listing-all-car-parks-code-list-code">3.7. Listing all car parks : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Sort the list of car parks by distance or name.<br>
-Format: <code>sort FILTER_TYPE</code> or <code>so FILTER_TYPE</code></p>
+<p>Show a list of all the car parks with their details.</p>
 </div>
-<div class="admonitionblock note">
-<table>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Must have car parks listed beforehand.</p>
-</div>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">l</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+</tr>
+</tbody>
 </table>
-</div>
-<div class="paragraph">
-<p>Flags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>DISTANCE</code></p>
-</li>
-<li>
-<p><code>NAME</code></p>
-</li>
-<li>
-<p><code>FP (Free Parking)</code></p>
-</li>
-<li>
-<p><code>NP (Night Parking)</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>sort DISTANCE</code></p>
-</li>
-<li>
-<p><code>so NAME</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-List"><a class="link" href="#Features-List">3.7. Listing all car parks : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Show a list of all the car parks with their details.<br>
-Format: <code>list</code> or <code>l</code></p>
-</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/listafter.png" alt="listafter" width="880">
@@ -447,62 +567,81 @@ Format: <code>list</code> or <code>l</code></p>
 <div class="paragraph">
 <p>After executing <code>list</code>, it will show all the car parks again.</p>
 </div>
-<div class="paragraph">
-<p>Example(s)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Add"><a class="link" href="#Features-Add">3.8. Adding favourite car parks or location : <code>add</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="adding-favourite-car-parks-or-location-code-add-code-code-coming-in-v2-0-code"><a class="link" href="#adding-favourite-car-parks-or-location-code-add-code-code-coming-in-v2-0-code">3.8. Adding favourite car parks or location : <code>add</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Add a car park into your favorites list<br>
-Format: <code>add c/CARPARK_NUMBER</code> or <code>a c/CARPARK_NUMBER</code></p>
+<p>Add a car park into your favorites list.</p>
 </div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add c/SE12</code></p>
-</li>
-<li>
-<p><code>a c/SE12</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add c/CARPARK_NUMBER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add c/SE12</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="Features-Delete"><a class="link" href="#Features-Delete">3.9. Removing from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Remove the specified car park from your favorites list<br>
-Format: <code>delete c/CARPARK_NUMBER</code> or <code>d c/CARPARK_NUMBER</code></p>
+<p>Remove the specified car park from your favorites list.</p>
 </div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete c/SE12</code></p>
-</li>
-<li>
-<p><code>d c/SE12</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete c/CARPARK_NUMBER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">d</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete c/SE12</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="Features-Query"><a class="link" href="#Features-Query">3.10. Querying data: <code>query</code></a></h3>
 <div class="paragraph">
-<p>Get car park information from data.gov.sg by querying it.<br></p>
+<p>Get car park information from data.gov.sg by querying it.</p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -526,23 +665,31 @@ Format: <code>delete c/CARPARK_NUMBER</code> or <code>d c/CARPARK_NUMBER</code><
 <div class="paragraph">
 <p>All car parks data are refreshed, with all the bottom left panel saying when it was updated.</p>
 </div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>query</code></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Notify"><a class="link" href="#Features-Notify">3.11. Enabling Notification : <code>notify</code></a></h3>
+<h3 id="enabling-notification-code-notify-code-code-coming-in-v2-0-code"><a class="link" href="#enabling-notification-code-notify-code-code-coming-in-v2-0-code">3.11. Enabling Notification : <code>notify</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Set the interval to give updates in real time for all the car parks.<br>
-Format: <code>notify TIME_SECONDS</code> or <code>n TIME_SECONDS</code></p>
+<p>Set the interval to give updates in real time for all the car parks.</p>
 </div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify TIME_SECONDS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify 60</code></p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -557,73 +704,81 @@ Format: <code>notify TIME_SECONDS</code> or <code>n TIME_SECONDS</code></p>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>notify 60</code></p>
-</li>
-<li>
-<p><code>n 60</code></p>
-</li>
-</ul>
-</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Weather"><a class="link" href="#Features-Weather">3.12. Updating Weather : <code>weather</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="updating-weather-code-weather-code-code-coming-in-v2-0-code"><a class="link" href="#updating-weather-code-weather-code-code-coming-in-v2-0-code">3.12. Updating Weather : <code>weather</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p>Include weather updates in the notifications by indicating on or off.<br>
-Format: <code>weather TOGGLE</code></p>
+<p>Include weather updates in the notifications by indicating on or off.</p>
 </div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>weather on</code></p>
-</li>
-<li>
-<p><code>weather off</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>weather TOGGLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>weather on</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="Features-Clear"><a class="link" href="#Features-Clear">3.13. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the list.<br>
-Format: <code>clear</code></p>
+<p>Clears all entries from the list.</p>
 </div>
-<div class="paragraph">
-<p>Example(s)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>clear</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="Features-Exit"><a class="link" href="#Features-Exit">3.14. Exiting the application : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the application.<br>
-Format: <code>exit</code></p>
+<p>Exits the application.</p>
 </div>
-<div class="paragraph">
-<p>Example(s)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>exit</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="auto-complete-the-command-line"><a class="link" href="#auto-complete-the-command-line">3.15. Auto complete the command line</a></h3>
@@ -784,13 +939,13 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filter</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [f/FREE_PARKING] [n/NIGHT_PARKING] [ct/CARPARK_TYPE]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fi f/true n/false ct/multi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [flag&amp;parameter(s)] [flag&amp;parameter(s)] &#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fi f/ SUN 7.30AM 5.30PM ct/ SURFACE</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort FILTER_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>so DISTANCE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Calculate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate DAY START_TIME END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cal SUN 3.30PM 6.30PM</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notify</strong></p></td>
@@ -800,4 +955,4 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 12:25:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 14:33:51 UTC</div></div></div></body></html>
