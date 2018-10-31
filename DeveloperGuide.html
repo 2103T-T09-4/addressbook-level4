@@ -1581,15 +1581,15 @@ is initialized with an <code>CarparkFinderParser</code>.</p>
 statement.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. This <em>command word</em> will be matched to a <code>COMMAND_ALIAS</code> from
+<p>Step 3. This <em>command word</em> will be matched to a <code>COMMAND_ABBREVIATION</code> from
 <code>ListCommand</code>, which holds the value of 'f'. As the program finds a match, it
 proceeds as if a <code>find</code> command is given.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="images/ActivityDiagram-alias.png" alt="ActivityDiagram alias" width="700">
+<img src="images/ActivityDiagram-abbreviation.png" alt="ActivityDiagram abbreviation" width="700">
 </div>
-<div class="title">Figure 25. Flow chart of command alias usage.</div>
+<div class="title">Figure 25. Flow chart of command abbreviation usage.</div>
 </div>
 <div class="paragraph">
 <p>The <em>Activity Diagram</em> above explains what happens when a user executes a <code>f</code>
@@ -1599,11 +1599,11 @@ command.</p>
 <div class="sect3">
 <h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-alias-executes"><a class="link" href="#aspect-how-alias-executes">Aspect: How alias executes</a></h5>
+<h5 id="aspect-how-abbreviation-executes"><a class="link" href="#aspect-how-abbreviation-executes">Aspect: How abbreviation executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> declare <code>COMMAND_ALIAS</code> with a string value
+<p><strong>Alternative 1 (current choice):</strong> declare <code>COMMAND_ABBREVIATION</code> with a string value
 in each Command file.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1624,7 +1624,7 @@ in each Command file.</p>
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> declare <code>COMMAND_ALIAS</code> using the first two characters of <code>COMMAND_WORD</code>
+<p><strong>Alternative 2:</strong> declare <code>COMMAND_ABBREVIATION</code> using the first two characters of <code>COMMAND_WORD</code>
 in each Command file.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1673,7 +1673,7 @@ each step.</p>
 <div class="paragraph">
 <p>Step 2. The user enters <code>fi</code> in command box and then presses <kbd>Tab</kbd> . <code>autoComplete()</code>
 compares <code>input</code> through the list of applicable command words and abbreviations, and
-proceeds to <code>displayFormat()</code> because <code>fi</code> is an applicable <code>COMMAND_ALIAS</code>. It
+proceeds to <code>displayFormat()</code> because <code>fi</code> is an applicable <code>COMMAND_ABBREVIATION</code>. It
 moves on to highlight its first placeholder, <code>DAY</code>, in the command line. As seen
 from the following diagrams.</p>
 </div>
@@ -2457,7 +2457,7 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">use shorthand equivalent alias of commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use shorthand equivalent abbreviation of commands</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">navigate the application in a more time efficient way</p></td>
 </tr>
 <tr>
@@ -3460,7 +3460,7 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Use case: UC14 - Command alias</th>
+<th class="tableblock halign-left valign-top">Use case: UC14 - Command abbreviation</th>
 </tr>
 </thead>
 <tbody>
@@ -3471,7 +3471,7 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Actor</strong> requests using alias for the commands</p>
+<p><strong>Actor</strong> requests using abbreviation for the commands</p>
 </li>
 <li>
 <p><strong>System</strong> understands the command and proceeds to process it</p>
@@ -3764,4 +3764,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-30 16:16:58 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 01:24:12 UTC</div></div></div></body></html>
