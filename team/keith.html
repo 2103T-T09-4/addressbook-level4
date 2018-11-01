@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Car Park Finder</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T09-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Keith Fong - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-car-park-finder"><a class="link" href="#project-car-park-finder">PROJECT: Car park Finder</a></h2>
 <div class="sectionbody">
-<hr>
+
 </div>
 </div>
 <div class="sect1">
@@ -35,20 +35,31 @@ If you <strong>use the computer frequently</strong> and <strong>commute by drivi
 <p>Highlights:  This enhancement affects the existing commands and commands to be added in the future. I also wrote extra code which allowed us to re-use in the future.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Credits: [<a href="https://github.com/cgcai/SVY21">SVY21 to WGS84</a>].</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: pulled postal code information using coordinates data by querying an API to convert it to store in a file for quick loading.</p>
+<p><strong>Minor enhancements</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pulled postal code information using coordinates data by querying an API to convert it to store in a file for quick loading.</p>
+</li>
+<li>
+<p>Updated HTML,CSS and Javascript for google maps display, with real time updates from each individual commands.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Code contributed</strong>:
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/commons/util/StringUtil.java">String Util</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/logic/commands/FindCommand.java">Find Command</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/logic/parser/FindCommandParser.java">Find Command Parser</a>],
-[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/test/java/seedu/parking/commons/util/GsonUtilTest.java">Gson test</a>].</p>
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/test/java/seedu/parking/commons/util/GsonUtilTest.java">Gson test</a>],
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/docs/DummySearchPage.html">HTML, JS</a>].</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -130,11 +141,35 @@ If you <strong>use the computer frequently</strong> and <strong>commute by drivi
 <div class="sect2">
 <h3 id="finding-car-parks-code-find-code"><a class="link" href="#finding-car-parks-code-find-code">Finding car parks : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds a list of available car parks.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Find a list of car parks within a certain location.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find serangoon</code><br>
+<code>f HG83</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -145,7 +180,9 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -165,69 +202,95 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code> or <code>f KEYWORD [MORE_KEYWO
 <div class="paragraph">
 <p>The figure above shows what happen after executing the <code>find</code> command.</p>
 </div>
-<div class="paragraph">
-<p>Example(s):</p>
 </div>
+<div class="sect2">
+<h3 id="undoing-commands-code-undo-code"><a class="link" href="#undoing-commands-code-undo-code">Undoing commands: <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Restores the car park finder to the state before the previous undoable command was executed.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find sengkang</code>,<code>list</code>,<code>undo</code><br>
+<code>find sengkang</code>,<code>filter n\</code>,<code>undo</code>,<code>undo</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>find punggol</code></p>
+<p>You can only <code>undo</code> when you have ran a commands.</p>
 </li>
 <li>
-<p><code>f HG83</code></p>
+<p>Undoable commands: those commands that modify the car park finder’s content (<code>clear</code>, <code>find</code>, <code>filter</code> and <code>query</code>).</p>
 </li>
 </ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="select-car-park-code-select-code"><a class="link" href="#select-car-park-code-select-code">Select car park : <code>select</code></a></h3>
+<h3 id="redoing-commands-code-redo-code"><a class="link" href="#redoing-commands-code-redo-code">Redoing commands : <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Select the car park you wish to go to.<br>
-Format: <code>select INDEX</code> or <code>s INDEX</code></p>
+<p>Reverses the most recent <code>undo</code> command.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>-</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find sengkang</code>,<code>undo</code>,<code>redo</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The index refers to the index number shown in the displayed car park list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>You can only <code>redo</code> after an <code>undo</code> command.</p>
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/select.png" alt="select" width="880">
-</div>
-<div class="title">Figure 3. After using select command</div>
-</div>
-<div class="paragraph">
-<p>The figure above is the outcome of the select command.</p>
-</div>
-<div class="paragraph">
-<p>Example(s):</p>
-</div>
-<div class="paragraph">
-<p>Selecting the 2nd car park in the list.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. <code>list</code></p>
-</div>
-<div class="paragraph">
-<p>Step 2. <code>select 2</code></p>
-</div>
-<div class="paragraph">
-<p>Selecting the 1st car park in the results of the <code>find</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. <code>find sengkang</code></p>
-</div>
-<div class="paragraph">
-<p>Step 2.  <code>s 1</code></p>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -245,6 +308,167 @@ Format: <code>select INDEX</code> or <code>s INDEX</code></p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">Find feature</a></h3>
+<div class="paragraph">
+<p>The find feature searches for a car park by keyword or location.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<div class="paragraph">
+<p>The find mechanism is facilitated by <code>FindCommand</code> and <code>FindCommandParser</code>. It extends <code>Command</code> and implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FindCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by running a predicate <code>CarparkContainsKeywordsPredicate</code> to update the car park list.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The find mechanism is supported by <code>FindCommandParser</code>. It implements <code>Parser</code> and contains the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FindCommandParser#parse()</code>&#8201;&#8212;&#8201;Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found. It then splits it by one or more white spaces. It then removes any strings in the list of common words.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The predicate <code>CarparkContainsKeywordsPredicate</code> takes in a list of strings and checks if any of the strings matches the name or address of a car park fully or partially.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/seqdiagram-find.png" alt="seqdiagram find" width="800">
+</div>
+<div class="title">Figure 3. How the find operation works</div>
+</div>
+<div class="paragraph">
+<p>The diagram above describes how the flow of a find command would execute. It rely on <code>FindCommandParser</code> to ensure the variables are correct.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the Find mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>find punggol</code> command to get all car parks in punggol.
+The <code>find</code> command calls <code>FindCommandParser#parse()</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If a command execution fails, it will not call <code>FindCommand#execute()</code>, and the car park finder state will not be saved.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The entire list of car parks is filtered by the predicate <code>CarparkContainsKeywordsPredicate</code>, which checks for the keyword <code>punggol</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The filtered list of car parks is returned to the GUI.</p>
+</div>
+<div class="paragraph">
+<p>The flow chart below describes the user interaction with the application and how it processes it.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/actdiagram-find.png" alt="actdiagram find" width="800">
+</div>
+<div class="title">Figure 4. Flow chart of the find operation.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-predicate-works"><a class="link" href="#aspect-how-predicate-works">Aspect: How predicate works</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Predicate have additional filter with an ignore list.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Re-usable functions introduced for partial checking.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reading the car park list while querying might cause unintended side effects if not handled properly.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Filter the data when it is taken in.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to maintain as predicate will have lesser conditions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Breaks OOP style as the parser will modify the data.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<div class="paragraph">
+<p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-3"><a class="link" href="#overview-3">Overview</a></h4>
+<div class="paragraph">
+<p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
+The key will stored in a secured location to prevent people from accessing it.</p>
+</div>
+<div class="paragraph">
+<p>The two main files it will encrypt are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Carpark information</p>
+</li>
+<li>
+<p>User&#8217;s favorites</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<div class="paragraph">
+<p><em>This feature is coming in v2.0.</em></p>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
 <div class="sect3">
@@ -283,7 +507,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="../images/UndoRedoActivityDiagramNew1.png" alt="UndoRedoActivityDiagramNew1" width="800">
 </div>
-<div class="title">Figure 4. State and the start of the program</div>
+<div class="title">Figure 5. State and the start of the program</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user executes <code>find sengkang</code> command to find list of car park which contain sengkang from the car park finder. The <code>find</code> command calls <code>Model#updateFilteredCarparkList()</code>, causing the modified state of the car park finder after the <code>find sengkang</code> command executes to be saved in the <code>carparkFinderStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
@@ -295,7 +519,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="../images/UndoRedoActivityDiagramNew2.png" alt="UndoRedoActivityDiagramNew2" width="800">
 </div>
-<div class="title">Figure 5. State after running find command</div>
+<div class="title">Figure 6. State after running find command</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user executes <code>clear</code> to clear all entries. The <code>clear</code> command also calls <code>Model#commitCarparkFinder()</code>, causing another modified car park finder state to be saved into the <code>carparkFinderStateList</code>.</p>
@@ -307,7 +531,7 @@ Additionally, it implements the following operations:</p>
 <div class="content">
 <img src="../images/UndoRedoActivityDiagramNew3.png" alt="UndoRedoActivityDiagramNew3" width="800">
 </div>
-<div class="title">Figure 6. State after running find then clear command</div>
+<div class="title">Figure 7. State after running find then clear command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -331,7 +555,7 @@ If a command fails its execution, it will not call <code>Model#commitCarparkFind
 <div class="content">
 <img src="../images/UndoRedoActivityDiagramNew4.png" alt="UndoRedoActivityDiagramNew4" width="800">
 </div>
-<div class="title">Figure 7. How the undo feature works in a diagram</div>
+<div class="title">Figure 8. How the undo feature works in a diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -352,7 +576,7 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 <div class="content">
 <img src="../images/Sequence%20Diagram%20-%20Undo.png" alt="Sequence Diagram   Undo" width="800">
 </div>
-<div class="title">Figure 8. Sequence diagram of Undo/Redo feature</div>
+<div class="title">Figure 9. Sequence diagram of Undo/Redo feature</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCarparkFinder()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
@@ -379,7 +603,7 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <div class="content">
 <img src="../images/UndoRedoActivityDiagramNew5.png" alt="UndoRedoActivityDiagramNew5" width="800">
 </div>
-<div class="title">Figure 9. As the command does nothing, the state is not changed, but a new state is introduced</div>
+<div class="title">Figure 10. As the command does nothing, the state is not changed, but a new state is introduced</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCarparkFinder()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>carparkFinderStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>find sengkang</code> command. This is the behavior that most modern desktop applications follow.</p>
@@ -391,7 +615,7 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <div class="content">
 <img src="../images/UndoRedoActivityDiagramNew6.png" alt="UndoRedoActivityDiagramNew6" width="800">
 </div>
-<div class="title">Figure 10. Deleting a state diagram after an undo</div>
+<div class="title">Figure 11. Deleting a state diagram after an undo</div>
 </div>
 <div class="paragraph">
 <p>The following activity diagram summarizes what happens when a user executes a new command:</p>
@@ -400,11 +624,11 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <div class="content">
 <img src="../images/General%20new%20command.png" alt="General new command" width="650">
 </div>
-<div class="title">Figure 11. Activity diagram of a sample command</div>
+<div class="title">Figure 12. Activity diagram of a sample command</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -505,175 +729,14 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
-</div>
-<div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
-<div class="paragraph">
-<p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
-The key will stored in a secured location to prevent people from accessing it.</p>
-</div>
-<div class="paragraph">
-<p>The two main files it will encrypt are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Carpark information</p>
-</li>
-<li>
-<p>User&#8217;s favorites</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example"><a class="link" href="#example">Example</a></h4>
-<div class="paragraph">
-<p><em>This feature is coming in v2.0.</em></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">Find feature</a></h3>
-<div class="paragraph">
-<p>The find feature searches for a car park by keyword or location.</p>
-</div>
-<div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">Overview</a></h4>
-<div class="paragraph">
-<p>The find mechanism is facilitated by <code>FindCommand</code> and <code>FindCommandParser</code>. It extends <code>Command</code> and implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>FindCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by running a predicate <code>CarparkContainsKeywordsPredicate</code> to update the car park list.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The find mechanism is supported by <code>FindCommandParser</code>. It implements <code>Parser</code> and contains the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>FindCommandParser#parse()</code>&#8201;&#8212;&#8201;Checks the arguments for empty strings and throws a <code>ParseException</code> if empty string is found. It then splits it by one or more white spaces. It then removes any strings in the list of common words.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The predicate <code>CarparkContainsKeywordsPredicate</code> takes in a list of strings and checks if any of the strings matches the name or address of a car park fully or partially.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="../images/seqdiagram-find.png" alt="seqdiagram find" width="800">
-</div>
-<div class="title">Figure 12. How the find operation works</div>
-</div>
-<div class="paragraph">
-<p>The diagram above describes how the flow of a find command would execute. It rely on <code>FindCommandParser</code> to ensure the variables are correct.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
-<div class="paragraph">
-<p>Given below is an example usage scenario of how the Find mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>find punggol</code> command to get all car parks in punggol.
-The <code>find</code> command calls <code>FindCommandParser#parse()</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command execution fails, it will not call <code>FindCommand#execute()</code>, and the car park finder state will not be saved.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 3. The entire list of car parks is filtered by the predicate <code>CarparkContainsKeywordsPredicate</code>, which checks for the keyword <code>punggol</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. The filtered list of car parks is returned to the GUI.</p>
-</div>
-<div class="paragraph">
-<p>The flow chart below describes the user interaction with the application and how it processes it.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="../images/actdiagram-find.png" alt="actdiagram find" width="800">
-</div>
-<div class="title">Figure 13. Flow chart of the find operation.</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-predicate-works"><a class="link" href="#aspect-how-predicate-works">Aspect: How predicate works</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (Current choice):</strong> Predicate have additional filter with an ignore list.</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Re-usable functions introduced for partial checking.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Reading the car park list while querying might cause unintended side effects if not handled properly.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Filter the data when it is taken in.</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to maintain as predicate will have lesser conditions.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Breaks OOP style as the parser will modify the data.</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="portfolio-individual-website"><a class="link" href="#portfolio-individual-website">Portfolio : Individual website</a></h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p><a href="https://lexzt.github.io">Website</a></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 11:34:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 13:46:36 UTC</div></div></div></body></html>
