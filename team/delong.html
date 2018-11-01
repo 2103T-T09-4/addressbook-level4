@@ -1,16 +1,25 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>John Doe - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Xiao Delong - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Car Park Finder</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T09-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>John Doe - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Car Park Finder</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T09-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Xiao Delong - Project Portfolio</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
-<hr>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/delong.jpg" alt="delong" width="150">
 </div>
 </div>
+<div class="paragraph">
+<p>[<a href="https://github.com/dlworldpeace">github</a>]</p>
+</div>
+</div>
+</div>
+<h1 id="project-car-park-finder" class="sect0"><a class="link" href="#project-car-park-finder">PROJECT: Car park Finder</a></h1>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Car park finder is a desktop address book application to find HDB (Housing Development Board) car parks in Singapore.
+It allows you to work with a <strong>Command Line Interface (CLI)</strong> to display a list of car parks with the convenience of simply typing.
+If you <strong>use the computer frequently</strong> and <strong>commute by driving</strong>, you would find our application useful in helping you obtain various information about car parks.</p>
 </div>
 </div>
 </div>
@@ -20,63 +29,68 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: Add auto-complete feature to commands that require parameters.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: It prompts the user the full format of a command.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Justification: It improves the product significantly because some of our commands can have up to three parameters. Memorising the full format is time-consuming.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Highlights: This enhancement allows the user to highlight the next parameter placeholder after one placeholder is filled up.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: Add command abbreviation feature to most frequently used commands.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the user to type less for the same functionality.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification: It improves the product significantly because command words can be long and typed wrongly easily.</p>
+</li>
+<li>
+<p>Highlights: This enhancement is very intuitive and thus easy to use.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>:
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/ui/CommandBox.java">Command Box</a>],
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/logic/parser/CliSyntax.java">Client Syntax</a>],
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/logic/parser/CarparkFinderParser.java">Carpark Finder Parser</a>],
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/test/java/seedu/parking/logic/parser/CarparkFinderParserTest.java">Carpark Finder Parser Test</a>].</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>Setting Up Group Repository for Grading
+<a href="https://github.com/nus-cs2103-AY1819S1/addressbook-level4/pull/46">AB4#46</a></p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
+<p>Setting Up Travis CI for Auto Testing and Auto Publishing of Docs
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/commit/4897f64e36915ef9e8f4192b3003a82a780fa069">#0</a>,</p>
 </li>
 <li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Make UG and DG more reader-friendly:
+(Pull requests:
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/35">#35</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/63">#63</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/65">#65</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/84">#84</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/87">#87</a>)</p>
 </li>
 </ul>
 </div>
@@ -86,29 +100,13 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>PRs reviewed (with non-trivial review comments):
+(Pull requests by teammates:
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/28">#28</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/34">#34</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/36">#36</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/64">#64</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/80">#80</a>)</p>
 </li>
 </ul>
 </div>
@@ -117,9 +115,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +131,191 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="quick-start"><a class="link" href="#quick-start">Quick Start</a></h3>
+<div class="paragraph">
+<p>Here are several quick tips to get the application running.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Check that you have <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java version 9</a> or later installed in your Computer.</p>
+</li>
+<li>
+<p>Download the latest <code>carparkfinder.jar</code> <a href="https://github.com/CS2103-AY1819S1-T09-4/main/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for Car Park Finder.</p>
+</li>
+<li>
+<p>Double-click the file to start the application. The <strong>Graphical User Interface (GUI)</strong> should appear in a few seconds.</p>
+<div class="paragraph">
+<div class="title">Home page of GUI</div>
+<p><span class="image"><img src="../images/quickstart-GUI.png" alt="quickstart GUI" width="880"></span>
+The figure above is a sample display of the application&#8217;s GUI, which consists of
+5 regions.</p>
+</div>
+</li>
+<li>
+<p>Type a command in the Command Box and then press <kbd>Enter</kbd> to execute it.
+A message will appear in the Message Box.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Some example commands you can try:<br>
+<a href="#Features-List"><strong><code>list</code></strong></a>: bring up a list of all the car parks<br>
+<a href="#Features-Help"><strong><code>help</code></strong></a>: show the list of available commands and how to use them<br>
+<a href="#Features-Exit"><strong><code>exit</code></strong></a>: exit the program
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Congratulations, You have successfully executed your first command!</p>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="#Features">[Features]</a> for more commands.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-complete-the-command-line"><a class="link" href="#auto-complete-the-command-line">Auto complete the command line</a></h3>
+<div class="paragraph">
+<p>Display the full format of an executable command line.<br>
+Format: <code>COMMAND_WORD</code> followed by 'Tab' key.
+Function: press 'Tab' key again to move to the next parameter.</p>
+</div>
+<div class="paragraph">
+<p>Example(s)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>key in <code>fi</code> in command box and then press 'Tab' key.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Only available in the following commands:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#Features-Find"><strong><code>find</code></strong></a></p>
+</li>
+<li>
+<p><a href="#Features-Select"><strong><code>select</code></strong></a></p>
+</li>
+<li>
+<p><a href="#Features-Filter"><strong><code>filter</code></strong></a></p>
+</li>
+<li>
+<p><a href="#Features-Sort"><strong><code>sort</code></strong></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h3>
+<div class="paragraph">
+<p>Here are the summarize list of commands available to the user.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. General Commands</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 57.1428%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>History</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hi</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>q</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Carpark Management</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 57.1428%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s 2</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f punggol</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filter</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [f/FREE_PARKING] [n/NIGHT_PARKING] [ct/CARPARK_TYPE]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fi f/true n/false ct/multi</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort FILTER_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>so DISTANCE</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notify</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n 60</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,6 +331,608 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="architecture-overview"><a class="link" href="#architecture-overview">Architecture overview</a></h3>
+<div class="paragraph">
+<p>This section explains the design architecture used by the entire system.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="{repoURL}/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Architecture.png" alt="Architecture" width="600">
+</div>
+<div class="title">Figure 1. Architecture Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <strong><em>architecture diagram</em></strong> given above explains the high-level design of the App,
+ which contains 6 <a href="#Architecture-Components"><strong><code>architecture components</code></strong></a> and
+ adopts an <a href="#Architecture-design"><strong><code>events-driven nature</code></strong></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Architecture-Components"><a class="link" href="#Architecture-Components">Architecture components</a></h3>
+<div class="paragraph">
+<p>This section will briefly introduce the function of each architecture components
+as well as common behaviours.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. Architecture Components</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">Main Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Main"><strong><code>Main</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the starting point of the system, which encapsulates the other components.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Commons"><strong><code>Commons</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">represents a collection of classes used by multiple components.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Ui"><strong><code>User Interface</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">contains the user interface classes used by the application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Logic"><strong><code>Logic</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">execute user commands, also known as the command executor.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Model"><strong><code>Model</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">holds the data of the application in-memory.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Storage"><strong><code>Storage</code></strong></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">which allows reading and writing of data to the hard disk.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Each of the User Interface, Logic, Model, Storage Components also:
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
+</li>
+<li>
+<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example, the <code>Logic</code> component (see the <strong><em>class diagram</em></strong> given below) defines it&#8217;s API in the <code>Logic</code> interface and exposes its functionality using the <code>LogicManager</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+</div>
+<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Architecture-design"><a class="link" href="#Architecture-design">Events-driven nature of the design</a></h3>
+<div class="paragraph">
+<p>This section explains the main nature of design adopted by the system.</p>
+</div>
+<div class="paragraph">
+<p>The <strong><em>sequence diagram</em></strong> below shows how the components interact when the user issues the command <code>find sengkang</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Sequence%20diagram%20-%20Find%20Carpark.png" alt="Sequence diagram   Find Carpark" width="800">
+</div>
+<div class="title">Figure 3. Component interactions for <code>find sengkang</code> command (part 1)</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent</code> when the Car Park Finder data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <strong><em>sequence diagram</em></strong> below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Sequence%20diagram%20-%20Find%20Carpark%20Event%20Handling.png" alt="Sequence diagram   Find Carpark Event Handling" width="800">
+</div>
+<div class="title">Figure 4. Component interactions for <code>find sengkang</code> command (part 2)</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note how the event is propagated through the <code>EventsCenter</code> to the <code>Storage</code> and <code>UI</code> without <code>Model</code> having to be coupled to either of them. This is an example of how the Event Driven approach helps us reduce direct coupling between components.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The sections below give more details of each component.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Main"><a class="link" href="#Design-Main">Main component</a></h3>
+<div class="paragraph">
+<p>The <code>Main</code> component consists of only one class, <a href="{repoURL}/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>At app launch: initializes the components in the correct sequence, and connects them with one another.</p>
+</li>
+<li>
+<p>At shut down: shuts down the components and invokes cleanup methods where necessary.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">Commons component</a></h3>
+<div class="paragraph">
+<p>The <code>Commons</code> component consists of classes used by multiple other components. Two of these classes play important roles at the architectural level.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EventsCenter</code> : This class (written using <a href="https://github.com/google/guava/wiki/EventBusExplained">Google&#8217;s Event Bus library</a>) is used by components to communicate with other components using events (i.e. a form of <em>Event Driven</em> design)</p>
+</li>
+<li>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Classes used by multiple components are put in the seedu.carparkfinder.commons package.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">User interface component</a></h3>
+<div class="paragraph">
+<p>The <code>User Interface</code> (<code>UI</code>) component consists of a <code>MainWindow</code> that is made up of different parts.
+The base class
+<a href="{repoURL}/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a> uses <em>JavaFx UI</em> framework.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
+</div>
+<div class="title">Figure 5. Structure of the User Interface component</div>
+</div>
+<div class="paragraph">
+<p>In general, this is the workflow of the <code>UI</code> component:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Execute user commands using the <code>Logic</code> component.</p>
+</li>
+<li>
+<p>Bind itself to some data in the <code>Model</code> so that the <code>UI</code> components can auto-update when data in the <code>Model</code> change.</p>
+</li>
+<li>
+<p>Respond to events raised from various parts of the App and updates the <code>UI</code> components accordingly.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>All <code>UI</code> parts, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class. The layout for each
+component is defined in matching <code>.fxml</code> files and can be found in the <code>src/main/resources/view</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>For example, the layout of the <a href="{repoURL}/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a>
+is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
+<div class="paragraph">
+<p>The <code>Logic</code> component consist of a <code>LogicManager</code> that takes care of the parse and exexcution of commands.
+It inherits the base class <a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
+</div>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+</div>
+<div class="title">Figure 6. Structure of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p>In general, this is the workflow of the <code>Logic</code> component:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Get the <code>CarparkFinderParser</code> class to parse the user command.</p>
+</li>
+<li>
+<p>Create a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>Pass the result of the command execution over to <code>Model</code>, which can affect it (e.g. adding a person) and/or raise events.</p>
+</li>
+<li>
+<p>Return the command execution by encapsulating the command as a <code>CommandResult</code> object which then is passed back to the <code>UI</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <strong><em>sequence diagram</em></strong> below shows the interactions within the <code>Logic</code> component
+when <code>execute("delete 1")</code> is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+</div>
+<div class="title">Figure 7. Sequence Diagram of of `execute("delete 1")</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<div class="paragraph">
+<p>The <code>Model</code> component is managed by the <code>ModelManager</code> that stores the data of Car Park Finder.
+It does not depend on any of the three other components.
+<a href="{repoURL}/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a> is the base class.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+</div>
+<div class="title">Figure 8. Structure of the Model Component</div>
+</div>
+<div class="paragraph">
+<p>In general, this is the structure of the <code>Model</code> Component:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>ModelManager</code> extends the <code>Model</code> Interface.</p>
+</li>
+<li>
+<p>It stores a <code>VersionedCarparkFinder</code> and a <code>UserPref</code> object.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>UserPref</code> object represents the user&#8217;s preferences.</p>
+</li>
+<li>
+<p>The <code>VersionedCarparkFinder</code> contains a <code>carparkFinderStateList</code> which is used to store multiple <code>Carpark</code> objects.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>ModelManager</code> also manages a filtered list of <code>Carpark</code> objects filtered from the <code>carparkFinderStateList</code>.</p>
+</li>
+<li>
+<p>The <code>Model component</code> exposes an unmodifiable <code>ObservableList&lt;Carpark&gt;</code> that can be 'observed'
+e.g. the UI can be bound to this list so that it automatically updates when data in the list changes.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As a OOP model, we can store a <code>Tag</code> list in Car Park Finder, which <code>Carpark</code> can reference.
+This would allow Car Park Finder to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of
+each <code>Carpark</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.
+<br>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800">
+</div>
+<div class="title">Figure 9. Use of Tag object</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
+<div class="paragraph">
+<p>The <code>Storage</code> component, managed by the <code>StorageManager</code>, serves as a backend storage for data of Car Park Finder.
+<a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a> is the base class.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+</div>
+<div class="title">Figure 10. Structure of the Storage Component</div>
+</div>
+<div id="localcopy" class="paragraph">
+<p>The <code>Storage</code> component can perform the following functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>save <code>UserPref</code> objects in json format and read it back.</p>
+</li>
+<li>
+<p>save the Car Park Finder data in xml format and read it back.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">Abbreviation Feature</a></h3>
+<div class="paragraph">
+<p>The abbreviation feature reduces the amount of characters needed to type.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<div class="paragraph">
+<p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
+to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the abbreviation mechanism behaves at
+each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>LogicManager</code>
+is initialized with an <code>CarparkFinderParser</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>f</code> command instead of <code>find</code>. The <code>Matcher</code> object in
+<code>CarparkFinderParser</code> splits the command text into <em>command word</em> and
+<em>arguments</em>, in which the <em>command word</em> is parsed using a <em>switch</em>
+statement.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. This <em>command word</em> will be matched to a <code>COMMAND_ABBREVIATION</code> from
+<code>ListCommand</code>, which holds the value of 'f'. As the program finds a match, it
+proceeds as if a <code>find</code> command is given.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/ActivityDiagram-abbreviation.png" alt="ActivityDiagram abbreviation" width="700">
+</div>
+<div class="title">Figure 11. Flow chart of command abbreviation usage.</div>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> above explains what happens when a user executes a <code>f</code>
+command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-abbreviation-executes"><a class="link" href="#aspect-how-abbreviation-executes">Aspect: How abbreviation executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> declare <code>COMMAND_ABBREVIATION</code> with a string value
+in each Command file.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have to decide on each abbreviation subjectively which brings down performance
+       if there are a lot of commands</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> declare <code>COMMAND_ABBREVIATION</code> using the first two characters of <code>COMMAND_WORD</code>
+in each Command file.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Better performance as abbreviations will be assigned systematically.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When there are 2 command words starting with same two characters e.g. <code>find</code> &amp; <code>filter</code>, this does not work.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">Auto-complete Feature</a></h3>
+<div class="paragraph">
+<p>The auto-complete feature simplifies overcomplicated commands by prompting correct format.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-3"><a class="link" href="#overview-3">Overview</a></h4>
+<div class="paragraph">
+<p>The auto-complete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
+to <code>displayFormat()</code> if applicable command word is entered or to highlight the next
+parameter if full format is already provided in the command box.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the auto-complete mechanism behaves at
+each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user enters <code>fi</code> in command box and then presses <kbd>Tab</kbd> . <code>autoComplete()</code>
+compares <code>input</code> through the list of applicable command words and abbreviations, and
+proceeds to <code>displayFormat()</code> because <code>fi</code> is an applicable <code>COMMAND_ABBREVIATION</code>. It
+moves on to highlight its first placeholder, <code>DAY</code>, in the command line. As seen
+from the following diagrams.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/screenshot-fi.png" alt="screenshot fi" width="700">
+</div>
+<div class="title">Figure 12. After <code>fi</code> is entered.</div>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/screenshot-fiFirstArgSelected.png" alt="screenshot fiFirstArgSelected" width="700">
+</div>
+<div class="title">Figure 13. After <kbd>Tab</kbd> is pressed for the first time.</div>
+</div>
+<div class="paragraph">
+<p>Step 3. The user replaces <code>DAY</code> with an actual value, <code>SUN</code>, and presses 'Tab'
+key again. <code>autoComplete()</code> is called again, but because this time it checks that <code>input</code>
+<code>isFilterCommandFormat</code>, the next placeholder, <code>START_TIME</code>, is highlighted. Result
+is shown in the following diagram.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/screenshot-fiSecondArgSelected.png" alt="screenshot fiSecondArgSelected" width="700">
+</div>
+<div class="title">Figure 14. After <kbd>Tab</kbd> is pressed for the second time.</div>
+</div>
+<div class="paragraph">
+<p>Step 4. The user continues step 3 until all placeholders are filled up with actual
+values and then presses <kbd>Enter</kbd>  to execute this command.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/ActivityDiagram-autocompletion.png" alt="ActivityDiagram autocompletion" width="700">
+</div>
+<div class="title">Figure 15. Activity Diagram for Auto Completion Mechanism.</div>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> above explains what happens when user presses <kbd>Tab</kbd>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-textinput"><a class="link" href="#aspect-textinput">Aspect: TextInput</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> (current choice): Continue to use the original TextField</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">External library enables bindAutocompletion for TextField (the drop down
+list of suggested commands that appears and updates itself as user types).
+External library enables bindAutocompletion for TextField (the drop down list of
+ suggested commands that appears and updates itself as user types).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text formatting is limited. All text in the TextField must have the same format.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Create additional TextField as user request for additional fields</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows for different formatting for different fields (Commands can have a
+ different colour from the fields)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Original structure will be disrupted. Command box will no longer be single
+line text input, which have consequences such as the user cannot backspace or
+select through the entire line.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -161,4 +943,4 @@
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 11:33:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 11:34:35 UTC</div></div></div></body></html>
