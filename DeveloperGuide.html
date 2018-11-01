@@ -41,13 +41,14 @@
 <li><a href="#query-feature">4.2. Query feature</a></li>
 <li><a href="#notify-feature">4.3. Notify feature</a></li>
 <li><a href="#find-feature">4.4. Find feature</a></li>
-<li><a href="#proposed-calculate-feature">4.5. [Proposed] Calculate feature</a></li>
-<li><a href="#abbreviation-feature">4.6. Abbreviation feature</a></li>
-<li><a href="#autocomplete-feature">4.7. Autocomplete feature</a></li>
-<li><a href="#logging">4.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
-<li><a href="#proposed-weather-forecast">4.10. [Proposed] Weather Forecast</a></li>
-<li><a href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></li>
+<li><a href="#filter-feature">4.5. Filter feature</a></li>
+<li><a href="#calculate-feature">4.6. Calculate Feature</a></li>
+<li><a href="#abbreviation-feature">4.7. Abbreviation Feature</a></li>
+<li><a href="#autocomplete-feature">4.8. Autocomplete feature</a></li>
+<li><a href="#logging">4.9. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#proposed-weather-forecast">4.11. [Proposed] Weather Forecast</a></li>
+<li><a href="#proposed-data-encryption">4.12. [Proposed] Data Encryption</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1383,19 +1384,19 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>=== Filter feature</p>
-</div>
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter-feature"><a class="link" href="#filter-feature">4.5. Filter feature</a></h3>
 <div class="paragraph">
 <p>The filter feature allow users to find a suitable car park based on criteria that users input, within a certain area.</p>
 </div>
-</div>
-</div>
 <div class="sect3">
-<h4 id="overview-4"><a class="link" href="#overview-4">4.4.4. Overview</a></h4>
+<h4 id="overview-4"><a class="link" href="#overview-4">4.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>The filter mechanism is facilitated by <code>FilterCommand</code> and <code>FilterCommandParser</code>.
 The filter mechanism can filter car parks by the following criteria. The corresponding flag of each criterion is also
@@ -1449,7 +1450,7 @@ Parser then checks the validity of the arguments input by user, and throws a <co
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.4.5. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the filter mechanism behaves at each step when filtering with the following criteria:</p>
 </div>
@@ -1592,13 +1593,13 @@ filter command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.4.6. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-location-based-filtering-is-done"><a class="link" href="#aspect-how-location-based-filtering-is-done">Aspect: How location based filtering is done</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (Current choice):</strong> Extracting the location from the previous <code>FindCommand</code> to form part of the predicate for the current <code>FilterCommand</code></p>
+<p><strong>Alternative 1 (Current choice):</strong> Combining the location predicate from the previous <code>FindCommand</code> to form the predicate for the current <code>FilterCommand</code></p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -1607,12 +1608,11 @@ filter command.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Able to creating a combined predicate that does location-based filtering easily.
-Various existing methods that filters the list of car parks can still be used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Able to accomplish location-based filtering with less modification to existing code structure.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Efficiency compromised as the list of car park needs to be filtered by location again.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less efficient as the list of car park needs to be filtered by an additional parameter.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1643,31 +1643,68 @@ A whole new set of classes and methods needs to be written to store the filtered
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-calculate-feature"><a class="link" href="#proposed-calculate-feature">4.5. [Proposed] Calculate feature</a></h3>
+<h3 id="calculate-feature"><a class="link" href="#calculate-feature">4.6. Calculate Feature</a></h3>
 <div class="paragraph">
 <p>The calculate feature helps users calculate the cost of parking at a specific car park for a specified time period.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-5"><a class="link" href="#overview-5">4.5.1. Overview</a></h4>
+<h4 id="overview-5"><a class="link" href="#overview-5">4.6.1. Overview</a></h4>
 <div class="paragraph">
-<p><em>This feature is coming in v2.0.</em></p>
+<p>The calculate mechanism is facilitated by <code>CalculateCommand</code> and <code>CalculateCommandParser</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-4"><a class="link" href="#example-4">4.6.2. Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the calculate mechanism behaves at each step when
+the user wants to know the cost of parking at car park W49, on a Monday, from 9.00am to 5.30pm.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>calculate W49 SUN 9.00AM 5.30PM</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. After <code>CarparkFinderParser</code> detects <code>calculate</code> as the command word, a <code>CalculateCommandParser</code> is created to
+parse the arguments supplied to the command.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>CarparkFinderParser</code> splits the arguments by white spaces, then creates a <code>CalculateCommand</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>CalculateCommand</code> creates a <code>CarparkIsOfNumberPredicate</code> to find the specified car park, car park W49, from
+the list of car parks.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>CalculateCommand</code> checks if the car park W49 has free parking.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. As some car parks only has short-term parking between certain timings, <code>CalculateCommand</code> checks if the parking time input by the user is valid.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. After which <code>CalculateCommand</code> checks of there is free parking on Monday between the specified time. Since there
+is no free parking during that time period, it will calculate the cost of parking by the standard rate of $0.60 per half an hour.</p>
+</div>
+<div class="paragraph">
+<p>Step 9. The calculated cost is then returned to the GUI as a command result.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.6. Abbreviation feature</a></h3>
+<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">4.7. Abbreviation Feature</a></h3>
 <div class="paragraph">
 <p>The abbreviation feature reduces the amount of characters needed to type.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-6"><a class="link" href="#overview-6">4.6.1. Overview</a></h4>
+<h4 id="overview-6"><a class="link" href="#overview-6">4.7.1. Overview</a></h4>
 <div class="paragraph">
 <p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
 to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-4"><a class="link" href="#example-4">4.6.2. Example</a></h4>
+<h4 id="example-5"><a class="link" href="#example-5">4.7.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the abbreviation mechanism behaves at
 each step.</p>
@@ -1699,7 +1736,7 @@ command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.3. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-abbreviation-executes"><a class="link" href="#aspect-how-abbreviation-executes">Aspect: How abbreviation executes</a></h5>
 <div class="ulist">
@@ -1751,12 +1788,12 @@ in each Command file.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">4.7. Autocomplete feature</a></h3>
+<h3 id="autocomplete-feature"><a class="link" href="#autocomplete-feature">4.8. Autocomplete feature</a></h3>
 <div class="paragraph">
 <p>The autocomplete feature simplifies overcomplicated commands by prompting correct format.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-7"><a class="link" href="#overview-7">4.7.1. Overview</a></h4>
+<h4 id="overview-7"><a class="link" href="#overview-7">4.8.1. Overview</a></h4>
 <div class="paragraph">
 <p>The autocomplete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
 to <code>displayFormat()</code> if applicable command word is entered or to highlight the next
@@ -1764,7 +1801,7 @@ parameter if full format is already provided in the command box.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-5"><a class="link" href="#example-5">4.7.2. Example</a></h4>
+<h4 id="example-6"><a class="link" href="#example-6">4.8.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the autocomplete mechanism behaves at
 each step.</p>
@@ -1818,7 +1855,7 @@ values and then presses <kbd>Enter</kbd>  to execute this command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-textinput"><a class="link" href="#aspect-textinput">Aspect: TextInput</a></h5>
 <div class="ulist">
@@ -1873,14 +1910,14 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.9. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1911,24 +1948,24 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-weather-forecast"><a class="link" href="#proposed-weather-forecast">4.10. [Proposed] Weather Forecast</a></h3>
+<h3 id="proposed-weather-forecast"><a class="link" href="#proposed-weather-forecast">4.11. [Proposed] Weather Forecast</a></h3>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.11. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.12. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-8"><a class="link" href="#overview-8">4.11.1. Overview</a></h4>
+<h4 id="overview-8"><a class="link" href="#overview-8">4.12.1. Overview</a></h4>
 <div class="paragraph">
 <p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
 The key will stored in a secured location to prevent people from accessing it.</p>
@@ -1948,7 +1985,7 @@ The key will stored in a secured location to prevent people from accessing it.</
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-6"><a class="link" href="#example-6">4.11.2. Example</a></h4>
+<h4 id="example-7"><a class="link" href="#example-7">4.12.2. Example</a></h4>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
@@ -3904,4 +3941,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:00:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 11:33:40 UTC</div></div></div></body></html>

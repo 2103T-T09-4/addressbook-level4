@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>John Doe - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Car Park Finder</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T09-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>John Doe - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<h2 id="project-car-park-finder"><a class="link" href="#project-car-park-finder">PROJECT: Car Park Finder</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -10,7 +10,11 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>The Car Park Finder is an application to find a HDB (Housing Development Board) car
+park that is suited to your needs as easily as possible. The application uses a
+Command Line Interface (CLI), hence you could find the car park you need with the
+convenience of simply typing. If you use the computer frequently and commute by
+driving, this application is for you!</p>
 </div>
 </div>
 </div>
@@ -20,26 +24,79 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement 1</strong>: added the <strong>Filter command</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>What it does: allow users to filter car parks at a certain location based on six criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Car park has available parking slots</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Car park has short-term parking</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Type of car park</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>Car park has free parking between a specified time period</p>
+</li>
+<li>
+<p>Car park has night parking</p>
+</li>
+<li>
+<p>Type of parking system that the car park uses</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p>Justification: This feature would be really helpful to users because it
+would be too time consuming for users to scroll through every car park in the
+location to find a suitable car park. The feature helps to narrow down a long
+list of car parks in the location to just those that meets the criteria of the user</p>
+</li>
+<li>
+<p>Highlights:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Filter command needs to integrate with Find command to accomplish location-based
+filtering.</p>
+</li>
+<li>
+<p>Moreover, the command also needs to work with varying number of flags, i.e.
+users can choose how many criteria they would like to filter by, and input them in any order.
+Each criteria may also have different input parameters.</p>
+</li>
+<li>
+<p>If users were to forget what flags there are and what parameters are required
+for each flag, error messages would guide them to execute the commands correctly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement 2</strong>: added the <strong>Calculate command</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Allow users to calculate the cost of parking at a car park.</p>
+</li>
+<li>
+<p>Justification: Users might want to know how much it cost to park their car, and choose between using their car and
+other transport options e.g. taking public transport.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Revised the list of command messages to suite the needs of the commands better.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
@@ -49,34 +106,14 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Ensure consistency in format and clear language use in Developer Guide and User Guide: <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/68">#68</a> <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/90">#90</a></p>
+</li>
+<li>
+<p>Updated contents of the User Guide and Developer Guide with new features: <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/9">#9</a> <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/11">#11</a> <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/38">#38</a></p>
 </li>
 </ul>
 </div>
@@ -86,29 +123,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Check on the integration of the various commands of the project.</p>
 </li>
 </ul>
 </div>
@@ -117,9 +132,6 @@
 </div>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +148,196 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Features-Filter"><a class="link" href="#Features-Filter">Filtering car parks : <code>filter</code></a></h3>
+<div class="paragraph">
+<p>Filters the list of car parks returned by <code>FindCommand</code> by:<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Car park has available parking slots <code>a/</code></p>
+</li>
+<li>
+<p>Car park has short-term parking <code>s/</code></p>
+</li>
+<li>
+<p>Type of car park <code>ct/</code></p>
+</li>
+<li>
+<p>Car park has free parking between a specified time period <code>f/</code></p>
+</li>
+<li>
+<p>Car park has night parking <code>n/</code></p>
+</li>
+<li>
+<p>Type of parking system that the car park uses <code>ps/</code></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 11.1111%;">
+<col style="width: 55.5556%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [flag&amp;parameter(s)] [flag&amp;parameter(s)] &#8230;&#8203;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ SUN 7.30AM 5.30PM ct/ SURFACE</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>FilterCommand</code> and take in any number of flags, in any order.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>List of valid flags:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 27.2727%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 27.2727%;">
+<col style="width: 27.2728%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Criteria</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter Structure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid Parameters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has free parking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY START_TIME END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY</code>: <code>MON</code> - <code>SUN</code><br>
+<code>START_TIME</code>: e.g. <code>7.30AM</code><br>
+<code>END_TIME</code>: e.g. <code>9.30PM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ sun 9.00am 5.30pm</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has night parking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of car park</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ct/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CAR_PARK_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SURFACE", "MULTISTOREY", "BASEMENT", "MECHANISED", "COVERED"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter ct/ covered</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has available parking slot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park has short-term parking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of parking system</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ps/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PARKING_SYSTEM_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"COUPON", "ELECTRONIC"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter ps/ coupon</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>FindCommand</code> must be used to find a list of carparks within the location first.</p>
+</li>
+<li>
+<p>Upper and lower case characters do not matter.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/filter.png" alt="filter" width="880">
+</div>
+<div class="title">Figure 1. Filtering covered car parks</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-Calculate"><a class="link" href="#Features-Calculate">Calculating the cost of parking : <code>calculate</code></a></h3>
+<div class="paragraph">
+<p>Calculates the cost of parking at a selected car park between a specified time period.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 95%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate DAY START_TIME END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate SUN 3.30PM 6.30PM</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><code>CalculateCommand</code> takes into account the free parking times of car parks.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,6 +353,307 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="filter-feature"><a class="link" href="#filter-feature">Filter feature</a></h3>
+<div class="paragraph">
+<p>The filter feature allow users to find a suitable car park based on criteria that users input, within a certain area.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<div class="paragraph">
+<p>The filter mechanism is facilitated by <code>FilterCommand</code> and <code>FilterCommandParser</code>.
+The filter mechanism can filter car parks by the following criteria. The corresponding flag of each criterion is also
+indicated below.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Car park has available parking slots <code>a/</code></p>
+</li>
+<li>
+<p>Car park has short-term parking <code>s/</code></p>
+</li>
+<li>
+<p>Type of car park <code>ct/</code></p>
+</li>
+<li>
+<p>Car park has free parking between a specified time period <code>f/</code></p>
+</li>
+<li>
+<p>Car park has night parking <code>n/</code></p>
+</li>
+<li>
+<p>Type of parking system that the car park uses <code>ps/</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>FilterCommandParser</code> extends <code>Parser</code> and implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FilterCommandParser#parse()</code>&#8201;&#8212;&#8201;Splits the arguments by white spaces and store them into an array list.
+Parser then checks the validity of the arguments input by user, and throws a <code>ParseException</code> when arguments are deemed invalid in various ways.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>FilterCommand</code> extends <code>Command</code> and implements the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FilterCommand#execute()</code>&#8201;&#8212;&#8201;Executes the command by filtering the car park list with <code>CarparkFilteringPredicate</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>FilterCommand</code> is able to filter car parks by multiple criteria at a time.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the filter mechanism behaves at each step when filtering with the following criteria:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>car park is covered</p>
+</li>
+<li>
+<p>car park has free parking between Sunday 11.30am and 3.30pm</p>
+</li>
+<li>
+<p>car park currently has available parking slot</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>filter ct/ COVERED f/ SUN 11.30AM 3.30PM a/</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Input parameters can also be in lower case as <code>FilterCommandParser</code> will convert input parameters to upper case
+if they are not.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. After <code>CarparkFinderParser</code> detects <code>filter</code> as the command word, a
+<code>FilterCommandParser</code> is created to parse the arguments supplied to the command.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>FilterCommandParser</code> splits the arguments by white spaces and store them into <code>List&lt;String&gt; argumentsList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. Then, it identifies the flags  present in <code>List&lt;String&gt; argumentsList</code> and store them in <code>List&lt;String&gt; flagList</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If <code>List&lt;String&gt; flagList</code> is empty, <code>FilterCommandParser</code> throws a <code>ParseException</code> to indicatte that the command has invalid parameters.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>FilterCommandParser</code> also parses the parameter(s) of each flag, and throws <code>ParseException</code> when necessary.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ct/</code>: <code>FilterCommandParser</code> ensures that <code>COVERED</code> is a valid car park type.</p>
+</li>
+<li>
+<p><code>f/</code>: <code>FilterCommandParser</code> ensures that <code>SUN</code> is a valid day and <code>11.30AM</code> and <code>3.30PM</code> are valid times.
+Moreover, <code>FilterCommandParser</code> ensures that all three parameters are present.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Step 7. Parameters of <code>ct/</code> and <code>f/</code> are packaged into <code>CarparkTypeParameter carparkTypeParameter</code> and
+ <code>FreeParkingParameter freeParkingParameter</code> respectively. They are then passed to a newly created <code>FilterCommand</code>
+ together with <code>List&lt;String&gt; flagList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. The <code>FilterCommand</code> object obtains the last predicate used by <code>FindCommand</code> from <code>model</code> and creates the <code>CarparkFilteringPredicate</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The <code>ModelManager</code> stores the last predicate used by <code>FindCommand</code>. The predicate is updated every time <code>FindCommand</code> is executed.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 9. Besides filtering by the last predicate used by <code>FindCommand</code> (location), <code>CarparkFilteringPredicate</code> has a
+series of <code>if</code> statements that checks which flags are present in <code>List&lt;String&gt; flagList</code>, before looking into
+the parameters of the flags.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>a/</code>: <code>CarparkFilteringPredicate</code> checks that the car park has available parking slots.</p>
+</li>
+<li>
+<p>For <code>ct/</code>: <code>CarparkFilteringPredicate</code> checks that the car park type of the car park is <code>COVERED</code>.</p>
+</li>
+<li>
+<p>For <code>f/</code>: <code>CarparkFilteringPredicate</code> checks that the car park has free parking on Sunday, and the start and end time
+input by the user falls between the free parking time period of the car park.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Step 10. To combine the filtering criteria, a boolean variable, <code>collective</code>, is used. The following snippet of code shows more clearly how it is used.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/CarparkFilteringPredicate_code_snippet.png" alt="CarparkFilteringPredicate code snippet" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 11. The list of car parks is filtered against the predicate and returned to the GUI.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <em>Sequence Diagram</em> below for the filter operation.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/SequenceDiagram-filter.png" alt="SequenceDiagram filter" width="700">
+</div>
+<div class="title">Figure 2. How the filter operation works</div>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> summarizes the implementation of the
+filter command.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/ActivityDiagram-filter.png" alt="ActivityDiagram filter" width="700">
+</div>
+<div class="title">Figure 3. Summary for executing a filter command</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-location-based-filtering-is-done"><a class="link" href="#aspect-how-location-based-filtering-is-done">Aspect: How location based filtering is done</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Combining the location predicate from the previous <code>FindCommand</code> to form the predicate for the current <code>FilterCommand</code></p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Able to accomplish location-based filtering with less modification to existing code structure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less efficient as the list of car park needs to be filtered by an additional parameter.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Store the filtered list of car parks from <code>FindCommand</code>, then filter from there.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Improved efficiency as a shorter list of car park needs to be filtered by <code>FilterCommand</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional memory required to store the list of car park generated by <code>FindCommand</code>.
+A whole new set of classes and methods needs to be written to store the filtered list, might over-complicate code.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calculate-feature"><a class="link" href="#calculate-feature">Calculate Feature</a></h3>
+<div class="paragraph">
+<p>The calculate feature helps users calculate the cost of parking at a specific car park for a specified time period.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-3"><a class="link" href="#overview-3">Overview</a></h4>
+<div class="paragraph">
+<p>The calculate mechanism is facilitated by <code>CalculateCommand</code> and <code>CalculateCommandParser</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the calculate mechanism behaves at each step when
+the user wants to know the cost of parking at car park W49, on a Monday, from 9.00am to 5.30pm.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>calculate W49 SUN 9.00AM 5.30PM</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. After <code>CarparkFinderParser</code> detects <code>calculate</code> as the command word, a <code>CalculateCommandParser</code> is created to
+parse the arguments supplied to the command.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The <code>CarparkFinderParser</code> splits the arguments by white spaces, then creates a <code>CalculateCommand</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. <code>CalculateCommand</code> creates a <code>CarparkIsOfNumberPredicate</code> to find the specified car park, car park W49, from
+the list of car parks.</p>
+</div>
+<div class="paragraph">
+<p>Step 6. <code>CalculateCommand</code> checks if the car park W49 has free parking.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. As some car parks only has short-term parking between certain timings, <code>CalculateCommand</code> checks if the parking time input by the user is valid.</p>
+</div>
+<div class="paragraph">
+<p>Step 8. After which <code>CalculateCommand</code> checks of there is free parking on Monday between the specified time. Since there
+is no free parking during that time period, it will calculate the cost of parking by the standard rate of $0.60 per half an hour.</p>
+</div>
+<div class="paragraph">
+<p>Step 9. The calculated cost is then returned to the GUI as a command result.</p>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -161,4 +664,4 @@
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-31 16:00:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 11:33:40 UTC</div></div></div></body></html>
