@@ -186,7 +186,7 @@
 			});
 			for (var i = 0; i < obj.result.records.length; i++) {
 				var coords = obj.result.records[i];
-				var result = cv.computeLatLon(obj.result.records[i].y_coord, obj.result.records[i].x_coord);
+				var result = cv.computeLatLon(parseInt(obj.result.records[i].y_coord), parseInt(obj.result.records[i].x_coord));
 				var latLng = new google.maps.LatLng(result.lat,result.lon);
 				var marker = new google.maps.Marker({
 					map: map, title: coords.car_park_no, position: latLng
