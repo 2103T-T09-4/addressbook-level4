@@ -47,8 +47,10 @@
 <li><a href="#autocomplete-feature">4.8. Autocomplete feature</a></li>
 <li><a href="#logging">4.9. Logging</a></li>
 <li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
-<li><a href="#proposed-weather-forecast">4.11. [Proposed] Weather Forecast</a></li>
-<li><a href="#proposed-data-encryption">4.12. [Proposed] Data Encryption</a></li>
+<li><a href="#Implementation-PostalCode">4.11. Postal Code</a></li>
+<li><a href="#Implementation-UI">4.12. UI</a></li>
+<li><a href="#proposed-weather-forecast">4.13. [Proposed] Weather Forecast</a></li>
+<li><a href="#proposed-data-encryption">4.14. [Proposed] Data Encryption</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1954,18 +1956,202 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-weather-forecast"><a class="link" href="#proposed-weather-forecast">4.11. [Proposed] Weather Forecast</a></h3>
+<h3 id="Implementation-PostalCode"><a class="link" href="#Implementation-PostalCode">4.11. Postal Code</a></h3>
+<div class="paragraph">
+<p>The postal code feature is built to allow easier finding of car park by knowing the postal code they are searching for.
+As the car park data from <code>data.gov.sg</code> does not have any postal code, we converted coordinates of each respective
+car park to a postal code whenever possible.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-8"><a class="link" href="#overview-8">4.11.1. Overview</a></h4>
+<div class="paragraph">
+<p>Currently, postal code data are stored in a separate file. This is due to it being too slow and unreliable to convert coordinate to postal code
+in real time. However, in order to generate the file, we first had to go through every carpark and find respective their postal code.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-7"><a class="link" href="#example-7">4.11.2. Example</a></h4>
+<div class="paragraph">
+<p>Step 1. The user launches the application.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The system loads the file, <code>postalcodeData.txt</code> into a <code>Hashmap&lt;Long,String&gt;</code> using the <code>GsonUtil#loadCarparkPostalCode()</code> where the key is a hash and the value is a postal code.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The system goes through every car park&#8217;s coordinates and hashes them together with <code>GsonUtil#fnvHash(x,y)</code> where x is the x coordinate of the carpark and y is the y coordinate of the carpark.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. If the key is found, it will return the value which is the postal code of the car park. If not, it will return the
+default value <code>000000</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As certain car park do not have postal code, <code>000000</code> is the default value and a flag to show that the car park does <strong>not</strong> have a postal code.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.11.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-source-of-postal-code-information"><a class="link" href="#aspect-source-of-postal-code-information">Aspect: Source of postal code information</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Pull data from file</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fast and efficient. No need to change due to no postal code changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to update for new car parks. Require you to download the .jar file again.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Pull data from API</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to update and scalable to new car parks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Too slow to do in real time. Takes roughly 20 minutes to update all car park postal code. Not realistic and efficient to do in real time.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-UI"><a class="link" href="#Implementation-UI">4.12. UI</a></h3>
+<div class="paragraph">
+<p>The UI was a combination of JavaFX, HTML and CSS. This section describes the challenges faced, how it was overcome
+and an example of how it works.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-9"><a class="link" href="#overview-9">4.12.1. Overview</a></h4>
+<div class="paragraph">
+<p>As we wanted to showcase real time updates when the user issues a command, we had to update the HTML accordingly.
+However, we did not want to just update it. We wanted to showcase the selected car park or the filtered list accordingly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-8"><a class="link" href="#example-8">4.12.2. Example</a></h4>
+<div class="paragraph">
+<p>Step 1. The user launches the application and is greeted by this UI</p>
+</div>
+<div class="paragraph">
+<p>(INSERT IMAGE HERE)</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user selects a car park with a <code>select</code> command. E.g. <code>select 10</code>.</p>
+</div>
+<div class="paragraph">
+<p>(INSERT IMAGE HERE)</p>
+</div>
+<div class="paragraph">
+<p><code>SelectCommand#Execute</code> is called. If the input is valid, it creates a <code>JumpToListRequestEvent</code> event for <code>BrowserPanel#handleCarparkPanelSelectionChangedEvent()</code> to catch.</p>
+</div>
+<div class="paragraph">
+<p>(INSERT IMAGE HERE)</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user then list all the car park with a <code>list</code> command.
+A <code>ListCarparkRequestEvent</code> is created and <code>BrowserPanel</code> catches the event to call <code>BrowserPanel#handleListCarparkRequestEvent()</code></p>
+</div>
+<div class="paragraph">
+<p>(INSERT IMAGE HERE)</p>
+</div>
+<div class="paragraph">
+<p>The HTML is refreshed to show all car parks.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.12.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-html-css-js-design-choices"><a class="link" href="#aspect-html-css-js-design-choices">Aspect: HTML/CSS/JS design choices</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Have a callback function in javascript</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement google maps and stylesheet.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hard to test. Different rendering between devices.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Have a query in the url parameters to filter data and update iFrame</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No rendering issue. Easy to test and debug.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Complex query and hard to understand again once working. Server must allow filtering by url paramters.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-weather-forecast"><a class="link" href="#proposed-weather-forecast">4.13. [Proposed] Weather Forecast</a></h3>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.12. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.14. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-8"><a class="link" href="#overview-8">4.12.1. Overview</a></h4>
+<h4 id="overview-10"><a class="link" href="#overview-10">4.14.1. Overview</a></h4>
 <div class="paragraph">
 <p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
 The key will stored in a secured location to prevent people from accessing it.</p>
@@ -1985,7 +2171,7 @@ The key will stored in a secured location to prevent people from accessing it.</
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-7"><a class="link" href="#example-7">4.12.2. Example</a></h4>
+<h4 id="example-9"><a class="link" href="#example-9">4.14.2. Example</a></h4>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
@@ -3941,4 +4127,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-03 06:04:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-03 06:49:06 UTC</div></div></div></body></html>
