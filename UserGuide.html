@@ -358,19 +358,15 @@ use them.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Common words are ignored, like blk and ave.</p>
-</li>
-<li>
-<p>Upper and lower case characters do not matter.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Common words are ignored, like <code>blk</code> and <code>ave</code>. Upper and lower case characters do not matter.</p>
 </div>
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The figure below is a sample display of the application.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -379,16 +375,13 @@ use them.</p>
 <div class="title">Figure 3. Before using find command</div>
 </div>
 <div class="paragraph">
-<p>The figure above is a sample display of the application.</p>
+<p>The figure below shows what happen after executing the <code>find</code> command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/findafter.png" alt="findafter" width="880">
 </div>
-<div class="title">Figure 4. After using find command</div>
-</div>
-<div class="paragraph">
-<p>The figure above shows what happen after executing the <code>find</code> command.</p>
+<div class="title">Figure 4. After using <code>find punggol</code> command</div>
 </div>
 </div>
 <div class="sect2">
@@ -423,15 +416,8 @@ use them.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>You can only <code>undo</code> when you have ran a commands.</p>
-</li>
-<li>
-<p>Undoable commands: those commands that modify the car park finder’s content (<code>clear</code>, <code>find</code>, <code>filter</code> and <code>query</code>).</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>You can only <code>undo</code> when you have ran a undoable commands (<code>clear</code>, <code>find</code>, <code>filter</code> and <code>query</code>).</p>
 </div>
 </td>
 </tr>
@@ -530,10 +516,19 @@ use them.</p>
 <div class="content">
 <img src="images/select.png" alt="select" width="880">
 </div>
-<div class="title">Figure 5. After using select command</div>
+<div class="title">Figure 5. Before running the <code>select 20</code> command</div>
 </div>
 <div class="paragraph">
-<p>The figure above is the outcome of the select command.</p>
+<p>The figure above is the outcome of <code>find punggol</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/selectafter.png" alt="selectafter" width="880">
+</div>
+<div class="title">Figure 6. An example of the output of the <code>select 20</code> command.</div>
+</div>
+<div class="paragraph">
+<p>The figure above is the outcome of the select command. Selecting any index will automatically zoom the UI in.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -585,6 +580,18 @@ There must be car parks available for <code>SelectCommand</code> to work.
 </td>
 </tr>
 </table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/beforehistory.png" alt="beforehistory" width="880">
+</div>
+<div class="title">Figure 7. After running several commands, before the using the <code>history</code> command</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterhistory.png" alt="afterhistory" width="880">
+</div>
+<div class="title">Figure 8. An example of the output of the <code>history</code> command</div>
 </div>
 </div>
 <div class="sect2">
@@ -652,9 +659,15 @@ There must be car parks available for <code>SelectCommand</code> to work.
 </table>
 <div class="imageblock">
 <div class="content">
-<img src="images/listafter.png" alt="listafter" width="880">
+<img src="images/beforelist.png" alt="beforelist" width="880">
 </div>
-<div class="title">Figure 6. After using list command</div>
+<div class="title">Figure 9. Previously filtered list, before using the <code>list</code> command.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterlist.png" alt="afterlist" width="880">
+</div>
+<div class="title">Figure 10. An example of the output of the <code>list</code> command, showing all the car parks.</div>
 </div>
 </div>
 <div class="sect2">
@@ -701,7 +714,7 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/zy_before_query.png" alt="zy before query" width="880">
 </div>
-<div class="title">Figure 7. Before running Query Command</div>
+<div class="title">Figure 11. Before running Query Command</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -712,7 +725,7 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/zy_during_query.png" alt="zy during query" width="880">
 </div>
-<div class="title">Figure 8. While Query Command is running</div>
+<div class="title">Figure 12. While Query Command is running</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -723,7 +736,7 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/zy_after_query.png" alt="zy after query" width="880">
 </div>
-<div class="title">Figure 9. Result of Query Command</div>
+<div class="title">Figure 13. Result of Query Command</div>
 </div>
 <div class="paragraph">
 <p>All information for the car parks are refreshed, with the bottom left text telling you when it was
@@ -785,7 +798,7 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_select_notify.png" alt="zy select notify" width="880">
 </div>
-<div class="title">Figure 10. Selected Car park SK96</div>
+<div class="title">Figure 14. Selected Car park SK96</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -796,7 +809,7 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_notify_after.png" alt="zy notify after" width="880">
 </div>
-<div class="title">Figure 11. Real-time notification for SK96</div>
+<div class="title">Figure 15. Real-time notification for SK96</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -807,7 +820,7 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_notify_off.png" alt="zy notify off" width="880">
 </div>
-<div class="title">Figure 12. Turning notification off</div>
+<div class="title">Figure 16. Turning notification off</div>
 </div>
 <div class="paragraph">
 <p>To turn off the notification, simply set the seconds value to 0.</p>
@@ -819,13 +832,13 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_notify_invalid.png" alt="zy notify invalid" width="880">
 </div>
-<div class="title">Figure 13. Invalid command format</div>
+<div class="title">Figure 17. Invalid command format</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/zy_notify_select.png" alt="zy notify select" width="880">
 </div>
-<div class="title">Figure 14. Invalid command format</div>
+<div class="title">Figure 18. Invalid command format</div>
 </div>
 </div>
 <div class="sect2">
@@ -852,6 +865,18 @@ last updated.</p>
 </tr>
 </tbody>
 </table>
+<div class="imageblock">
+<div class="content">
+<img src="images/beforeclear.png" alt="beforeclear" width="880">
+</div>
+<div class="title">Figure 19. All car parks are listed</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/afterclear.png" alt="afterclear" width="880">
+</div>
+<div class="title">Figure 20. An example of the output of the <code>clear</code> command showing nothing.</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Features-Exit"><a class="link" href="#Features-Exit">3.13. Exiting the application : <code>exit</code></a></h3>
@@ -1072,8 +1097,8 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. Technical Terms</caption>
 <colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 85.7143%;">
+<col style="width: 25%;">
+<col style="width: 75%;">
 </colgroup>
 <thead>
 <tr>
@@ -1105,6 +1130,18 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>User Interface (UI)</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to interact with the application through inputs and outputs of data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hyper Text Markup Language (HTML)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A standardized system for tagging text files to achieve font, colour, graphic, and hyperlink effects on World Wide Web pages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cascading Style Sheets (CSS)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A style sheet language used for describing the presentation of a document written in a markup language like HTML.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Javascript (JS)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1206,4 +1243,4 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 06:16:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-04 16:08:06 UTC</div></div></div></body></html>
