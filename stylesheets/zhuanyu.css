@@ -1,0 +1,70 @@
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+@import url(https://fonts.googleapis.com/css?family=Raleway|Montserrat);
+@import "asciidoctor.css"; /* Default asciidoc style framework - important */
+@import "gh-pages.css";
+
+/* CUSTOMISATIONS */
+/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
+:root{
+--bgcolor:#fffaef; /* White Base3 */
+--fgcolor:#fdf6e3; /* Base3 */
+--altcolor:#eee8d5; /* Base2 */
+--textcolor:#073642; /* Base02 */
+--highlightcolor:#d33682; /* Magneta */
+--linkcolor:#268bd2; /* Blue */
+--selectcolor:#6c71c4; /* Violet */
+--primarycolor:#dc322f; /* Red */
+--secondarycolor:#b58900; /* Yellow */
+--tertiarycolor:#2aa198; /* Cyan */
+--quaternarycolor:#859900; /* Green */
+--bordercolor:#cb4b16; /* Orange */
+--tablebgcolor:#839496; /* Base0 */
+--tablefgcolor:#93a1a1; /* Base1 */
+--white:#FFFFFF;
+}
+
+/* Table of Content */
+#toc{background-color:var(--fgcolor) !important; width: 40%; font-weight: 600 !important}
+#toctitle{color:var(--secondarycolor) !important; font-family:"Mali",sans-serif !important; font-weight: 600; text-align: center;}
+/*#toc a:link{color:var(--primarycolor) !important}*/
+#toc a:active{color:var(--selectcolor) !important}
+#toc a{color:var(--linkcolor) !important; font-family:"Mali",sans-serif !important}
+
+/* Text styles */
+body{font-family:"Raleway",sans-serif; background-color: var(--bgcolor); color:var(--textcolor)}
+
+/* Headers */
+h1,h5>.link,h6>.link{color:var(--primarycolor) !important; font-family:"Montserrat",sans-serif;}
+h2>.link{color:var(--secondarycolor) !important; font-family:"Montserrat",sans-serif}
+h3>.link{color:var(--tertiarycolor) !important; font-family:"Montserrat",sans-serif}
+h4>.link{color:var(--quaternarycolor) !important; font-family:"Montserrat",sans-serif}
+
+/* Paragraph */
+p{font-family:"Raleway",sans-serif !important; font-size: 13pt !important}
+/* Quote? */
+blockquote{color:var(--highlightcolor) !important}
+.quoteblock blockquote:before{color:var(--highlightcolor)}
+/* Code */
+code{color:var(--white); font-weight: 600; font-size: 13pt !important; background-color: var(--highlightcolor) !important}
+ /* Text highlighting color? */
+mark{background-color: var(--highlightcolor)}
+/* Figure */
+.title{color:var(--primarycolor) !important; font-family:"Montserrat",sans-serif !important; font-style: normal !important; font-weight: normal !important;}
+
+/* Table */
+th,td.tableblock{border-style:groove !important; border-color:var(--bordercolor) !important; border-width:2px !important; color:var(--textcolor) !important}
+th{color:var(--linkcolor) !important; background-color: var(--altcolor) !important}
+td{border-style:outset !important; border-color:var(--quaternarycolor) !important; color:var(--textcolor) !important; border-width:5px !important}
+tr:nth-child(even) {background-color: var(--altcolor) !important}
+tr:nth-child(odd) {background-color: var(--fgcolor) !important}
+
+/* Responsiveness fixes */
+video {
+  max-width: 100%;
+}
+
+@media all and (max-width: 600px) {
+table {
+  width: 55vw!important;
+  font-size: 3vw;
+}
