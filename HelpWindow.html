@@ -178,7 +178,7 @@ use them.</p>
 <div class="sect2">
 <h3 id="Features-Filter"><a class="link" href="#Features-Filter">3.2. Filtering car parks : <code>filter</code></a></h3>
 <div class="paragraph">
-<p>Filters the list of car parks returned by <code>FindCommand</code> by:<br></p>
+<p>Filters the list of car parks returned by <code>FindCommand</code> by the following flags:<br></p>
 </div>
 <div class="ulist">
 <ul>
@@ -202,6 +202,9 @@ use them.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><code>FilterCommand</code> can take in any number of flags, in any order.</p>
+</div>
 <table class="tableblock frame-all grid-all" style="width: 95%;">
 <colgroup>
 <col style="width: 33.3333%;">
@@ -217,32 +220,21 @@ use them.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [flag&amp;parameter(s)] [flag&amp;parameter(s)] &#8230;&#8203;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>fi</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ SUN 7.30AM 5.30PM ct/ SURFACE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ SUN 7.30AM 5.30PM ct/ SURFACE</code><br>
+<code>fi a/ ps/ COUPON</code></p></td>
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<code>FilterCommand</code> and take in any number of flags, in any order.
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p>List of valid flags:</p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 95%;">
 <colgroup>
-<col style="width: 27.2727%;">
-<col style="width: 9.0909%;">
-<col style="width: 9.0909%;">
-<col style="width: 27.2727%;">
-<col style="width: 27.2728%;">
+<col style="width: 14.2857%;">
+<col style="width: 7.1428%;">
+<col style="width: 28.5714%;">
+<col style="width: 21.4285%;">
+<col style="width: 28.5716%;">
 </colgroup>
 <tbody>
 <tr>
@@ -257,8 +249,8 @@ use them.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>f/</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY START_TIME END_TIME</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY</code>: <code>MON</code> - <code>SUN</code><br>
-<code>START_TIME</code>: e.g. <code>7.30AM</code><br>
-<code>END_TIME</code>: e.g. <code>9.30PM</code></p></td>
+<code>START_TIME: e.g. 7.30AM</code><br>
+<code>END_TIME: e.g. 9.30PM</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ sun 9.00am 5.30pm</code></p></td>
 </tr>
 <tr>
@@ -266,7 +258,7 @@ use them.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter n/</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Type of car park</p></td>
@@ -280,14 +272,14 @@ use them.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter a/</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Car park has short-term parking</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter s/</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Type of parking system</p></td>
@@ -298,32 +290,17 @@ use them.</p>
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>FindCommand</code> must be used to find a list of carparks within the location first.</p>
-</li>
-<li>
-<p>Upper and lower case characters do not matter.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Take note that <code>FindCommand</code> must be used to find a list of carparks within the location first.</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>Upper or lower case characters do not matter.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/filter.png" alt="filter" width="880">
 </div>
-<div class="title">Figure 2. Filtering covered car parks</div>
+<div class="title">Figure 2. Filtering covered car parks that have available parking lots</div>
 </div>
 </div>
 <div class="sect2">
@@ -612,25 +589,21 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate DAY START_TIME END_TIME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate SUN 3.30PM 6.30PM</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate CARPARK_NAME DAY START_TIME END_TIME</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cal</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate TJ39 SUN 3.30AM 6.30PM</code><br>
+<code>cal TJ39 SUN 3.30AM 6.30PM</code></p></td>
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p><code>CalculateCommand</code> takes into account the free parking times of car parks.</p>
+<p><code>CalculateCommand</code> takes into account the free parking times of car parks. It also checks if a car park has short-term parking.</p>
 </div>
-</td>
-</tr>
-</table>
+<div class="imageblock">
+<div class="content">
+<img src="images/calculate.png" alt="calculate" width="880">
+</div>
+<div class="title">Figure 9. Calculating the cost of parking at car park TJ39 on Sunday from 3.30am to 6.30pm</div>
 </div>
 </div>
 <div class="sect2">
@@ -661,13 +634,13 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/beforelist.png" alt="beforelist" width="880">
 </div>
-<div class="title">Figure 9. Previously filtered list, before using the <code>list</code> command.</div>
+<div class="title">Figure 10. Previously filtered list, before using the <code>list</code> command.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/afterlist.png" alt="afterlist" width="880">
 </div>
-<div class="title">Figure 10. An example of the output of the <code>list</code> command, showing all the car parks.</div>
+<div class="title">Figure 11. An example of the output of the <code>list</code> command, showing all the car parks.</div>
 </div>
 </div>
 <div class="sect2">
@@ -714,7 +687,7 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/zy_before_query.png" alt="zy before query" width="880">
 </div>
-<div class="title">Figure 11. Before running Query Command</div>
+<div class="title">Figure 12. Before running Query Command</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -725,7 +698,7 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/zy_during_query.png" alt="zy during query" width="880">
 </div>
-<div class="title">Figure 12. While Query Command is running</div>
+<div class="title">Figure 13. While Query Command is running</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -736,7 +709,7 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/zy_after_query.png" alt="zy after query" width="880">
 </div>
-<div class="title">Figure 13. Result of Query Command</div>
+<div class="title">Figure 14. Result of Query Command</div>
 </div>
 <div class="paragraph">
 <p>All information for the car parks are refreshed, with the bottom left text telling you when it was
@@ -798,7 +771,7 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_select_notify.png" alt="zy select notify" width="880">
 </div>
-<div class="title">Figure 14. Selected Car park SK96</div>
+<div class="title">Figure 15. Selected Car park SK96</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -809,7 +782,7 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_notify_after.png" alt="zy notify after" width="880">
 </div>
-<div class="title">Figure 15. Real-time notification for SK96</div>
+<div class="title">Figure 16. Real-time notification for SK96</div>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -820,7 +793,7 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_notify_off.png" alt="zy notify off" width="880">
 </div>
-<div class="title">Figure 16. Turning notification off</div>
+<div class="title">Figure 17. Turning notification off</div>
 </div>
 <div class="paragraph">
 <p>To turn off the notification, simply set the seconds value to 0.</p>
@@ -832,13 +805,13 @@ last updated.</p>
 <div class="content">
 <img src="images/zy_notify_invalid.png" alt="zy notify invalid" width="880">
 </div>
-<div class="title">Figure 17. Invalid command format</div>
+<div class="title">Figure 18. Invalid command format</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/zy_notify_select.png" alt="zy notify select" width="880">
 </div>
-<div class="title">Figure 18. Invalid command format</div>
+<div class="title">Figure 19. Invalid command format</div>
 </div>
 </div>
 <div class="sect2">
@@ -869,13 +842,13 @@ last updated.</p>
 <div class="content">
 <img src="images/beforeclear.png" alt="beforeclear" width="880">
 </div>
-<div class="title">Figure 19. All car parks are listed</div>
+<div class="title">Figure 20. All car parks are listed</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/afterclear.png" alt="afterclear" width="880">
 </div>
-<div class="title">Figure 20. An example of the output of the <code>clear</code> command showing nothing.</div>
+<div class="title">Figure 21. An example of the output of the <code>clear</code> command showing nothing.</div>
 </div>
 </div>
 <div class="sect2">
@@ -1243,4 +1216,4 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 06:29:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 10:52:27 UTC</div></div></div></body></html>

@@ -1586,16 +1586,7 @@ input by the user falls between the free parking time period of the car park.</p
 </div>
 <div class="title">Figure 23. How the filter operation works</div>
 </div>
-<div class="paragraph">
-<p>The following <em>Activity Diagram</em> summarizes the implementation of the
-filter command.</p>
-</div>
-<div class="imageblock" style="text-align: left">
-<div class="content">
-<img src="images/ActivityDiagram-filter.png" alt="ActivityDiagram filter" width="700">
-</div>
-<div class="title">Figure 24. Summary for executing a filter command</div>
-</div>
+<hr>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">4.5.3. Design Considerations</a></h4>
@@ -1659,7 +1650,7 @@ A whole new set of classes and methods needs to be written to store the filtered
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-4"><a class="link" href="#example-4">4.6.2. Example</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the calculate mechanism behaves at each step when
 the user wants to know the cost of parking at car park W49, on a Monday, from 9.00am to 5.30pm.</p>
@@ -1682,7 +1673,7 @@ parse the arguments supplied to the command.</p>
 the list of car parks.</p>
 </div>
 <div class="paragraph">
-<p>Step 6. <code>CalculateCommand</code> checks if the car park W49 has free parking.</p>
+<p>Step 6. <code>CalculateCommand</code> checks if the car park W49 has short-term parking.</p>
 </div>
 <div class="paragraph">
 <p>Step 7. As some car parks only has short-term parking between certain timings, <code>CalculateCommand</code> checks if the parking time input by the user is valid.</p>
@@ -1693,6 +1684,67 @@ is no free parking during that time period, it will calculate the cost of parkin
 </div>
 <div class="paragraph">
 <p>Step 9. The calculated cost is then returned to the GUI as a command result.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> summarizes the implementation of the
+calculate command.</p>
+</div>
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="images/ActivityDiag-calculate.png" alt="ActivityDiag calculate" width="700">
+</div>
+<div class="title">Figure 24. How the calculate operation works</div>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.6.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-specified-car-park-is-identified-and-obtained-from-car-park-list"><a class="link" href="#aspect-how-specified-car-park-is-identified-and-obtained-from-car-park-list">Aspect: How specified car park is identified and obtained from car park list</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (Current choice):</strong> Identify car park by car park number. Filter list of car parks by the car park number. Then obtain the car park from filtered list.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command can be executed independently, as long as user knows the car park number of car park.
+Make use of existing filtering methods to obtain car park.
+Since car park number is unique to each car park, there would only be one car park left in filtered list if car park number is valid.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less efficient as command needs to find the specific car park from all the car parks.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Identify the car park by index from last filtered list.</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simple to implement, can directly obtain car park by obtaining the last filtered list from <code>modal</code> and then using the <code>get</code> method on the list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command can only work after <code>FindCommand</code> or <code>FilterCommand</code> is executed.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1709,7 +1761,7 @@ to allow command abbreviations to be parsed through <code>parseCommand</code> as
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-5"><a class="link" href="#example-5">4.7.2. Example</a></h4>
+<h4 id="example-4"><a class="link" href="#example-4">4.7.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the abbreviation mechanism behaves at
 each step.</p>
@@ -1741,7 +1793,7 @@ command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">4.7.3. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.7.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-abbreviation-executes"><a class="link" href="#aspect-how-abbreviation-executes">Aspect: How abbreviation executes</a></h5>
 <div class="ulist">
@@ -1806,7 +1858,7 @@ parameter if full format is already provided in the command box.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-6"><a class="link" href="#example-6">4.8.2. Example</a></h4>
+<h4 id="example-5"><a class="link" href="#example-5">4.8.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the autocomplete mechanism behaves at
 each step.</p>
@@ -1860,7 +1912,7 @@ values and then presses <kbd>Enter</kbd>  to execute this command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">4.8.3. Design Considerations</a></h4>
+<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.8.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-textinput"><a class="link" href="#aspect-textinput">Aspect: TextInput</a></h5>
 <div class="ulist">
@@ -1973,7 +2025,7 @@ in real time. However, in order to generate the file, we first had to go through
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-7"><a class="link" href="#example-7">4.11.2. Example</a></h4>
+<h4 id="example-6"><a class="link" href="#example-6">4.11.2. Example</a></h4>
 <div class="paragraph">
 <p>Step 1. The user launches the application.</p>
 </div>
@@ -2001,7 +2053,7 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">4.11.3. Design Considerations</a></h4>
+<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.11.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-source-of-postal-code-information"><a class="link" href="#aspect-source-of-postal-code-information">Aspect: Source of postal code information</a></h5>
 <div class="ulist">
@@ -2063,7 +2115,7 @@ However, we did not want to just update it. We wanted to showcase the selected c
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-8"><a class="link" href="#example-8">4.12.2. Example</a></h4>
+<h4 id="example-7"><a class="link" href="#example-7">4.12.2. Example</a></h4>
 <div class="paragraph">
 <p>Step 1. The user launches the application and is greeted by this UI</p>
 </div>
@@ -2100,7 +2152,7 @@ A <code>ListCarparkRequestEvent</code> is created and <code>BrowserPanel</code> 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-9"><a class="link" href="#design-considerations-9">4.12.3. Design Considerations</a></h4>
+<h4 id="design-considerations-10"><a class="link" href="#design-considerations-10">4.12.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-html-css-js-design-choices"><a class="link" href="#aspect-html-css-js-design-choices">Aspect: HTML/CSS/JS design choices</a></h5>
 <div class="ulist">
@@ -2180,7 +2232,7 @@ The key will stored in a secured location to prevent people from accessing it.</
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-9"><a class="link" href="#example-9">4.14.2. Example</a></h4>
+<h4 id="example-8"><a class="link" href="#example-8">4.14.2. Example</a></h4>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
@@ -4136,4 +4188,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 06:29:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 10:52:27 UTC</div></div></div></body></html>
