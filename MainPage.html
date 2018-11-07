@@ -1450,7 +1450,7 @@
             markersArray.length = 0;
         }
 
-        google.maps.InfoWindow.prototype.isOpen = false;
+        <!--google.maps.InfoWindow.prototype.isOpen = false;-->
         function initMap() {
             var theUrl = "https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&limit=2000&offset=";
             var offset = 0;
@@ -1506,24 +1506,14 @@
                 var infowindow = new google.maps.InfoWindow();
                 google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
                     return function() {
-                        if(infowindow.isOpen) {
-                            infowindow.close();
-                            infowindow.isOpen = false;
-                        } else {
-                            if (prev_infowindow != false) {
-                                prev_infowindow.close();
-                                prev_infowindow.isOpen = false;
-                            }
-                            infowindow.setContent(content);
-                            infowindow.open(map,marker);
-                            infowindow.isOpen = true;
+                        if (prev_infowindow != false) {
+                            prev_infowindow.close();
+                            prev_infowindow.isOpen = false;
                         }
+                        infowindow.setContent(content);
+                        infowindow.open(map,marker);
+                        infowindow.isOpen = true;
                         prev_infowindow = infowindow;
-                    };
-                })(marker, content, infowindow));
-                google.maps.event.addListener(infowindow, 'closeclick', (function(marker, content, infowindow) {
-                    return function() {
-                       infowindow.isOpen = false;
                     };
                 })(marker, content, infowindow));
             }
@@ -1565,24 +1555,14 @@
             var infowindow = new google.maps.InfoWindow();
             google.maps.event.addListener(marker,'click', (function(marker, content, infowindow) {
                 return function() {
-                    if(infowindow.isOpen) {
-                        infowindow.close();
-                        infowindow.isOpen = false;
-                    } else {
-                        if (prev_infowindow != false) {
-                            prev_infowindow.close();
-                            prev_infowindow.isOpen = false;
-                        }
-                        infowindow.setContent(content);
-                        infowindow.open(map,marker);
-                        infowindow.isOpen = true;
+                    if (prev_infowindow != false) {
+                        prev_infowindow.close();
+                        prev_infowindow.isOpen = false;
                     }
+                    infowindow.setContent(content);
+                    infowindow.open(map,marker);
+                    infowindow.isOpen = true;
                     prev_infowindow = infowindow;
-                };
-            })(marker, content, infowindow));
-            google.maps.event.addListener(infowindow,'closeclick', (function(marker, content, infowindow) {
-                return function() {
-                   infowindow.isOpen = false;
                 };
             })(marker, content, infowindow));
         }
@@ -1627,7 +1607,7 @@
             }
 
             for (var j = 0; j < json.length; j++) {
-				data.push(dict[json[j]]);
+				        data.push(dict[json[j]]);
             }
 
             var cv = new SVY21();
@@ -1635,7 +1615,8 @@
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 11,
                 center: new google.maps.LatLng(1.3521, 103.8198),
-                mapTypeId: google.maps.MapTypeId.TERRAIN
+                mapTypeId: google.maps.MapTypeId.TERRAIN,
+                maxZoom: 16
             });
 
             var latlngbounds = new google.maps.LatLngBounds();
@@ -1661,24 +1642,14 @@
                 var infowindow = new google.maps.InfoWindow();
                 google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) {
                     return function() {
-                        if(infowindow.isOpen) {
-                            infowindow.close();
-                            infowindow.isOpen = false;
-                        } else {
-                            if (prev_infowindow != false) {
-                                prev_infowindow.close();
-                                prev_infowindow.isOpen = false;
-                            }
-                            infowindow.setContent(content);
-                            infowindow.open(map,marker);
-                            infowindow.isOpen = true;
+                        if (prev_infowindow != false) {
+                            prev_infowindow.close();
+                            prev_infowindow.isOpen = false;
                         }
+                        infowindow.setContent(content);
+                        infowindow.open(map,marker);
+                        infowindow.isOpen = true;
                         prev_infowindow = infowindow;
-                    };
-                })(marker, content, infowindow));
-                google.maps.event.addListener(infowindow,'closeclick', (function(marker, content, infowindow) {
-                    return function() {
-                       infowindow.isOpen = false;
                     };
                 })(marker, content, infowindow));
             }
@@ -1687,7 +1658,11 @@
                 {imagePath: 'https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/src/main/resources/images/m'}
             );
 
-            if (json.length > 0) {
+            if (json.length == 0) {
+                map.setZoom(12);
+            } else if (json.length == 1) {
+                map.fitBounds(latlngbounds);
+            } else {
                 map.fitBounds(latlngbounds);
             }
         }

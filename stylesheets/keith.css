@@ -64,6 +64,9 @@ summary {
 	color: var(--secondarycolor) !important;
 	font-size: 26px;
 	text-align: left;
+	margin-top: 0px;
+	margin-left: 16px;
+	margin-bottom: 0px;
 }
 
 #toc a {
