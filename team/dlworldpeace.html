@@ -1,7 +1,39 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Xiao Delong - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/default.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Xiao Delong - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/delong.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Car Park Finder</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/CS2103-AY1819S1-T09-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Xiao Delong - Project Portfolio</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
+<div id="toc" class="toc">
+<div id="toctitle" class="title">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#project-overview-code-car-park-finder-code">2. Project Overview: <code>Car park Finder</code></a></li>
+<li><a href="#summary-of-contributions">3. Summary of contributions</a></li>
+<li><a href="#contributions-to-the-user-guide">4. Contributions to the User Guide</a>
+<ul class="sectlevel2">
+<li><a href="#quick-start">4.1. Quick Start</a></li>
+<li><a href="#auto-complete-the-command-line">4.2. Auto complete the command line</a></li>
+<li><a href="#command-summary">4.3. Command Summary</a></li>
+</ul>
+</li>
+<li><a href="#contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a>
+<ul class="sectlevel2">
+<li><a href="#architecture-overview">5.1. Architecture overview</a></li>
+<li><a href="#Architecture-Components">5.2. Architecture components</a></li>
+<li><a href="#Architecture-design">5.3. Events-driven nature of the design</a></li>
+<li><a href="#Design-Main">5.4. Main component</a></li>
+<li><a href="#Design-Commons">5.5. Commons component</a></li>
+<li><a href="#Design-Ui">5.6. User interface component</a></li>
+<li><a href="#Design-Logic">5.7. Logic component</a></li>
+<li><a href="#Design-Model">5.8. Model component</a></li>
+<li><a href="#Design-Storage">5.9. Storage component</a></li>
+<li><a href="#abbreviation-feature">5.10. Abbreviation Feature</a></li>
+<li><a href="#auto-complete-feature">5.11. Auto-complete Feature</a></li>
+</ul>
+</li>
+<li><a href="#project-powerpointlabs">6. PROJECT: PowerPointLabs</a></li>
+</ul>
+</div>
+<hr>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/delong.jpg" alt="delong" width="150">
@@ -13,24 +45,45 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-car-park-finder"><a class="link" href="#project-car-park-finder">PROJECT: Car park Finder</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Hi there! I am Delong, currently a second year student at National University of Singapore major in Computer Science. <br></p>
+</div>
+<div class="paragraph">
+<p>I like building things from scratch. Since young, I like building LEGO. And ever
+after starting to programme, I fell in love with it and enjoy creating my own web
+app, phone app and software.</p>
+</div>
+<div class="paragraph">
+<p>This project is part of a Software Engineering module (CS2103T) that I have taken.
+Together with my teammates, Keith, Zhuanyu, Yurou and Alvin, I would like to present
+<em>Car park Finder</em> to you.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<h2 id="project-overview-code-car-park-finder-code"><a class="link" href="#project-overview-code-car-park-finder-code">2. Project Overview: <code>Car park Finder</code></a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Car park finder is a desktop address book application to find HDB (Housing Development Board) car parks in Singapore.
 It allows you to work with a <strong>Command Line Interface (CLI)</strong> to display a list of car parks with the convenience of simply typing.
 If you <strong>use the computer frequently</strong> and <strong>commute by driving</strong>, you would find our application useful in helping you obtain various information about car parks.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/findbefore.png" alt="findbefore" width="880">
+</div>
+<div class="title">Figure 1. Sample display of the application</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">3. Summary of contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Here is the list of my contributions to this project, ranging from adding features to documentations:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -124,20 +177,15 @@ If you <strong>use the computer frequently</strong> and <strong>commute by drivi
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">4. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>Here is the list of my contributions to the User Guide. They showcase my ability
+to write documentation for end-users to understand easily. We are targeting car
+owners, e.g. taxi drivers.</p>
+</div>
 <div class="sect2">
-<h3 id="quick-start"><a class="link" href="#quick-start">Quick Start</a></h3>
+<h3 id="quick-start"><a class="link" href="#quick-start">4.1. Quick Start</a></h3>
 <div class="paragraph">
 <p>Here are several quick tips to get the application running.</p>
 </div>
@@ -190,7 +238,7 @@ Some example commands you can try:<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-the-command-line"><a class="link" href="#auto-complete-the-command-line">Auto complete the command line</a></h3>
+<h3 id="auto-complete-the-command-line"><a class="link" href="#auto-complete-the-command-line">4.2. Auto complete the command line</a></h3>
 <div class="paragraph">
 <p>Display the full format of an executable command line.<br>
 Format: <code>COMMAND_WORD</code> followed by 'Tab' key.
@@ -227,7 +275,7 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h3>
+<h3 id="command-summary"><a class="link" href="#command-summary">4.3. Command Summary</a></h3>
 <div class="paragraph">
 <p>Here are the summarize list of commands available to the user.</p>
 </div>
@@ -324,7 +372,7 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -337,7 +385,7 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="architecture-overview"><a class="link" href="#architecture-overview">Architecture overview</a></h3>
+<h3 id="architecture-overview"><a class="link" href="#architecture-overview">5.1. Architecture overview</a></h3>
 <div class="paragraph">
 <p>This section explains the design architecture used by the entire system.</p>
 </div>
@@ -357,7 +405,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/Architecture.png" alt="Architecture" width="600">
 </div>
-<div class="title">Figure 1. Architecture Diagram</div>
+<div class="title">Figure 2. Architecture Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <strong><em>architecture diagram</em></strong> given above explains the high-level design of the App,
@@ -366,7 +414,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </div>
 </div>
 <div class="sect2">
-<h3 id="Architecture-Components"><a class="link" href="#Architecture-Components">Architecture components</a></h3>
+<h3 id="Architecture-Components"><a class="link" href="#Architecture-Components">5.2. Architecture components</a></h3>
 <div class="paragraph">
 <p>This section will briefly introduce the function of each architecture components
 as well as common behaviours.</p>
@@ -439,11 +487,11 @@ Each of the User Interface, Logic, Model, Storage Components also:
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
 </div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+<div class="title">Figure 3. Class Diagram of the Logic Component</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Architecture-design"><a class="link" href="#Architecture-design">Events-driven nature of the design</a></h3>
+<h3 id="Architecture-design"><a class="link" href="#Architecture-design">5.3. Events-driven nature of the design</a></h3>
 <div class="paragraph">
 <p>This section explains the main nature of design adopted by the system.</p>
 </div>
@@ -454,7 +502,7 @@ Each of the User Interface, Logic, Model, Storage Components also:
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/Sequence%20diagram%20-%20Find%20Carpark.png" alt="Sequence diagram   Find Carpark" width="800">
 </div>
-<div class="title">Figure 3. Component interactions for <code>find sengkang</code> command (part 1)</div>
+<div class="title">Figure 4. Component interactions for <code>find sengkang</code> command (part 1)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -475,7 +523,7 @@ Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent<
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/Sequence%20diagram%20-%20Find%20Carpark%20Event%20Handling.png" alt="Sequence diagram   Find Carpark Event Handling" width="800">
 </div>
-<div class="title">Figure 4. Component interactions for <code>find sengkang</code> command (part 2)</div>
+<div class="title">Figure 5. Component interactions for <code>find sengkang</code> command (part 2)</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -494,7 +542,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Main"><a class="link" href="#Design-Main">Main component</a></h3>
+<h3 id="Design-Main"><a class="link" href="#Design-Main">5.4. Main component</a></h3>
 <div class="paragraph">
 <p>The <code>Main</code> component consists of only one class, <a href="{repoURL}/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
 </div>
@@ -510,7 +558,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">Commons component</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">5.5. Commons component</a></h3>
 <div class="paragraph">
 <p>The <code>Commons</code> component consists of classes used by multiple other components. Two of these classes play important roles at the architectural level.</p>
 </div>
@@ -538,7 +586,7 @@ Classes used by multiple components are put in the seedu.carparkfinder.commons p
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">User interface component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">5.6. User interface component</a></h3>
 <div class="paragraph">
 <p>The <code>User Interface</code> (<code>UI</code>) component consists of a <code>MainWindow</code> that is made up of different parts.
 The base class
@@ -551,7 +599,7 @@ The base class
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
 </div>
-<div class="title">Figure 5. Structure of the User Interface component</div>
+<div class="title">Figure 6. Structure of the User Interface component</div>
 </div>
 <div class="paragraph">
 <p>In general, this is the workflow of the <code>UI</code> component:</p>
@@ -579,7 +627,7 @@ is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">5.7. Logic component</a></h3>
 <div class="paragraph">
 <p>The <code>Logic</code> component consist of a <code>LogicManager</code> that takes care of the parse and exexcution of commands.
 It inherits the base class <a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>.</p>
@@ -591,7 +639,7 @@ It inherits the base class <a href="{repoURL}/src/main/java/seedu/address/logic/
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
 </div>
-<div class="title">Figure 6. Structure of the Logic Component</div>
+<div class="title">Figure 7. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p>In general, this is the workflow of the <code>Logic</code> component:</p>
@@ -620,11 +668,11 @@ when <code>execute("delete 1")</code> is called.</p>
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
 </div>
-<div class="title">Figure 7. Sequence Diagram of of `execute("delete 1")</div>
+<div class="title">Figure 8. Sequence Diagram of of `execute("delete 1")</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">5.8. Model component</a></h3>
 <div class="paragraph">
 <p>The <code>Model</code> component is managed by the <code>ModelManager</code> that stores the data of Car Park Finder.
 It does not depend on any of the three other components.
@@ -637,7 +685,7 @@ It does not depend on any of the three other components.
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
 </div>
-<div class="title">Figure 8. Structure of the Model Component</div>
+<div class="title">Figure 9. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p>In general, this is the structure of the <code>Model</code> Component:</p>
@@ -688,11 +736,11 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800">
 </div>
-<div class="title">Figure 9. Use of Tag object</div>
+<div class="title">Figure 10. Use of Tag object</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">5.9. Storage component</a></h3>
 <div class="paragraph">
 <p>The <code>Storage</code> component, managed by the <code>StorageManager</code>, serves as a backend storage for data of Car Park Finder.
 <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a> is the base class.</p>
@@ -704,7 +752,7 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
 </div>
-<div class="title">Figure 10. Structure of the Storage Component</div>
+<div class="title">Figure 11. Structure of the Storage Component</div>
 </div>
 <div id="localcopy" class="paragraph">
 <p>The <code>Storage</code> component can perform the following functions:</p>
@@ -721,19 +769,19 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 </div>
 </div>
 <div class="sect2">
-<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">Abbreviation Feature</a></h3>
+<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">5.10. Abbreviation Feature</a></h3>
 <div class="paragraph">
 <p>The abbreviation feature reduces the amount of characters needed to type.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<h4 id="overview"><a class="link" href="#overview">5.10.1. Overview</a></h4>
 <div class="paragraph">
 <p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
 to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="link" href="#example">Example</a></h4>
+<h4 id="example"><a class="link" href="#example">5.10.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the abbreviation mechanism behaves at
 each step.</p>
@@ -757,7 +805,7 @@ proceeds as if a <code>find</code> command is given.</p>
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ActivityDiagram-abbreviation.png" alt="ActivityDiagram abbreviation" width="700">
 </div>
-<div class="title">Figure 11. Flow chart of command abbreviation usage.</div>
+<div class="title">Figure 12. Flow chart of command abbreviation usage.</div>
 </div>
 <div class="paragraph">
 <p>The <em>Activity Diagram</em> above explains what happens when a user executes a <code>f</code>
@@ -765,7 +813,7 @@ command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">5.10.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-abbreviation-executes"><a class="link" href="#aspect-how-abbreviation-executes">Aspect: How abbreviation executes</a></h5>
 <div class="ulist">
@@ -817,12 +865,12 @@ in each Command file.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">Auto-complete Feature</a></h3>
+<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">5.11. Auto-complete Feature</a></h3>
 <div class="paragraph">
 <p>The auto-complete feature simplifies overcomplicated commands by prompting correct format.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">5.11.1. Overview</a></h4>
 <div class="paragraph">
 <p>The auto-complete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
 to <code>displayFormat()</code> if applicable command word is entered or to highlight the next
@@ -830,7 +878,7 @@ parameter if full format is already provided in the command box.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">5.11.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the auto-complete mechanism behaves at
 each step.</p>
@@ -849,13 +897,13 @@ from the following diagrams.</p>
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fi.png" alt="screenshot fi" width="700">
 </div>
-<div class="title">Figure 12. After <code>fi</code> is entered.</div>
+<div class="title">Figure 13. After <code>fi</code> is entered.</div>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fiFirstArgSelected.png" alt="screenshot fiFirstArgSelected" width="700">
 </div>
-<div class="title">Figure 13. After <kbd>Tab</kbd> is pressed for the first time.</div>
+<div class="title">Figure 14. After <kbd>Tab</kbd> is pressed for the first time.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user replaces <code>DAY</code> with an actual value, <code>SUN</code>, and presses 'Tab'
@@ -867,7 +915,7 @@ is shown in the following diagram.</p>
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fiSecondArgSelected.png" alt="screenshot fiSecondArgSelected" width="700">
 </div>
-<div class="title">Figure 14. After <kbd>Tab</kbd> is pressed for the second time.</div>
+<div class="title">Figure 15. After <kbd>Tab</kbd> is pressed for the second time.</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user continues step 3 until all placeholders are filled up with actual
@@ -877,14 +925,14 @@ values and then presses <kbd>Enter</kbd>  to execute this command.</p>
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ActivityDiagram-autocompletion.png" alt="ActivityDiagram autocompletion" width="700">
 </div>
-<div class="title">Figure 15. Activity Diagram for Auto Completion Mechanism.</div>
+<div class="title">Figure 16. Activity Diagram for Auto Completion Mechanism.</div>
 </div>
 <div class="paragraph">
 <p>The <em>Activity Diagram</em> above explains what happens when user presses <kbd>Tab</kbd>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">5.11.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-textinput"><a class="link" href="#aspect-textinput">Aspect: TextInput</a></h5>
 <div class="ulist">
@@ -941,11 +989,11 @@ select through the entire line.</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">6. PROJECT: PowerPointLabs</a></h2>
 <div class="sectionbody">
 <hr>
 <div class="paragraph">
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 10:52:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-07 12:30:23 UTC</div></div></div></body></html>
