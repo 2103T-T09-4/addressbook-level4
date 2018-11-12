@@ -679,88 +679,92 @@ typed in correctly. <span class="underline"><a href="#find_number">Figure 9</a><
 <div class="paragraph">
 <p><code>FilterCommand</code> can take in any number of flags, in any order.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table id="filterformat" class="tableblock frame-all grid-all" style="width: 95%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 11.1111%;">
-<col style="width: 55.5556%;">
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [flag&amp;parameter(s)] [flag&amp;parameter(s)] &#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fil</code>,<code>filt</code>,<code>filte</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ SUN 7.30AM 5.30PM ct/ SURFACE</code><br>
-<code>fit a/ ps/ COUPON</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">filter FLAG&amp;PARAMETER(S) [FLAG&amp;PARAMETER(S)] &#8230;&#8203;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">fil, filt, filte</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">filter f/ sun 7.30am 5.30pm ct/ surface<br>
+fil a/ ps/ coupon</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
 <p>List of valid flags:</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table id="filterflags" class="tableblock frame-all grid-all" style="width: 95%;">
 <colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 7.1428%;">
-<col style="width: 28.5714%;">
-<col style="width: 21.4285%;">
-<col style="width: 28.5716%;">
+<col style="width: 13.3333%;">
+<col style="width: 6.6666%;">
+<col style="width: 26.6666%;">
+<col style="width: 26.6666%;">
+<col style="width: 26.6669%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Criteria</th>
+<th class="tableblock halign-left valign-top">Flag</th>
+<th class="tableblock halign-left valign-top">Parameter Structure</th>
+<th class="tableblock halign-left valign-top">Valid Parameters</th>
+<th class="tableblock halign-left valign-top">Example(s)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Criteria</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Flag</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter Structure</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid Parameters</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Car park has free parking</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY START_TIME END_TIME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DAY</code>: <code>MON</code> - <code>SUN</code><br>
-<code>START_TIME: e.g. 7.30AM</code><br>
-<code>END_TIME: e.g. 9.30PM</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter f/ sun 9.00am 5.30pm</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">f/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DAY START_TIME END_TIME</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DAY: e.g. sun<br>
+START_TIME: e.g. 7.30AM<br>
+END_TIME: e.g. 9.30PM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter f/ sun 9.00am 5.30pm</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Car park has night parking</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">n/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter n/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter n/</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Type of car park</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ct/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>CAR_PARK_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"SURFACE", "MULTISTOREY", "BASEMENT", "MECHANISED", "COVERED"</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter ct/ covered</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ct/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CAR_PARK_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">surface, multistorey, basement, mechanised, covered</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter ct/ covered</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Car park has available parking slot</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">a/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter a/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter a/</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Car park has short-term parking</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">s/</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter s/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter s/</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Type of parking system</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ps/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PARKING_SYSTEM_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>"COUPON", "ELECTRONIC"</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter ps/ coupon</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ps/</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PARKING_SYSTEM_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">coupon, electronic</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter ps/ coupon</p></td>
 </tr>
 </tbody>
 </table>
@@ -963,29 +967,32 @@ the <span class="underline"><a href="#Features-History">history</a></span> to vi
 <div class="paragraph">
 <p>Calculates the cost of parking at a selected car park between a specified time period.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table id="calculateformat" class="tableblock frame-all grid-all" style="width: 95%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate CARPARK_NAME DAY START_TIME END_TIME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ca</code>,<code>cal</code>,<code>calc</code>,<code>calcu</code><br>
- <code>calcul</code>,<code>calcula</code>,<code>calculat</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate TJ39 SUN 3.30AM 6.30PM</code><br>
-<code>ca TJ39 SUN 3.30AM 6.30PM</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">calculate CARPARK_NAME DAY START_TIME END_TIME</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">ca, cal, calc, calcu<br>
+calcul, calcula, calculat</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">calculate TJ39 sun 3.30am 6.30pm<br>
+ca TJ39 sun 3.30am 6.30pm</p></td>
 </tr>
 </tbody>
 </table>
 <div class="paragraph">
-<p><code>CalculateCommand</code> takes into account the free parking times of car parks. It also checks if a car park has short-term parking.</p>
+<p><code>CalculateCommand</code> takes into account the free parking times of car parks.
+It returns an error message if the car park has no short-term parking.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1836,4 +1843,4 @@ For more details on what each command does, please refer to <span class="underli
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:55:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:14:28 UTC</div></div></div></body></html>
