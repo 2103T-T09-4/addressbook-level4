@@ -1,49 +1,75 @@
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
-@import url(https://fonts.googleapis.com/css?family=Montserrat|Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Lato|Open Sans);
 @import "asciidoctor.css"; /* Default asciidoc style framework - important */
 @import "gh-pages.css";
 
 /* CUSTOMISATIONS */
-/* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
 :root{
---maincolor:#FFFFFF;
+--bgcolor:#FFFFFF; /* White */
+--textcolor:#000000; /* Black */
+
+--selectcolor:#0D47A1;
+--tablecolor:#F9F9F9; /* White Grey */
+--table2color:#F0F0F0; /* White Greyer */
+--figurecolor:#DC322F; /* Red */
+
+--highlightcolor:#ff5d00; /* Features Orange */
+--codebgcolor:#F9F9F9; /* Light Orange */
+
 --primarycolor:#294172; /* Fedora Dark Blue */
 --secondarycolor:#3c6eb4; /* Fedora Blue */
---tertiarycolor:#CCCCCC;
---highlightcolor:#e59728; /* Features Orange */
---sidebarbackground:#CACACA;
---linkcolor:#0D47A1;
---linkcoloralternate:#db3279; /* Friends Magneta */
---white:#FFFFFF;
---black:#000000;
+--tertiarycolor:#CCCCCC; /* Grey */
 }
 
+/* Table of Content */
+#toc{background-color:var(--tablecolor) !important; width: 60%}
+#toctitle{color:var(--primarycolor) !important; font-family:"Open Sans",sans-serif !important; font-weight: 600;
+text-align: center}
+/*#toc a:link{color:var(--primarycolor) !important}*/
+#toc a:active{color:var(--selectcolor) !important}
+#toc a{color:var(--secondarycolor) !important; font-family:"Open Sans",sans-serif; font-weight: 600;}
+
 /* Text styles */
+body{font-family:"Open Sans",sans-serif; background-color: var(--bgcolor); color:var(--textcolor), font-size: 14pt !important}
 
-body{font-family: "Open Sans",sans-serif;background-color: var(--maincolor);color:var(--black);}
+/* Headers */
+h1{color:var(--primarycolor) !important; font-family:"Montserrat",sans-serif}
+h6>.link, h2>.link, h4>.link, h3>.link, h5>.link{color:var(--secondarycolor) !important; font-family:"Montserrat",sans-serif}
 
-h1{color:var(--primarycolor) !important;font-family:"Montserrat",sans-serif;}
-h2,h3,h4,h5,h6{color:var(--secondarycolor) !important;font-family:"Montserrat",sans-serif;}
-.title{color:var(--black) !important;font-family:"Open Sans",sans-serif;font-style: normal; font-weight: normal;}
-a{text-decoration: none;}
-p{font-family: "Open Sans",sans-serif ! important}
-#toc.toc2 a:link{color:var(--linkcolor);}
-blockquote{color:var(--linkcoloralternate) !important}
-.quoteblock blockquote:before{color:var(--linkcoloralternate)}
-code{color:var(--white);background-color: var(--highlightcolor) !important}
-mark{background-color: var(--highlightcolor)} /* Text highlighting color */
+/* Paragraph */
+p{font-family:"Open Sans",sans-serif !important; font-size: 14pt !important}
+/* Quote? */
+blockquote{color:var(--highlightcolor) !important}
+.quoteblock blockquote:before{color:var(--highlightcolor)}
+/* Code */
+code{color:var(--highlightcolor); font-weight: 700 !important;
+background-color: var(--codebgcolor) !important}
+ /* Text highlighting color? */
+mark{background-color: var(--highlightcolor)}
+/* Figure */
+.title{color:var(--figurecolor) !important; font-family:"Open Sans",sans-serif !important}
+/* Thematic break */
+hr{border: 1px solid !important; border-radius: 5px !important; border-color: var(--textcolor) !important}
 
-/* Table styles */
-th{background-color: var(--maincolor);color:var(--black) !important;}
-td{background-color: var(--maincolor);color: var(--black) !important}
-
-
-#toc.toc2{background-color:var(--sidebarbackground);}
-#toctitle{color:var(--white);}
+/* Table */
+th,td.tableblock{border-style:solid !important; border-color:var(--tertiarycolor) !important;
+border-width:2px !important; color:var(--textcolor) !important}
+th{color:var(--secondarycolor) !important; background-color: var(--table2color) !important}
+/* Note & Tip */
+td{border-style:solid !important; border-color:var(--tertiarycolor) !important;
+color:var(--textcolor) !important; border-width:3px !important}
+tr:nth-child(even) {background-color: var(--table2color) !important}
+tr:nth-child(odd) {background-color: var(--tablecolor) !important}
 
 /* Responsiveness fixes */
 video {
   max-width: 100%;
+}
+
+@media print {
+    a[href]::after {
+        content: none !important;
+    }
 }
 
 @media all and (max-width: 600px) {

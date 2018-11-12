@@ -12,13 +12,13 @@
 <li><a href="#summary-of-contributions">1.2. Summary of contributions</a></li>
 </ul>
 </li>
-<li><a href="#contributions-to-the-user-guide">2. Contributions to the User Guide</a>
+<li><a href="#user-guide-contributions">2. User Guide Contributions</a>
 <ul class="sectlevel2">
 <li><a href="#Features-Query">2.1. Querying data: <code>query</code></a></li>
 <li><a href="#Features-Notify">2.2. Enabling Notification : <code>notify</code></a></li>
 </ul>
 </li>
-<li><a href="#contributions-to-the-developer-guide">3. Contributions to the Developer Guide</a>
+<li><a href="#developer-guide-contributions">3. Developer Guide Contributions</a>
 <ul class="sectlevel2">
 <li><a href="#query-feature">3.1. Query feature</a></li>
 <li><a href="#notify-feature">3.2. Notify feature</a></li>
@@ -34,18 +34,18 @@
 <div class="sectionbody">
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zhuanyu.png" alt="zhuanyu" width="200">
+<img src="../images/zhuanyu.png" alt="zhuanyu" width="200">
 </div>
 </div>
 <div class="paragraph">
 <p>[<a href="https://github.com/ZhuanYu">GitHub</a>]</p>
 </div>
 <div class="paragraph">
-<p>Hello! My name is Zhuan Yu and I am a second year Computer Science undergraduate. As an aspiring programmer, I want to
-show people about the joy of coding through samples of my work.</p>
+<p>The purpose of this portfolio is to document my contributions to <em>Car Park Finder</em>, a software engineering team project to be completed as
+part of the CS2103T Software Engineering module in National University of Singapore (NUS).</p>
 </div>
 <div class="paragraph">
-<p>I am currently a developer for <em>Car Park Finder</em>, a team project to be completed as part of the module CS2103T Software Engineering in NUS.</p>
+<p>My fellow team members are: <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main//team/lexzt.html">Keith</a></span> | <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main//team/yuroutang.html">Yurou</a></span> | <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main//team/dlworldpeace.html">Delong</a></span></p>
 </div>
 </div>
 </div>
@@ -56,10 +56,10 @@ show people about the joy of coding through samples of my work.</p>
 <h3 id="overview"><a class="link" href="#overview">1.1. Overview</a></h3>
 <div class="paragraph">
 <p><em>Car Park Finder</em> is a desktop command-line application for all car owners seeking a hassle-free way to find
-HDB (Housing Development Board) car parks in Singapore.<br></p>
+Housing &amp; Development Board (HDB) car parks in Singapore.<br></p>
 </div>
 <div class="paragraph">
-<p>Our application allows you to view vital information such as lots availability for each car park, so that you can
+<p>Our application allows you to view vital information such as parking lots availability for each car park, so that you can
 plan ahead of your trip.</p>
 </div>
 <div class="paragraph">
@@ -67,42 +67,105 @@ plan ahead of your trip.</p>
 <a href="https://github.com/CS2103-AY1819S1-T09-4/main/releases"><em>Car Park Finder</em></a>. No installation is required and getting
 started is as simple as typing out a text message.</p>
 </div>
+<div class="paragraph">
+<p>Main Features of <em>Car Park Finder</em>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Find by location helps to narrows down the car parks near your destination</p>
+</li>
+<li>
+<p>Filter through the list of car parks with the use of flags to get the preferred choice of car park</p>
+</li>
+<li>
+<p>Receive notifications on how many parking lots are still available for a car park</p>
+</li>
+<li>
+<p>Use of autocomplete to simplify overcomplicated commands by prompting correct format</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">1.2. Summary of contributions</a></h3>
 <div class="paragraph">
-<p>My task for <em>Car Park Finder</em> is to implement real-time updates and notification of car parks, which allows users to:</p>
+<p><em>This section is to provide a summary of my contributions to the project.</em></p>
+</div>
+<div class="paragraph">
+<p>My main task for <em>Car Park Finder</em> was to <strong>query data</strong> from the database and <strong>update the information</strong>
+of all the HDB car parks.</p>
+</div>
+<div class="paragraph">
+<p>This allows users of the application to:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Find car parks based on their postal code, address or number</p>
+<p>Find car parks based on their postal code, address or car park number</p>
 </li>
 <li>
-<p>Filter car parks using information like night parking as flags</p>
+<p>Filter car parks using information like night parking as flags etc</p>
 </li>
 <li>
-<p>View and click on car parks in the Google Map found inside <em>Car Park Finder</em></p>
+<p>View and click on car parks in the Google Maps found inside <em>Car Park Finder</em></p>
 </li>
 </ul>
 </div>
 <hr>
-<div class="sect3">
-<h4 id="strong-major-enhancement-strong"><a class="link" href="#strong-major-enhancement-strong">1.2.1. <strong>Major enhancement</strong>:</a></h4>
-<div class="paragraph">
-<p>added <strong>the ability to undo/redo previous commands</strong>
-<strong> What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.
-</strong> Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.
-<strong> Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.
-</strong> Credits: <a href="https://github.com/google/gson">Gson</a> library for converting JSON data from data.gov.sg database to Java Objects for use in the project.<br></p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement</strong>: Query data to provide real-time updates</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This enhancement is broken down into two commands, namely <code>query</code> and <code>notify</code>. Basically both commands
+retrieve data from the database and either add or update the car parks in <em>Car Park Finder</em>. Users will then be able to find and filter the
+car parks base on their preferences and pick one that is most suitable for them.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p>Justification: This feature is part of the core requirements for the application to work properly. Without it, users
+would not be able to view all the HDB car parks in Singapore easily or receive notifications about them.</p>
+</li>
+<li>
+<p>Highlights: This enhancement requires an in-depth analysis of design alternatives as it is written from scratch.
+It serves as a basis for other features and without it, there would not be any car park(s) data. This affects features
+to be added in future, since a change in car park information could require changing the whole system. The implementation
+too was challenging as it required threading to ensure a fast and efficient load time while querying the database.</p>
+</li>
+<li>
+<p>Credit: <a href="https://github.com/google/gson">Gson</a> library for converting JSON data from <em>data.gov.sg</em> database to Java
+Objects for use in the project.<br></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancements</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added marker clustering for the Google Maps to limit the number of markers on the map. It also
+zooms in onto the location when clicked on.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Credit: This enhancement uses Javascript and was based off the <a href="https://developers.google.com/maps/documentation/javascript/marker-clustering">tutorial here</a>
+provided by Google.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Updated the status bar to show the total number of car park(s) in <em>Car Park Finder</em>. I also added a check for List and
+Clear commands to either show all the car park(s) or display a "no car parks(s) available" message instead of displaying zero.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=zhuanyu">Click here</a> to view my code on the CS2103T Project Code Dashboard.</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -113,7 +176,10 @@ started is as simple as typing out a text message.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Managed <a href="https://github.com/CS2103-AY1819S1-T09-4/main/releases">releases</a> <code>v1.1</code> - <code>v1.3</code> (4 releases) on GitHub</p>
+<p>Managed <a href="https://github.com/CS2103-AY1819S1-T09-4/main/releases">releases</a> <code>v1.1</code> - <code>v1.4</code> (7 releases) on GitHub</p>
+</li>
+<li>
+<p>Handled deliverables and deadlines for the entire team</p>
 </li>
 </ul>
 </div>
@@ -123,10 +189,7 @@ started is as simple as typing out a text message.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Updated the GUI layout and aesthetics (Pull requests <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/113">#113</a>, <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/122">#122</a>)</p>
 </li>
 </ul>
 </div>
@@ -136,7 +199,11 @@ started is as simple as typing out a text message.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Did cosmetic tweaks to existing contents of the User Guide and Developer Guide. (PR <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/134">#134</a>)</p>
+</li>
+<li>
+<p>Updated README to include introduction, value proposition, main features and standardise acknowledgements.
+(PR <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/134">#134</a>)</p>
 </li>
 </ul>
 </div>
@@ -146,7 +213,9 @@ started is as simple as typing out a text message.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/27">#27</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/35">#35</a>, <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/61">#61</a>,
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/68">#68</a>, <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/78">#78</a></p>
 </li>
 </ul>
 </div>
@@ -156,10 +225,14 @@ started is as simple as typing out a text message.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Integrated a third party library (Gson) to the project (<a href="https://github.com">#42</a>)</p>
+<p>Integrated a third party library (Gson) to the project (PR <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/3">#3</a>)</p>
 </li>
 <li>
-<p>Integrated two new Github plugin (AppVeyor &amp; Coveralls) to the team repo</p>
+<p>Integrated two new Github plugin (AppVeyor &amp; Coveralls) to the team repository
+(<a href="https://github.com/CS2103-AY1819S1-T09-4/main/commit/067524a">Commit</a>)</p>
+</li>
+<li>
+<p>Integrated Reposense to track individual code contribution (PR <a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/28">#28</a>)</p>
 </li>
 </ul>
 </div>
@@ -168,140 +241,144 @@ started is as simple as typing out a text message.</p>
 </div>
 </li>
 </ul>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">2. Contributions to the User Guide</a></h2>
+<h2 id="user-guide-contributions"><a class="link" href="#user-guide-contributions">2. User Guide Contributions</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><em>For my main contributions to the User Guide, they consist of the sections documenting Query and Notify commands.
+They showcase my ability to write documentation targeting end-users in a clear and concise manner.</em></p>
+</div>
+<hr>
+<div class="sect2">
+<h3 id="Features-Query"><a class="link" href="#Features-Query">2.1. Querying data: <code>query</code></a></h3>
+<div class="paragraph">
+<p>On your first time running <em>Car Park Finder</em>, you will see nothing on your screen. Do not panic! By type <code>query</code> into
+the <em>Command Box</em>, it will start to fill the application with all the available HDB car parks.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 40%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">query</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">q / qu / que / quer</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>If you wish to update all the car parks at a later date, just type this command again.</p>
+</li>
+<li>
+<p>Remember that <em>Car Park Finder</em> does not automatically execute this command at the start.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="example-let-s-get-some-car-parks"><a class="link" href="#example-let-s-get-some-car-parks">2.1.1. Example: Let&#8217;s get some car parks!</a></h4>
+<div class="paragraph">
+<p>It might be your first time using <em>Car Park Finder</em>, or you decided to
+<a href="https://cs2103-ay1819s1-t09-4.github.io/main//UserGuide.html#Features-Clear">clear</a> out all the car parks. Whatever the case, its time to get
+some car parks into the application.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Turning on notification</caption>
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation
-targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loading&#8230;&#8203; please wait&#8230;&#8203;</p></td>
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="Features-Query"><a class="link" href="#Features-Query">2.1. Querying data: <code>query</code></a></h3>
 <div class="paragraph">
-<p>If you want to get the latest updates for all the car parks, just type <code>query</code> into the <em>Command Box</em>.<br></p>
+<p>Step 1. Type <code>query</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. Take note that you cannot type anything else once you press <kbd>Enter</kbd>.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<div class="paragraph">
+<p>Step 2. Wait for <em>Car Park Finder</em> to finish loading. It will only take awhile, so why not just sit back and relax?</p>
+</div>
+<div id="zy_query" class="imageblock">
+<div class="content">
+<img src="../images/zy_query.png" alt="zy query" width="700">
+</div>
+<div class="title">Figure 1. <em>Car Park Finder</em> with 2099 car parks</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Finished loading</caption>
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>q</code>, <code>qu</code>,<code>que</code>,<code>quer</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code><br>
-<code>q</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2099 car parks updated</p></td>
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
+<div class="paragraph">
+<p>Step 3. Once it has finish loading, the message above should appear. Please refer to <span class="underline"><a href="#zy_query">Figure 1</a></span> to check if you are
+successful in getting the car parks.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-query-error-s"><a class="link" href="#example-query-error-s">2.1.2. Example: Query error(s)</a></h4>
+<div class="paragraph">
+<p>Encountered a query error? Take a look below to see what went wrong.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Query unable to retrieve car parks</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Car Park Finder currently does not autorun this command at the start!</p>
-</div>
-</td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to retrieve car parks from data.gov.sg<br>
+Please check your internet connection and try again</p></td>
 </tr>
+</tbody>
 </table>
-</div>
 <div class="paragraph">
-<p>Here are some pictures to illustrate how <code>query</code> works:</p>
+<p>This error occurs when there is a connection problem to <em>data.gov.sg</em>. Please check your
+internet connection and try again.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_before_query.png" alt="zy before query" width="880">
-</div>
-<div class="title">Figure 1. Before running Query Command</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_during_query.png" alt="zy during query" width="880">
-</div>
-<div class="title">Figure 2. While Query Command is running</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_after_query.png" alt="zy after query" width="880">
-</div>
-<div class="title">Figure 3. Result of Query Command</div>
-</div>
-<div class="paragraph">
-<p>All information for the car parks are refreshed, with the bottom left text telling you when it was
-last updated.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Features-Notify"><a class="link" href="#Features-Notify">2.2. Enabling Notification : <code>notify</code></a></h3>
-<div class="paragraph">
-<p>After selecting a car park, you can get real-time notifications by typing <code>notify 10</code>, where
-10 means updating the car park information every 10 seconds.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify TIME_SECONDS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n</code>,<code>no</code>,<code>not</code>,<code>noti</code>, <code>notif</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify 60</code><br>
-<code>n 10</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You need to select a car park first or this command will not work.</p>
+<p>Enabling notification requires you to have already <a href="https://cs2103-ay1819s1-t09-4.github.io/main//UserGuide.html#Features-Select">selected a car park</a>.</p>
 </li>
 <li>
-<p>The default value is 60 seconds. You can set within a range of 10 to 600 seconds.</p>
+<p>If you have not done so, please look at how to <a href="https://cs2103-ay1819s1-t09-4.github.io/main//UserGuide.html#Features-Find">find car parks by location</a>
+and <a href="https://cs2103-ay1819s1-t09-4.github.io/main//UserGuide.html#Features-Filter">filter them through the use of flags</a>.</p>
+</li>
+<li>
+<p>Also, <a href="https://cs2103-ay1819s1-t09-4.github.io/main//UserGuide.html#Features-Query">click here</a> if you have forgotten how to
+use the <code>query</code> command to get a list of car parks.</p>
 </li>
 </ul>
 </div>
@@ -310,71 +387,258 @@ last updated.</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Here are some pictures to illustrate how <code>notify</code> works:</p>
+<p>After selecting a car park, you can choose to receive notifications on how many parking lots are still available.
+It sends an update periodically, so once it is enabled you do not need to type the command again into the <em>Command Box</em>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_select_notify.png" alt="zy select notify" width="880">
+<table id="notifyformat" class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 37.5%;">
+<col style="width: 50%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">notify TIME_SECONDS</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">n / no / not / noti / notif</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">notify 0<br>
+notify 10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>If you did not <a href="https://cs2103-ay1819s1-t09-4.github.io/main//UserGuide.html#Features-Select">select</a> a car park beforehand, <em>Car Park Finder</em> would not know
+which car park needs to be updated.</p>
+</li>
+<li>
+<p>You can set within a range of <em>10 to 600 seconds</em> (10 minutes). <strong>Decimal values are not allowed.</strong></p>
+</li>
+</ul>
 </div>
-<div class="title">Figure 4. Selected Car park SK96</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_notify_after.png" alt="zy notify after" width="880">
-</div>
-<div class="title">Figure 5. Real-time notification for SK96</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_notify_off.png" alt="zy notify off" width="880">
-</div>
-<div class="title">Figure 6. Turning notification off</div>
-</div>
-<div class="paragraph">
-<p>To turn off the notification, simply set the seconds value to 0.</p>
-</div>
-<div class="paragraph">
-<p>Below are examples where notify will not work:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_notify_invalid.png" alt="zy notify invalid" width="880">
-</div>
-<div class="title">Figure 7. Invalid command format</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_notify_select.png" alt="zy notify select" width="880">
-</div>
-<div class="title">Figure 8. Invalid command format</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">3. Contributions to the Developer Guide</a></h2>
-<div class="sectionbody">
+<hr>
+<div class="sect3">
+<h4 id="example-receive-notification-every-10-seconds"><a class="link" href="#example-receive-notification-every-10-seconds">2.2.1. Example: Receive notification every 10 seconds</a></h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical
-documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This example assumes you have already decided on a car park. For more information on how you can choose a
+suitable car park in <em>Car Park Finder</em>, please <span class="underline"><a href="#Features-Notify">click here</a></span>.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>It is time to head to your destination. Before you do so, why not check if the car park is full?</p>
+</div>
+<div id="zy_select_notify" class="imageblock">
+<div class="content">
+<img src="../images/zy_select_notify.png" alt="zy select notify" width="700">
+</div>
+<div class="title">Figure 2. Selected Car Park AM18</div>
+</div>
+<div class="paragraph">
+<p>Step 1. Select your car park from the list. In this example, we will choose the 5th car park as shown in
+<span class="underline"><a href="#zy_select_notify">Figure 2</a></span>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Turning on notification</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification enabled for car park AM18<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Step 2. Type <code>notify 10</code> into the <em>Command Box</em>. The message above should appear in the <em>Message Box</em>
+as confirmation that you typed in correctly.</p>
+</div>
+<div id="zy_notify_ba" class="imageblock">
+<div class="content">
+<img src="../images/zy_notify_ba.png" alt="zy notify ba" width="600">
+</div>
+<div class="title">Figure 3. Before and after receiving notification</div>
+</div>
+<table id="notifynochange" class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification with no change in lot(s) available</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park AM18 has 159 lot(s) available<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification with lot(s) freed</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park AM18 has 167 lot(s) available<br>
+8 lot(s) freed since last check<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification with lot(s) taken</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park AM18 has 152 lot(s) available<br>
+7 lot(s) taken since last check<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Step 3. Now that the notification is enabled, you do not have to do anything else. It will inform you whether there is
+a change in parking lots availability through visual updates like
+<span class="underline"><a href="#notifynochange">these messages above</a></span> and <span class="underline"><a href="#zy_notify_ba">Figure 3</a></span>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-turn-off-notification"><a class="link" href="#example-turn-off-notification">2.2.2. Example: Turn off notification</a></h4>
+<div class="paragraph">
+<p>Now that you have gotten tired of the notification, it is time to disable it.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Turning off notification</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification disabled</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The message above will be displayed when you type <code>notify 0</code> into the <em>Command Box</em>. You can also
+<a href="https://cs2103-ay1819s1-t09-4.github.io/main//UserGuide.html#Features-Exit">exit</a> <em>Car Park Finder</em> to turn off notifications.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Already disabled</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification already disabled</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If you are unsure whether you have already disabled the notification, the message above will be shown if you have
+done so.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-notify-error-s"><a class="link" href="#example-notify-error-s">2.2.3. Example: Notify error(s)</a></h4>
+<div class="paragraph">
+<p>Encountered a notify error? Take a look below to see what went wrong.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Invalid command format</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid command format!<br>
+notify: Set when to receive notification about the lot availability of a car park.<br>
+Parameters: SECONDS<br>
+0 to disable, range is 10 to 600 seconds (decimals not allowed)<br>
+Example: notify 10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when you type the command wrongly in the <em>Command Box</em>. Either try again or just copy the
+command <span class="underline"><a href="#notifyformat">here</a></span>.</p>
+</div>
+<div class="paragraph">
+<p>Remember that <code>notify 0</code> is how you disable the notification.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification without selecting a car park first</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cannot notify without selecting a car park first</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when you did not select a car park and tried to enable notification. Please
+<span class="underline"><a href="#Features-Notify">click here</a></span> for more information.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: No car park data found</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to retrieve car park information from data.gov.sg<br>
+Unfortunately, the data is not available. We apologise for any inconvenience caused</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when the data is not available from <em>data.gov.sg</em>. Therefore, it is not possible to enable
+notification for that particular car park.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification unable to retrieve car parks</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to retrieve car parks from data.gov.sg<br>
+Please check your internet connection and try again</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when there is a connection problem to <em>data.gov.sg</em>. Please check your
+internet connection and try again.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="developer-guide-contributions"><a class="link" href="#developer-guide-contributions">3. Developer Guide Contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>For my main contributions to the Developer Guide, they consist of the sections documenting Query, Notify and Weather commands.
+They showcase my ability to write technical documentation and the technical depth of my contributions to the project in
+a clear and concise manner.</em></p>
+</div>
+<hr>
 <div class="sect2">
 <h3 id="query-feature"><a class="link" href="#query-feature">3.1. Query feature</a></h3>
 <div class="paragraph">
@@ -416,7 +680,7 @@ An external library <code>Gson</code> is used to parse the data in <code>GsonUti
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A <a href="#localcopy">local copy</a> of the data is saved at the end. Users only need to execute this command if they want to get the most recent information from the database.
+A <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main//DeveloperGuide.html#localcopy">local copy</a></span> of the data is saved at the end. Users only need to execute this command if they want to get the most recent information from the database.
 </td>
 </tr>
 </table>
@@ -474,9 +738,9 @@ all the car parks and prevent duplicate entries.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_seq.png" alt="zy seq" width="800">
+<img src="../images/zy_seq.png" alt="zy seq" width="700">
 </div>
-<div class="title">Figure 9. Interactions for query operation</div>
+<div class="title">Figure 4. Interactions for query operation</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -604,9 +868,9 @@ and is used in conjunction with the <code>select</code> command.</p>
 <h4 id="example-2"><a class="link" href="#example-2">3.2.2. Example</a></h4>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/zy_act.png" alt="zy act" width="800">
+<img src="../images/zy_act.png" alt="zy act" width="700">
 </div>
-<div class="title">Figure 10. Summary for executing a notify command</div>
+<div class="title">Figure 5. Summary for executing a notify command</div>
 </div>
 </div>
 <div class="sect3">
@@ -665,4 +929,4 @@ and is used in conjunction with the <code>select</code> command.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 03:46:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 04:14:19 UTC</div></div></div></body></html>

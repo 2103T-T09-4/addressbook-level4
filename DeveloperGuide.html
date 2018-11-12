@@ -7,13 +7,9 @@
 </div>
 </div>
 <div id="toc" class="toc">
-<div id="toctitle"></div>
+<div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#introduction">1. Introduction</a>
-<ul class="sectlevel2">
-<li><a href="#what-is-car-park-finder">1.1. What is Car Park Finder</a></li>
-</ul>
-</li>
+<li><a href="#introduction">1. Introduction</a></li>
 <li><a href="#setting-up">2. Setting up</a>
 <ul class="sectlevel2">
 <li><a href="#prerequisites">2.1. Prerequisites</a></li>
@@ -85,12 +81,11 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-car-park">G.2. Deleting a car park</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-car-park">F.2. Deleting a car park</a></li>
+<li><a href="#saving-data">F.3. Saving data</a></li>
 </ul>
 </li>
 </ul>
@@ -100,13 +95,14 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to Car Park Finder&#8217;s developer guide!</p>
+<p>Welcome to the Developer Guide for <em>Car Park Finder</em>!</p>
 </div>
-<div class="sect2">
-<h3 id="what-is-car-park-finder"><a class="link" href="#what-is-car-park-finder">1.1. What is Car Park Finder</a></h3>
 <div class="paragraph">
-<p>Car Park Finder is an application to find HDB (Housing Development Board) car parks in Singapore. It allows you to
-work with a <strong>Command Line Interface (CLI)</strong> to display a list of car parks by typing. It enables the following:</p>
+<p><em>Car Park Finder</em> is an application to find Housing Development Board (HDB) car parks in Singapore. It allows the user to
+work with a <strong>Command Line Interface (CLI)</strong> to display a list of car parks just by simply typing.</p>
+</div>
+<div class="paragraph">
+<p>It enables the following:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -116,8 +112,10 @@ work with a <strong>Command Line Interface (CLI)</strong> to display a list of c
 <li>
 <p>Searching and filtering by location and keywords.</p>
 </li>
+<li>
+<p>Notification of a car park if the user chooses to.</p>
+</li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -140,7 +138,7 @@ work with a <strong>Command Line Interface (CLI)</strong> to display a list of c
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-JDK <code>10</code> on Windows will fail to run tests in <a href="UsingGradle.html#Running-Tests">headless mode</a> due to a <a href="https://github.com/javafxports/openjdk-jfx/issues/66">JavaFX bug</a>.
+JDK <code>10</code> on Windows will fail to run tests in <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UsingGradle.html#Running-Tests">headless mode</a> due to a <a href="https://github.com/javafxports/openjdk-jfx/issues/66">JavaFX bug</a>.
 Windows developers are highly recommended to use JDK <code>9</code>.
 </td>
 </tr>
@@ -209,12 +207,12 @@ with the <code>BUILD SUCCESSFUL</code> message.<br>
 This will generate all resources required by the application and tests.</p>
 </li>
 <li>
-<p>Open <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/XmlAdaptedCarpark.java"><code>XmlAdaptedCarpark.java</code></a>
-and <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow.java</code></a> and check for any code errors</p>
+<p>Open <span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/XmlAdaptedCarpark.java"><code>XmlAdaptedCarpark.java</code></a></span>
+and <span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow.java</code></a></span> and check for any code errors</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Due to an ongoing <a href="https://youtrack.jetbrains.com/issue/IDEA-189060">issue</a> with some of the
+<p>Due to an ongoing <span class="underline"><a href="https://youtrack.jetbrains.com/issue/IDEA-189060">issue</a></span> with some of the
 newer versions of IntelliJ, code errors may be detected even if the project can be built and run successfully</p>
 </li>
 <li>
@@ -226,8 +224,8 @@ and select <code>Add '--add-modules=&#8230;&#8203;' to module compiler options</
 </li>
 <li>
 <p>Repeat this for the test folder as well
-(e.g. check <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/test/java/seedu/address/commons/util/XmlUtilTest.java"><code>XmlUtilTest.java</code></a>
-and <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/test/java/seedu/address/ui/HelpWindowTest.java"><code>HelpWindowTest.java</code></a> for code errors,
+(e.g. check <span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/test/java/seedu/address/commons/util/XmlUtilTest.java"><code>XmlUtilTest.java</code></a></span>
+and <span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/test/java/seedu/address/ui/HelpWindowTest.java"><code>HelpWindowTest.java</code></a></span> for code errors,
 and if so, resolve it the same way)</p>
 </li>
 </ol>
@@ -241,7 +239,7 @@ and if so, resolve it the same way)</p>
 <p>Run the <code>seedu.parking.MainApp</code> and try a few commands</p>
 </li>
 <li>
-<p><a href="#Testing">Run the tests</a> to ensure they all pass.</p>
+<p><span class="underline"><a href="#Testing">Run the tests</a></span> to ensure they all pass.</p>
 </li>
 </ul>
 </div>
@@ -254,7 +252,8 @@ and if so, resolve it the same way)</p>
 <div class="sect3">
 <h4 id="configuring-the-coding-style"><a class="link" href="#configuring-the-coding-style">2.4.1. Configuring the coding style</a></h4>
 <div class="paragraph">
-<p>This project follows <a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a>. IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
+<p>This project follows <span class="underline"><a href="https://github.com/oss-generic/process/blob/master/docs/CodingStandards.adoc">oss-generic coding standards</a></span>.
+IntelliJ&#8217;s default style is mostly compliant with ours but it uses a different import order from ours. To rectify,</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -280,16 +279,16 @@ and if so, resolve it the same way)</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Optionally, you can follow the <a href="UsingCheckstyle.html">UsingCheckstyle.adoc</a> document to configure Intellij to check style-compliance as you write code.</p>
+<p>Optionally, you can look at how to <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main/UsingCheckstyle.html">configure Intellij</a></span> to check style-compliance as you write code.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="setting-up-ci"><a class="link" href="#setting-up-ci">2.4.2. Setting up CI</a></h4>
 <div class="paragraph">
-<p>Set up Travis to perform Continuous Integration (CI) for your fork. See <a href="UsingTravis.html">UsingTravis.adoc</a> to learn how to set it up.</p>
+<p>Set up Travis to perform Continuous Integration (CI) for your fork. See how to <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main/UsingTravis.html">setup Travis</a></span> to learn how.</p>
 </div>
 <div class="paragraph">
-<p>After setting up Travis, you can optionally set up coverage reporting for your team fork (see <a href="UsingCoveralls.html">UsingCoveralls.adoc</a>).</p>
+<p>After setting up Travis, you can optionally set up coverage reporting for your team fork (see <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main/UsingCoveralls.html">using Coveralls</a></span>).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -304,7 +303,7 @@ Coverage reporting could be useful for a team repository that hosts the final ve
 </table>
 </div>
 <div class="paragraph">
-<p>Optionally, you can set up AppVeyor as a second CI (see <a href="UsingAppVeyor.html">UsingAppVeyor.adoc</a>).</p>
+<p>Optionally, you can set up AppVeyor as a second CI (see <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main/UsingAppVeyor.html">using AppVeyor</a></span>).</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -326,79 +325,69 @@ Having both Travis and AppVeyor ensures your App works on both Unix-based platfo
 <h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section explains the design architecture and various components of the system.</p>
+<p>To understand the design architecture and how various components of the system works, please read through the entirety of
+<span class="underline"><a href="#design">Section 3</a></span>.</p>
 </div>
 <div class="sect2">
 <h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture overview</a></h3>
 <div class="paragraph">
-<p>This section explains the design architecture used by the entire system.</p>
+<p>Instead of delving straight into the individual components, take a look at the overarching design architecture
+used by the entire system.</p>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The <code>.pptx</code> files used to create diagrams in this document can be found in the <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/docs/diagrams/">diagrams</a> folder. To update a diagram, modify the diagram in the pptx file, select the objects of the diagram, and choose <code>Save as picture</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="imageblock">
+<div id="Architecture" class="imageblock">
 <div class="content">
 <img src="images/Architecture.png" alt="Architecture" width="600">
 </div>
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>architecture diagram</em></strong> given above explains the high-level design of the App,
- which contains 6 <a href="#Architecture-Components"><strong><code>architecture components</code></strong></a> and
- adopts an <a href="#Architecture-design"><strong><code>events-driven nature</code></strong></a>.</p>
+<p><span class="underline"><a href="#Architecture">Figure 1</a></span> explains the high-level design of <em>Car Park Finder</em>,
+which contains six <span class="underline"><a href="#Architecture-Components"><code>architecture components</code></a></span> and
+adopts an <span class="underline"><a href="#Architecture-design"><code>events-driven nature</code></a></span>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Architecture-Components"><a class="link" href="#Architecture-Components">3.2. Architecture components</a></h3>
 <div class="paragraph">
-<p>This section will briefly introduce the function of each architecture components
+<p><span class="underline"><a href="#architecttable">Table 1</a></span> below briefly introduce the function of each architecture components
 as well as common behaviours.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table id="architecttable" class="tableblock frame-all grid-all" style="width: 90%;">
 <caption class="title">Table 1. Architecture Components</caption>
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 80%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Component</th>
-<th class="tableblock halign-left valign-top">Main Function</th>
+<th class="tableblock halign-left valign-middle">Component</th>
+<th class="tableblock halign-left valign-middle">Main Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Main"><strong><code>Main</code></strong></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the starting point of the system, which encapsulates the other components.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><span class="underline"><a href="#Design-Main"><code>Main</code></a></span></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The starting point of the system, which encapsulates the other components.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Commons"><strong><code>Commons</code></strong></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">represents a collection of classes used by multiple components.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><span class="underline"><a href="#Design-Commons"><code>Commons</code></a></span></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Represent a collection of classes used by multiple components.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Ui"><strong><code>User Interface</code></strong></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">contains the user interface classes used by the application.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><span class="underline"><a href="#Design-Ui"><code>User Interface</code></a></span></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contain the user interface classes used by the application.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Logic"><strong><code>Logic</code></strong></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">execute user commands, also known as the command executor.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><span class="underline"><a href="#Design-Logic"><code>Logic</code></a></span></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Execute user commands, also known as the command executor.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Model"><strong><code>Model</code></strong></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">holds the data of the application in-memory.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><span class="underline"><a href="#Design-Model"><code>Model</code></a></span></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Hold the data of the application in-memory.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#Design-Storage"><strong><code>Storage</code></strong></a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">which allows reading and writing of data to the hard disk.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><span class="underline"><a href="#Design-Storage"><code>Storage</code></a></span></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Allow reading and writing of data to the hard disk.</p></td>
 </tr>
 </tbody>
 </table>
@@ -409,27 +398,30 @@ as well as common behaviours.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Each of the User Interface, Logic, Model, Storage Components also:
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>For User Interface, Logic, Model and Storage components, each of them:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
+<p>Define its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
 </li>
 <li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+<p>Expose its functionality using a <code>{Component Name}Manager</code> class.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the <strong><em>class diagram</em></strong> given below) defines it&#8217;s API in the <code>Logic</code> interface and exposes its functionality using the <code>LogicManager</code> class.</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>For example, the <code>Logic</code> component (see the <span class="underline"><a href="#examplelogic">Figure 2</a></span> below) defines it&#8217;s API in the <code>Logic</code> interface
+and exposes its functionality using the <code>LogicManager</code> class.</p>
+</div>
+<div id="examplelogic" class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="700">
 </div>
 <div class="title">Figure 2. Class Diagram of the Logic Component</div>
 </div>
@@ -440,13 +432,13 @@ Each of the User Interface, Logic, Model, Storage Components also:
 <p>This section explains the main nature of design adopted by the system.</p>
 </div>
 <div class="paragraph">
-<p>The <strong><em>sequence diagram</em></strong> below shows how the components interact when the user issues the command <code>find sengkang</code>.</p>
+<p><span class="underline"><a href="#sdquery">Figure 3</a></span> below shows how the components interact when the user issues the command <code>query</code>.</p>
 </div>
-<div class="imageblock">
+<div id="sdquery" class="imageblock">
 <div class="content">
-<img src="images/Sequence%20diagram%20-%20Find%20Carpark.png" alt="Sequence diagram   Find Carpark" width="800">
+<img src="images/SDforQuery.png" alt="SDforQuery" width="700">
 </div>
-<div class="title">Figure 3. Component interactions for <code>find sengkang</code> command (part 1)</div>
+<div class="title">Figure 3. Component interactions for <code>query</code> command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -455,19 +447,21 @@ Each of the User Interface, Logic, Model, Storage Components also:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent</code> when the Car Park Finder data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
+Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent</code> when <em>Car Park Finder</em> data are changed, instead of
+asking the <code>Storage</code> to save the updates to the hard disk.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>The <strong><em>sequence diagram</em></strong> below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
+<p><span class="underline"><a href="#sdqueryhandle">Figure 4</a></span> below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in
+the updates being saved to the hard disk and the status bar of the User Interface being updated to reflect the 'Last Updated' time.</p>
 </div>
-<div class="imageblock">
+<div id="sdqueryhandle" class="imageblock">
 <div class="content">
-<img src="images/Sequence%20diagram%20-%20Find%20Carpark%20Event%20Handling.png" alt="Sequence diagram   Find Carpark Event Handling" width="800">
+<img src="images/SDforQueryEventHandling.png" alt="SDforQueryEventHandling" width="700">
 </div>
-<div class="title">Figure 4. Component interactions for <code>find sengkang</code> command (part 2)</div>
+<div class="title">Figure 4. Component interactions for <code>query</code> event handling</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -476,7 +470,8 @@ Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent<
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Note how the event is propagated through the <code>EventsCenter</code> to the <code>Storage</code> and <code>UI</code> without <code>Model</code> having to be coupled to either of them. This is an example of how the Event Driven approach helps us reduce direct coupling between components.
+Note how the event is propagated through the <code>EventsCenter</code> to the <code>Storage</code> and <code>UI</code> without <code>Model</code> having to be
+coupled to either of them. This is an example of how the Event Driven approach helps us reduce direct coupling between components.
 </td>
 </tr>
 </table>
@@ -488,12 +483,13 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="Design-Main"><a class="link" href="#Design-Main">3.4. Main component</a></h3>
 <div class="paragraph">
-<p>The <code>Main</code> component consists of only one class, <a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
+<p>The <code>Main</code> component consists of only one class, <span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a></span>.
+It is responsible for:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: initializes the components in the correct sequence, and connects them with one another.</p>
+<p>At application launch: initializes the components in the correct sequence, and connects them with one another.</p>
 </li>
 <li>
 <p>At shut down: shuts down the components and invokes cleanup methods where necessary.</p>
@@ -504,12 +500,15 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.5. Commons component</a></h3>
 <div class="paragraph">
-<p>The <code>Commons</code> component consists of classes used by multiple other components. Two of these classes play important roles at the architectural level.</p>
+<p>The <code>Commons</code> component consists of classes used by multiple other components. Two of these classes play important roles
+at the architectural level.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>EventsCenter</code> : This class (written using <a href="https://github.com/google/guava/wiki/EventBusExplained">Google&#8217;s Event Bus library</a>) is used by components to communicate with other components using events (i.e. a form of <em>Event Driven</em> design)</p>
+<p><code>EventsCenter</code> : This class (written using
+<span class="underline"><a href="https://github.com/google/guava/wiki/EventBusExplained">Google&#8217;s Event Bus library</a>)</span> is used by components
+to communicate with other components using events (i.e. a form of <em>Event Driven</em> design)</p>
 </li>
 <li>
 <p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
@@ -532,16 +531,16 @@ Classes used by multiple components are put in the seedu.carparkfinder.commons p
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.6. User interface component</a></h3>
 <div class="paragraph">
-<p>The <code>User Interface</code> (<code>UI</code>) component consists of a <code>MainWindow</code> that is made up of different parts.
+<p>The <code>User Interface (UI)</code> component consists of a <code>MainWindow</code> that is made up of different parts.
 The base class
-<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a> uses <em>JavaFx UI</em> framework.</p>
+<span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></span> uses <em>JavaFx UI</em> framework.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
+<p>Please refer to <span class="underline"><a href="#UIclass">Figure 5</a></span> below for more details on how they are connected.</p>
 </div>
-<div class="imageblock">
+<div id="UIclass" class="imageblock">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
+<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="700">
 </div>
 <div class="title">Figure 5. Structure of the User Interface component</div>
 </div>
@@ -581,7 +580,7 @@ It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/mai
 </div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
+<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram" width="700">
 </div>
 <div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
@@ -605,29 +604,29 @@ It inherits the base class <a href="https://github.com/CS2103-AY1819S1-T09-4/mai
 </ol>
 </div>
 <div class="paragraph">
-<p>The <strong><em>sequence diagram</em></strong> below shows the interactions within the <code>Logic</code> component
-when <code>execute("delete 1")</code> is called.</p>
+<p><a href="#findlogic">Figure 7</a> below shows the interactions within the <code>Logic</code> component
+when <code>execute("find Y9")</code> is called.</p>
 </div>
-<div class="imageblock">
+<div id="findlogic" class="imageblock">
 <div class="content">
-<img src="images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
+<img src="images/FindSdForLogic.png" alt="FindSdForLogic" width="700">
 </div>
-<div class="title">Figure 7. Sequence Diagram of of `execute("delete 1")</div>
+<div class="title">Figure 7. Sequence Diagram when executing <code>find Y9</code></div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.8. Model component</a></h3>
 <div class="paragraph">
-<p>The <code>Model</code> component is managed by the <code>ModelManager</code> that stores the data of Car Park Finder.
+<p>The <code>Model</code> component is managed by the <code>ModelManager</code> that stores the data of <em>Car Park Finder</em>.
 It does not depend on any of the three other components.
-<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a> is the base class.</p>
+<span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></span> is the base class.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the <strong><em>class diagram</em></strong> below for more details.</p>
+<p>Please refer to <span class="underline"><a href="#modelclass">Figure 8</a></span> below for more details.</p>
 </div>
-<div class="imageblock">
+<div id="modelclass" class="imageblock">
 <div class="content">
-<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
+<img src="images/ModelClassDiagram.png" alt="ModelClassDiagram" width="700">
 </div>
 <div class="title">Figure 8. Structure of the Model Component</div>
 </div>
@@ -668,33 +667,32 @@ e.g. the UI can be bound to this list so that it automatically updates when data
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a OOP model, we can store a <code>Tag</code> list in Car Park Finder, which <code>Carpark</code> can reference.
-This would allow Car Park Finder to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of
-each <code>Carpark</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.
-<br>
+As a OOP model, we can store a <code>Tag</code> list in <em>Car Park Finder</em>, which <code>Carpark</code> can reference.
+This would allow <em>Car Park Finder</em> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of
+each <code>Carpark</code> needing their own <code>Tag</code> object. <a href="#modelbetter">Figure 9</a> is an example of how such a model may look like.
 </td>
 </tr>
 </table>
 </div>
-<div class="imageblock">
+<div id="modelbetter" class="imageblock">
 <div class="content">
-<img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800">
+<img src="images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="700">
 </div>
-<div class="title">Figure 9. Use of Tag object</div>
+<div class="title">Figure 9. Unique tag object</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.9. Storage component</a></h3>
 <div class="paragraph">
-<p>The <code>Storage</code> component, managed by the <code>StorageManager</code>, serves as a backend storage for data of Car Park Finder.
-<a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a> is the base class.</p>
+<p>The <code>Storage</code> component, managed by the <code>StorageManager</code>, serves as a backend storage for data of <em>Car Park Finder</em>.
+<span class="underline"><a href="https://github.com/CS2103-AY1819S1-T09-4/main/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></span> is the base class.</p>
 </div>
 <div class="paragraph">
-<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
+<p>Please refer to <span class="underline"><a href="#storageclass">Figure 10</a></span> below for more details on how they are connected.</p>
 </div>
-<div class="imageblock">
+<div id="storageclass" class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
+<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram" width="700">
 </div>
 <div class="title">Figure 10. Structure of the Storage Component</div>
 </div>
@@ -707,7 +705,7 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <p>save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>save the Car Park Finder data in xml format and read it back.</p>
+<p>save the <em>Car Park Finder</em> data in xml format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -718,15 +716,17 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
+<p>Implementation of features will be described here. This is not meant to be exhaustive, so only the noteworthy details
+will be mentioned.</p>
 </div>
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.1. Undo/Redo feature</a></h3>
 <div class="paragraph">
-<p>This section describes how the Undo/Redo feature is implemented for the car park finder.</p>
+<p>The <code>undo</code> command changes the car park finder state to before the previous undoable command was executed.
+On the other hand, the <code>Redo</code> command reverse the most recent <code>undo</code> changes.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.1.1. Current Implementation</a></h4>
+<h4 id="overview"><a class="link" href="#overview">4.1.1. Overview</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedCarparkFinder</code>.
 It extends <code>CarparkFinder</code> with an undo/redo history, stored internally as an <code>carparkFinderStateList</code> and <code>currentStatePointer</code>.
@@ -755,11 +755,11 @@ Additionally, it implements the following operations:</p>
 <p>Step 1. The user launches the application for the first time. The <code>VersionedCarparkFinder</code> will be initialized with the initial car park finder state, and the <code>currentStatePointer</code> pointing to that single car park finder state.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram showcases the state at the start of the program.</p>
+<p><span class="underline"><a href="#undoredoact">Figure 11</a></span> below showcases the state at the start of the program.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact" class="imageblock">
 <div class="content">
-<img src="images/UndoRedoActivityDiagramNew1.png" alt="UndoRedoActivityDiagramNew1" width="800">
+<img src="images/UndoRedoActivityDiagramNew1.png" alt="UndoRedoActivityDiagramNew1" width="700">
 </div>
 <div class="title">Figure 11. State and the start of the program</div>
 </div>
@@ -767,11 +767,11 @@ Additionally, it implements the following operations:</p>
 <p>Step 2. The user executes <code>find sengkang</code> command to find list of car park which contain sengkang from the car park finder. The <code>find</code> command calls <code>Model#updateFilteredCarparkList()</code>, causing the modified state of the car park finder after the <code>find sengkang</code> command executes to be saved in the <code>carparkFinderStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a new state is created after the command <code>find segkang</code> is ran.</p>
+<p><span class="underline"><a href="#undoredoact2">Figure 12</a></span> below shows a new state is created after the command <code>find segkang</code> is ran.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact2" class="imageblock">
 <div class="content">
-<img src="images/UndoRedoActivityDiagramNew2.png" alt="UndoRedoActivityDiagramNew2" width="800">
+<img src="images/UndoRedoActivityDiagramNew2.png" alt="UndoRedoActivityDiagramNew2" width="700">
 </div>
 <div class="title">Figure 12. State after running find command</div>
 </div>
@@ -779,11 +779,11 @@ Additionally, it implements the following operations:</p>
 <p>Step 3. The user executes <code>clear</code> to clear all entries. The <code>clear</code> command also calls <code>Model#commitCarparkFinder()</code>, causing another modified car park finder state to be saved into the <code>carparkFinderStateList</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a new state is created after the command <code>clear</code> is ran.</p>
+<p><span class="underline"><a href="#undoredoact3">Figure 13</a></span> below shows a new state is created after the command <code>clear</code> is ran.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact3" class="imageblock">
 <div class="content">
-<img src="images/UndoRedoActivityDiagramNew3.png" alt="UndoRedoActivityDiagramNew3" width="800">
+<img src="images/UndoRedoActivityDiagramNew3.png" alt="UndoRedoActivityDiagramNew3" width="700">
 </div>
 <div class="title">Figure 13. State after running find then clear command</div>
 </div>
@@ -803,11 +803,11 @@ If a command fails its execution, it will not call <code>Model#commitCarparkFind
 <p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoCarparkFinder()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous car park finder state, and restores the car park finder to that state.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a new state is created after the command <code>undo</code> is ran. The state pointer is moved.</p>
+<p><span class="underline"><a href="#undoredoact4">Figure 14</a></span> below shows a new state is created after the command <code>undo</code> is ran. The state pointer is moved.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact4" class="imageblock">
 <div class="content">
-<img src="images/UndoRedoActivityDiagramNew4.png" alt="UndoRedoActivityDiagramNew4" width="800">
+<img src="images/UndoRedoActivityDiagramNew4.png" alt="UndoRedoActivityDiagramNew4" width="700">
 </div>
 <div class="title">Figure 14. How the undo feature works in a diagram</div>
 </div>
@@ -824,13 +824,13 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p><span class="underline"><a href="#undoredo">Figure 15</a></span> below shows how the undo operation works.</p>
 </div>
-<div class="imageblock">
+<div id="undoredo" class="imageblock">
 <div class="content">
-<img src="images/Sequence%20Diagram%20-%20Undo.png" alt="Sequence Diagram   Undo" width="800">
+<img src="images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 15. Sequence diagram of Undo/Redo feature</div>
+<div class="title">Figure 15. Sequence diagram of <code>undo</code> command</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCarparkFinder()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
@@ -851,34 +851,34 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the car park finder, such as <code>list</code>, will usually not call <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> or <code>Model#redoCarparkFinder()</code>. Thus, the <code>carparkFinderStateList</code> remains unchanged.</p>
 </div>
 <div class="paragraph">
-<p>The follow diagram showcases what happen when a command that does not modify the state is used.</p>
+<p><span class="underline"><a href="#undoredoact5">Figure 16</a></span> below showcases what happen when a command that does not modify the state is used.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact5" class="imageblock">
 <div class="content">
-<img src="images/UndoRedoActivityDiagramNew5.png" alt="UndoRedoActivityDiagramNew5" width="800">
+<img src="images/UndoRedoActivityDiagramNew5.png" alt="UndoRedoActivityDiagramNew5" width="700">
 </div>
-<div class="title">Figure 16. As the command does nothing, the state is not changed, but a new state is introduced</div>
+<div class="title">Figure 16. A new state is introduced</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCarparkFinder()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>carparkFinderStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>find sengkang</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram showcases when a new command is used after an undo.</p>
+<p><span class="underline"><a href="#undoredoact6">Figure 17</a></span> below showcases when a new command is used after an undo.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact6" class="imageblock">
 <div class="content">
-<img src="images/UndoRedoActivityDiagramNew6.png" alt="UndoRedoActivityDiagramNew6" width="800">
+<img src="images/UndoRedoActivityDiagramNew6.png" alt="UndoRedoActivityDiagramNew6" width="700">
 </div>
-<div class="title">Figure 17. Deleting a state diagram after an undo</div>
+<div class="title">Figure 17. Deleting a state after an undo</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p><span class="underline"><a href="#undoredodiagram">Figure 18</a></span> below summarizes what happens when a user executes a new command:</p>
 </div>
-<div class="imageblock">
+<div id="undoredodiagram" class="imageblock">
 <div class="content">
-<img src="images/General%20new%20command.png" alt="General new command" width="650">
+<img src="images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
-<div class="title">Figure 18. Activity diagram of a sample command</div>
+<div class="title">Figure 18. Executing a new command</div>
 </div>
 </div>
 <div class="sect3">
@@ -990,7 +990,7 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <em>data.gov.sg</em> database.</p>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">4.2.1. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">4.2.1. Overview</a></h4>
 <div class="paragraph">
 <p>The mechanism does an API call to the website <em>data.gov.sg</em> to obtain car park information in <code>JSON</code> format.
 An external library <code>Gson</code> is used to parse the data in <code>GsonUtil</code>. The data is stored internally as a <code>CarparkJson</code> object.</p>
@@ -1024,7 +1024,7 @@ An external library <code>Gson</code> is used to parse the data in <code>GsonUti
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A <a href="#localcopy">local copy</a> of the data is saved at the end. Users only need to execute this command if they want to get the most recent information from the database.
+A <span class="underline"><a href="https://cs2103-ay1819s1-t09-4.github.io/main/DeveloperGuide.html#localcopy">local copy</a></span> of the data is saved at the end. Users only need to execute this command if they want to get the most recent information from the database.
 </td>
 </tr>
 </table>
@@ -1082,7 +1082,7 @@ all the car parks and prevent duplicate entries.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="images/zy_seq.png" alt="zy seq" width="800">
+<img src="images/zy_seq.png" alt="zy seq" width="700">
 </div>
 <div class="title">Figure 19. Interactions for query operation</div>
 </div>
@@ -1199,7 +1199,7 @@ For more details on the internal workings of <code>Model</code> please refer to 
 <p>The notify feature updates specific car parks.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">4.3.1. Overview</a></h4>
+<h4 id="overview-3"><a class="link" href="#overview-3">4.3.1. Overview</a></h4>
 <div class="paragraph">
 <p>The notify mechanism will fetch data from the API every interval. The interval can be set in terms of seconds/minutes
 and is used in conjunction with the <code>select</code> command.</p>
@@ -1212,7 +1212,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 <h4 id="example-2"><a class="link" href="#example-2">4.3.2. Example</a></h4>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="images/zy_act.png" alt="zy act" width="800">
+<img src="images/zy_act.png" alt="zy act" width="700">
 </div>
 <div class="title">Figure 20. Summary for executing a notify command</div>
 </div>
@@ -1272,7 +1272,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 <p>The find feature searches for a car park by keyword or location.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">4.4.1. Overview</a></h4>
+<h4 id="overview-4"><a class="link" href="#overview-4">4.4.1. Overview</a></h4>
 <div class="paragraph">
 <p>The find mechanism is facilitated by <code>FindCommand</code> and <code>FindCommandParser</code>. It extends <code>Command</code> and implements the following operations:</p>
 </div>
@@ -1298,7 +1298,7 @@ and is used in conjunction with the <code>select</code> command.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="images/seqdiagram-find.png" alt="seqdiagram find" width="800">
+<img src="images/seqdiagram-find.png" alt="seqdiagram find" width="700">
 </div>
 <div class="title">Figure 21. How the find operation works</div>
 </div>
@@ -1341,7 +1341,7 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="images/actdiagram-find.png" alt="actdiagram find" width="800">
+<img src="images/actdiagram-find.png" alt="actdiagram find" width="700">
 </div>
 <div class="title">Figure 22. Flow chart of the find operation.</div>
 </div>
@@ -1401,7 +1401,7 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 <p>The filter feature allow users to find a suitable car park based on criteria that users input, within a certain area.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-4"><a class="link" href="#overview-4">4.5.1. Overview</a></h4>
+<h4 id="overview-5"><a class="link" href="#overview-5">4.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>The filter mechanism is facilitated by <code>FilterCommand</code> and <code>FilterCommandParser</code>.
 The filter mechanism can filter car parks by the following criteria. The corresponding flag of each criterion is also
@@ -1455,7 +1455,7 @@ Parser then checks the validity of the arguments input by user, and throws a <co
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.5.2. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">4.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the filter mechanism behaves at each step when filtering with the following criteria:</p>
 </div>
@@ -1644,13 +1644,13 @@ A whole new set of classes and methods needs to be written to store the filtered
 <p>The calculate feature helps users calculate the cost of parking at a specific car park for a specified time period.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-5"><a class="link" href="#overview-5">4.6.1. Overview</a></h4>
+<h4 id="overview-6"><a class="link" href="#overview-6">4.6.1. Overview</a></h4>
 <div class="paragraph">
 <p>The calculate mechanism is facilitated by <code>CalculateCommand</code> and <code>CalculateCommandParser</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">4.6.2. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">4.6.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario of how the calculate mechanism behaves at each step when
 the user wants to know the cost of parking at car park W49, on a Monday, from 9.00am to 5.30pm.</p>
@@ -1754,7 +1754,7 @@ Since car park number is unique to each car park, there would only be one car pa
 <p>The abbreviation feature reduces the amount of characters needed to type.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-6"><a class="link" href="#overview-6">4.7.1. Overview</a></h4>
+<h4 id="overview-7"><a class="link" href="#overview-7">4.7.1. Overview</a></h4>
 <div class="paragraph">
 <p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
 to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
@@ -1850,7 +1850,7 @@ in each Command file.</p>
 <p>The autocomplete feature simplifies overcomplicated commands by prompting correct format.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-7"><a class="link" href="#overview-7">4.8.1. Overview</a></h4>
+<h4 id="overview-8"><a class="link" href="#overview-8">4.8.1. Overview</a></h4>
 <div class="paragraph">
 <p>The autocomplete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
 to <code>displayFormat()</code> if applicable command word is entered or to highlight the next
@@ -1974,7 +1974,7 @@ select through the entire line.</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -2018,7 +2018,7 @@ As the car park data from <code>data.gov.sg</code> does not have any postal code
 car park to a postal code whenever possible.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-8"><a class="link" href="#overview-8">4.11.1. Overview</a></h4>
+<h4 id="overview-9"><a class="link" href="#overview-9">4.11.1. Overview</a></h4>
 <div class="paragraph">
 <p>Currently, postal code data are stored in a separate file. This is due to it being too slow and unreliable to convert coordinate to postal code
 in real time. However, in order to generate the file, we first had to go through every carpark and find respective their postal code.</p>
@@ -2108,7 +2108,7 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 and an example of how it works.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-9"><a class="link" href="#overview-9">4.12.1. Overview</a></h4>
+<h4 id="overview-10"><a class="link" href="#overview-10">4.12.1. Overview</a></h4>
 <div class="paragraph">
 <p>As we wanted to showcase real time updates when the user issues a command, we had to update the HTML accordingly.
 However, we did not want to just update it. We wanted to showcase the selected car park or the filtered list accordingly.</p>
@@ -2212,7 +2212,7 @@ A <code>ListCarparkRequestEvent</code> is created and <code>BrowserPanel</code> 
 <p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-10"><a class="link" href="#overview-10">4.14.1. Overview</a></h4>
+<h4 id="overview-11"><a class="link" href="#overview-11">4.14.1. Overview</a></h4>
 <div class="paragraph">
 <p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
 The key will stored in a secured location to prevent people from accessing it.</p>
@@ -2666,7 +2666,7 @@ b. Require developers to download those libraries manually (this creates extra w
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: helping busy car owners to plan their trip by getting details
+<p><strong>Value proposition</strong>: helping busy car owners plan their trip by getting details
 of nearby car parks from their destination in a fast and efficient manner</p>
 </div>
 </div>
@@ -3968,137 +3968,130 @@ of nearby car parks from their destination in a fast and efficient manner</p>
 <div class="sect1">
 <h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>9</code> or higher installed.</p>
-</li>
-<li>
-<p>Should not have any noticeable sluggishness when holding list of car parks.</p>
-</li>
-<li>
-<p>Should come with automated unit tests and be able to handle errors and exceptions.</p>
-</li>
-<li>
-<p>Should be easy to use for novice that have never used a CLI before or never used an application
-to search for locations of car parks.</p>
-</li>
-<li>
-<p>Query should respond fast assuming no connection delays and the API is working.</p>
-</li>
-<li>
-<p>The application is not expected to download an entire list of car parks in the country to work offline.</p>
-</li>
-<li>
-<p>This application is not suppose to be used by drivers on the road.</p>
-</li>
-<li>
-<p>The system should be easy and scalable in adding on features for future versions.</p>
-</li>
-<li>
-<p>The car park data should be updated frequently while running to send notifications in real time.</p>
-</li>
-<li>
-<p>Privacy details in the favourites list should not be seen or shared easily by others.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Non-functional requirements specify the constraints under which system is developed and operated.</p>
 </div>
+<div class="paragraph">
+<p><span class="underline"><a href="#nfrtable">Table 4</a></span> below contains all of the Non-functional requirements for <em>Car Park Finder</em>
+in no particular order.</p>
+</div>
+<table id="nfrtable" class="tableblock frame-all grid-all" style="width: 80%;">
+<caption class="title">Table 4. List of non-functional requirements</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Should work on any mainstream OS as long as it has Java <code>9</code> or higher installed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Should not have any noticeable sluggishness when holding list of car parks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Should come with automated unit tests and be able to handle errors and exceptions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Should be easy to use for novice that have never used a CLI before or never used an application
+to search for locations of car parks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Query should respond fast assuming no connection delays and the API is working.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The application is not expected to download an entire list of car parks in the country to work offline.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">This application is not suppose to be used by drivers on the road.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The system should be easy and scalable in adding on features for future versions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The car park data should be updated frequently while running to send notifications in real time.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Privacy details in the favourites list should not be seen or shared easily by others.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="api"></a> API (Application Programming Interface)</dt>
-<dd>
-<p>Specifies the interface through which other programs can interact with a software component. It is a contract between the component and its clients.</p>
-</dd>
-<dt class="hdlist1"><a id="autocomplete"></a>  Autocomplete</dt>
-<dd>
-<p>Provides suggestions while you type into the field.</p>
-</dd>
-<dt class="hdlist1"><a id="flag"></a> Flag</dt>
-<dd>
-<p>A value that acts as a signal for a function or process.</p>
-</dd>
-<dt class="hdlist1"><a id="JSON"></a> JSON (JavaScript Object Notation)</dt>
-<dd>
-<p>A file format that allows humans to easily read and write data for machines to process.</p>
-</dd>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
-<dd>
-<p>Windows, Linux, Unix, OS-X</p>
-</dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Favourites</dt>
-<dd>
-<p>A custom list of car parks that is meant to be viewed easily.</p>
-</dd>
-<dt class="hdlist1"><a id="ui"></a> UI (User Interface)</dt>
-<dd>
-<p>Allows the user to interact with the application through inputs and outputs of data.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
-<p><strong>Product Name</strong></p>
+<p>If you do not understand a technical term used in this document, refer to <span class="underline"><a href="#techtable">Table 5</a></span> below.</p>
 </div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
+<table id="techtable" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 5. Technical Terms</caption>
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 71.4286%;">
+</colgroup>
+<thead>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
 </tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Application Programming Interface (API)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the interface through which other programs can interact with a software component. It is a contract between the component and its clients.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autocomplete</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides suggestions while you type into the field.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cascading Style Sheets (CSS)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A style sheet language used for describing the presentation of a document written in a markup language like HTML.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Favourites</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A custom list of car parks that is meant to be viewed easily.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Flag</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag is a value that acts as a check for the filter feature.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Google Maps</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is a online map service provided by Google.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hyper Text Markup Language (HTML)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A standardized system for tagging text files to achieve font, colour, graphic, and hyperlink effects on World Wide Web pages.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Javascript (JS)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mainstream Operating System (OS)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows, Linux, Unix and OS-X are operating systems used widely in the world.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Marker</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is should in the Google Maps to indicate the location of the car park. You can click on it to either zoom in or display more information.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>User Interface (UI)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to interact with the application through inputs and outputs of data.</p></td>
+</tr>
+</tbody>
 </table>
 </div>
+</div>
+<div class="sect1">
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Given below are instructions to test <em>Car Park Finder</em> manually. These instructions only provide a starting point for
+testers to work on; testers are expected to do more <strong>exploratory</strong> testing.</p>
+</div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4136,7 +4129,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-car-park"><a class="link" href="#deleting-a-car-park">G.2. Deleting a car park</a></h3>
+<h3 id="deleting-a-car-park"><a class="link" href="#deleting-a-car-park">F.2. Deleting a car park</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4168,7 +4161,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">F.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4188,4 +4181,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 03:46:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 04:14:19 UTC</div></div></div></body></html>

@@ -7,35 +7,42 @@
 </div>
 </div>
 <div id="toc" class="toc">
-<div id="toctitle"></div>
+<div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#quick-start">2. Quick Start</a>
+<ul class="sectlevel2">
+<li><a href="#setup">2.1. Setup</a></li>
+<li><a href="#graphical-user-interface-gui">2.2. Graphical User Interface (GUI)</a></li>
+<li><a href="#enter-a-command">2.3. Enter a command</a></li>
+</ul>
+</li>
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#Features-Help">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#Features-Filter">3.2. Filtering car parks : <code>filter</code></a></li>
-<li><a href="#Features-Find">3.3. Finding car parks : <code>find</code></a></li>
-<li><a href="#Features-Undo">3.4. Undoing commands: <code>undo</code></a></li>
-<li><a href="#Features-Redo">3.5. Redoing commands : <code>redo</code></a></li>
-<li><a href="#Features-Select">3.6. Selecting a car park : <code>select</code></a></li>
-<li><a href="#Features-History">3.7. Show past commands : <code>history</code></a></li>
-<li><a href="#Features-Calculate">3.8. Calculating the cost of parking : <code>calculate</code></a></li>
-<li><a href="#Features-List">3.9. Listing all car parks : <code>list</code></a></li>
-<li><a href="#Features-Query">3.10. Querying data: <code>query</code></a></li>
-<li><a href="#Features-Notify">3.11. Enabling Notification : <code>notify</code></a></li>
-<li><a href="#Features-Clear">3.12. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#Features-Exit">3.13. Exiting the application : <code>exit</code></a></li>
-<li><a href="#auto-complete-kbd-tab-kbd">3.14. Auto-complete: <kbd>Tab</kbd></a></li>
-<li><a href="#Features-Add">3.15. Adding to favorites list : <code>add</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#Features-Delete">3.16. Removing from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#Features-Sort">3.17. Sorting car parks : <code>sort</code> <code>[coming in v2.0]</code></a></li>
-<li><a href="#Features-Weather">3.18. Updating Weather : <code>weather</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#Features-Query">3.2. Querying data: <code>query</code></a></li>
+<li><a href="#Features-Select">3.3. Selecting a car park : <code>select</code></a></li>
+<li><a href="#Features-List">3.4. Listing all car parks : <code>list</code></a></li>
+<li><a href="#Features-Find">3.5. Finding car parks : <code>find</code></a></li>
+<li><a href="#Features-Filter">3.6. Filtering car parks : <code>filter</code></a></li>
+<li><a href="#Features-Undo">3.7. Undoing commands: <code>undo</code></a></li>
+<li><a href="#Features-Redo">3.8. Redoing commands : <code>redo</code></a></li>
+<li><a href="#Features-Calculate">3.9. Calculating the cost of parking : <code>calculate</code></a></li>
+<li><a href="#Features-Notify">3.10. Enabling Notification : <code>notify</code></a></li>
+<li><a href="#Features-Clear">3.11. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#Features-History">3.12. View past commands : <code>history</code></a></li>
+<li><a href="#abbreviation-abbrev">3.13. Abbreviation: abbrev.</a></li>
+<li><a href="#autocomplete-kbd-tab-kbd">3.14. Autocomplete: <kbd>Tab</kbd></a></li>
+<li><a href="#Features-Exit">3.15. Exiting the application : <code>exit</code></a></li>
+<li><a href="#Features-Add">3.16. Adding to favorites list : <code>add</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#Features-Delete">3.17. Removing from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#Features-Sort">3.18. Sorting car parks : <code>sort</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#Features-Weather">3.19. Weather forecast : <code>weather</code> <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#glossary">5. Glossary</a></li>
-<li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#faq">Appendix A: FAQ</a></li>
+<li><a href="#glossary">Appendix B: Glossary</a></li>
+<li><a href="#command-summary">Appendix C: Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -43,13 +50,23 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Car Park Finder is an application to find HDB (Housing Development Board) car parks in Singapore. It allows you to
-work with a <strong>Command Line Interface (CLI)</strong> to display a list of car parks with the convenience of simply typing. If you
- <strong>use the computer frequently</strong> and <strong>commute by driving</strong>, you would find our application useful in helping you obtain
- various information about car parks.</p>
+<p>Welcome to the User Guide for <em>Car Park Finder</em>!</p>
 </div>
 <div class="paragraph">
-<p>Interested? Head towards <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started.</p>
+<p><em>Car Park Finder</em> is a desktop command-line application for all car owners seeking a hassle-free way to find
+Housing &amp; Development Board (HDB) car parks in Singapore.<br></p>
+</div>
+<div class="paragraph">
+<p>Our application allows you to view vital information such as parking lots availability for each car park, so that you can
+plan ahead of your trip.</p>
+</div>
+<div class="paragraph">
+<p>If you use the computer frequently and commute by driving, why not give it a try. No installation is required and getting
+started is as simple as typing out a text message.</p>
+</div>
+<div class="paragraph">
+<p>Interested? Read the next section on how to get started. If you already have <em>Car Park Finder</em> up and running then
+head on over to <span class="underline"><a href="#Features">Section 3</a></span>.</p>
 </div>
 </div>
 </div>
@@ -57,35 +74,83 @@ work with a <strong>Command Line Interface (CLI)</strong> to display a list of c
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Here are several quick tips to get the application running.</p>
+<p>To get <em>Car Park Finder</em> up and running, just follow these simple steps.</p>
 </div>
+<div class="sect2">
+<h3 id="setup"><a class="link" href="#setup">2.1. Setup</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Check that you have <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java version 9</a> or later installed in your Computer.</p>
+<p>Check that you have <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java version 9</a> or
+later installed in your Computer.</p>
 </li>
 <li>
 <p>Download the latest <code>carparkfinder.jar</code> <a href="https://github.com/CS2103-AY1819S1-T09-4/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for Car Park Finder.</p>
+<p>Copy the file to the folder you want to use as the home folder for <em>Car Park Finder</em>.</p>
 </li>
 <li>
-<p>Double-click the file to start the application. The <strong>Graphical User Interface (GUI)</strong> should appear in a few seconds.</p>
+<p>Double-click the file to start the application. The <em>Graphical User Interface</em> (GUI) should appear in a
+few seconds.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>The figure below is a sample display of the application&#8217;s GUI, which consists of five regions.</p>
-</div>
-<div class="imageblock">
+<div id="first_load" class="imageblock">
 <div class="content">
-<img src="images/quickstart-GUI.png" alt="quickstart GUI" width="880">
+<img src="images/first_load.png" alt="first load" width="700">
 </div>
 <div class="title">Figure 1. Home page of Car Park Finder</div>
 </div>
 <div class="paragraph">
-<p>Type a command in the Command Box and then press <kbd>Enter</kbd> to execute it.
+<p>If everything goes well, <em>Car Park Finder</em> should launch immediately without any installation. Please refer
+to <span class="underline"><a href="#first_load">Figure 1</a></span> and check if it displays the same thing for you.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graphical-user-interface-gui"><a class="link" href="#graphical-user-interface-gui">2.2. Graphical User Interface (GUI)</a></h3>
+<div id="GUI" class="imageblock">
+<div class="content">
+<img src="images/GUI.png" alt="GUI" width="700">
+</div>
+<div class="title">Figure 2. The six regions of the GUI</div>
+</div>
+<div class="paragraph">
+<p>The GUI for <em>Car Park Finder</em> as shown in <span class="underline"><a href="#GUI">Figure 2</a></span> consist of six regions:</p>
+</div>
+<div class="paragraph">
+<p>[1] <em>Menu Bar</em> &#160; &#160; &#160; &#160; &#160; [2] <em>Result Panel</em> &#160; &#160; &#160; &#160; &#160; [3] <em>Google Map</em><br>
+[4] <em>Message Box</em> &#160; &#160; [5] <em>Command Box</em>&#160; &#160; &#160; [6] <em>Status Bar</em></p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Please remember the naming convention as from now on they will be used to explain how <em>Car Park Finder</em> works.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="markers" class="imageblock">
+<div class="content">
+<img src="images/markers.png" alt="markers" width="700">
+</div>
+<div class="title">Figure 3. Display of markers</div>
+</div>
+<div class="paragraph">
+<p>There are two types of markers that is being used in <em>Car Park Finder</em>, as shown in <span class="underline"><a href="#markers">Figure 3</a></span>.
+You can click on a marker cluster to zoom in on the map, or click on a individual marker to view the car park details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enter-a-command"><a class="link" href="#enter-a-command">2.3. Enter a command</a></h3>
+<div class="paragraph">
+<p>Type a command into the Command Box and then press <kbd>Enter</kbd> to execute it.
 A message will appear in the Message Box.</p>
 </div>
 <div class="admonitionblock tip">
@@ -95,19 +160,20 @@ A message will appear in the Message Box.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Some commands you can try:<br>
-<a href="#Features-List"><strong><code>list</code></strong></a>: bring up a list of all the car parks<br>
-<a href="#Features-Help"><strong><code>help</code></strong></a>: show the list of available commands and how to use them<br>
-<a href="#Features-Exit"><strong><code>exit</code></strong></a>: exit the program
+<strong>Some commands you can try:</strong><br>
+<span class="underline"><a href="#Features-Query"><code>query</code></a></span>: Get the latest update from <em>data.gov.sg</em><br>
+<span class="underline"><a href="#Features-Help"><code>help</code></a></span>: show the User Guide (this document)<br>
+<span class="underline"><a href="#Features-List"><code>list</code></a></span>: display all the car parks
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Congratulations, You have successfully executed your first command!</p>
+<p>Congratulations, you have successfully executed your first command!</p>
 </div>
 <div class="paragraph">
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for more commands.</p>
+<p>If you want to try out more, please refer to the next section or <span class="underline"><a href="#command-summary">Appendix C</a></span>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -115,47 +181,377 @@ Some commands you can try:<br>
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Here are the details of the features available to the user.</p>
+<p>Welcome to the Features section. This is where you will be learning how to use every single feature in
+<em>Car Park Finder</em>. You will also learn the different types of errors that can happen and how to prevent them.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
 <div class="paragraph">
 <p><strong>Command Format</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>find LOCATION</code>, <code>LOCATION</code> is a
-parameter which can be used as <code>find serangoon</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user.</p>
+</li>
+<li>
+<p>For example, in <code>find LOCATION</code>, <code>LOCATION</code> is a parameter which can be used as <code>find serangoon</code>.</p>
 </li>
 <li>
 <p>Parameters in square brackets are optional, and can be in any order.</p>
 </li>
 </ul>
 </div>
+</td>
+</tr>
+</table>
 </div>
+<div class="paragraph">
+<p>If you find manually scrolling down to be a hassle, you can go back up to the table of contents and click on the individual features to go straight to
+them.</p>
 </div>
 <div class="sect2">
 <h3 id="Features-Help"><a class="link" href="#Features-Help">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Shows the list of available commands and how to use them.</p>
+<p>This command opens up the User Guide in a separate window and shows all the available commands. It also teaches you
+how to use them effectively.<br></p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<div class="paragraph">
+<p>If it is your first time reading this, then good job on opening the User Guide!</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">help</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">he / hel</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="Features-Query"><a class="link" href="#Features-Query">3.2. Querying data: <code>query</code></a></h3>
+<div class="paragraph">
+<p>On your first time running <em>Car Park Finder</em>, you will see nothing on your screen. Do not panic! By type <code>query</code> into
+the <em>Command Box</em>, it will start to fill the application with all the available HDB car parks.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 40%;">
 <colgroup>
 <col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">query</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">q / qu / que / quer</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>If you wish to update all the car parks at a later date, just type this command again.</p>
+</li>
+<li>
+<p>Remember that <em>Car Park Finder</em> does not automatically execute this command at the start.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="example-let-s-get-some-car-parks"><a class="link" href="#example-let-s-get-some-car-parks">3.2.1. Example: Let&#8217;s get some car parks!</a></h4>
+<div class="paragraph">
+<p>It might be your first time using <em>Car Park Finder</em>, or you decided to
+<a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Clear">clear</a> out all the car parks. Whatever the case, its time to get
+some car parks into the application.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Turning on notification</caption>
+<colgroup>
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Loading&#8230;&#8203; please wait&#8230;&#8203;</p></td>
 </tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Step 1. Type <code>query</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. Take note that you cannot type anything else once you press <kbd>Enter</kbd>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. Wait for <em>Car Park Finder</em> to finish loading. It will only take awhile, so why not just sit back and relax?</p>
+</div>
+<div id="zy_query" class="imageblock">
+<div class="content">
+<img src="images/zy_query.png" alt="zy query" width="700">
+</div>
+<div class="title">Figure 4. <em>Car Park Finder</em> with 2099 car parks</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Finished loading</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>he</code>,<code>hel</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2099 car parks updated</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Step 3. Once it has finish loading, the message above should appear. Please refer to <span class="underline"><a href="#zy_query">Figure 4</a></span> to check if you are
+successful in getting the car parks.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-query-error-s"><a class="link" href="#example-query-error-s">3.2.2. Example: Query error(s)</a></h4>
+<div class="paragraph">
+<p>Encountered a query error? Take a look below to see what went wrong.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Query unable to retrieve car parks</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to retrieve car parks from data.gov.sg<br>
+Please check your internet connection and try again</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when there is a connection problem to <em>data.gov.sg</em>. Please check your
+internet connection and try again.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-Select"><a class="link" href="#Features-Select">3.3. Selecting a car park : <code>select</code></a></h3>
+<div class="paragraph">
+<p>You can either use this command to select a car park in the <em>Display Panel</em>, or just use your mouse to click on it.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>There must be car parks available for you to select something.</p>
+</li>
+<li>
+<p>If you have forgotten how to get car parks, please <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Query">click here</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table id="selectformat" class="tableblock frame-all grid-all" style="width: 60%;">
+<colgroup>
+<col style="width: 37.5%;">
+<col style="width: 50%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">select INDEX</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">s / se / sel / sele / selec</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">select 1<br>
+ s 2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the list of car parks in the <em>Display Panel</em>.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>Selecting any index will automatically cause the Google Maps to zoom in on the car park location.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="example-selecting-the-20th-car-park-in-the-list"><a class="link" href="#example-selecting-the-20th-car-park-in-the-list">3.3.1. Example: Selecting the 20th car park in the list</a></h4>
+<div class="paragraph">
+<p>This example will show you how to select a car park displayed in the <em>Displayed Panel</em> by using the command.</p>
+</div>
+<div id="selectafter" class="imageblock">
+<div class="content">
+<img src="images/select.png" alt="select" width="300">
+</div>
+<div class="title">Figure 5. Selecting the 20th car park</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: After selecting the 20th car park</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selected car park: 20</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>select 20</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. The selection will turn blue, as shown in <span class="underline"><a href="#selectafter">Figure 5</a></span>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-select-error-s"><a class="link" href="#example-select-error-s">3.3.2. Example: Select error(s)</a></h4>
+<div class="paragraph">
+<p>Encountered a select error? Take a look below to see what went wrong.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Invalid command format</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid command format!<br>
+select: Selects the car park identified by the index number used in the displayed car park list.<br>
+Parameters: INDEX (must be a positive integer)<br>
+Example: select 1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when you type the command wrongly in the <em>Command Box</em>. Either try again or just copy the
+command <span class="underline"><a href="#selectformat">here</a></span>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-List"><a class="link" href="#Features-List">3.4. Listing all car parks : <code>list</code></a></h3>
+<div class="paragraph">
+<p>Show a list of all the car parks in the <em>Display Panel</em> with their various details. If there are no car parks to be
+displayed and you did not <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Clear">clear</a> them, typing this command would
+bring it back.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">list</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">l / li / lis</p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="sect3">
+<h4 id="example-listing-all-the-car-parks"><a class="link" href="#example-listing-all-the-car-parks">3.4.1. Example: Listing all the car parks</a></h4>
+<div class="paragraph">
+<p>This example will show you know to list all the car parks again. It starts off with a smaller list containing only
+car parks in Hougang.</p>
+</div>
+<div id="list_before" class="imageblock">
+<div class="content">
+<img src="images/list_before.png" alt="list before" width="700">
+</div>
+<div class="title">Figure 6. Previously filtered list, before using the <code>list</code> command.</div>
+</div>
+<div class="paragraph">
+<p>From <span class="underline"><a href="#list_before">Figure 6</a></span>, the current list only contains the car parks found in Hougang.</p>
+</div>
+<div id="list_after" class="imageblock">
+<div class="content">
+<img src="images/list_after.png" alt="list after" width="700">
+</div>
+<div class="title">Figure 7. Listed 2099 all car parks</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Invalid command format</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Listed all 2099 car parks</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>list</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. Refer to <span class="underline"><a href="#list_after">Figure 7</a></span> to see if the command executed succesfully. All the car parks should appear in the <em>Display Panel</em> and the <em>Google Maps</em> should zoom out
+to show all of them.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-Find"><a class="link" href="#Features-Find">3.5. Finding car parks : <code>find</code></a></h3>
+<div class="paragraph">
+<p>With a list of car parks, you can narrow down to just the car parks near your destination by either typing in the
+location or the specific car park number.</p>
+</div>
+<table id="findformat" class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">find KEYWORD</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">fin</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">find serangoon<br>
+fin HG83</p></td>
 </tr>
 </tbody>
 </table>
@@ -166,17 +562,95 @@ parameter which can be used as <code>find serangoon</code>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>A help window will pop up that contains all the commands available and how to
-use them.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Common words like <code>BLK</code> and <code>AVE</code> are ignored.</p>
+</li>
+<li>
+<p>It does not matter whether it is upper or lower case characters.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
 </table>
 </div>
+<hr>
+<div class="sect3">
+<h4 id="example-how-to-find-car-parks-by-location"><a class="link" href="#example-how-to-find-car-parks-by-location">3.5.1. Example: How to find car parks by location</a></h4>
+<div class="paragraph">
+<p>For this example, we will be looking at how to find all the car parks in Punggol.</p>
+</div>
+<div id="find_location" class="imageblock">
+<div class="content">
+<img src="images/find_location.png" alt="find location" width="700">
+</div>
+<div class="title">Figure 8. Found car parks in Punggol</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Found 53 car parks</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53 car park(s) found!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>find punggol</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. <span class="underline"><a href="#find_location">Figure 8</a></span> shows how it would look like, with the Google Maps zoomed in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-how-to-find-car-park-by-car-park-number"><a class="link" href="#example-how-to-find-car-park-by-car-park-number">3.5.2. Example: How to find car park by car park number</a></h4>
+<div id="find_number" class="imageblock">
+<div class="content">
+<img src="images/find_number.png" alt="find number" width="700">
+</div>
+<div class="title">Figure 9. Found car parks in Punggol</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Found 1 car park</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 car park(s) found!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>find PP5</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. <span class="underline"><a href="#find_number">Figure 9</a></span> shows how it would look like, with the Google Maps zoomed in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-cannot-find-car-park"><a class="link" href="#example-cannot-find-car-park">3.5.3. Example: Cannot find car park</a></h4>
+<div class="paragraph">
+<p>If <em>Car Park Finder</em> is unable to find your location or car park number, it will display nothing.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Found 0 car park</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0 car park(s) found!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The message above will ben shown, as well as an empty list in the <em>Display Panel</em> and no markers in the <em>Google Maps</em>.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Filter"><a class="link" href="#Features-Filter">3.2. Filtering car parks : <code>filter</code></a></h3>
+<h3 id="Features-Filter"><a class="link" href="#Features-Filter">3.6. Filtering car parks : <code>filter</code></a></h3>
 <div class="paragraph">
 <p>Filters the list of car parks returned by <code>FindCommand</code> by the following flags:<br></p>
 </div>
@@ -300,31 +774,29 @@ use them.</p>
 <div class="content">
 <img src="images/filter.png" alt="filter" width="880">
 </div>
-<div class="title">Figure 2. Filtering covered car parks that have available parking lots</div>
+<div class="title">Figure 10. Filtering covered car parks that have available parking lots</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Features-Find"><a class="link" href="#Features-Find">3.3. Finding car parks : <code>find</code></a></h3>
+<h3 id="Features-Undo"><a class="link" href="#Features-Undo">3.7. Undoing commands: <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Find a list of car parks within a certain location.</p>
+<p>Restores the list of car parks to the state before the previous undoable command was executed.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table class="tableblock frame-all grid-all" style="width: 30%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fin</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find serangoon</code><br>
-<code>fin HG83</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">u / un / und</p></td>
 </tr>
 </tbody>
 </table>
@@ -336,107 +808,14 @@ use them.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Common words are ignored, like <code>blk</code> and <code>ave</code>. Upper and lower case characters do not matter.</p>
+<p>Only available for the following undoable commands:<br>
+<span class="underline"><a href="#Features-Query"><code>query</code></a></span> | <span class="underline"><a href="#Features-Find"><code>find</code></a></span> | <span class="underline"><a href="#Features-Filter"><code>filter</code></a></span> |
+<span class="underline"><a href="#Features-Notify"><code>notify</code></a></span> | <span class="underline"><a href="#Features-Clear"><code>clear</code></a></span></p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The figure below is a sample display of the application.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/findbefore.png" alt="findbefore" width="880">
-</div>
-<div class="title">Figure 3. Before using find command</div>
-</div>
-<div class="paragraph">
-<p>The figure below shows what happen after executing the <code>find</code> command.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/findafter.png" alt="findafter" width="880">
-</div>
-<div class="title">Figure 4. After using <code>find punggol</code> command</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-Undo"><a class="link" href="#Features-Undo">3.4. Undoing commands: <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the car park finder to the state before the previous undoable command was executed.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code>,<code>un</code>,<code>und</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find hougang</code>,<code>list</code>,<code>undo</code><br>
-<code>fin hougang</code>,<code>fil n/</code>,<code>u</code>,<code>u</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can only <code>undo</code> when you have ran a undoable commands (<code>clear</code>, <code>find</code>, <code>filter</code> and <code>query</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-Redo"><a class="link" href="#Features-Redo">3.5. Redoing commands : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code>,<code>re</code>,<code>red</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find sengkang</code>, <code>undo</code>,<code>redo</code><br>
-<code>fin hougang</code>,<code>r</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>You can only <code>redo</code> after an <code>undo</code> command.</p>
+<p>This does not turn off notification as it only affects the list of car parks.</p>
 </li>
 </ul>
 </div>
@@ -444,29 +823,70 @@ use them.</p>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="Features-Select"><a class="link" href="#Features-Select">3.6. Selecting a car park : <code>select</code></a></h3>
+<hr>
+<div class="sect3">
+<h4 id="example-successful-undo"><a class="link" href="#example-successful-undo">3.7.1. Example: Successful undo</a></h4>
 <div class="paragraph">
-<p>Select the car park you wish to go to.</p>
+<p>If you accidentally type an undoable command and wish to undo it, here is how.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in undoing</caption>
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo success!</p></td>
 </tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>undo</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-cannot-undo"><a class="link" href="#example-cannot-undo">3.7.2. Example: Cannot undo</a></h4>
+<div class="paragraph">
+<p>Not all commands are undoable, or you reach the end of how far you can undo.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in undoing</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s</code>,<code>se</code>,<code>sel</code>,<code>sele</code>,<code>selec</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select 1</code><br>
- <code>s 2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No more commands to undo!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If you see the message above in the <em>Command Box</em> it means there are no more undoable commands. You can also check
+the <span class="underline"><a href="#Features-History">history</a></span> to view what commands you have typed in so far.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-Redo"><a class="link" href="#Features-Redo">3.8. Redoing commands : <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Reverse the most recent <span class="underline"><a href="#Features-Undo"><code>undo</code></a></span> command.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">redo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">r / re / red</p></td>
 </tr>
 </tbody>
 </table>
@@ -477,13 +897,16 @@ use them.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+<div class="paragraph">
+<p>You can only <span class="underline"><a href="#Features-Redo"><code>redo</code></a></span> after an <span class="underline"><a href="#Features-Undo"><code>undo</code></a></span> command.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>The index refers to the index number shown in the displayed car park list.</p>
+<p>Like undo, this does not turn off notification as it only affects the list of car parks.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>Redoable commands are the same as undoable commands.</p>
 </li>
 </ul>
 </div>
@@ -491,91 +914,52 @@ use them.</p>
 </tr>
 </table>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/select.png" alt="select" width="880">
-</div>
-<div class="title">Figure 5. Before running the <code>select 20</code> command</div>
-</div>
+<hr>
+<div class="sect3">
+<h4 id="example-successful-redo"><a class="link" href="#example-successful-redo">3.8.1. Example: Successful redo</a></h4>
 <div class="paragraph">
-<p>The figure above is the outcome of <code>find punggol</code>.</p>
+<p>If you decided to <span class="underline"><a href="#Features-Redo"><code>redo</code></a></span> the <span class="underline"><a href="#Features-Undo"><code>undo</code></a></span> command, here is how.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/selectafter.png" alt="selectafter" width="880">
-</div>
-<div class="title">Figure 6. An example of the output of the <code>select 20</code> command.</div>
-</div>
-<div class="paragraph">
-<p>The figure above is the outcome of the select command. Selecting any index will automatically zoom the UI in.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-There must be car parks available for <code>SelectCommand</code> to work.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-History"><a class="link" href="#Features-History">3.7. Show past commands : <code>history</code></a></h3>
-<div class="paragraph">
-<p>Lists all the commands that you have entered in reverse chronological order.<br></p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in redoing</caption>
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hi</code>,<code>his</code>,<code>hist</code>,<code>histo</code>,<code>histor</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code><br>
-<code>hi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo success!</p></td>
 </tr>
 </tbody>
 </table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
+<p>Type <code>redo</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly.</p>
 </div>
-</td>
+</div>
+<div class="sect3">
+<h4 id="example-cannot-redo"><a class="link" href="#example-cannot-redo">3.8.2. Example: Cannot redo</a></h4>
+<div class="paragraph">
+<p>You reach the end of how far you can redo. Take note that not all commands are <strong>undoable / redoable</strong>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in redoing</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No more commands to redo!</p></td>
 </tr>
+</tbody>
 </table>
+<div class="paragraph">
+<p>If you see the message above in the <em>Command Box</em> it means there are no more redoable commands. You can also check
+the <span class="underline"><a href="#Features-History">history</a></span> to view what commands you have typed in so far.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/beforehistory.png" alt="beforehistory" width="880">
-</div>
-<div class="title">Figure 7. After running several commands, before the using the <code>history</code> command</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterhistory.png" alt="afterhistory" width="880">
-</div>
-<div class="title">Figure 8. An example of the output of the <code>history</code> command</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Features-Calculate"><a class="link" href="#Features-Calculate">3.8. Calculating the cost of parking : <code>calculate</code></a></h3>
+<h3 id="Features-Calculate"><a class="link" href="#Features-Calculate">3.9. Calculating the cost of parking : <code>calculate</code></a></h3>
 <div class="paragraph">
 <p>Calculates the cost of parking at a selected car park between a specified time period.</p>
 </div>
@@ -607,144 +991,358 @@ There must be car parks available for <code>SelectCommand</code> to work.
 <div class="content">
 <img src="images/calculate.png" alt="calculate" width="880">
 </div>
-<div class="title">Figure 9. Calculating the cost of parking at car park TJ39 on Sunday from 3.30am to 6.30pm</div>
+<div class="title">Figure 11. Calculating the cost of parking at car park TJ39 on Sunday from 3.30am to 6.30pm</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Features-List"><a class="link" href="#Features-List">3.9. Listing all car parks : <code>list</code></a></h3>
-<div class="paragraph">
-<p>Show a list of all the car parks with their details.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code>,<code>li</code>,<code>lis</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="imageblock">
-<div class="content">
-<img src="images/beforelist.png" alt="beforelist" width="880">
-</div>
-<div class="title">Figure 10. Previously filtered list, before using the <code>list</code> command.</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterlist.png" alt="afterlist" width="880">
-</div>
-<div class="title">Figure 11. An example of the output of the <code>list</code> command, showing all the car parks.</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-Query"><a class="link" href="#Features-Query">3.10. Querying data: <code>query</code></a></h3>
-<div class="paragraph">
-<p>If you want to get the latest updates for all the car parks, just type <code>query</code> into the <em>Command Box</em>.<br></p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>q</code>, <code>qu</code>,<code>que</code>,<code>quer</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code><br>
-<code>q</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
+<h3 id="Features-Notify"><a class="link" href="#Features-Notify">3.10. Enabling Notification : <code>notify</code></a></h3>
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Car Park Finder currently does not autorun this command at the start!</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enabling notification requires you to have already <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Select">selected a car park</a>.</p>
+</li>
+<li>
+<p>If you have not done so, please look at how to <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Find">find car parks by location</a>
+and <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Filter">filter them through the use of flags</a>.</p>
+</li>
+<li>
+<p>Also, <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Query">click here</a> if you have forgotten how to
+use the <code>query</code> command to get a list of car parks.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Here are some pictures to illustrate how <code>query</code> works:</p>
+<p>After selecting a car park, you can choose to receive notifications on how many parking lots are still available.
+It sends an update periodically, so once it is enabled you do not need to type the command again into the <em>Command Box</em>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_before_query.png" alt="zy before query" width="880">
-</div>
-<div class="title">Figure 12. Before running Query Command</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_during_query.png" alt="zy during query" width="880">
-</div>
-<div class="title">Figure 13. While Query Command is running</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_after_query.png" alt="zy after query" width="880">
-</div>
-<div class="title">Figure 14. Result of Query Command</div>
-</div>
-<div class="paragraph">
-<p>All information for the car parks are refreshed, with the bottom left text telling you when it was
-last updated.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-Notify"><a class="link" href="#Features-Notify">3.11. Enabling Notification : <code>notify</code></a></h3>
-<div class="paragraph">
-<p>After selecting a car park, you can get real-time notifications by typing <code>notify 10</code>, where
-10 means updating the car park information every 10 seconds.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table id="notifyformat" class="tableblock frame-all grid-all" style="width: 60%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 37.5%;">
+<col style="width: 50%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">notify TIME_SECONDS</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">n / no / not / noti / notif</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">notify 0<br>
+notify 10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>If you did not <a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Select">select</a> a car park beforehand, <em>Car Park Finder</em> would not know
+which car park needs to be updated.</p>
+</li>
+<li>
+<p>You can set within a range of <em>10 to 600 seconds</em> (10 minutes). <strong>Decimal values are not allowed.</strong></p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="example-receive-notification-every-10-seconds"><a class="link" href="#example-receive-notification-every-10-seconds">3.10.1. Example: Receive notification every 10 seconds</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This example assumes you have already decided on a car park. For more information on how you can choose a
+suitable car park in <em>Car Park Finder</em>, please <span class="underline"><a href="#Features-Notify">click here</a></span>.</p></td>
 </tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>It is time to head to your destination. Before you do so, why not check if the car park is full?</p>
+</div>
+<div id="zy_select_notify" class="imageblock">
+<div class="content">
+<img src="images/zy_select_notify.png" alt="zy select notify" width="700">
+</div>
+<div class="title">Figure 12. Selected Car Park AM18</div>
+</div>
+<div class="paragraph">
+<p>Step 1. Select your car park from the list. In this example, we will choose the 5th car park as shown in
+<span class="underline"><a href="#zy_select_notify">Figure 12</a></span>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Turning on notification</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify TIME_SECONDS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n</code>,<code>no</code>,<code>not</code>,<code>noti</code>, <code>notif</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify 60</code><br>
-<code>n 10</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification enabled for car park AM18<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Step 2. Type <code>notify 10</code> into the <em>Command Box</em>. The message above should appear in the <em>Message Box</em>
+as confirmation that you typed in correctly.</p>
+</div>
+<div id="zy_notify_ba" class="imageblock">
+<div class="content">
+<img src="images/zy_notify_ba.png" alt="zy notify ba" width="600">
+</div>
+<div class="title">Figure 13. Before and after receiving notification</div>
+</div>
+<table id="notifynochange" class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification with no change in lot(s) available</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park AM18 has 159 lot(s) available<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification with lot(s) freed</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park AM18 has 167 lot(s) available<br>
+8 lot(s) freed since last check<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification with lot(s) taken</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Car park AM18 has 152 lot(s) available<br>
+7 lot(s) taken since last check<br>
+Interval: every 10 seconds</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Step 3. Now that the notification is enabled, you do not have to do anything else. It will inform you whether there is
+a change in parking lots availability through visual updates like
+<span class="underline"><a href="#notifynochange">these messages above</a></span> and <span class="underline"><a href="#zy_notify_ba">Figure 13</a></span>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-turn-off-notification"><a class="link" href="#example-turn-off-notification">3.10.2. Example: Turn off notification</a></h4>
+<div class="paragraph">
+<p>Now that you have gotten tired of the notification, it is time to disable it.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Turning off notification</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification disabled</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The message above will be displayed when you type <code>notify 0</code> into the <em>Command Box</em>. You can also
+<a href="https://cs2103-ay1819s1-t09-4.github.io/main/UserGuide.html#Features-Exit">exit</a> <em>Car Park Finder</em> to turn off notifications.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Already disabled</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notification already disabled</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If you are unsure whether you have already disabled the notification, the message above will be shown if you have
+done so.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-notify-error-s"><a class="link" href="#example-notify-error-s">3.10.3. Example: Notify error(s)</a></h4>
+<div class="paragraph">
+<p>Encountered a notify error? Take a look below to see what went wrong.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Invalid command format</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Invalid command format!<br>
+notify: Set when to receive notification about the lot availability of a car park.<br>
+Parameters: SECONDS<br>
+0 to disable, range is 10 to 600 seconds (decimals not allowed)<br>
+Example: notify 10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when you type the command wrongly in the <em>Command Box</em>. Either try again or just copy the
+command <span class="underline"><a href="#notifyformat">here</a></span>.</p>
+</div>
+<div class="paragraph">
+<p>Remember that <code>notify 0</code> is how you disable the notification.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification without selecting a car park first</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cannot notify without selecting a car park first</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when you did not select a car park and tried to enable notification. Please
+<span class="underline"><a href="#Features-Notify">click here</a></span> for more information.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: No car park data found</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to retrieve car park information from data.gov.sg<br>
+Unfortunately, the data is not available. We apologise for any inconvenience caused</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when the data is not available from <em>data.gov.sg</em>. Therefore, it is not possible to enable
+notification for that particular car park.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Notification unable to retrieve car parks</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to retrieve car parks from data.gov.sg<br>
+Please check your internet connection and try again</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>This error occurs when there is a connection problem to <em>data.gov.sg</em>. Please check your
+internet connection and try again.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-Clear"><a class="link" href="#Features-Clear">3.11. Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>If you want to clear out all the car parks in <em>Car Park Finder</em>, this is the command for you.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">cl , cle, clea</p></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<div class="sect3">
+<h4 id="example-clear-all-car-parks"><a class="link" href="#example-clear-all-car-parks">3.11.1. Example: Clear all car parks</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Clear all car parks</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All car park information has been cleared!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Once all the car parks are cleared, the message above will be displayed in the <em>Message Box</em>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-no-car-parks"><a class="link" href="#example-no-car-parks">3.11.2. Example: No car parks</a></h4>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: No car parks to be cleared</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">There is nothing to be cleared.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If <em>Car Park Finder</em> does not have any car parks, then it will show the above message.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-History"><a class="link" href="#Features-History">3.12. View past commands : <code>history</code></a></h3>
+<div class="paragraph">
+<p>Show all the commands that you have entered in reverse chronological order.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 40%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">history</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">hi , his , hist , histo , histor</p></td>
 </tr>
 </tbody>
 </table>
@@ -758,10 +1356,10 @@ last updated.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>You need to select a car park first or this command will not work.</p>
+<p>Pressing the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> arrows will display the previous and next input respectively in the command box.</p>
 </li>
 <li>
-<p>The default value is 60 seconds. You can set within a range of 10 to 600 seconds.</p>
+<p>Using the mouse is not considered a command, so clicking on a car park will not be recorded.</p>
 </li>
 </ul>
 </div>
@@ -769,285 +1367,272 @@ last updated.</p>
 </tr>
 </table>
 </div>
+<hr>
+<div class="sect3">
+<h4 id="example-checking-history"><a class="link" href="#example-checking-history">3.12.1. Example: Checking history</a></h4>
 <div class="paragraph">
-<p>Here are some pictures to illustrate how <code>notify</code> works:</p>
+<p>After running several commands, you might have forgotten what you have type in previously into the <em>Command Box</em>.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_select_notify.png" alt="zy select notify" width="880">
-</div>
-<div class="title">Figure 15. Selected Car park SK96</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_notify_after.png" alt="zy notify after" width="880">
-</div>
-<div class="title">Figure 16. Real-time notification for SK96</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_arrow.png" alt="zy arrow" width="880">
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_notify_off.png" alt="zy notify off" width="880">
-</div>
-<div class="title">Figure 17. Turning notification off</div>
-</div>
-<div class="paragraph">
-<p>To turn off the notification, simply set the seconds value to 0.</p>
-</div>
-<div class="paragraph">
-<p>Below are examples where notify will not work:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_notify_invalid.png" alt="zy notify invalid" width="880">
-</div>
-<div class="title">Figure 18. Invalid command format</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/zy_notify_select.png" alt="zy notify select" width="880">
-</div>
-<div class="title">Figure 19. Invalid command format</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-Clear"><a class="link" href="#Features-Clear">3.12. Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the list.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: List of commands</caption>
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cl</code>, <code>cle</code>, <code>clea</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code><br>
-<code>cl</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Entered commands (from most recent to earliest):<br>
+s 19<br>
+find punggol<br>
+q<br>
+clear<br>
+help<br>
+list<br></p></td>
 </tr>
 </tbody>
 </table>
-<div class="imageblock">
-<div class="content">
-<img src="images/beforeclear.png" alt="beforeclear" width="880">
-</div>
-<div class="title">Figure 20. All car parks are listed</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/afterclear.png" alt="afterclear" width="880">
-</div>
-<div class="title">Figure 21. An example of the output of the <code>clear</code> command showing nothing.</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Features-Exit"><a class="link" href="#Features-Exit">3.13. Exiting the application : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the application.</p>
+<p>Type <code>history</code> into the <em>Command Box</em>. The message above is an example, but it should appear similar to the message in
+the <em>Message Box</em> as confirmation that you typed in correctly.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+</div>
+<div class="sect3">
+<h4 id="example-no-past-commands"><a class="link" href="#example-no-past-commands">3.12.2. Example: No past commands</a></h4>
+<div class="paragraph">
+<p>If there are no previous commands, then they will be nothing to show. Remember that using the mouse to click is not
+considered as a command.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: No commands found</caption>
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code>, <code>ex</code>, <code>exi</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code><br>
-<code>e</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">You have not entered any commands yet</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>The message above will show when you run <em>Car Park Finder</em> and type <code>history</code> into the <em>Command Box</em>, without typing
+any other commands first.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-kbd-tab-kbd"><a class="link" href="#auto-complete-kbd-tab-kbd">3.14. Auto-complete: <kbd>Tab</kbd></a></h3>
+<h3 id="abbreviation-abbrev"><a class="link" href="#abbreviation-abbrev">3.13. Abbreviation: abbrev.</a></h3>
 <div class="paragraph">
-<p>Display the full format of an executable command word.<br>
-Format: enter <code>COMMAND_WORD</code>, followed by pressing <kbd>Tab</kbd> key.<br>
-Function: press <kbd>Tab</kbd>.key again to move to the next parameter.</p>
+<p><em>Talk about abbrev here</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-kbd-tab-kbd"><a class="link" href="#autocomplete-kbd-tab-kbd">3.14. Autocomplete: <kbd>Tab</kbd></a></h3>
+<div class="paragraph">
+<p>If you forgotten how to type a command, do not worry! By typing in the first letter of the command in the
+<em>Command Box</em> and pressing the <kbd>Tab</kbd> key, it will display the full format of the command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only available for the following commands:<br>
+<span class="underline">Features-Select, <code>select</code>&gt;&gt;</span> | <span class="underline"><a href="#Features-Find"><code>find</code></a></span> | <span class="underline"><a href="#Features-Filter"><code>filter</code></a></span> |
+<span class="underline"><a href="#Features-Notify"><code>notify</code></a></span> | <span class="underline"><a href="#Features-Calculate"><code>calculate</code></a></span></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example:</p>
+<p>To see how useful it can be, please take a look at the examples below.</p>
+</div>
+<div class="sect3">
+<h4 id="example-select-command"><a class="link" href="#example-select-command">3.14.1. Example: Select Command</a></h4>
+<div class="paragraph">
+<p>Step 1. Enter <code>s</code> into the <em>Command Box</em>, followed by pressing the <kbd>Tab</kbd> key.</p>
 </div>
 <div class="paragraph">
-<p>key in <code>s</code> in command box and then press <kbd>Tab</kbd>.</p>
+<p>Step 2. ???</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-filter-command"><a class="link" href="#example-filter-command">3.14.2. Example: Filter Command</a></h4>
+<div class="paragraph">
+<p>Step 1. ???</p>
 </div>
 <div class="paragraph">
-<p>Only available in the following commands:</p>
+<p>Step 2. ???</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Features-Exit"><a class="link" href="#Features-Exit">3.15. Exiting the application : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>When you are done with <em>Car Park Finder</em>, type this command to exit the application. You can also click on the
+close button above the menu bar to exit.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">e / ex / exi</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Features-Find"><strong><code>find</code></strong></a></p>
+<p>Before <em>Car Park Finder</em> stops running, it saves a local copy of all the car parks in the list.</p>
 </li>
 <li>
-<p><a href="#Features-Select"><strong><code>select</code></strong></a></p>
-</li>
-<li>
-<p><a href="#Features-Filter"><strong><code>filter</code></strong></a></p>
-</li>
-<li>
-<p><a href="#Features-Notify"><strong><code>notify</code></strong></a></p>
-</li>
-<li>
-<p><a href="#Features-Calculate"><strong><code>calculate</code></strong></a></p>
+<p>When you start the application again, it will load up the local copy.</p>
 </li>
 </ul>
 </div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="Features-Add"><a class="link" href="#Features-Add">3.15. Adding to favorites list : <code>add</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="Features-Add"><a class="link" href="#Features-Add">3.16. Adding to favorites list : <code>add</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Add a car park into your favorites list.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table class="tableblock frame-all grid-all" style="width: 60%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add c/CARPARK_NUMBER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">a</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>add c/SE12</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">add c/CARPARK_NUMBER</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">a / ad</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">add c/SE12</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="Features-Delete"><a class="link" href="#Features-Delete">3.16. Removing from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="Features-Delete"><a class="link" href="#Features-Delete">3.17. Removing from favorites list : <code>delete</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Remove the specified car park from your favorites list.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+<col style="width: 20%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete c/CARPARK_NUMBER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">d</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>delete c/SE12</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">delete c/CARPARK_NUMBER</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">d / de / del / dele / delet</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">delete c/SE12</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="Features-Sort"><a class="link" href="#Features-Sort">3.17. Sorting car parks : <code>sort</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="Features-Sort"><a class="link" href="#Features-Sort">3.18. Sorting car parks : <code>sort</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Sort the list of car parks by distance or name.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">so</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>so NAME</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
+<div class="admonitionblock important">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Must have car parks listed beforehand.</p>
+<p>To sort all the car parks, you must <code>list</code> them first!</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>Flags:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>DISTANCE</code></p>
-</li>
-<li>
-<p><code>NAME</code></p>
-</li>
-<li>
-<p><code>FP (Free Parking)</code></p>
-</li>
-<li>
-<p><code>NP (Night Parking)</code></p>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all" style="width: 50%;">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">sort TYPE</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">so / sor</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">so NAME</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
-<h3 id="Features-Weather"><a class="link" href="#Features-Weather">3.18. Updating Weather : <code>weather</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="Features-Weather"><a class="link" href="#Features-Weather">3.19. Weather forecast : <code>weather</code> <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Include weather updates in the notifications by indicating on or off.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table class="tableblock frame-all grid-all" style="width: 80%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>weather TOGGLE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>weather on</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">weather TOGGLE</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">w / we / wea / weat / weath / weathe</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">weather on<br>
+weather off</p></td>
 </tr>
 </tbody>
 </table>
@@ -1055,7 +1640,7 @@ Function: press <kbd>Tab</kbd>.key again to move to the next parameter.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">Appendix A: FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another computer?<br>
@@ -1068,16 +1653,16 @@ Function: press <kbd>Tab</kbd>.key again to move to the next parameter.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">5. Glossary</a></h2>
+<h2 id="glossary"><a class="link" href="#glossary">Appendix B: Glossary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Here are a few technical terms used in the user guide.</p>
+<p>Unsure of a few technical terms? We got you covered. Refer to <span class="underline"><a href="#techtable">Table 1</a></span> below.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table id="techtable" class="tableblock frame-all grid-all spread">
 <caption class="title">Table 1. Technical Terms</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 75%;">
+<col style="width: 28.5714%;">
+<col style="width: 71.4286%;">
 </colgroup>
 <thead>
 <tr>
@@ -1087,16 +1672,8 @@ Function: press <kbd>Tab</kbd>.key again to move to the next parameter.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Application Programming Interface (API)</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the interface through which other programs can interact with a software component. It is a contract between the component and its clients.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Autocomplete</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Provides suggestions while you type into the field.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mainstream Operating System (OS)</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Windows, Linux, Unix and OS-X are operating systems used widely in the world.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Favourites</strong></p></td>
@@ -1104,88 +1681,90 @@ Function: press <kbd>Tab</kbd>.key again to move to the next parameter.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Flag</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Flag is a value that acts as a signal for a function.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Flag is a value that acts as a check for the filter feature.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Google Maps</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It is a online map service provided by Google.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Mainstream Operating System (OS)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Windows, Linux, Unix and OS-X are operating systems used widely in the world.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Marker</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is should in the Google Maps to indicate the location of the car park. You can click on it to either zoom in or display more information.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>User Interface (UI)</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Allows the user to interact with the application through inputs and outputs of data.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Hyper Text Markup Language (HTML)</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A standardized system for tagging text files to achieve font, colour, graphic, and hyperlink effects on World Wide Web pages.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cascading Style Sheets (CSS)</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A style sheet language used for describing the presentation of a document written in a markup language like HTML.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Javascript (JS)</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A high-level, interpreted programming language. It is a language which is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">Appendix C: Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Here are the summarize list of commands available to the user.</p>
+<p>This is the last section of the User Guide, but the most useful if you just want a list of commands to try.
+Refer to <span class="underline"><a href="#generaltable">Table 2</a></span> for general commands and <span class="underline"><a href="#managetable">Table 3</a></span> for car park management.
+For more details on what each command does, please refer to <span class="underline"><a href="#Features">Section 3</a></span>.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<table id="generaltable" class="tableblock frame-all grid-all" style="width: 50%;">
 <caption class="title">Table 2. General Commands</caption>
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
 <col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-center valign-middle">Command</th>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>he</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">help</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">he</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cl</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">list</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">l</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>History</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hi</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Undo</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">u</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>q</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Redo</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">redo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">r</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">cl</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Undo</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>History</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">history</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">hi</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Redo</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">e</p></td>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 3. Carpark Management</caption>
+<table id="managetable" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 3. Car Park Management</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 57.1428%;">
@@ -1193,43 +1772,43 @@ Function: press <kbd>Tab</kbd>.key again to move to the next parameter.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-center valign-middle">Command</th>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">query</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">q</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s 2</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Select</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">select INDEX</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">s 2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fin punggol</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">find KEYWORD [MORE_KEYWORDS]</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">fin punggol</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filter</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [flag&amp;parameter(s)] [flag&amp;parameter(s)] &#8230;&#8203;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fil f/ SUN 7.30AM 5.30PM ct/ SURFACE</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Filter</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">filter FLAG/ PARAMETER [MORE_FLAG/ PARAMETER]</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">fil f/ SUN 7.30AM 5.30PM ct/ SURFACE</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Calculate</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>calculate DAY START_TIME END_TIME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cal SUN 3.30PM 6.30PM</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Calculate</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">calculate DAY START_TIME END_TIME</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">cal SUN 3.30PM 6.30PM</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notify</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n 60</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Notify</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">notify TIME_SECONDS</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">n 60</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 03:46:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 04:14:19 UTC</div></div></div></body></html>

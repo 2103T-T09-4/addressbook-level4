@@ -30,7 +30,7 @@
 <hr>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/keith.png" alt="keith" width="180">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/lexzt.png" alt="lexzt" width="180">
 </div>
 </div>
 <div class="paragraph">
@@ -209,123 +209,28 @@ Interested? Head towards our releases page to download and try it out! No instal
 <div class="sect2">
 <h3 id="finding-car-parks-code-find-code"><a class="link" href="#finding-car-parks-code-find-code">3.1. Finding car parks : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Find a list of car parks within a certain location.</p>
+<p>With a list of car parks, you can narrow down to just the car parks near your destination by either typing in the
+location or the specific car park number.</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
+<table id="findformat" class="tableblock frame-all grid-all" style="width: 50%;">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+<th class="tableblock halign-center valign-middle">Example(s)</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fin</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find serangoon</code><br>
-<code>fin HG83</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Common words are ignored, like <code>blk</code> and <code>ave</code>. Upper and lower case characters do not matter.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The figure below is a sample display of the application.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/findbefore.png" alt="findbefore" width="880">
-</div>
-<div class="title">Figure 1. Before using find command</div>
-</div>
-<div class="paragraph">
-<p>The figure below shows what happen after executing the <code>find</code> command.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/findafter.png" alt="findafter" width="880">
-</div>
-<div class="title">Figure 2. After using <code>find punggol</code> command</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undoing-commands-code-undo-code"><a class="link" href="#undoing-commands-code-undo-code">3.2. Undoing commands: <code>undo</code></a></h3>
-<div class="paragraph">
-<p>Restores the car park finder to the state before the previous undoable command was executed.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>undo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>u</code>,<code>un</code>,<code>und</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find hougang</code>,<code>list</code>,<code>undo</code><br>
-<code>fin hougang</code>,<code>fil n/</code>,<code>u</code>,<code>u</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can only <code>undo</code> when you have ran a undoable commands (<code>clear</code>, <code>find</code>, <code>filter</code> and <code>query</code>).</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="redoing-commands-code-redo-code"><a class="link" href="#redoing-commands-code-redo-code">3.3. Redoing commands : <code>redo</code></a></h3>
-<div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.</p>
-</div>
-<table class="tableblock frame-all grid-all" style="width: 95%;">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 16.6666%;">
-<col style="width: 50.0001%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Abbreviation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Example(s)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>redo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>r</code>,<code>re</code>,<code>red</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find sengkang</code>, <code>undo</code>,<code>redo</code><br>
-<code>fin hougang</code>,<code>r</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">find KEYWORD</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">fin</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">find serangoon<br>
+fin HG83</p></td>
 </tr>
 </tbody>
 </table>
@@ -339,7 +244,10 @@ Interested? Head towards our releases page to download and try it out! No instal
 <div class="ulist">
 <ul>
 <li>
-<p>You can only <code>redo</code> after an <code>undo</code> command.</p>
+<p>Common words like <code>BLK</code> and <code>AVE</code> are ignored.</p>
+</li>
+<li>
+<p>It does not matter whether it is upper or lower case characters.</p>
 </li>
 </ul>
 </div>
@@ -348,6 +256,259 @@ Interested? Head towards our releases page to download and try it out! No instal
 </table>
 </div>
 <hr>
+<div class="sect3">
+<h4 id="example-how-to-find-car-parks-by-location"><a class="link" href="#example-how-to-find-car-parks-by-location">3.1.1. Example: How to find car parks by location</a></h4>
+<div class="paragraph">
+<p>For this example, we will be looking at how to find all the car parks in Punggol.</p>
+</div>
+<div id="find_location" class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/find_location.png" alt="find location" width="700">
+</div>
+<div class="title">Figure 1. Found car parks in Punggol</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Found 53 car parks</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">53 car park(s) found!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>find punggol</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. <span class="underline"><a href="#find_location">Found car parks in Punggol</a></span> shows how it would look like, with the Google Maps zoomed in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-how-to-find-car-park-by-car-park-number"><a class="link" href="#example-how-to-find-car-park-by-car-park-number">3.1.2. Example: How to find car park by car park number</a></h4>
+<div id="find_number" class="imageblock">
+<div class="content">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/find_number.png" alt="find number" width="700">
+</div>
+<div class="title">Figure 2. Found car parks in Punggol</div>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Found 1 car park</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1 car park(s) found!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>find PP5</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly. <span class="underline"><a href="#find_number">Found car parks in Punggol</a></span> shows how it would look like, with the Google Maps zoomed in.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-cannot-find-car-park"><a class="link" href="#example-cannot-find-car-park">3.1.3. Example: Cannot find car park</a></h4>
+<div class="paragraph">
+<p>If <em>Car Park Finder</em> is unable to find your location or car park number, it will display nothing.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Found 0 car park</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0 car park(s) found!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The message above will ben shown, as well as an empty list in the <em>Display Panel</em> and no markers in the <em>Google Maps</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undoing-commands-code-undo-code"><a class="link" href="#undoing-commands-code-undo-code">3.2. Undoing commands: <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Restores the list of car parks to the state before the previous undoable command was executed.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">u / un / und</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only available for the following undoable commands:<br>
+<span class="underline"><a href="#Features-Query"><code>query</code></a></span> | <span class="underline"><a href="#Features-Find"><code>find</code></a></span> | <span class="underline"><a href="#Features-Filter"><code>filter</code></a></span> |
+<span class="underline"><a href="#Features-Notify"><code>notify</code></a></span> | <span class="underline"><a href="#Features-Clear"><code>clear</code></a></span></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This does not turn off notification as it only affects the list of car parks.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="example-successful-undo"><a class="link" href="#example-successful-undo">3.2.1. Example: Successful undo</a></h4>
+<div class="paragraph">
+<p>If you accidentally type an undoable command and wish to undo it, here is how.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in undoing</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Undo success!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>undo</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-cannot-undo"><a class="link" href="#example-cannot-undo">3.2.2. Example: Cannot undo</a></h4>
+<div class="paragraph">
+<p>Not all commands are undoable, or you reach the end of how far you can undo.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in undoing</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No more commands to undo!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If you see the message above in the <em>Command Box</em> it means there are no more undoable commands. You can also check
+the <span class="underline"><a href="#Features-History">history</a></span> to view what commands you have typed in so far.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redoing-commands-code-redo-code"><a class="link" href="#redoing-commands-code-redo-code">3.3. Redoing commands : <code>redo</code></a></h3>
+<div class="paragraph">
+<p>Reverse the most recent <span class="underline"><a href="#Features-Undo"><code>undo</code></a></span> command.</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 30%;">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Abbreviation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">redo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">r / re / red</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You can only <span class="underline"><a href="#Features-Redo"><code>redo</code></a></span> after an <span class="underline"><a href="#Features-Undo"><code>undo</code></a></span> command.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Like undo, this does not turn off notification as it only affects the list of car parks.</p>
+</li>
+<li>
+<p>Redoable commands are the same as undoable commands.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="example-successful-redo"><a class="link" href="#example-successful-redo">3.3.1. Example: Successful redo</a></h4>
+<div class="paragraph">
+<p>If you decided to <span class="underline"><a href="#Features-Redo"><code>redo</code></a></span> the <span class="underline"><a href="#Features-Undo"><code>undo</code></a></span> command, here is how.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in redoing</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Redo success!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Type <code>redo</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+typed in correctly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-cannot-redo"><a class="link" href="#example-cannot-redo">3.3.2. Example: Cannot redo</a></h4>
+<div class="paragraph">
+<p>You reach the end of how far you can redo. Take note that not all commands are <strong>undoable / redoable</strong>.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Message: Success in redoing</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No more commands to redo!</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If you see the message above in the <em>Command Box</em> it means there are no more redoable commands. You can also check
+the <span class="underline"><a href="#Features-History">history</a></span> to view what commands you have typed in so far.</p>
+</div>
+<hr>
+</div>
 </div>
 </div>
 </div>
@@ -396,7 +557,7 @@ Interested? Head towards our releases page to download and try it out! No instal
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/seqdiagram-find.png" alt="seqdiagram find" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/seqdiagram-find.png" alt="seqdiagram find" width="700">
 </div>
 <div class="title">Figure 3. How the find operation works</div>
 </div>
@@ -439,7 +600,7 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/actdiagram-find.png" alt="actdiagram find" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/actdiagram-find.png" alt="actdiagram find" width="700">
 </div>
 <div class="title">Figure 4. Flow chart of the find operation.</div>
 </div>
@@ -496,10 +657,11 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 <div class="sect2">
 <h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.2. Undo/Redo feature</a></h3>
 <div class="paragraph">
-<p>This section describes how the Undo/Redo feature is implemented for the car park finder.</p>
+<p>The <code>undo</code> command changes the car park finder state to before the previous undoable command was executed.
+On the other hand, the <code>Redo</code> command reverse the most recent <code>undo</code> changes.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">4.2.1. Current Implementation</a></h4>
+<h4 id="overview-3"><a class="link" href="#overview-3">4.2.1. Overview</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedCarparkFinder</code>.
 It extends <code>CarparkFinder</code> with an undo/redo history, stored internally as an <code>carparkFinderStateList</code> and <code>currentStatePointer</code>.
@@ -528,11 +690,11 @@ Additionally, it implements the following operations:</p>
 <p>Step 1. The user launches the application for the first time. The <code>VersionedCarparkFinder</code> will be initialized with the initial car park finder state, and the <code>currentStatePointer</code> pointing to that single car park finder state.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram showcases the state at the start of the program.</p>
+<p><span class="underline"><a href="#undoredoact">State and the start of the program</a></span> below showcases the state at the start of the program.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew1.png" alt="UndoRedoActivityDiagramNew1" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew1.png" alt="UndoRedoActivityDiagramNew1" width="700">
 </div>
 <div class="title">Figure 5. State and the start of the program</div>
 </div>
@@ -540,11 +702,11 @@ Additionally, it implements the following operations:</p>
 <p>Step 2. The user executes <code>find sengkang</code> command to find list of car park which contain sengkang from the car park finder. The <code>find</code> command calls <code>Model#updateFilteredCarparkList()</code>, causing the modified state of the car park finder after the <code>find sengkang</code> command executes to be saved in the <code>carparkFinderStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a new state is created after the command <code>find segkang</code> is ran.</p>
+<p><span class="underline"><a href="#undoredoact2">State after running find command</a></span> below shows a new state is created after the command <code>find segkang</code> is ran.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact2" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew2.png" alt="UndoRedoActivityDiagramNew2" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew2.png" alt="UndoRedoActivityDiagramNew2" width="700">
 </div>
 <div class="title">Figure 6. State after running find command</div>
 </div>
@@ -552,11 +714,11 @@ Additionally, it implements the following operations:</p>
 <p>Step 3. The user executes <code>clear</code> to clear all entries. The <code>clear</code> command also calls <code>Model#commitCarparkFinder()</code>, causing another modified car park finder state to be saved into the <code>carparkFinderStateList</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a new state is created after the command <code>clear</code> is ran.</p>
+<p><span class="underline"><a href="#undoredoact3">State after running find then clear command</a></span> below shows a new state is created after the command <code>clear</code> is ran.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact3" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew3.png" alt="UndoRedoActivityDiagramNew3" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew3.png" alt="UndoRedoActivityDiagramNew3" width="700">
 </div>
 <div class="title">Figure 7. State after running find then clear command</div>
 </div>
@@ -576,11 +738,11 @@ If a command fails its execution, it will not call <code>Model#commitCarparkFind
 <p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoCarparkFinder()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous car park finder state, and restores the car park finder to that state.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows a new state is created after the command <code>undo</code> is ran. The state pointer is moved.</p>
+<p><span class="underline"><a href="#undoredoact4">How the undo feature works in a diagram</a></span> below shows a new state is created after the command <code>undo</code> is ran. The state pointer is moved.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact4" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew4.png" alt="UndoRedoActivityDiagramNew4" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew4.png" alt="UndoRedoActivityDiagramNew4" width="700">
 </div>
 <div class="title">Figure 8. How the undo feature works in a diagram</div>
 </div>
@@ -597,13 +759,13 @@ If the <code>currentStatePointer</code> is at index 0, pointing to the initial c
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
+<p><span class="underline"><a href="#undoredo">Sequence diagram of <code>undo</code> command</a></span> below shows how the undo operation works.</p>
 </div>
-<div class="imageblock">
+<div id="undoredo" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/Sequence%20Diagram%20-%20Undo.png" alt="Sequence Diagram   Undo" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="700">
 </div>
-<div class="title">Figure 9. Sequence diagram of Undo/Redo feature</div>
+<div class="title">Figure 9. Sequence diagram of <code>undo</code> command</div>
 </div>
 <div class="paragraph">
 <p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCarparkFinder()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
@@ -624,34 +786,34 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the car park finder, such as <code>list</code>, will usually not call <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> or <code>Model#redoCarparkFinder()</code>. Thus, the <code>carparkFinderStateList</code> remains unchanged.</p>
 </div>
 <div class="paragraph">
-<p>The follow diagram showcases what happen when a command that does not modify the state is used.</p>
+<p><span class="underline"><a href="#undoredoact5">A new state is introduced</a></span> below showcases what happen when a command that does not modify the state is used.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact5" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew5.png" alt="UndoRedoActivityDiagramNew5" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew5.png" alt="UndoRedoActivityDiagramNew5" width="700">
 </div>
-<div class="title">Figure 10. As the command does nothing, the state is not changed, but a new state is introduced</div>
+<div class="title">Figure 10. A new state is introduced</div>
 </div>
 <div class="paragraph">
 <p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCarparkFinder()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>carparkFinderStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>find sengkang</code> command. This is the behavior that most modern desktop applications follow.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram showcases when a new command is used after an undo.</p>
+<p><span class="underline"><a href="#undoredoact6">Deleting a state after an undo</a></span> below showcases when a new command is used after an undo.</p>
 </div>
-<div class="imageblock">
+<div id="undoredoact6" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew6.png" alt="UndoRedoActivityDiagramNew6" width="800">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew6.png" alt="UndoRedoActivityDiagramNew6" width="700">
 </div>
-<div class="title">Figure 11. Deleting a state diagram after an undo</div>
+<div class="title">Figure 11. Deleting a state after an undo</div>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+<p><span class="underline"><a href="#undoredodiagram">Executing a new command</a></span> below summarizes what happens when a user executes a new command:</p>
 </div>
-<div class="imageblock">
+<div id="undoredodiagram" class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/General%20new%20command.png" alt="General new command" width="650">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
 </div>
-<div class="title">Figure 12. Activity diagram of a sample command</div>
+<div class="title">Figure 12. Executing a new command</div>
 </div>
 </div>
 <div class="sect3">
@@ -763,7 +925,7 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 and an example of how it works.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">4.3.1. Overview</a></h4>
+<h4 id="overview-4"><a class="link" href="#overview-4">4.3.1. Overview</a></h4>
 <div class="paragraph">
 <p>As we wanted to showcase real time updates when the user issues a command, we had to update the HTML accordingly.
 However, we did not want to just update it. We wanted to showcase the selected car park or the filtered list accordingly.</p>
@@ -863,7 +1025,7 @@ As the car park data from <code>data.gov.sg</code> does not have any postal code
 car park to a postal code whenever possible.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-4"><a class="link" href="#overview-4">4.4.1. Overview</a></h4>
+<h4 id="overview-5"><a class="link" href="#overview-5">4.4.1. Overview</a></h4>
 <div class="paragraph">
 <p>Currently, postal code data are stored in a separate file. This is due to it being too slow and unreliable to convert coordinate to postal code
 in real time. However, in order to generate the file, we first had to go through every carpark and find respective their postal code.</p>
@@ -952,7 +1114,7 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 <p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-5"><a class="link" href="#overview-5">4.5.1. Overview</a></h4>
+<h4 id="overview-6"><a class="link" href="#overview-6">4.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
 The key will stored in a secured location to prevent people from accessing it.</p>
@@ -979,4 +1141,4 @@ The key will stored in a secured location to prevent people from accessing it.</
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-09 03:46:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 04:14:19 UTC</div></div></div></body></html>
