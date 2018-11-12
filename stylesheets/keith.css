@@ -35,7 +35,7 @@ summary {
 	/* Blue */
 	--selectcolor: #6c71c4;
 	/* Violet */
-	--primarycolor: #dc322f;
+	--primarycolor: #5280B7;
 	/* Red */
 	--secondarycolor: #2c3e50;
 	--tertiarycolor: #2aa198;
@@ -571,10 +571,9 @@ video {
 
 .title {
 	color: var(--primarycolor) !important;
-	font-style: normal !important;
+	font-style: italic !important;
 	font-weight: normal !important;
 	margin-top: 5px;
-	margin-bottom: 20px;
 }
 
 .subheader,

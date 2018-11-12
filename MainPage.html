@@ -24,6 +24,7 @@
 <body>
 <div id="map"></div>
 <script>
+        // Pulls information from the website url params into the javascript
         function getJsonFromUrl() {
             var query = location.search.substr(1);
             var result = {};
@@ -33,10 +34,13 @@
             });
             return result;
         }
+
+        // Google map variables for displaying
         var map;
         var prev_infowindow = false;
         var markersArray = [];
 
+        // SVY21 Class, for coordinate conversion
         var SVY21 = (function() {
             // Ref: http://www.linz.govt.nz/geodetic/conversion-coordinates/projection-conversions/
             //transverse-mercator-preliminary-computations/index.aspx
@@ -1450,7 +1454,10 @@
             markersArray.length = 0;
         }
 
-        <!--google.maps.InfoWindow.prototype.isOpen = false;-->
+        // Initializes the map to show all car park by default.
+        // Sets the middle of the map to be the middle of Singapore.
+        // Computes the map, and populates individual markers to ensure no rendering issues on different devices.
+        // Note, this function also handles the info window, which is for displaying information.
         function initMap() {
             var theUrl = "https://data.gov.sg/api/action/datastore_search?resource_id=139a3035-e624-4f56-b63f-89ae28d4ae4c&limit=2000&offset=";
             var offset = 0;
@@ -1523,6 +1530,8 @@
             );
         }
 
+        // Selects an individual carpark, and parse the information as one big json string into the url params.
+        // Note, this fuction expects the string to be in terms of UTF8 encoding.
         function selectIndiv() {
             var msg = getJsonFromUrl().json;
             var jsonDecoded = unescape(msg);
@@ -1567,6 +1576,10 @@
             })(marker, content, infowindow));
         }
 
+        // Selects all car parks based on the car park numbers parsed into the url params.
+        // Note, this function then retrieves the data from the API, and filter it locally.
+        // It then populates the map accordingly after converting every coordinate into a google map coordinate.
+        // This function also auto zooms the map to fit all markers.
         function selectMulti(jsonArr) {
             var json = JSON.parse(jsonArr);
 
@@ -1667,6 +1680,7 @@
             }
         }
 
+        // Main function to handle maps
         function handleMaps() {
             var defaultFlag = getJsonFromUrl().isDefault;
             if (defaultFlag == 1) {

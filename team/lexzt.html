@@ -19,10 +19,9 @@
 <li><a href="#contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a>
 <ul class="sectlevel2">
 <li><a href="#find-feature">4.1. Find feature</a></li>
-<li><a href="#undo-redo-feature">4.2. Undo/Redo feature</a></li>
-<li><a href="#Implementation-UI">4.3. UI</a></li>
-<li><a href="#Implementation-PostalCode">4.4. Postal Code</a></li>
-<li><a href="#proposed-data-encryption">4.5. [Proposed] Data Encryption</a></li>
+<li><a href="#Implementation-UI">4.2. UI</a></li>
+<li><a href="#Implementation-PostalCode">4.3. Postal Code</a></li>
+<li><a href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></li>
 </ul>
 </li>
 </ul>
@@ -87,7 +86,7 @@ Interested? Head towards our releases page to download and try it out! No instal
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Modified the <strong>find feature to search for partial words</strong> and <strong>ignore certain words</strong>.</p>
+<p><strong>Major enhancement 1</strong>: Modified the <strong>find feature to search for partial words</strong> and <strong>ignore certain words</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -103,14 +102,27 @@ Interested? Head towards our releases page to download and try it out! No instal
 </div>
 </li>
 <li>
+<p><strong>Major enhancement 2</strong>: Integrated <strong>Google maps</strong> javascript api.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: Every time the user sends a command, the display will be updated accordingly. E.g. Selecting a car park shows that one and only carpark.</p>
+</li>
+<li>
+<p>Justification: This feature greatly improves the look and feel of the application. Plus it allows further more information to be displayed.</p>
+</li>
+<li>
+<p>Highlights:  This enhancement allows the user to see where the car park is in the entire map without needing to interact with the GUI itself.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p><strong>Minor enhancements</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
 <p>Pulled postal code information using coordinates data by querying an API to convert it to store in a file for quick loading.</p>
-</li>
-<li>
-<p>Updated HTML,CSS and Javascript for google maps display with real time updates from each individual commands.</p>
 </li>
 <li>
 <p>Credits: [<a href="https://github.com/cgcai/SVY21">SVY21 to WGS84</a>].</p>
@@ -120,6 +132,10 @@ Interested? Head towards our releases page to download and try it out! No instal
 </li>
 <li>
 <p><strong>Code contributed</strong>:
+<a href="https://nus-cs2103-ay1819s1.github.io/cs2103-dashboard/#=undefined&amp;search=lexzt&amp;sort=displayName&amp;since=2018-09-12&amp;until=2018-11-12&amp;timeframe=day&amp;reverse=false&amp;repoSort=true">Click here</a> to view my code on the CS2103T Project Code Dashboard.</p>
+</li>
+<li>
+<p><strong>Notable Contributions</strong>:
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/commons/util/StringUtil.java">String Util</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/logic/commands/FindCommand.java">Find Command</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/blob/master/src/main/java/seedu/parking/logic/parser/FindCommandParser.java">Find Command Parser</a>],
@@ -155,6 +171,9 @@ Interested? Head towards our releases page to download and try it out! No instal
 <p>Wrote additional test for existing features to increase coverage from 72% - 77%
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/83">#83</a>].</p>
 </li>
+<li>
+<p>Updated all test cases for existing features to increase coverage from 69% - 73% [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/129">#129</a>].</p>
+</li>
 </ul>
 </div>
 </li>
@@ -164,11 +183,17 @@ Interested? Head towards our releases page to download and try it out! No instal
 <ul>
 <li>
 <p>Did cosmetics tweaks to existing contents of the User Guide:
-[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/34">#34</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/36">#36</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/60">#60</a>],
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/76">#76</a>],
+<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/125">#125</a>].</p>
+</li>
+<li>
+<p>Updated contents of User Guide and Developer Guide:
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/34">#34</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/74">#74</a>],
-[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/76">#76</a>].</p>
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/83">#83</a>],
+[<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/120">#120</a>].</p>
 </li>
 </ul>
 </div>
@@ -181,6 +206,19 @@ Interested? Head towards our releases page to download and try it out! No instal
 <p>PRs reviewed (with non-trivial review comments):
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/28">#28</a>],
 [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/37">#37</a>].</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated Google Maps Javascript API [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/89">#89</a>].</p>
+</li>
+<li>
+<p>Integrated One Map API to convert coordinated to postal code [<a href="https://github.com/CS2103-AY1819S1-T09-4/main/pull/83">#83</a>].</p>
 </li>
 </ul>
 </div>
@@ -247,7 +285,7 @@ fin HG83</p></td>
 <p>Common words like <code>BLK</code> and <code>AVE</code> are ignored.</p>
 </li>
 <li>
-<p>It does not matter whether it is upper or lower case characters.</p>
+<p>It does not matter whether the keywords are upper or lower case characters.</p>
 </li>
 </ul>
 </div>
@@ -308,7 +346,7 @@ typed in correctly. <span class="underline"><a href="#find_number">Found car par
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-cannot-find-car-park"><a class="link" href="#example-cannot-find-car-park">3.1.3. Example: Cannot find car park</a></h4>
+<h4 id="example-unable-to-find-car-park"><a class="link" href="#example-unable-to-find-car-park">3.1.3. Example: Unable to find car park</a></h4>
 <div class="paragraph">
 <p>If <em>Car Park Finder</em> is unable to find your location or car park number, it will display nothing.</p>
 </div>
@@ -324,7 +362,7 @@ typed in correctly. <span class="underline"><a href="#find_number">Found car par
 </tbody>
 </table>
 <div class="paragraph">
-<p>The message above will ben shown, as well as an empty list in the <em>Display Panel</em> and no markers in the <em>Google Maps</em>.</p>
+<p>The message above will be shown, as well as an empty list in the <em>Display Panel</em> and no markers in the <em>Google Maps</em>.</p>
 </div>
 </div>
 </div>
@@ -392,14 +430,14 @@ typed in correctly. <span class="underline"><a href="#find_number">Found car par
 </tbody>
 </table>
 <div class="paragraph">
-<p>Type <code>undo</code> into the <em>Command Box</em>. The message above should appear in the Message Box as confirmation that you
+<p>Type <code>undo</code> into the <em>Command Box</em>. The message above should appear in the <code>Message Box</code> as confirmation that you
 typed in correctly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-cannot-undo"><a class="link" href="#example-cannot-undo">3.2.2. Example: Cannot undo</a></h4>
+<h4 id="example-unable-to-undo"><a class="link" href="#example-unable-to-undo">3.2.2. Example: Unable to undo</a></h4>
 <div class="paragraph">
-<p>Not all commands are undoable, or you reach the end of how far you can undo.</p>
+<p>Not all commands are undoable as there is a limit to the number of undo commands.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Message: Success in undoing</caption>
@@ -488,7 +526,7 @@ typed in correctly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-cannot-redo"><a class="link" href="#example-cannot-redo">3.3.2. Example: Cannot redo</a></h4>
+<h4 id="example-unable-to-redo"><a class="link" href="#example-unable-to-redo">3.3.2. Example: Unable to redo</a></h4>
 <div class="paragraph">
 <p>You reach the end of how far you can redo. Take note that not all commands are <strong>undoable / redoable</strong>.</p>
 </div>
@@ -568,7 +606,7 @@ the <span class="underline"><a href="#Features-History">history</a></span> to vi
 <div class="sect3">
 <h4 id="example"><a class="link" href="#example">4.1.2. Example</a></h4>
 <div class="paragraph">
-<p>Given below is an example usage scenario of how the Find mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario of how the <code>find</code> mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time.</p>
@@ -600,7 +638,7 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/actdiagram-find.png" alt="actdiagram find" width="880">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/actdiagram-findresize.png" alt="actdiagram findresize" width="880">
 </div>
 <div class="title">Figure 4. Flow chart of the find operation.</div>
 </div>
@@ -655,284 +693,21 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">4.2. Undo/Redo feature</a></h3>
+<h3 id="Implementation-UI"><a class="link" href="#Implementation-UI">4.2. UI</a></h3>
 <div class="paragraph">
-<p>The <code>undo</code> command changes the car park finder state to before the previous undoable command was executed.
-On the other hand, the <code>Redo</code> command reverse the most recent <code>undo</code> changes.</p>
+<p>It is a combination of JavaFX, HTML and CSS. This section describes the challenges faced, how it was overcome
+and an example of how it works.</p>
 </div>
 <div class="sect3">
 <h4 id="overview-3"><a class="link" href="#overview-3">4.2.1. Overview</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedCarparkFinder</code>.
-It extends <code>CarparkFinder</code> with an undo/redo history, stored internally as an <code>carparkFinderStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedCarparkFinder#commit()</code>&#8201;&#8212;&#8201;Saves the current car park finder state in its history.</p>
-</li>
-<li>
-<p><code>VersionedCarparkFinder#undo()</code>&#8201;&#8212;&#8201;Restores the previous car park finder state from its history.</p>
-</li>
-<li>
-<p><code>VersionedCarparkFinder#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone car park finder state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> and <code>Model#redoCarparkFinder()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedCarparkFinder</code> will be initialized with the initial car park finder state, and the <code>currentStatePointer</code> pointing to that single car park finder state.</p>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredoact">State and the start of the program</a></span> below showcases the state at the start of the program.</p>
-</div>
-<div id="undoredoact" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew1.png" alt="UndoRedoActivityDiagramNew1" width="800">
-</div>
-<div class="title">Figure 5. State and the start of the program</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>find sengkang</code> command to find list of car park which contain sengkang from the car park finder. The <code>find</code> command calls <code>Model#updateFilteredCarparkList()</code>, causing the modified state of the car park finder after the <code>find sengkang</code> command executes to be saved in the <code>carparkFinderStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted car park finder state.</p>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredoact2">State after running find command</a></span> below shows a new state is created after the command <code>find segkang</code> is ran.</p>
-</div>
-<div id="undoredoact2" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew2.png" alt="UndoRedoActivityDiagramNew2" width="800">
-</div>
-<div class="title">Figure 6. State after running find command</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>clear</code> to clear all entries. The <code>clear</code> command also calls <code>Model#commitCarparkFinder()</code>, causing another modified car park finder state to be saved into the <code>carparkFinderStateList</code>.</p>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredoact3">State after running find then clear command</a></span> below shows a new state is created after the command <code>clear</code> is ran.</p>
-</div>
-<div id="undoredoact3" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew3.png" alt="UndoRedoActivityDiagramNew3" width="800">
-</div>
-<div class="title">Figure 7. State after running find then clear command</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitCarparkFinder()</code>, so the car park finder state will not be saved into the <code>carparkFinderStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoCarparkFinder()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous car park finder state, and restores the car park finder to that state.</p>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredoact4">How the undo feature works in a diagram</a></span> below shows a new state is created after the command <code>undo</code> is ran. The state pointer is moved.</p>
-</div>
-<div id="undoredoact4" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew4.png" alt="UndoRedoActivityDiagramNew4" width="800">
-</div>
-<div class="title">Figure 8. How the undo feature works in a diagram</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial car park finder state, then there are no previous car park finder states to restore. The <code>undo</code> command uses <code>Model#canUndoCarparkFinder()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredo">Sequence diagram of <code>undo</code> command</a></span> below shows how the undo operation works.</p>
-</div>
-<div id="undoredo" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-<div class="title">Figure 9. Sequence diagram of <code>undo</code> command</div>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoCarparkFinder()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the car park finder to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList.size() - 1</code>, pointing to the latest car park finder state, then there are no undone car park finder states to restore. The <code>redo</code> command uses <code>Model#canRedoCarparkFinder()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the car park finder, such as <code>list</code>, will usually not call <code>Model#commitCarparkFinder()</code>, <code>Model#undoCarparkFinder()</code> or <code>Model#redoCarparkFinder()</code>. Thus, the <code>carparkFinderStateList</code> remains unchanged.</p>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredoact5">A new state is introduced</a></span> below showcases what happen when a command that does not modify the state is used.</p>
-</div>
-<div id="undoredoact5" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew5.png" alt="UndoRedoActivityDiagramNew5" width="800">
-</div>
-<div class="title">Figure 10. A new state is introduced</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitCarparkFinder()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>carparkFinderStateList</code>, all car park finder states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>find sengkang</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredoact6">Deleting a state after an undo</a></span> below showcases when a new command is used after an undo.</p>
-</div>
-<div id="undoredoact6" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagramNew6.png" alt="UndoRedoActivityDiagramNew6" width="800">
-</div>
-<div class="title">Figure 11. Deleting a state after an undo</div>
-</div>
-<div class="paragraph">
-<p><span class="underline"><a href="#undoredodiagram">Executing a new command</a></span> below summarises what happens when a user executes a new command:</p>
-</div>
-<div id="undoredodiagram" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
-</div>
-<div class="title">Figure 12. Executing a new command</div>
+<p>Initially, we wanted to showcase real time updates when the user issues a command.
+This would mean updating the HTML accordingly. However, we did not want to just update it,
+we wanted to showcase the selected car park or the filtered list accordingly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire car park finder.</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy to implement.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May have performance issues in terms of memory usage.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Will use less memory (e.g. for <code>select</code>, just save the car park being selected).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We must ensure that the implementation of each individual command are correct.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of car park finder states.</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedCarparkFinder</code>.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-</li>
-</ul>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We do not need to maintain a separate list, and just reuse what is already in the codebase.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-UI"><a class="link" href="#Implementation-UI">4.3. UI</a></h3>
-<div class="paragraph">
-<p>The UI was a combination of JavaFX, HTML and CSS. This section describes the challenges faced, how it was overcome
-and an example of how it works.</p>
-</div>
-<div class="sect3">
-<h4 id="overview-4"><a class="link" href="#overview-4">4.3.1. Overview</a></h4>
-<div class="paragraph">
-<p>As we wanted to showcase real time updates when the user issues a command, we had to update the HTML accordingly.
-However, we did not want to just update it. We wanted to showcase the selected car park or the filtered list accordingly.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">4.3.2. Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">4.2.2. Example</a></h4>
 <div class="paragraph">
 <p>Step 1. The user launches the application and is greeted by this UI.</p>
 </div>
@@ -940,7 +715,7 @@ However, we did not want to just update it. We wanted to showcase the selected c
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UiS1.png" alt="UiS1" width="800">
 </div>
-<div class="title">Figure 13. On start of the application</div>
+<div class="title">Figure 5. On start of the application</div>
 </div>
 <div class="paragraph">
 <p>Step 2. The user selects a car park with a <code>select</code> command. E.g. <code>select 10</code>.</p>
@@ -949,7 +724,7 @@ However, we did not want to just update it. We wanted to showcase the selected c
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UiS2.png" alt="UiS2" width="800">
 </div>
-<div class="title">Figure 14. An example outcome of the <code>select 10</code> command</div>
+<div class="title">Figure 6. An example outcome of the <code>select 10</code> command</div>
 </div>
 <div class="paragraph">
 <p><code>SelectCommand#Execute</code> is called. If the input is valid, it creates a <code>JumpToListRequestEvent</code> event for <code>BrowserPanel#handleCarparkPanelSelectionChangedEvent()</code> to catch.</p>
@@ -962,14 +737,14 @@ A <code>ListCarparkRequestEvent</code> is created and <code>BrowserPanel</code> 
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UiS3.png" alt="UiS3" width="800">
 </div>
-<div class="title">Figure 15. An example outcome of the <code>list</code> command</div>
+<div class="title">Figure 7. An example outcome of the <code>list</code> command</div>
 </div>
 <div class="paragraph">
 <p>The HTML is refreshed to show all car parks.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-html-css-js-design-choices"><a class="link" href="#aspect-html-css-js-design-choices">Aspect: HTML/CSS/JS design choices</a></h5>
 <div class="ulist">
@@ -1018,21 +793,21 @@ A <code>ListCarparkRequestEvent</code> is created and <code>BrowserPanel</code> 
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-PostalCode"><a class="link" href="#Implementation-PostalCode">4.4. Postal Code</a></h3>
+<h3 id="Implementation-PostalCode"><a class="link" href="#Implementation-PostalCode">4.3. Postal Code</a></h3>
 <div class="paragraph">
 <p>The postal code feature is built to allow easier finding of car park by knowing the postal code they are searching for.
 As the car park data from <code>data.gov.sg</code> does not have any postal code, we converted coordinates of each respective
 car park to a postal code whenever possible.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-5"><a class="link" href="#overview-5">4.4.1. Overview</a></h4>
+<h4 id="overview-4"><a class="link" href="#overview-4">4.3.1. Overview</a></h4>
 <div class="paragraph">
 <p>Currently, postal code data are stored in a separate file. This is due to it being too slow and unreliable to convert coordinate to postal code
-in real time. However, in order to generate the file, we first had to go through every carpark and find respective their postal code.</p>
+in real time. However, in order to generate the file, we went through every car park and found their respective postal code.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-3"><a class="link" href="#example-3">4.4.2. Example</a></h4>
+<h4 id="example-3"><a class="link" href="#example-3">4.3.2. Example</a></h4>
 <div class="paragraph">
 <p>Step 1. The user launches the application.</p>
 </div>
@@ -1040,7 +815,7 @@ in real time. However, in order to generate the file, we first had to go through
 <p>Step 2. The system loads the file, <code>postalcodeData.txt</code> into a <code>Hashmap&lt;Long,String&gt;</code> using the <code>GsonUtil#loadCarparkPostalCode()</code> where the key is a hash and the value is a postal code.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The system goes through every car park&#8217;s coordinates and hashes them together with <code>GsonUtil#fnvHash(x,y)</code> where x is the x coordinate of the carpark and y is the y coordinate of the carpark.</p>
+<p>Step 3. The system goes through every car park&#8217;s coordinates and hashes them together with <code>GsonUtil#fnvHash(x,y)</code> where <code>x</code> is the x-coordinate of the carpark and <code>y</code> is the y-coordinate of the carpark.</p>
 </div>
 <div class="paragraph">
 <p>Step 4. If the key is found, it will return the value which is the postal code of the car park. If not, it will return the
@@ -1060,7 +835,7 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.3. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-source-of-postal-code-information"><a class="link" href="#aspect-source-of-postal-code-information">Aspect: Source of postal code information</a></h5>
 <div class="ulist">
@@ -1079,7 +854,7 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to update for new car parks. Require you to download the .jar file again.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to update for new car parks. Requires user to download updated jar file.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1109,12 +884,12 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.5. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>The car park data and user data will be encrypted to prevent users from editing and manipulating them.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-6"><a class="link" href="#overview-6">4.5.1. Overview</a></h4>
+<h4 id="overview-5"><a class="link" href="#overview-5">4.4.1. Overview</a></h4>
 <div class="paragraph">
 <p>The data encryption mechanism works by encrypting the information by a unique key generated by every users individual system.
 The key will stored in a secured location to prevent people from accessing it.</p>
@@ -1134,11 +909,11 @@ The key will stored in a secured location to prevent people from accessing it.</
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-4"><a class="link" href="#example-4">4.5.2. Example</a></h4>
+<h4 id="example-4"><a class="link" href="#example-4">4.4.2. Example</a></h4>
 <div class="paragraph">
 <p><em>This feature is coming in v2.0.</em></p>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:43:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:55:18 UTC</div></div></div></body></html>

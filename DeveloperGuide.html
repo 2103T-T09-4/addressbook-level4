@@ -84,8 +84,9 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-car-park">F.2. Deleting a car park</a></li>
+<li><a href="#car-park-features">F.2. Car park features</a></li>
 <li><a href="#saving-data">F.3. Saving data</a></li>
+<li><a href="#general-features">F.4. General features</a></li>
 </ul>
 </li>
 </ul>
@@ -994,7 +995,7 @@ of car parks might be different every time.</p></td>
 <div class="sect3">
 <h4 id="example-2"><a class="link" href="#example-2">4.2.2. Example</a></h4>
 <div class="paragraph">
-<p>Given below is an example usage scenario of how the Find mechanism behaves at each step.</p>
+<p>Given below is an example usage scenario of how the <code>find</code> mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time.</p>
@@ -1026,7 +1027,7 @@ If a command execution fails, it will not call <code>FindCommand#execute()</code
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="images/actdiagram-find.png" alt="actdiagram find" width="880">
+<img src="images/actdiagram-findresize.png" alt="actdiagram findresize" width="880">
 </div>
 <div class="title">Figure 13. Flow chart of the find operation.</div>
 </div>
@@ -1863,7 +1864,7 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire car park finder.</p>
+<p><strong>Alternative 1 (current choice):</strong> Save the entire car park finder.</p>
 </li>
 </ul>
 </div>
@@ -1898,11 +1899,11 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Will use less memory (e.g. for <code>select</code>, just save the car park being selected).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Less memory usage (e.g. for <code>select</code>, just save the car park being selected).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We must ensure that the implementation of each individual command are correct.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Need to ensure that the implementation of each individual command are correct.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1947,7 +1948,7 @@ If the <code>currentStatePointer</code> is at index <code>carparkFinderStateList
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">We do not need to maintain a separate list, and just reuse what is already in the codebase.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Need not to maintain a separate list and just reuse what is already in the codebase.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
@@ -2231,7 +2232,7 @@ car park to a postal code whenever possible.</p>
 <h4 id="overview-9"><a class="link" href="#overview-9">4.11.1. Overview</a></h4>
 <div class="paragraph">
 <p>Currently, postal code data are stored in a separate file. This is due to it being too slow and unreliable to convert coordinate to postal code
-in real time. However, in order to generate the file, we first had to go through every carpark and find respective their postal code.</p>
+in real time. However, in order to generate the file, we went through every car park and found their respective postal code.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2243,7 +2244,7 @@ in real time. However, in order to generate the file, we first had to go through
 <p>Step 2. The system loads the file, <code>postalcodeData.txt</code> into a <code>Hashmap&lt;Long,String&gt;</code> using the <code>GsonUtil#loadCarparkPostalCode()</code> where the key is a hash and the value is a postal code.</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The system goes through every car park&#8217;s coordinates and hashes them together with <code>GsonUtil#fnvHash(x,y)</code> where x is the x coordinate of the carpark and y is the y coordinate of the carpark.</p>
+<p>Step 3. The system goes through every car park&#8217;s coordinates and hashes them together with <code>GsonUtil#fnvHash(x,y)</code> where <code>x</code> is the x-coordinate of the carpark and <code>y</code> is the y-coordinate of the carpark.</p>
 </div>
 <div class="paragraph">
 <p>Step 4. If the key is found, it will return the value which is the postal code of the car park. If not, it will return the
@@ -2282,7 +2283,7 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to update for new car parks. Require you to download the .jar file again.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Unable to update for new car parks. Requires user to download updated jar file.</p></td>
 </tr>
 </tbody>
 </table>
@@ -2314,14 +2315,15 @@ As certain car park do not have postal code, <code>000000</code> is the default 
 <div class="sect2">
 <h3 id="Implementation-UI"><a class="link" href="#Implementation-UI">4.12. UI</a></h3>
 <div class="paragraph">
-<p>The UI was a combination of JavaFX, HTML and CSS. This section describes the challenges faced, how it was overcome
+<p>It is a combination of JavaFX, HTML and CSS. This section describes the challenges faced, how it was overcome
 and an example of how it works.</p>
 </div>
 <div class="sect3">
 <h4 id="overview-10"><a class="link" href="#overview-10">4.12.1. Overview</a></h4>
 <div class="paragraph">
-<p>As we wanted to showcase real time updates when the user issues a command, we had to update the HTML accordingly.
-However, we did not want to just update it. We wanted to showcase the selected car park or the filtered list accordingly.</p>
+<p>Initially, we wanted to showcase real time updates when the user issues a command.
+This would mean updating the HTML accordingly. However, we did not want to just update it,
+we wanted to showcase the selected car park or the filtered list accordingly.</p>
 </div>
 </div>
 <div class="sect3">
@@ -4350,40 +4352,140 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-car-park"><a class="link" href="#deleting-a-car-park">F.2. Deleting a car park</a></h3>
+<h3 id="car-park-features"><a class="link" href="#car-park-features">F.2. Car park features</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a car park while all carparks are listed</p>
+<p>Finding car park</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all car parks using the <code>list</code> command. Multiple car parks in the list.</p>
+<p>Type into the command box a <code>find</code> command<br>
+Expected: A list of car parks to be updated, GUI to scale accordingly to number of car parks.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Selecting car park</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>select</code> command<br>
+Expected: One car park to be selected on the left side, GUI to only show the one car park.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No car park is deleted. Error details shown in the status message. Status bar remains the same.</p>
+<p>Listing all car parks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>list</code> command<br>
+Expected: All car parks are shown on the left hand menu, GUI to show overview of singapore</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
+<p>Clearing all car parks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>clear</code> command<br>
+Expected: All car parks on the left hand menu is now deleted. GUI to show nothing. No data to saved when re launched.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Undoing a command</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>find</code> command</p>
+</li>
+<li>
+<p>Type into the command box a <code>undo</code> command<br>
+Expected: The <code>find</code> command is now deleted. You should see what you previously saw before the <code>find</code> command.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Redoing a command</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>find</code> command</p>
+</li>
+<li>
+<p>Type into the command box a <code>undo</code> command</p>
+</li>
+<li>
+<p>Type into the command box a <code>redo</code> command<br>
+Expected: The <code>find</code> command is now shown, as the <code>undo</code> has been reversed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Filter car parks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>find</code> command</p>
+</li>
+<li>
+<p>Type into the command box a <code>filter</code> command<br>
+Expected: The <code>filter</code> command reduces the number of car parks down even further.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Calculating the cost of a car park</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>select</code> command</p>
+</li>
+<li>
+<p>Type into the command box a <code>calculate</code> command<br>
+Expected: The <code>calculate</code> command returns you a number which is the cost of the parking time at the car park</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Notifying you on updates of a car park</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>select</code> command</p>
+</li>
+<li>
+<p>Type into the command box a <code>notify</code> command<br>
+Expected: The `notify ` command will flash to show that it is updating</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Querying for all the car parks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>query</code> command<br>
+Expected: All the car parks on the left hand side has been updated. The GUI is also refreshed to show all car parks.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
 <div class="sect2">
@@ -4395,16 +4497,69 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Delete all the files expect the jar file</p>
+</li>
+<li>
+<p>Re launch the app
+Expected: No data will be shown, have to run <code>query</code> again.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Auto saving</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Run the application</p>
+</li>
+<li>
+<p>Type into the command box a <code>query</code> command<br></p>
+</li>
+<li>
+<p>Close the application</p>
+</li>
+<li>
+<p>Re launch the application<br>
+Expected: All the data have been saved locally and you do not need to run the <code>query</code> command again.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+<div class="sect2">
+<h3 id="general-features"><a class="link" href="#general-features">F.4. General features</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Looking for instructions</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type into the command box a <code>help</code> command<br>
+Expected: You are greeted by a page which showcase our user guide</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Looking for history</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Type several commands into the command box</p>
+</li>
+<li>
+<p>Type into the command box a <code>history</code> command<br>
+Expected: The command box now shows a list of the past commands that you previously entered.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:43:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:55:18 UTC</div></div></div></body></html>
