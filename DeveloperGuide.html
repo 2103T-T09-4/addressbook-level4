@@ -1982,15 +1982,17 @@ each step.</p>
 is initialized with an <code>CarparkFinderParser</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>f</code> command instead of <code>find</code>. The <code>Matcher</code> object in
+<p>Step 2. The user executes <code>c</code> command instead of <code>calculate</code>. The <code>Matcher</code> object in
 <code>CarparkFinderParser</code> splits the command text into <em>command word</em> and
-<em>arguments</em>, in which the <em>command word</em> is parsed using a <em>switch</em>
-statement.</p>
+<em>arguments</em>, in which the <em>command word</em> is checked. Because it is an ambiguous abbrevation
+(we do not know if it stands for <code>clear</code> or <code>calculate</code>), it is rejected by throwing a <code>ParseException</code></p>
 </div>
 <div class="paragraph">
-<p>Step 3. This <em>command word</em> will be matched to a <code>COMMAND_ABBREVIATION</code> from
-<code>ListCommand</code>, which holds the value of 'f'. As the program finds a match, it
-proceeds as if a <code>find</code> command is given.</p>
+<p>Step 2. The user now tries <code>s</code> command instead of <code>select</code>. The <code>Matcher</code> object in
+<code>CarparkFinderParser</code> again splits the command text into <em>command word</em> and
+<em>arguments</em>, in which the <em>command word</em> is checked. This time, it is checked that the input string
+is contained in one of the command words that is <code>calculate</code>. Therefore, it proceeds as if a
+<code>select</code> command is given.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
@@ -2010,7 +2012,28 @@ command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> declare <code>COMMAND_ABBREVIATION</code> with a string value
+<p><strong>Alternative 1 (current choice):</strong> use input string to check if it is contained in any
+command word string</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extra logic needed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Very short command words that contains ambiguous abbreviation is marginalised in this case.
+For example, the shortest form of <code>find</code> is <code>fin</code>, which makes not much of a difference.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> (previous choice):* declare <code>COMMAND_ABBREVIATION</code> with a string value
 in each Command file.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2025,27 +2048,7 @@ in each Command file.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have to decide on each abbreviation subjectively which brings down performance
-       if there are a lot of commands</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> declare <code>COMMAND_ABBREVIATION</code> using the first two characters of <code>COMMAND_WORD</code>
-in each Command file.</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Better performance as abbreviations will be assigned systematically.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When there are 2 command words starting with same two characters e.g. <code>find</code> &amp; <code>filter</code>, this does not work.</p></td>
+if there are a lot of commands</p></td>
 </tr>
 </tbody>
 </table>
@@ -2080,15 +2083,18 @@ each step.</p>
 <div class="paragraph">
 <p>Step 2. The user enters <code>fi</code> in command box and then presses <kbd>Tab</kbd> . <code>autoComplete()</code>
 compares <code>input</code> through the list of applicable command words and abbreviations, and
-proceeds to <code>displayFormat()</code> because <code>fi</code> is an applicable <code>COMMAND_ABBREVIATION</code>. It
-moves on to highlight its first placeholder, <code>DAY</code>, in the command line. As seen
+proceeds to <code>displayFormat()</code> because <code>fi</code> is an ambiguous COMMAND, it fails with an exception.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. User tries with <code>fil</code> again. It passes as part of the autocomplete command <code>filter</code>
+thus moves on to highlight its first placeholder, <code>DAY</code>, in the command line. As seen
 from the following diagrams.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
 <img src="images/screenshot-fi.png" alt="screenshot fi" width="800">
 </div>
-<div class="title">Figure 26. After <code>fi</code> is entered.</div>
+<div class="title">Figure 26. After <code>fil</code> is entered.</div>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
@@ -2151,7 +2157,7 @@ External library enables bindAutocompletion for TextField (the drop down list of
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Create additional TextField as user request for additional fields</p>
+<p><strong>Alternative 2:</strong> Create additional TextField as user request on additional fields</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -4562,4 +4568,4 @@ Expected: The command box now shows a list of the past commands that you previou
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:49:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-14 08:52:58 UTC</div></div></div></body></html>

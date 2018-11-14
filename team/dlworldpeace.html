@@ -10,27 +10,24 @@
 <li><a href="#summary-of-contributions">3. Summary of contributions</a></li>
 <li><a href="#contributions-to-the-user-guide">4. Contributions to the User Guide</a>
 <ul class="sectlevel2">
-<li><a href="#quick-start">4.1. Quick Start</a></li>
-<li><a href="#auto-complete-the-command-line">4.2. Auto complete the command line</a></li>
-<li><a href="#command-summary">4.3. Command Summary</a></li>
+<li><a href="#abbreviation-abbrev">4.1. Abbreviation: abbrev.</a></li>
+<li><a href="#autocomplete-tab">4.2. Autocomplete: Tab</a></li>
 </ul>
 </li>
+<li><a href="#command-summary">Appendix A: Command Summary</a></li>
 <li><a href="#contributions-to-the-developer-guide">5. Contributions to the Developer Guide</a>
 <ul class="sectlevel2">
 <li><a href="#architecture-overview">5.1. Architecture overview</a></li>
 <li><a href="#Architecture-Components">5.2. Architecture components</a></li>
-<li><a href="#Architecture-design">5.3. Events-driven nature of the design</a></li>
-<li><a href="#Design-Main">5.4. Main component</a></li>
-<li><a href="#Design-Commons">5.5. Commons component</a></li>
-<li><a href="#Design-Ui">5.6. User interface component</a></li>
-<li><a href="#Design-Logic">5.7. Logic component</a></li>
-<li><a href="#Design-Model">5.8. Model component</a></li>
-<li><a href="#Design-Storage">5.9. Storage component</a></li>
-<li><a href="#abbreviation-feature">5.10. Abbreviation Feature</a></li>
-<li><a href="#auto-complete-feature">5.11. Auto-complete Feature</a></li>
+<li><a href="#Design-Main">5.3. Main component</a></li>
+<li><a href="#Design-Commons">5.4. Commons component</a></li>
+<li><a href="#Design-Ui">5.5. User interface component</a></li>
+<li><a href="#Design-Model">5.6. Model component</a></li>
+<li><a href="#Design-Storage">5.7. Storage component</a></li>
+<li><a href="#abbreviation">5.8. Abbreviation</a></li>
+<li><a href="#autocomplete">5.9. Autocomplete</a></li>
 </ul>
 </li>
-<li><a href="#project-powerpointlabs">6. PROJECT: PowerPointLabs</a></li>
 </ul>
 </div>
 <hr>
@@ -72,7 +69,7 @@ If you <strong>use the computer frequently</strong> and <strong>commute by drivi
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/findbefore.png" alt="findbefore" width="880">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/find_location.png" alt="find location" width="700">
 </div>
 <div class="title">Figure 1. Sample display of the application</div>
 </div>
@@ -185,144 +182,154 @@ to write documentation for end-users to understand easily. We are targeting car
 owners, e.g. taxi drivers.</p>
 </div>
 <div class="sect2">
-<h3 id="quick-start"><a class="link" href="#quick-start">4.1. Quick Start</a></h3>
+<h3 id="abbreviation-abbrev"><a class="link" href="#abbreviation-abbrev">4.1. Abbreviation: abbrev.</a></h3>
 <div class="paragraph">
-<p>Here are several quick tips to get the application running.</p>
+<p>If you find the command words too long to type. Guess what? We have executable short form
+for each command in our command list.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Check that you have <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java version 9</a> or later installed in your Computer.</p>
-</li>
-<li>
-<p>Download the latest <code>carparkfinder.jar</code> <a href="https://github.com/CS2103-AY1819S1-T09-4/main/releases">here</a>.</p>
-</li>
-<li>
-<p>Copy the file to the folder you want to use as the home folder for Car Park Finder.</p>
-</li>
-<li>
-<p>Double-click the file to start the application. The <strong>Graphical User Interface (GUI)</strong> should appear in a few seconds.</p>
 <div class="paragraph">
-<div class="title">Home page of GUI</div>
-<p><span class="image"><img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/quickstart-GUI.png" alt="quickstart GUI" width="880"></span>
-The figure above is a sample display of the application&#8217;s GUI, which consists of
-5 regions.</p>
+<p>You can find abbreviations of each command in the table that we provide to each section from 3.1 to 3.19.</p>
 </div>
-</li>
-<li>
-<p>Type a command in the Command Box and then press <kbd>Enter</kbd> to execute it.
-A message will appear in the Message Box.</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock tip">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Some example commands you can try:<br>
-<a href="#Features-List"><strong><code>list</code></strong></a>: bring up a list of all the car parks<br>
-<a href="#Features-Help"><strong><code>help</code></strong></a>: show the list of available commands and how to use them<br>
-<a href="#Features-Exit"><strong><code>exit</code></strong></a>: exit the program
+However, there are ambiguous abbreviations that are not distinguishable between multiple commands.
+Thus, you <strong>CANNOT</strong> use them: <code>c</code>, <code>f</code>, <code>fi</code>, <code>h</code>.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Congratulations, You have successfully executed your first command!</p>
+<p>To see how useful it can be, please take a look at the examples below.</p>
+</div>
+<div class="sect3">
+<h4 id="example-calculate-command"><a class="link" href="#example-calculate-command">4.1.1. Example: Calculate Command</a></h4>
+<div class="paragraph">
+<p>Step 1. Instead of entering <code>calculate</code> into the <em>Command Box</em>, you can enter <code>ca</code> instead.</p>
 </div>
 <div class="paragraph">
-<p>Refer to <a href="#Features">[Features]</a> for more commands.</p>
+<p>Step 2. complete the rest of the fields with <code>TJ39 SUN 7.00AM 9.00PM</code>, followed by pressing Enter to execute.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-the-command-line"><a class="link" href="#auto-complete-the-command-line">4.2. Auto complete the command line</a></h3>
+<h3 id="autocomplete-tab"><a class="link" href="#autocomplete-tab">4.2. Autocomplete: Tab</a></h3>
 <div class="paragraph">
-<p>Display the full format of an executable command line.<br>
-Format: <code>COMMAND_WORD</code> followed by 'Tab' key.
-Function: press 'Tab' key again to move to the next parameter.</p>
+<p>If you forgotten how to type a command, do not worry! By typing in the first letter of the command in the
+<em>Command Box</em> and pressing the Tab key, it will display the full format of the command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Only available for the following commands:<br>
+<span class="underline"><a href="#Features-Select"><code>select</code></a></span> | <span class="underline"><a href="#Features-Find"><code>find</code></a></span> | <span class="underline"><a href="#Features-Filter"><code>filter</code></a></span> |
+<span class="underline"><a href="#Features-Notify"><code>notify</code></a></span> | <span class="underline"><a href="#Features-Calculate"><code>calculate</code></a></span></p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Example(s)</p>
+<p>To see how useful it can be, please take a look at the examples below.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>key in <code>fi</code> in command box and then press 'Tab' key.</p>
-</li>
-</ul>
+<div class="sect3">
+<h4 id="example-select-command"><a class="link" href="#example-select-command">4.2.1. Example: Select Command</a></h4>
+<div class="paragraph">
+<p>Step 1. Enter <code>s</code> into the <em>Command Box</em>, followed by pressing Tab.
+Your <code>select</code> command will be completed.</p>
 </div>
 <div class="paragraph">
-<p>Only available in the following commands:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#Features-Find"><strong><code>find</code></strong></a></p>
-</li>
-<li>
-<p><a href="#Features-Select"><strong><code>select</code></strong></a></p>
-</li>
-<li>
-<p><a href="#Features-Filter"><strong><code>filter</code></strong></a></p>
-</li>
-<li>
-<p><a href="#Features-Sort"><strong><code>sort</code></strong></a></p>
-</li>
-</ul>
+<p>Step 2. Substitute the selected field <code>INDEX</code> with <code>1</code>, followed by pressing Enter to execute.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="command-summary"><a class="link" href="#command-summary">4.3. Command Summary</a></h3>
+<div class="sect3">
+<h4 id="example-filter-command"><a class="link" href="#example-filter-command">4.2.2. Example: Filter Command</a></h4>
 <div class="paragraph">
-<p>Here are the summarize list of commands available to the user.</p>
+<p>Step 1. Enter <code>fil</code> into the <em>Command Box</em>, followed by pressing Tab.
+Your <code>filter</code> command will be completed.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
+<div class="paragraph">
+<p>Step 2. Substitute the selected field <code>DAY</code> with <code>SUN</code>, followed by pressing Tab to move to the next field.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. Repeat step 2 until you substitute all the fields with actual value. (You can remove those fields you
+choose not to use). Then press Enter to execute.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Appendix A: Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is the last section of the User Guide, but the most useful if you just want a list of commands to try.
+Refer to <span class="underline"><a href="#generaltable">General Commands</a></span> for general commands and <span class="underline"><a href="#managetable">Car Park Management</a></span> for car park management.
+For more details on what each command does, please refer to <span class="underline"><a href="#Features">[Features]</a></span>.</p>
+</div>
+<table id="generaltable" class="tableblock frame-all grid-all" style="width: 50%;">
 <caption class="title">Table 1. General Commands</caption>
 <colgroup>
-<col style="width: 14.2857%;">
-<col style="width: 57.1428%;">
-<col style="width: 28.5715%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-center valign-middle">Command</th>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Help</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>help</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>h</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Help</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">help</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">he</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Clear</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>List</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">list</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">l</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>History</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>history</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>hi</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Undo</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">undo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">u</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>query</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>q</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Redo</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">redo</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">r</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Exit</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>exit</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Clear</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">clear</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">cl</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>History</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">history</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">hi</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Exit</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">exit</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">e</p></td>
 </tr>
 </tbody>
 </table>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. Carpark Management</caption>
+<table id="managetable" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Car Park Management</caption>
 <colgroup>
 <col style="width: 14.2857%;">
 <col style="width: 57.1428%;">
@@ -330,45 +337,44 @@ Function: press 'Tab' key again to move to the next parameter.</p>
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Command</th>
-<th class="tableblock halign-left valign-top">Format</th>
-<th class="tableblock halign-left valign-top">Example</th>
+<th class="tableblock halign-center valign-middle">Command</th>
+<th class="tableblock halign-center valign-middle">Format</th>
+<th class="tableblock halign-center valign-middle">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>List</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">query</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">q</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Select</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>select INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s 2</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Select</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">select INDEX</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">s 2</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Find</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find KEYWORD [MORE_KEYWORDS]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>f punggol</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Find</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">find KEYWORD [MORE_KEYWORDS]</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">fin punggol</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Filter</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>filter [f/FREE_PARKING] [n/NIGHT_PARKING] [ct/CARPARK_TYPE]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fi f/true n/false ct/multi</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Filter</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">filter FLAG/ PARAMETER [MORE_FLAG/ PARAMETER]</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">fil f/ SUN 7.30AM 5.30PM ct/ SURFACE</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Sort</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort FILTER_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>so DISTANCE</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Calculate</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">calculate DAY START_TIME END_TIME</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">cal SUN 3.30PM 6.30PM</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notify</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>notify</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n 60</code></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Notify</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">notify TIME_SECONDS</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">n 60</p></td>
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -491,58 +497,7 @@ Each of the User Interface, Logic, Model, Storage Components also:
 </div>
 </div>
 <div class="sect2">
-<h3 id="Architecture-design"><a class="link" href="#Architecture-design">5.3. Events-driven nature of the design</a></h3>
-<div class="paragraph">
-<p>This section explains the main nature of design adopted by the system.</p>
-</div>
-<div class="paragraph">
-<p>The <strong><em>sequence diagram</em></strong> below shows how the components interact when the user issues the command <code>find sengkang</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/Sequence%20diagram%20-%20Find%20Carpark.png" alt="Sequence diagram   Find Carpark" width="800">
-</div>
-<div class="title">Figure 4. Component interactions for <code>find sengkang</code> command (part 1)</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Note how the <code>Model</code> simply raises a <code>CarparkFinderChangedEvent</code> when the Car Park Finder data are changed, instead of asking the <code>Storage</code> to save the updates to the hard disk.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <strong><em>sequence diagram</em></strong> below shows how the <code>EventsCenter</code> reacts to that event, which eventually results in the updates being saved to the hard disk and the status bar of the UI being updated to reflect the 'Last Updated' time.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/Sequence%20diagram%20-%20Find%20Carpark%20Event%20Handling.png" alt="Sequence diagram   Find Carpark Event Handling" width="800">
-</div>
-<div class="title">Figure 5. Component interactions for <code>find sengkang</code> command (part 2)</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Note how the event is propagated through the <code>EventsCenter</code> to the <code>Storage</code> and <code>UI</code> without <code>Model</code> having to be coupled to either of them. This is an example of how the Event Driven approach helps us reduce direct coupling between components.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The sections below give more details of each component.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Design-Main"><a class="link" href="#Design-Main">5.4. Main component</a></h3>
+<h3 id="Design-Main"><a class="link" href="#Design-Main">5.3. Main component</a></h3>
 <div class="paragraph">
 <p>The <code>Main</code> component consists of only one class, <a href="{repoURL}/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
 </div>
@@ -558,7 +513,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">5.5. Commons component</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">5.4. Commons component</a></h3>
 <div class="paragraph">
 <p>The <code>Commons</code> component consists of classes used by multiple other components. Two of these classes play important roles at the architectural level.</p>
 </div>
@@ -586,7 +541,7 @@ Classes used by multiple components are put in the seedu.carparkfinder.commons p
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">5.6. User interface component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">5.5. User interface component</a></h3>
 <div class="paragraph">
 <p>The <code>User Interface</code> (<code>UI</code>) component consists of a <code>MainWindow</code> that is made up of different parts.
 The base class
@@ -599,7 +554,7 @@ The base class
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
 </div>
-<div class="title">Figure 6. Structure of the User Interface component</div>
+<div class="title">Figure 4. Structure of the User Interface component</div>
 </div>
 <div class="paragraph">
 <p>In general, this is the workflow of the <code>UI</code> component:</p>
@@ -627,52 +582,7 @@ is specified in <a href="{repoURL}/src/main/resources/view/MainWindow.fxml"><cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">5.7. Logic component</a></h3>
-<div class="paragraph">
-<p>The <code>Logic</code> component consist of a <code>LogicManager</code> that takes care of the parse and exexcution of commands.
-It inherits the base class <a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a>.</p>
-</div>
-<div class="paragraph">
-<p>Please refer to the <strong><em>class diagram</em></strong> below for more details on how they are connected.</p>
-</div>
-<div id="fig-LogicClassDiagram" class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/LogicClassDiagram.png" alt="LogicClassDiagram" width="800">
-</div>
-<div class="title">Figure 7. Structure of the Logic Component</div>
-</div>
-<div class="paragraph">
-<p>In general, this is the workflow of the <code>Logic</code> component:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Get the <code>CarparkFinderParser</code> class to parse the user command.</p>
-</li>
-<li>
-<p>Create a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
-</li>
-<li>
-<p>Pass the result of the command execution over to <code>Model</code>, which can affect it (e.g. adding a person) and/or raise events.</p>
-</li>
-<li>
-<p>Return the command execution by encapsulating the command as a <code>CommandResult</code> object which then is passed back to the <code>UI</code>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The <strong><em>sequence diagram</em></strong> below shows the interactions within the <code>Logic</code> component
-when <code>execute("delete 1")</code> is called.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/DeletePersonSdForLogic.png" alt="DeletePersonSdForLogic" width="800">
-</div>
-<div class="title">Figure 8. Sequence Diagram of of `execute("delete 1")</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">5.8. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">5.6. Model component</a></h3>
 <div class="paragraph">
 <p>The <code>Model</code> component is managed by the <code>ModelManager</code> that stores the data of Car Park Finder.
 It does not depend on any of the three other components.
@@ -685,7 +595,7 @@ It does not depend on any of the three other components.
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ModelClassDiagram.png" alt="ModelClassDiagram" width="800">
 </div>
-<div class="title">Figure 9. Structure of the Model Component</div>
+<div class="title">Figure 5. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p>In general, this is the structure of the <code>Model</code> Component:</p>
@@ -736,11 +646,11 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ModelClassBetterOopDiagram.png" alt="ModelClassBetterOopDiagram" width="800">
 </div>
-<div class="title">Figure 10. Use of Tag object</div>
+<div class="title">Figure 6. Use of Tag object</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">5.9. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">5.7. Storage component</a></h3>
 <div class="paragraph">
 <p>The <code>Storage</code> component, managed by the <code>StorageManager</code>, serves as a backend storage for data of Car Park Finder.
 <a href="{repoURL}/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a> is the base class.</p>
@@ -752,7 +662,7 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 <div class="content">
 <img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/StorageClassDiagram.png" alt="StorageClassDiagram" width="800">
 </div>
-<div class="title">Figure 11. Structure of the Storage Component</div>
+<div class="title">Figure 7. Structure of the Storage Component</div>
 </div>
 <div id="localcopy" class="paragraph">
 <p>The <code>Storage</code> component can perform the following functions:</p>
@@ -769,19 +679,19 @@ each <code>Carpark</code> needing their own <code>Tag</code> object. An example 
 </div>
 </div>
 <div class="sect2">
-<h3 id="abbreviation-feature"><a class="link" href="#abbreviation-feature">5.10. Abbreviation Feature</a></h3>
+<h3 id="abbreviation"><a class="link" href="#abbreviation">5.8. Abbreviation</a></h3>
 <div class="paragraph">
 <p>The abbreviation feature reduces the amount of characters needed to type.</p>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">5.10.1. Overview</a></h4>
+<h4 id="overview"><a class="link" href="#overview">5.8.1. Overview</a></h4>
 <div class="paragraph">
 <p>The abbreviation mechanism is facilitated by <code>CarparkFinderParser</code>. It extends the cases
 to allow command abbreviations to be parsed through <code>parseCommand</code> as well.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example"><a class="link" href="#example">5.10.2. Example</a></h4>
+<h4 id="example"><a class="link" href="#example">5.8.2. Example</a></h4>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the abbreviation mechanism behaves at
 each step.</p>
@@ -791,21 +701,23 @@ each step.</p>
 is initialized with an <code>CarparkFinderParser</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>f</code> command instead of <code>find</code>. The <code>Matcher</code> object in
+<p>Step 2. The user executes <code>c</code> command instead of <code>calculate</code>. The <code>Matcher</code> object in
 <code>CarparkFinderParser</code> splits the command text into <em>command word</em> and
-<em>arguments</em>, in which the <em>command word</em> is parsed using a <em>switch</em>
-statement.</p>
+<em>arguments</em>, in which the <em>command word</em> is checked. Because it is an ambiguous abbrevation
+(we do not know if it stands for <code>clear</code> or <code>calculate</code>), it is rejected by throwing a <code>ParseException</code></p>
 </div>
 <div class="paragraph">
-<p>Step 3. This <em>command word</em> will be matched to a <code>COMMAND_ABBREVIATION</code> from
-<code>ListCommand</code>, which holds the value of 'f'. As the program finds a match, it
-proceeds as if a <code>find</code> command is given.</p>
+<p>Step 2. The user now tries <code>s</code> command instead of <code>select</code>. The <code>Matcher</code> object in
+<code>CarparkFinderParser</code> again splits the command text into <em>command word</em> and
+<em>arguments</em>, in which the <em>command word</em> is checked. This time, it is checked that the input string
+is contained in one of the command words that is <code>calculate</code>. Therefore, it proceeds as if a
+<code>select</code> command is given.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ActivityDiagram-abbreviation.png" alt="ActivityDiagram abbreviation" width="700">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ActivityDiagram-abbreviation.png" alt="ActivityDiagram abbreviation" width="880">
 </div>
-<div class="title">Figure 12. Flow chart of command abbreviation usage.</div>
+<div class="title">Figure 8. Flow chart of command abbreviation usage.</div>
 </div>
 <div class="paragraph">
 <p>The <em>Activity Diagram</em> above explains what happens when a user executes a <code>f</code>
@@ -813,13 +725,34 @@ command.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">5.10.3. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">5.8.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-abbreviation-executes"><a class="link" href="#aspect-how-abbreviation-executes">Aspect: How abbreviation executes</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> declare <code>COMMAND_ABBREVIATION</code> with a string value
+<p><strong>Alternative 1 (current choice):</strong> use input string to check if it is contained in any
+command word string</p>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 90.9091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Extra logic needed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Very short command words that contains ambiguous abbreviation is marginalised in this case.
+For example, the shortest form of <code>find</code> is <code>fin</code>, which makes not much of a difference.</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> (previous choice):* declare <code>COMMAND_ABBREVIATION</code> with a string value
 in each Command file.</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -834,27 +767,7 @@ in each Command file.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Have to decide on each abbreviation subjectively which brings down performance
-       if there are a lot of commands</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> declare <code>COMMAND_ABBREVIATION</code> using the first two characters of <code>COMMAND_WORD</code>
-in each Command file.</p>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 9.0909%;">
-<col style="width: 90.9091%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Pros</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Better performance as abbreviations will be assigned systematically.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cons</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">When there are 2 command words starting with same two characters e.g. <code>find</code> &amp; <code>filter</code>, this does not work.</p></td>
+if there are a lot of commands</p></td>
 </tr>
 </tbody>
 </table>
@@ -865,45 +778,48 @@ in each Command file.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-complete-feature"><a class="link" href="#auto-complete-feature">5.11. Auto-complete Feature</a></h3>
+<h3 id="autocomplete"><a class="link" href="#autocomplete">5.9. Autocomplete</a></h3>
 <div class="paragraph">
-<p>The auto-complete feature simplifies overcomplicated commands by prompting correct format.</p>
+<p>The autocomplete feature simplifies overcomplicated commands by prompting correct format.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">5.11.1. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">5.9.1. Overview</a></h4>
 <div class="paragraph">
-<p>The auto-complete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
+<p>The autocomplete mechanism is facilitated by <code>CommandBox</code>. It calls <code>autocomplete()</code>
 to <code>displayFormat()</code> if applicable command word is entered or to highlight the next
 parameter if full format is already provided in the command box.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="example-2"><a class="link" href="#example-2">5.11.2. Example</a></h4>
+<h4 id="example-2"><a class="link" href="#example-2">5.9.2. Example</a></h4>
 <div class="paragraph">
-<p>Given below is an example usage scenario and how the auto-complete mechanism behaves at
+<p>Given below is an example usage scenario and how the autocomplete mechanism behaves at
 each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application for the first time.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user enters <code>fi</code> in command box and then presses <kbd>Tab</kbd> . <code>autoComplete()</code>
+<p>Step 2. The user enters <code>fi</code> in command box and then presses Tab . <code>autoComplete()</code>
 compares <code>input</code> through the list of applicable command words and abbreviations, and
-proceeds to <code>displayFormat()</code> because <code>fi</code> is an applicable <code>COMMAND_ABBREVIATION</code>. It
-moves on to highlight its first placeholder, <code>DAY</code>, in the command line. As seen
+proceeds to <code>displayFormat()</code> because <code>fi</code> is an ambiguous COMMAND, it fails with an exception.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. User tries with <code>fil</code> again. It passes as part of the autocomplete command <code>filter</code>
+thus moves on to highlight its first placeholder, <code>DAY</code>, in the command line. As seen
 from the following diagrams.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fi.png" alt="screenshot fi" width="700">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fi.png" alt="screenshot fi" width="800">
 </div>
-<div class="title">Figure 13. After <code>fi</code> is entered.</div>
+<div class="title">Figure 9. After <code>fil</code> is entered.</div>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fiFirstArgSelected.png" alt="screenshot fiFirstArgSelected" width="700">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fiFirstArgSelected.png" alt="screenshot fiFirstArgSelected" width="800">
 </div>
-<div class="title">Figure 14. After <kbd>Tab</kbd> is pressed for the first time.</div>
+<div class="title">Figure 10. After Tab is pressed for the first time.</div>
 </div>
 <div class="paragraph">
 <p>Step 3. The user replaces <code>DAY</code> with an actual value, <code>SUN</code>, and presses 'Tab'
@@ -913,26 +829,26 @@ is shown in the following diagram.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fiSecondArgSelected.png" alt="screenshot fiSecondArgSelected" width="700">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/screenshot-fiSecondArgSelected.png" alt="screenshot fiSecondArgSelected" width="800">
 </div>
-<div class="title">Figure 15. After <kbd>Tab</kbd> is pressed for the second time.</div>
+<div class="title">Figure 11. After Tab is pressed for the second time.</div>
 </div>
 <div class="paragraph">
 <p>Step 4. The user continues step 3 until all placeholders are filled up with actual
-values and then presses <kbd>Enter</kbd>  to execute this command.</p>
+values and then presses Enter to execute this command.</p>
 </div>
 <div class="imageblock" style="text-align: left">
 <div class="content">
-<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ActivityDiagram-autocompletion.png" alt="ActivityDiagram autocompletion" width="700">
+<img src="https://raw.githubusercontent.com/CS2103-AY1819S1-T09-4/main/master/docs/images/ActivityDiagram-autocompletion.png" alt="ActivityDiagram autocompletion" width="880">
 </div>
-<div class="title">Figure 16. Activity Diagram for Auto Completion Mechanism.</div>
+<div class="title">Figure 12. Activity Diagram for Auto Completion Mechanism.</div>
 </div>
 <div class="paragraph">
-<p>The <em>Activity Diagram</em> above explains what happens when user presses <kbd>Tab</kbd>.</p>
+<p>The <em>Activity Diagram</em> above explains what happens when user presses Tab.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">5.11.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">5.9.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-textinput"><a class="link" href="#aspect-textinput">Aspect: TextInput</a></h5>
 <div class="ulist">
@@ -960,7 +876,7 @@ External library enables bindAutocompletion for TextField (the drop down list of
 </table>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Create additional TextField as user request for additional fields</p>
+<p><strong>Alternative 2:</strong> Create additional TextField as user request on additional fields</p>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 9.0909%;">
@@ -987,13 +903,4 @@ select through the entire line.</p></td>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">6. PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
-<div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 15:49:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-14 08:52:58 UTC</div></div></div></body></html>
